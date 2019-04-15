@@ -1,0 +1,23 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+pouet
+\fi
+
+
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
