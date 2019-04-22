@@ -33,7 +33,7 @@ Dans la suite, on considérera $M=\C^p$ (ou ses ouverts) avec la topologie classi
 %cf \ref{cac} p 67
 %\end{proof}
 \begin{Def}
-Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe. \\
+Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe. 
 \begin{itemize}
 	\item Une fonction $f : V \to \C$ est dite holomorphe si la fonction $f \circ \pi : \pi^{-1}(V) \to \C$ est une fonction holomorphe (où $\pi : (\C^p)^k \to Sym^k(\C^p)$ est la projection canonique).
 	\item Une application $M \to V$ est dite holomorphe si c'est une application continue telle que pour toute fonction holomorphe $Sym^k(\C^p)$, leur composée est holomorphe.
@@ -58,28 +58,31 @@ Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe. \\
 %Barlet p 25
 %\end{proof}
 
-\section{Ecailles}
+\section{\'Ecailles}
 
 \begin{Def}
 Une $n$-écaille sur un espace analytique $X$ est la donnée d'un triplet $E=(U,B,f)$ où $U \subset \C^n,B \subset \C^p$ sont des polydisques relativement compacts et $f : V_E \to \overline{U} \times \overline{B}$ est un homéomorphisme d'un ouvert de $X$ sur son image. L'ouvert de $f^{-1}(U \times B)$ est appelé centre de l'écaille. \\
-On dira qu'une écaille $(U,B,f)$ est adaptée au $n$-cycle $Z$ si $f^{-1}(\overline{U} \times \partial B) \cap |Z|=\emptyset$.
+On dira qu'une écaille $(U,B,f)$ est adaptée au $n$-cycle $Z$ si 
+	\[f^{-1}(\overline{U} \times \partial B) \cap |Z|=\emptyset
+\]
+.
 \end{Def}
-Si $E=(U,B,f)$ est une écaille de $M$ et $Z=\sum n_i Z_i $ un cycle de $M$, on note par $f_*(Z \subset V_E)$ le cycle $\sum n_i f(V_E \cap X_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $X_E:=f_*(X \cap V_E) \cap U \times B \to U$ (\ref{cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
+Si $E=(U,B,f)$ est une écaille de $M$ et $Z=\sum n_i Z_i $ un cycle de $M$, on note par $f_*(Z \cap V_E)$ le cycle $\sum n_i f(V_E \cap X_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $X_E:=f_*(X \cap V_E) \cap U \times B \to U$ (\cite{cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
 
 \begin{Lemme}\label{ecailleadaptee}
 Soit $X$ un espace analytique. Pour tout $n$-cycle complexe $Z$, tout point $z \in X$ et tout voisinage $V$ de $z$, il existe une $n$-écaille adaptée à $Z$ dont le centre contient $z$ et dont le domaine est contenu dans $V$. Si $z \notin |Z|$, on peut choisir $E$ de sorte que $\deg_E(X)=0$.
 
 \end{Lemme}
 \begin{proof}
-cf \ref{cac} chap IV 2.1.3
+cf \cite{cac} chap IV 2.1.3
 \end{proof}
 \begin{Rq}\label{revetramif}
 Si l'écaille $E=(U,B,f)$ est adaptée au cycle $X$, alors $j_*(X \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$. En notant $k=\deg_E(X)$, on peut donc associer à $X$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $X_E$ sur $U \times B$
 \end{Rq}
-cf \ref{cac} Chap IV Rem iii) après 2.1.3 
+cf \cite{cac} Chap IV Rem iii) après 2.1.3 
 \section{Familles analytiques et espaces des cycles}
  \begin{Def}
-Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\footnote{ dans \ref{cac}, c'est analytique propre} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|X_s| \subset W$ et si pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
+Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\footnote{ dans \cite{cac}, c'est analytique propre} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|X_s| \subset W$ et si pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
 \begin{itemize} 
 	\item $E$ soit adapté à $X_s$ pour tout $s$ dans $S_E$.
 	\item $\deg_E(X_s)=\deg_E(X_{s_0}$ pour tout $s$ dans $S_E$
@@ -109,7 +112,10 @@ Un sous-ensemble $U$ de $\Cscr_n(M)$ est ouvert si, et seulement si, pour tout $
 \end{Thm}
 
 \begin{Rq} \label{convCloc}
-Les ouverts $\Cscr^{loc}_n(M)$ est engendré par les unions quelconques d'intersections finies des $\Omega_k(E):= \{ X \in \Cscr_n^{loc}(M) \mid E \text{ est adaptée à } X, \deg_{E}(X)=k \} $. Par conséquent, si $(X_n)$ est une suite de $\Cscr_n(M)$ et $X$ est un cycle compact de $M$ alors $X_n$ converge vers $X$ dans $\Cscr_n(M)$ si, et seulement si, $X_n$ converge vers $X$ dans $\Cscr_n^{loc}(M)$ et pour tout voisinage ouvert de $|X|$ dans $M$, il existe un entier $N_W$ tel que pour tout $n \geq N_W$, $|X_n| \subset W$
+Les ouverts $\Cscr^{loc}_n(M)$ est engendré par les unions quelconques d'intersections finies des 
+	\[\Omega_k(E):= \{ X \in \Cscr_n^{loc}(M) \mid E \text{ est adaptée à } X, \deg_{E}(X)=k \}
+\]
+ . Par conséquent, si $(X_n)$ est une suite de $\Cscr_n(M)$ et $X$ est un cycle compact de $M$ alors $X_n$ converge vers $X$ dans $\Cscr_n(M)$ si, et seulement si, $X_n$ converge vers $X$ dans $\Cscr_n^{loc}(M)$ et pour tout voisinage ouvert de $|X|$ dans $M$, il existe un entier $N_W$ tel que pour tout $n \geq N_W$, $|X_n| \subset W$
 \end{Rq}
 
 
@@ -123,11 +129,11 @@ Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seu
 \end{Thm}
 
 \begin{proof}
-$\Rightarrow$ : Supposons $S$ compact. Par conséquent, $S$ intersecte un nombre fini d'espaces de $n$-cycles $\Cscr_n(X)$. On peut donc supposer que $S$ est inclus dans un seul d'entre eux, disons $\Cscr_k(X)$. \\
+$\Rightarrow$ : Supposons $S$ compact. Par conséquent, $S$ intersecte un nombre fini d'espaces de $k$-cycles $\Cscr_k(X)$. On peut donc supposer que $S$ est inclus dans un seul d'entre eux, disons $\Cscr_k(X)$. \\
 Soit $(Z_s)_{s \in S}$ la famille de cycles analytiques donnée par la restriction de la famille universelle. 
 
 Soit $Y:= \{ (s,y) \in S \times X \mid y \in |Z_s| \}$ le ``cycle universel". La projection de $Y$ sur $S$ est propre (cf. Barlet thm 1).
-Ainsi, si on note $pr_1$ (resp. $pr_2$) la projection de $Y$ sur $S$ (resp. sur $X$), on obtient que $pr_1^{-1}(S)$ est compact et donc $pr_2(pr_1^{-1}(S))$ l'est aussi. Mais on peut voir que $pr_2(pr_1^{-1}(S))=\bigcup_{s \in S} Z_s$
+Ainsi, si on note $pr_1$ (resp. $pr_2$) la projection de $Y$ sur $S$ (resp. sur $X$), on obtient que $pr_1^{-1}(S)$ est compact et donc $pr_2(pr_1^{-1}(S))$ l'est aussi. Mais on peut voir que $pr_2(pr_1^{-1}(S))=\bigcup_{s \in S} |Z_s|$
 Ensuite, l'application $s \in S \mapsto \frac{1}{k!}\int_{Z_s} \omega^k$ est une application continue comme composée de l'application $X \mapsto \frac{1}{k!}\int_X \omega^k$ (\ref{cac} p 389 prop 2.3.1) et de l'application $s \mapsto Z_s$. Comme $S$ est compact alors cette application est bornée, ce qui finit la preuve de l'implication.
 
 $\Leftarrow$ : Soit $(Z_i)_{i \in S}$ une suite de cycles de $S$. Les $Z_i$ ne peuvent prendre qu'un nombre fini de dimensions ( borné par la dimension de $X$), on peut donc extraire une sous-suite de telle sorte qu'ils soient tous de la même dimension (que l'on notera $k$). \\
@@ -139,21 +145,21 @@ On peut ensuite remarquer, en notant $Z_i=\sum m_{ij} Z_{ij}$ (avec $m_{ij} \neq
 C'est-à-dire, le volume des supports est uniformément bornée. On en déduit, par le théorème \ref{Bishop} de Bishop, que $|Z_0|$ est un ensemble analytique.\\
 Montrons maintenant qu'une sous-suite de $Z_i$ converge vers un cycle $Z_0$ pour la topologie de l'espace de Barlet :  \\
 Soit ${U_i}$ un recouvrement de $|Z_0|$ par des ouverts de $X$ et pour chacun de ses ouverts une écaille adaptée $E_i=(\Delta^k,\Delta^{n-k},j : U_i \to W \supset\overline{\Delta^k} \times \overline{\Delta^{n-k}})$ à $X$ (elles existent par le lemme \ref{ecailleadaptee}). Par définition d'écaille adaptée, on a alors, pour tout $j$, 
-	\[d(f_j(|Z_0| \cap U_j,\overline{\Delta^k} \times \partial \Delta^{n-k})>0
+	\[d(f_j(|Z_0| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
 \]
 Comme $\lim |Z_i|=|Z_0|$ alors, pour $i$ suffisament grand et pour tout $j$,
-\[d(f_j(|Z_i| \cap U_j,\overline{\Delta^k} \times \partial \Delta^{n-k})>0
+\[d(f_j(|Z_i| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
 \]
 Quitte à restreindre $U_j$, on a alors :
 	\[|Z_i| \cap U_j \cap f_j^{-1}(\overline{\Delta^k} \times \partial \Delta^{n-k})=\emptyset
 \]
-On en déduit que ${f_j}_*(|Z_i| \cap U_j)$ est un revêtement ramifié sur $\Delta_k$. De même, en notant $Z_i=\sum m_{ik} Z_{ik}$, on obtient que ${f_j}_*(Z_{ik} \cap U_j)$ est un revêtement ramifié. 
+On en déduit que ${f_j}_*(|Z_i| \cap U_j)$ est un revêtement ramifié sur $\Delta^k$. De même, en notant $Z_i=\sum m_{ik} Z_{ik}$, on obtient que ${f_j}_*(Z_{ik} \cap U_j)$ est un revêtement ramifié. 
 On peut donc voir ${f_j}_*(Z_{i} \cap U_j)$ comme un revêtement ramifié à $n_{ij}$ feuilles \footnote{Si on a un cycle $Z=\sum_i n_i Z_i$ et des revêtements ramifiés $Z_i \to \Delta^k$ à $m_i$ feuilles, on peut voir $Z$ comme un revêtement ramifié à $\sum n_i m_i$ feuilles}\\
 Comme le volume des $Z_i$ est uniformément borné alors les $n_{ij}$ le sont aussi (car il y a un nombre fini de $j$ par compacité de $|Z_0|$
 Les $n_{ij}$ étant des entiers, on peut extraire une sous-suite de la suite $Z_i$ de sorte que pour tout $j$, la suite $(n_{ij})_i$ soit constante. \\
 Par la remarque \ref{revetramif}, on peut identifier $({f_j}_*(Z_{i} \cap U_j))_j$ avec un point de $B:=\prod_j \Hcal(\overline{\Delta^k},Sym^{n_j}(\Delta^{n-k})$. 
 Par le lemme 2.7.22, les points associés au cycle $Z_i$ converge dans $B$ et les cycles associés dans $\Cscr_n^{loc}(\Delta^k \times \Delta^{n-k})$\footnote{ A détailler} \\
-On en déduit que les $Z_i \cap U_j$ cpnvergent dans $\Cscr_n^{loc}(U_j)$ (car les applications induites sont continues). Par le théorème 2.3.9, la suite $Z_i$ converge dans $\Cscr_n^{loc}(\bigcup U_j) \hookrightarrow \Cscr_n^{loc}(M)$ vers $Z_0$ (car $|Z_0| \subset \bigcup U_j$).
+On en déduit que les $Z_i \cap U_j$ convergent dans $\Cscr_n^{loc}(U_j)$ (car les applications induites sont continues). Par le théorème 2.3.9, la suite $Z_i$ converge dans $\Cscr_n^{loc}(\bigcup U_j) \hookrightarrow \Cscr_n^{loc}(M)$ vers $Z_0$ (car $|Z_0| \subset \bigcup U_j$).
 Comme le support des $Z_i$ est inclus dans $K$ alors la suite converge dans $\Cscr_n(M)$ (par la remarque \ref{convCloc}).
 \end{proof}
 
@@ -172,18 +178,18 @@ Alors, $S$ rencontre un nombre fini de composantes connexes de $\Cscr_n(M)$ et c
 Soit $f : M \to N$ une application holomorphe propre et surjective entre deux espaces complexes irréductibles. Soit $n:=\dim(M)-\dim(N)$. Alors il existe une unique application méromorphe, que l'on appelera l'application fibre de $f$, $\varphi : N \dashrightarrow \Cscr_n(M)$  qui sur un ouvert de Zariski dense de $N$ associe à $y$ le $n$-cycle réduit $f^{-1}(y)$ de $M$.
 \end{Thm}
 \begin{proof}
-p 486
+\cite{cac} p 486
 \end{proof}
 \begin{Cor} \label{merom}
 Soient $S$ un espace normal, $Z$ un cycle de $S\times X$  tel que $\pi_1 : |Z| \to S$ soit propre et surjective. \\
 Soit $S_0=\{ s \in S | \dim \pi^{-1}(s)=\dim|Z|-\dim S\}$. \\
-L'application naturelle (cf Barlet chap 1 par 2 Th 1) s'étend méromorphiquement sur $S$.
+L'application naturelle $S_0 \to \Cscr(X)$ (cf Barlet Th 1) s'étend méromorphiquement sur $S$.
 
 \end{Cor}
 
 \begin{proof}
-On décompose $|Z|$ en composantes irréductibles : $|Z|=\bigcup Z_i$. Les images réciproques sont elles-mêmes irréductibles. On a donc des applications $\pi_{1i} : f^{-1}(Z_i) \to Z_i$ surjectives et propres. 
-On obtient par le théorème \ref{lemmefibre} que pour tout $i$, il existe une application méromorphe $\varphi_i : f^{-1}(Z_i) \dashrightarrow \Cscr_{n_i}(Z_i)$. L'application d'image directe induite par l'inclusion $Z_i \hookrightarrow M$ (Thm 3.5.4 p 459) permet de recoller toutes ces applications en une application méromorphe $S \dashrightarrow \Cscr(M)$.
+On décompose $|Z|$ en composantes irréductibles : $|Z|=\bigcup Z_i$. Les images réciproques sont elles-mêmes irréductibles. On a donc des applications $\pi_{1i} : \pi_1^{-1}(Z_i) \to Z_i$ surjectives et propres. 
+On obtient par le théorème \ref{lemmefibre} que pour tout $i$, il existe une application méromorphe $\varphi_i : f^{-1}(Z_i) \dashrightarrow \Cscr_{n_i}(Z_i)$. L'application d'image directe induite par l'inclusion $Z_i \hookrightarrow X$ (Thm 3.5.4 p 459) permet de recoller toutes ces applications en une application méromorphe $S \dashrightarrow \Cscr(X)$.
 \end{proof}
 
 \begin{Cor}
@@ -265,7 +271,7 @@ On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M
 Soit $M$ un espace topologique métrisable. Pour toute distance sur $M$ définissant la topologie de $M$, la distance de Hausdorff associée définit la même topologie sur $K(M)$. 
 \end{Prop}
 \begin{proof}
-cf \ref{cac} p 419
+cf \cite{cac} p 419
 \end{proof}
 On appelera cette topologie la topologie de Hausdorff sur $K(M)$
 \begin{Prop} \label{compHaud}
@@ -291,7 +297,7 @@ Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. A
 est une application linéaire continue compacte.
 \end{Thm}
 \begin{proof}
-Cf p13 Cac
+Cf p13 \cite{cac}
 \end{proof}
 \section{ Volumes}
 $M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
@@ -325,6 +331,10 @@ cf Théorie de Hodge : Claire Voisin
 \begin{Rq}
 Supposer $h$ kählérienne permet d'ajouter qu'aucun des $\omega^k$ ne sont exactes et permet d'avoir la formule de Wirtinger (cf Principles of Algebraic Geometry)
 \end{Rq}
+
+
+\bibliographystyle{alpha} 
+\bibliography{biblio} 
 \ifwhole
  \end{document}
 \fi
