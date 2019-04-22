@@ -1,0 +1,63 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\begin{Def}
+Soient $B$ un anneau commutatif et $A$ est un sous-anneau de $B$. On dira que $b \in B$ est entier sur $A$ s'il existe un polynôme unitaire $P \in A[X]$ tel que $P(b)=0$
+\end{Def}
+
+\begin{Def}
+Un anneau commutatif $A$ est dit intégralement clos s'il est intègre et si tout élément du corps de fraction $Frac(A)$ qui est entier sur $A$ est dans $A$.
+\end{Def}
+
+\begin{Def}
+Un espace analytique complexe réduit $X$ sera dit normal en $a \in X$ si l'anneau local $\Ocal_{X,a}$ est intégralement clos. On dira que $X$ est normal s'il est normal en chacun de ses points.
+
+\end{Def}
+En particulier, un espace normal en $a$ est irréductible en $a$.
+
+\subsection{ Fonctions méromorphes}
+
+
+Soit $X$ un espace analytique complexe réduit. On définit les fonctions méromorphes sur $X$ comme suit :  
+\begin{Def}
+Une fonction méromorphe sur $X$ est la donnée d'une classe d'équivalence $(H,f)$ où $H$ est un sous-ensemble analytique de $X$ d'intérieur vide et $f$ est une fonction holomorphe sur $X \setminus H$ tel que, pour chaque $x \in H$, il existe un voisinage $U$ de $x$ dans $X$ et deux fonctions holomorphes $g$ et $h$ sur $V$ telles que les zéros de $H$ soit inclus dans $H \cup V$ et le quotient $g/h$ coïncide avec $f$ sur $V \setminus (V \cap H)$, pour la relation d'équivalence définit comme suit : $(H,f)$ et $(H',f')$ sont dits équivalents si $f$ et $f'$ coïncident sur $M \setminus (H \cap H')$
+\end{Def}
+Une fonction holomorphe $g : X \to \C$ peut être vu comme une fonction méromorphe donnée par la classe d'équivalence de $(\emptyset,g)$. Réciproquement, on peut voir une fonction méromorphe $(H,f)$ qui contient $(\emptyset,g)$ comme une fonction holomorphe. On dira que $g$ prolonge $f$ à $X$.
+
+\begin{Thm}\label{caracnormal}
+Un espace analytique complexe réduit $X$ est normal si, et seulement si, pour tout ouvert $\Omega$ de $X$ et toute hypersurface $H \subset \Omega$ fermée et d'intérieur vide dans $\Omega$, toute fonction holomorphe $g : \Omega \setminus H \to \C$ localement bornée le long de $H$ se prolonge en une fonction holomorphe sur $\Omega$.
+\end{Thm}
+
+\begin{Prop}\label{merom_local}
+Soient $X$ un espace analytique complexe réduit de dimension pure, $H$ un sous-ensemble analytique d'intérieur vide de $M$ et $f : M \setminus H \to \C$ une fonction localement bornée le long de $H$. Alors $f$ est méromorphe sur $X$.
+\end{Prop}
+\begin{Def}
+Un espace complexe réduit $M$ est dit faiblement normal si, pour toit ouvert $U$ de $M$, toute fonction continue sur $U$ est holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
+\end{Def}
+
+Cette propriété est plus faible que celle de normalité en vertu de la caractérisation \ref{caracnormal} et de la proposition \ref{merom_local}
+
+\begin{Thm}
+Soit $f : M \to N$ une application continue entre espaces analytiques complexes avec $M$ faiblement normal. Alors, les condition suivantes sont équivalentes :
+\begin{itemize}
+	\item L'application $f$ est holomorphe.
+	\item Le graphe de $f$ est un sous-ensemble analytique (fermé) de $M \times N$
+\end{itemize}
+\end{Thm}
+\begin{proof}
+$ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc un sous-ensemble analytique de $M \times N$. \\
+$ \Leftarrow $ : Soit $\pi : \Gamma_f \to M$ la projection du graphe de $f$ sur $M$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $M$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $M$ est faiblement normal alors $\pi$ est holomorphe sur $M$ et donc $f$ aussi. 
+\end{proof}
+\ifwhole
+ \end{document}
+\fi
