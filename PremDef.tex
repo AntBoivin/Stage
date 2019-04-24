@@ -1,6 +1,6 @@
-\newif\ifwhole
 
-\wholetrue
+\newif\ifwhole
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -12,6 +12,7 @@
 \fi
 
 \section{$Sym^k(\C^p)$}
+
 \begin{Def}
 Soit $M$ un espace topologique et $k \in \N^*$. On appelle $k$ème produit symétrique de $M$ l'espace topologique $Sym^k(M)$, quotient  de $M^k$ par l'action de $\Sfrak_k$ donnée par, pour tout $\sigma \in \Sfrak_k$ et pour tout $(z_1,\ldots,z_k) \in M^k$, 
 	\[\sigma\cdot (z_1,\ldots,z_n)=(z_{\sigma(1)},\ldots,z_{\sigma(k)})
@@ -21,320 +22,143 @@ Soit $M$ un espace topologique et $k \in \N^*$. On appelle $k$ème produit symétr
 \begin{Prop}
 Si $M$ est séparé alors $Sym^k(M)$ l'est aussi. De plus, si $M$ est compact, localement compact ou dénombrable à l'infini, $Sym^k(M)$ l'est aussi.
 \end{Prop}
+\begin{proof}
+Supposons $M$ séparé. \\
+Soit $[x] \neq [y] \in Sym^k(M)$. \\
+Soient $x_\sigma, \sigma \in \Sfrak_k$ les représentants de $[x]$ et $y_\tau, \tau \in \Sfrak_k$ ceux de $[y]$. \\
+Comme $M$ est séparé, il existe, pour tout $\sigma,\tau \in \Sfrak_k$, un voisinage $V_{\sigma\tau}$ de $x_\sigma$  et un voisinage $W_{\tau\sigma }$ de $y_\tau$ tels que $V_{\sigma \tau} \cap W_{ \tau\sigma}=\emptyset$. On se fixe un $V_{\sigma\tau}$ et un $W_{ \tau\sigma}$ pour tout $\tau$ et tout $\sigma$.   \\
+Soient $V_\sigma:=\bigcap_\tau V_{\sigma \tau}$ et $W_\tau:=\bigcap_\sigma W_{\tau\sigma }$. On remarque que, pour tout $\tau$ et tout $\sigma$, 
+	\[V_\lambda \cap  W_\mu=\emptyset
+\]
+Soient $V:=\bigcap \sigma^{-1} V_\sigma$ et $W=\bigcap \tau^{-1} W_\tau$. Ce sont des voisinages de respectivement $x_{id}$ et $y_{id}$. 
+Les ensembles $\pi(V)$ et $\pi(W)$ contiennent respectivement $[x]$ et $[y]$ et sont disjoints. $Sym^k(M)$ est donc séparé.\\
+En effet, supposons qu'il existe $[z] \in \pi(V) \cap \pi(W)$ alors, si on note $z$ un de ses représentants, il existe $\lambda,\mu \in \Sfrak_k$ tels que : 
+	\[ \lambda z \in V \text{ et } \mu z \in W
+	\]
+Ainsi, 
+	\[ z \in \lambda^{-1} V \cap \mu^{-1} W \subset  V_\lambda \cap  W_\mu
+\]
+	 D'où, la contradiction.
 
-Dans la suite, on considérera $M=\C^p$ (ou ses ouverts) avec la topologie classique. %On va montrer que $Sym^k(\C^p)$ est une sous-variété algébrique de $\bigoplus_{j=0}^k S^j(\C^p)$ où $S(\C^p)=\bigoplus_{ i \geq 0} S^i(\C^p)$ est l'algèbre symétrique de $\C^p$ : \\
-%Soit $S_j :  Sym^k(\C^p) \to S^j(\C^p)$ l'application définie pour tout $j \in \{1,\ldots,k\}$ par : 
-	%\[S_j(x_1,\ldots,x_k)=\sum_{1 \leq i_1 < \ldots < i_j \leq k} x_{i_1} \ldots x_{i_j}
-%\]
-%\begin{Prop}
-%L'application $S=\bigoplus_{j=0}^k S_i : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)$ est propre et induit un homémorphisme sur son image. Cette image est un sous-ensemble algébrique de $\bigoplus_{j=0}^k S^j(\C^p)$
-%\end{Prop}
-%\begin{proof}
-%cf \ref{cac} p 67
-%\end{proof}
-\begin{Def}
+\end{proof}
+
+
+
+
+Dans la suite, on considérera $M=\C^p$ (ou ses ouverts) avec la topologie classique. 
+
+Pour donner une structure complexe sur $Sym^k(\C^p)$, nous allons montrer que $Sym^k(\C^p)$ est un sous-ensemble algébrique de $\bigoplus_{j=0}^k S^j(\C^p)$ où $S(\C^p)=\bigoplus_{ i \geq 0} S^i(\C^p)$ est l'algèbre symétrique de $\C^p$ : \\
+Soit $S_j :  Sym^k(\C^p) \to S^j(\C^p)$ l'application définie pour tout $j \in \{1,\ldots,k\}$ par : 
+	\[S_j(x_1,\ldots,x_k)=\sum_{1 \leq i_1 < \ldots < i_j \leq k} x_{i_1} \ldots x_{i_j}
+\]
+\begin{Prop}
+L'application $S=\bigoplus_{j=0}^k S_i : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)$ est propre et induit un homémorphisme sur son image. Cette image est un sous-ensemble algébrique de $\bigoplus_{j=0}^k S^j(\C^p)$
+\end{Prop}
+\begin{proof}
+cf \cite{\cac} p 67
+\end{proof}
+
+\begin{Thm}
 Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe. 
 \begin{itemize}
-	\item Une fonction $f : V \to \C$ est dite holomorphe si la fonction $f \circ \pi : \pi^{-1}(V) \to \C$ est une fonction holomorphe (où $\pi : (\C^p)^k \to Sym^k(\C^p)$ est la projection canonique).
+	\item Une fonction $f : V \to \C$ est holomorphe si, et seulement si la fonction $f \circ \pi : \pi^{-1}(V) \to \C$ est une fonction holomorphe (où $\pi : (\C^p)^k \to Sym^k(\C^p)$ est la projection canonique).
 	\item Une application $M \to V$ est dite holomorphe si c'est une application continue telle que pour toute fonction holomorphe $Sym^k(\C^p)$, leur composée est holomorphe.
 \end{itemize}
+\end{Thm}
+\begin{proof}
+\cite{\cac} p 78-85
+\end{proof}
+\section{Revêtements ramifiés}
+\begin{Def}
+Soit $U$ un espace analytique normal de dimension finie. Soit $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$). \\
+On appelera revêtement ramifié de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $X_i$ fermés disjoints dans $U \times B$, affectés de multiplicités $n_i > 0$, tels que la restriction à chaque $X_i$ de la projection naturelle $U \times B \to U$ , soit propre, surjective et de degré $k_i$ \footnote{ici, propre implique finie}, de sorte que l'on
+ait $\sum n_ik_i=k$. \\
+On notera $|X|$ le revêtement ramifié $(X_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup X_i$
 \end{Def}
-%\section{Revêtements ramifiés}
-%\begin{Def}
-%Soit $U$ un espace analytique de dimension finie et normal, et soit $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$) ; nous appellerons revêtement ramifié de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $X_i$ fermés disjoints dans $U \times B$, affectés de poids (ou multiplicités) $n_i > 0$, tels que la restriction à chaque $X_i$ de la projection naturelle $U \times B \to U$ ,  soit propre, surjective et de degré $k_i$ (propre implique finie), de sorte que l'on
-%ait $\sum n_ik_i=k$.
-%On notera $|X|$ le revêtement ramifié $(X_i,1)$ que l'on appelera support de $X_i$ et que l'on identifiera avec l'ensemble analytique $\bigcup X_i$
-%\end{Def}
-%
-%\begin{Prop}
-%
-%Soit $U$ un espace analytique de dimension finie et normal , et soit $B$ un polydisque de $\C^p$ (ou bien $\C^p$).
-%
-%Il y a bijection naturelle entre l'ensemble des revêtements ramifiés de degré $k$ de U, contenus dans $U \times B$, et l'ensemble des applications analytiques $f: U\to Sym^k(B)$.
-%
-%\end{Prop}
-%
-%\begin{proof}
-%Barlet p 25
-%\end{proof}
+
+\begin{Prop}\label{bij_rr_appli}
+
+Soit $U$ un espace analytique normal de dimension finie et soit $B$ un polydisque de $\C^p$ (ou bien $\C^p$).
+
+Il y a une bijection naturelle entre l'ensemble des revêtements ramifiés de degré $k$ de U, contenus dans $U \times B$, et l'ensemble des applications analytiques $f: U\to Sym^k(B)$.
+
+\end{Prop}
+
+\begin{proof}
+cf \cite{\barlet} p 25
+\end{proof}
 
 \section{\'Ecailles}
 
 \begin{Def}
-Une $n$-écaille sur un espace analytique $X$ est la donnée d'un triplet $E=(U,B,f)$ où $U \subset \C^n,B \subset \C^p$ sont des polydisques relativement compacts et $f : V_E \to \overline{U} \times \overline{B}$ est un homéomorphisme d'un ouvert de $X$ sur son image. L'ouvert de $f^{-1}(U \times B)$ est appelé centre de l'écaille. \\
+Une $n$-écaille sur un espace analytique $X$ est la donnée d'un triplet $E=(U,B,f)$ où $U \subset \C^n,B \subset \C^p$ sont des polydisques relativement compacts et $f : V_E \to W$ est un homéomorphisme d'un ouvert de $X$ dans un sous-espace analytique d'un voisinage $W$ de $\overline{U} \times \overline{B}$. L'ouvert $f^{-1}(U \times B)$ est appelé centre de l'écaille. \\
 On dira qu'une écaille $(U,B,f)$ est adaptée au $n$-cycle $Z$ si 
 	\[f^{-1}(\overline{U} \times \partial B) \cap |Z|=\emptyset
 \]
 .
 \end{Def}
-Si $E=(U,B,f)$ est une écaille de $M$ et $Z=\sum n_i Z_i $ un cycle de $M$, on note par $f_*(Z \cap V_E)$ le cycle $\sum n_i f(V_E \cap X_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $X_E:=f_*(X \cap V_E) \cap U \times B \to U$ (\cite{cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
+Si $E=(U,B,f)$ est une écaille de $X$ et $Z=\sum n_i Z_i $ un cycle de $X$, on note par $f_*(Z \cap V_E)$ le cycle $\sum n_i f(V_E \cap Z_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $Z_E:=f_*(Z \cap V_E) \cap U \times B \to U$ (\cite{\cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
 
 \begin{Lemme}\label{ecailleadaptee}
 Soit $X$ un espace analytique. Pour tout $n$-cycle complexe $Z$, tout point $z \in X$ et tout voisinage $V$ de $z$, il existe une $n$-écaille adaptée à $Z$ dont le centre contient $z$ et dont le domaine est contenu dans $V$. Si $z \notin |Z|$, on peut choisir $E$ de sorte que $\deg_E(X)=0$.
 
 \end{Lemme}
 \begin{proof}
-cf \cite{cac} chap IV 2.1.3
+Cela vient du théorème de paramétrisation locale cf. \cite{\cac} thm 3.5.4 page 154 et du caractère local de la définition d'écaille adaptée. 
 \end{proof}
 \begin{Rq}\label{revetramif}
-Si l'écaille $E=(U,B,f)$ est adaptée au cycle $X$, alors $j_*(X \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$. En notant $k=\deg_E(X)$, on peut donc associer à $X$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $X_E$ sur $U \times B$
+Si l'écaille $E=(U,B,f)$ est adaptée au cycle $Z$, alors $j_*(Z \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$ (tel que $U_1 \times \overline{B} \subset W$). En notant $k=\deg_E(Z)$, on peut donc associer à $Z$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $Z_E$ sur $U \times B$ en restreignant l'application obtenue par \ref{bij_rr_appli} à $\overline{U}$ qui ne dépend pas du voisinage de $\overline{U}$ choisie.
 \end{Rq}
-cf \cite{cac} Chap IV Rem iii) après 2.1.3 
+%cf \cite{\cac} Chap IV Rem iii) après 2.1.3 
 \section{Familles analytiques et espaces des cycles}
  \begin{Def}
-Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\footnote{ dans \cite{cac}, c'est analytique propre} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|X_s| \subset W$ et si pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
+Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\footnote{ dans \cite{\cac}, c'est analytique propre} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|Z_s| \subset W$ et si pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
 \begin{itemize} 
 	\item $E$ soit adapté à $X_s$ pour tout $s$ dans $S_E$.
-	\item $\deg_E(X_s)=\deg_E(X_{s_0}$ pour tout $s$ dans $S_E$
-	\item L'application $f_E : S_E \times U \to Sym^k(B_E)$ induite par les cycles $(j_* X_s)_{s \in S_E}$ est holomorphe.
+	\item $\deg_E(X_s)=\deg_E(X_{s_0})$ pour tout $s$ dans $S_E$
+	\item L'application $f_E : S_E \times U \to Sym^k(B_E)$ induite par les cycles $(j_* Z_s)_{s \in S_E}$ est holomorphe.
 \end{itemize}
 La famille $(X_s)_{s \in S}$ sera dite analytique si elle l'est en tout point.
 \end{Def}
 \begin{Lemme}
-Si $f : S \to T$ est une fonction holomorphe et $(X_t)_{t \in T}$ est une famille analytique alors $(X_{f(s)})_{s \in S}$ est une famille analytique.
+Si $f : S \to T$ est une fonction holomorphe et $(Z_t)_{t \in T}$ est une famille analytique alors $(Z_{f(s)})_{s \in S}$ est une famille analytique.
 \end{Lemme}
 On peut donc définir le foncteur contravariant $F_X^n$ des espaces complexes réduits de dimension finie dans celui des ensembles qui associe à $S$ l'ensemble des familles analytiques de $n$-cycles paramétrées par $S$. 
 
 \begin{Thm}[Barlet]
 $F_M^n$ est un foncteur représentable par un espace analytique $\Cscr_n(M)$.
 \end{Thm}
+Pour exploiter ce résultat, on va utiliser le lemme de Yoneda : 
 
-Par le lemme de Yoneda, il existe une famille analytique de cycles indexés par $\Cscr_n(M)$, $(C_s)_{s \in \Cscr_n(M)}$, telle que, pour tout espace complexes réduits de dimension finie $S$ et toute famille analytique $(B_s)_{s \in S}$, il existe une unique application holomorphe $h : S \to \Cscr_n(M)$ telle que pour tout $s \in S$, $B_s=C_{h(s)}$. On appellera cette famille la famille universelle des $n$-cycles.
+\begin{Thm}[Lemme de Yoneda]
+Soit $F : \Ccal \to \Dcal$ un foncteur et $X \in Ob(\Ccal)$. Alors, on a une bijection naturelle, 
+	\[ \Hom(\Hom(X,\--),F) \simeq F(X)
+\]
+entre les transformations naturelles entre $\Hom(X,\--)$ et $F$, et les éléments de $F(X)$
+\end{Thm}
+En particulier, si $F$ est représentable par un objet $X$ i.e. s'il existe un isomorphisme de foncteurs $\Hom(X,\--) \to F$ alors, par ce lemme, on obtient un objet $s \in F(X)$. On dira que le couple $(X,s)$ est universel pour $F$. \\ % Le Stum
+Ainsi, il existe une famille analytique de cycles indexés par $\Cscr_n(M)$, $(C_s)_{s \in \Cscr_n(M)}$, telle que, pour tout espace complexes réduits de dimension finie $S$ et toute famille analytique $(B_s)_{s \in S}$, il existe une unique application holomorphe $h : S \to \Cscr_n(M)$ telle que pour tout $s \in S$, $B_s=C_{h(s)}$. On appellera cette famille la famille universelle des $n$-cycles.
 
-On en déduit qu'il existe une bijection entre $\Cscr_n(M)$ et l'ensemble des $n$-cycles (en prenant $S$ un singleton). On peut ainsi munir l'ensemble des $n$-cycles d'une structure d'espace analytique réduit de dimension finie.
+On en déduit qu'il existe une bijection entre $\Cscr_n(X)$ et l'ensemble des $n$-cycles (en prenant $S$ un singleton). On peut ainsi munir l'ensemble des $n$-cycles d'une structure d'espace analytique réduit de dimension finie.
 
-\section{Topologie de $\Cscr_n(M)$}
-On va commencer par décrire la topologie de $\Cscr_n(M)$.
+\section{Topologie de $\Cscr_n(X)$}
+L'espace analytique $\Cscr_n(X)$ obtenu précédement est en particulier un espace topologique. Ces ouverts se décrivent de la façon suivante :
 \begin{Thm}
-Un sous-ensemble $U$ de $\Cscr_n(M)$ est ouvert si, et seulement si, pour tout $X_0 \in U$, il existe des écailles $E_1,\ldots,E_m$ sur $M$ adaptée à $X_0$ et un voisinage ouvert $W$ de $X_0$ tels que, si l'on pose $k_i:=\deg_{E_i}(X_0)$ pour chaque $i \in \{1,\ldots,m\}$,on ait : 
-	\[ \bigcap_{i=1}^m \{X \in \Cscr_n(W) \mid E_i \text{ est adaptée à } X, \deg_{E_i}(X)=k_i \} \subset U
+Un sous-ensemble $U$ de $\Cscr_n(X)$ est ouvert si, et seulement si, pour tout $Z_0 \in U$, il existe des écailles $E_1,\ldots,E_m$ sur $M$ adaptée à $Z_0$ et un voisinage ouvert $W$ de $Z_0$ tels que, si l'on pose $k_i:=\deg_{E_i}(Z_0)$ pour chaque $i \in \{1,\ldots,m\}$,on ait : 
+	\[ \bigcap_{i=1}^m \{Z \in \Cscr_n(W) \mid E_i \text{ est adaptée à } Z, \deg_{E_i}(Z)=k_i \} \subset U
 \]
 \end{Thm}
 
 \begin{Rq} \label{convCloc}
-Les ouverts $\Cscr^{loc}_n(M)$ est engendré par les unions quelconques d'intersections finies des 
-	\[\Omega_k(E):= \{ X \in \Cscr_n^{loc}(M) \mid E \text{ est adaptée à } X, \deg_{E}(X)=k \}
+Les ouverts $\Cscr^{loc}_n(X)$ sont donnés par les unions quelconques d'intersections finies des 
+	\[\Omega_k(E):= \{ Z \in \Cscr_n^{loc}(X) \mid E \text{ est adaptée à } X, \deg_{E}(Z)=k \}
 \]
- . Par conséquent, si $(X_n)$ est une suite de $\Cscr_n(M)$ et $X$ est un cycle compact de $M$ alors $X_n$ converge vers $X$ dans $\Cscr_n(M)$ si, et seulement si, $X_n$ converge vers $X$ dans $\Cscr_n^{loc}(M)$ et pour tout voisinage ouvert de $|X|$ dans $M$, il existe un entier $N_W$ tel que pour tout $n \geq N_W$, $|X_n| \subset W$
+ Par conséquent, si $(Z_n)$ est une suite de $\Cscr_n(X)$ et $Z$ est un cycle compact de $M$ alors $Z_n$ converge vers $Z$ dans $\Cscr_n(X)$ si, et seulement si, $Z_n$ converge vers $Z$ dans $\Cscr_n^{loc}(X)$ et pour tout voisinage ouvert de $|Z|$ dans $X$, il existe un entier $N_W$ tel que pour tout $n \geq N_W$, $|Z_n| \subset W$
 \end{Rq}
 
 
 
-\section{ Texte de Liebermann}
-On se fixe une métrique hermitienne $H$ et une 2-forme $\omega$ associée. Ce choix ne change pas le résultat suivant.
-\begin{Thm}[de compacité]
 
-Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seulement si, pour tout famille analytique de cycles paramétrée par $S$,$(Z_s)_{s \in S}$, il existe un compact contenant tout leur support, et tel que le volume des $Z_s$ est uniformément borné.
-
-\end{Thm}
-
-\begin{proof}
-$\Rightarrow$ : Supposons $S$ compact. Par conséquent, $S$ intersecte un nombre fini d'espaces de $k$-cycles $\Cscr_k(X)$. On peut donc supposer que $S$ est inclus dans un seul d'entre eux, disons $\Cscr_k(X)$. \\
-Soit $(Z_s)_{s \in S}$ la famille de cycles analytiques donnée par la restriction de la famille universelle. 
-
-Soit $Y:= \{ (s,y) \in S \times X \mid y \in |Z_s| \}$ le ``cycle universel". La projection de $Y$ sur $S$ est propre (cf. Barlet thm 1).
-Ainsi, si on note $pr_1$ (resp. $pr_2$) la projection de $Y$ sur $S$ (resp. sur $X$), on obtient que $pr_1^{-1}(S)$ est compact et donc $pr_2(pr_1^{-1}(S))$ l'est aussi. Mais on peut voir que $pr_2(pr_1^{-1}(S))=\bigcup_{s \in S} |Z_s|$
-Ensuite, l'application $s \in S \mapsto \frac{1}{k!}\int_{Z_s} \omega^k$ est une application continue comme composée de l'application $X \mapsto \frac{1}{k!}\int_X \omega^k$ (\ref{cac} p 389 prop 2.3.1) et de l'application $s \mapsto Z_s$. Comme $S$ est compact alors cette application est bornée, ce qui finit la preuve de l'implication.
-
-$\Leftarrow$ : Soit $(Z_i)_{i \in S}$ une suite de cycles de $S$. Les $Z_i$ ne peuvent prendre qu'un nombre fini de dimensions ( borné par la dimension de $X$), on peut donc extraire une sous-suite de telle sorte qu'ils soient tous de la même dimension (que l'on notera $k$). \\
-Soit $K$ un compact contenant tous les supports.
-On va extraire une sous-suite de $Z_i$ de sorte que les supports $|Z_i|$ convergent, pour la topologie de Hausdorff vers un compact que l'on notera $|Z_0|$(c.f. \ref{Hausdorff} et plus précisément la proposition \ref{compHaud} pour la compacité de l'ensemble des compacts de $K$ muni de cette topologie).
-On peut ensuite remarquer, en notant $Z_i=\sum m_{ij} Z_{ij}$ (avec $m_{ij} \neq 0$), que l'on a  
-	\[ Vol(|Z_i|)=\sum Vol(Z_{ij}) \leq \sum m_{ij} Vol(Z_{ij})=Vol(Z_i) 
-\]
-C'est-à-dire, le volume des supports est uniformément bornée. On en déduit, par le théorème \ref{Bishop} de Bishop, que $|Z_0|$ est un ensemble analytique.\\
-Montrons maintenant qu'une sous-suite de $Z_i$ converge vers un cycle $Z_0$ pour la topologie de l'espace de Barlet :  \\
-Soit ${U_i}$ un recouvrement de $|Z_0|$ par des ouverts de $X$ et pour chacun de ses ouverts une écaille adaptée $E_i=(\Delta^k,\Delta^{n-k},j : U_i \to W \supset\overline{\Delta^k} \times \overline{\Delta^{n-k}})$ à $X$ (elles existent par le lemme \ref{ecailleadaptee}). Par définition d'écaille adaptée, on a alors, pour tout $j$, 
-	\[d(f_j(|Z_0| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
-\]
-Comme $\lim |Z_i|=|Z_0|$ alors, pour $i$ suffisament grand et pour tout $j$,
-\[d(f_j(|Z_i| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
-\]
-Quitte à restreindre $U_j$, on a alors :
-	\[|Z_i| \cap U_j \cap f_j^{-1}(\overline{\Delta^k} \times \partial \Delta^{n-k})=\emptyset
-\]
-On en déduit que ${f_j}_*(|Z_i| \cap U_j)$ est un revêtement ramifié sur $\Delta^k$. De même, en notant $Z_i=\sum m_{ik} Z_{ik}$, on obtient que ${f_j}_*(Z_{ik} \cap U_j)$ est un revêtement ramifié. 
-On peut donc voir ${f_j}_*(Z_{i} \cap U_j)$ comme un revêtement ramifié à $n_{ij}$ feuilles \footnote{Si on a un cycle $Z=\sum_i n_i Z_i$ et des revêtements ramifiés $Z_i \to \Delta^k$ à $m_i$ feuilles, on peut voir $Z$ comme un revêtement ramifié à $\sum n_i m_i$ feuilles}\\
-Comme le volume des $Z_i$ est uniformément borné alors les $n_{ij}$ le sont aussi (car il y a un nombre fini de $j$ par compacité de $|Z_0|$
-Les $n_{ij}$ étant des entiers, on peut extraire une sous-suite de la suite $Z_i$ de sorte que pour tout $j$, la suite $(n_{ij})_i$ soit constante. \\
-Par la remarque \ref{revetramif}, on peut identifier $({f_j}_*(Z_{i} \cap U_j))_j$ avec un point de $B:=\prod_j \Hcal(\overline{\Delta^k},Sym^{n_j}(\Delta^{n-k})$. 
-Par le lemme 2.7.22, les points associés au cycle $Z_i$ converge dans $B$ et les cycles associés dans $\Cscr_n^{loc}(\Delta^k \times \Delta^{n-k})$\footnote{ A détailler} \\
-On en déduit que les $Z_i \cap U_j$ convergent dans $\Cscr_n^{loc}(U_j)$ (car les applications induites sont continues). Par le théorème 2.3.9, la suite $Z_i$ converge dans $\Cscr_n^{loc}(\bigcup U_j) \hookrightarrow \Cscr_n^{loc}(M)$ vers $Z_0$ (car $|Z_0| \subset \bigcup U_j$).
-Comme le support des $Z_i$ est inclus dans $K$ alors la suite converge dans $\Cscr_n(M)$ (par la remarque \ref{convCloc}).
-\end{proof}
-
-\begin{Cor}
-Si $X$ est une variété compacte kählérienne alors $S$ est relativement compact si, et seulement si, les $Z_s$ sont dans un nombre fini de classes de cohomologie.
-\end{Cor}
-
-\begin{proof}
-$\Leftarrow$ : Supposons que les $Z_s$ soit dans un nombre fini de classes de cohomologie $\alpha_1,\ldots,\alpha_p$. Alors, pour tout $s \in S$, 
-	\[ Vol(Z_s) \leq \max_i Vol(\alpha_i) < \infty
-\]
-$\Rightarrow$ : Supposons $S$ est relativement compact et inclus dans un unique $\Cscr_n(M)$. \\
-Alors, $S$ rencontre un nombre fini de composantes connexes de $\Cscr_n(M)$ et comme l'application $X \in \Cscr_n(M) \mapsto \int_X \omega^n \in \R$ est localement constante et donc $Z_s$ n'a qu'un nombre fini de classes de cohomologie.
-\end{proof}
-\begin{Thm} \label{lemmefibre}
-Soit $f : M \to N$ une application holomorphe propre et surjective entre deux espaces complexes irréductibles. Soit $n:=\dim(M)-\dim(N)$. Alors il existe une unique application méromorphe, que l'on appelera l'application fibre de $f$, $\varphi : N \dashrightarrow \Cscr_n(M)$  qui sur un ouvert de Zariski dense de $N$ associe à $y$ le $n$-cycle réduit $f^{-1}(y)$ de $M$.
-\end{Thm}
-\begin{proof}
-\cite{cac} p 486
-\end{proof}
-\begin{Cor} \label{merom}
-Soient $S$ un espace normal, $Z$ un cycle de $S\times X$  tel que $\pi_1 : |Z| \to S$ soit propre et surjective. \\
-Soit $S_0=\{ s \in S | \dim \pi^{-1}(s)=\dim|Z|-\dim S\}$. \\
-L'application naturelle $S_0 \to \Cscr(X)$ (cf Barlet Th 1) s'étend méromorphiquement sur $S$.
-
-\end{Cor}
-
-\begin{proof}
-On décompose $|Z|$ en composantes irréductibles : $|Z|=\bigcup Z_i$. Les images réciproques sont elles-mêmes irréductibles. On a donc des applications $\pi_{1i} : \pi_1^{-1}(Z_i) \to Z_i$ surjectives et propres. 
-On obtient par le théorème \ref{lemmefibre} que pour tout $i$, il existe une application méromorphe $\varphi_i : f^{-1}(Z_i) \dashrightarrow \Cscr_{n_i}(Z_i)$. L'application d'image directe induite par l'inclusion $Z_i \hookrightarrow X$ (Thm 3.5.4 p 459) permet de recoller toutes ces applications en une application méromorphe $S \dashrightarrow \Cscr(X)$.
-\end{proof}
-
-\begin{Cor}
-Soit $X$ un espace analytique compact normal. \\
-Soit $\Rcal$ une relation d'équivalence sur $X$ définissant un ensemble analytique $R$. Il existe un espace analytique $Q$ et une application méromorphe dominante $\pi : X \to Q$ tel que, pour tout $x$ dans un ouvert de Zariski, on ait :
-	\[ \overline{ \pi^{-1}(\pi(x))}=\{ y \in X \mid y \Rcal x\}
-	\]
-
-\end{Cor}
-\begin{proof}
-Comme l'ensemble analytique $R$ peut être vu comme un cycle (grâce à sa décomposition en irréductibles)et que l'on a une projection $p : |R|=R \to X$ qui est surjective et propre. On obtient, grâce au corollaire \ref{merom}, une application $X \dashrightarrow \Cscr(X)$ qui sur un ouvert de Zariski de $X$envoie $x$ sur $p^{-1}(x)$. On définit $Q$ comme l'adhérence de Zariski de l'image de cette application. On en déduit ainsi le résultat voulu.
-
-\end{proof}
-
-\appendix 
-\section{Topologie générale}
-\subsection{Paracompacité}\begin{Def}
-Un espace topologique est paracompact s'il est séparé et si, pour tout recouvrement ouvert de $X$, il existe un recouvrement ouvert plus fin de $X$ qui est localement fini.
-\end{Def}
-\begin{Def}
-Soit $X$ un espace localement compact. $X$ est dit dénombrable à l'infini si le point à l'infini de sa compactification d'Alexandrov admet une base dénombrable de voisinage.
-\end{Def}
-\begin{Prop}
-Soit $X$ un espace localement compact.
-$X$ est dénombrable à l'infini si, et seulement, $X$ est l'union dénombrable de compacts. 
-\end{Prop}
-\begin{proof}
-$ \Rightarrow $ : Soit $(V_i)_{i \in \N}$ la base de voisinage du point à l'infini $\infty$. \\
-Montrons que 
-	\[X=\bigcup_{n \in \N} V_i^c
-\]
-Soit $x \in X$. Comme $X \cup \{\infty\}$ est séparé, il existe des voisinages $V$ de $x$ et $W$ de $\infty$ qui ne rencontrent pas. Ainsi, $x \in W^c$ et par définition de  bases de voisinages, il existe $i \in \N$ tel que $V_i \subset W$ et donc $W^c \subset V_i^c$, ce qui montre que $X \subset \bigcup_{n \in \N} V_i^c$. L'autre inclusion vient du fait que $\infty \in V_i$ pour $i$. \\
-$ \Leftarrow $ : Soit $(K_n)$ une suite de compacts de $X$ tel que : 
-	\begin{equation} \label{denalinfini}
-	X=\bigcup_{n \in \N} K_n
-\end{equation}
-Pour tout $n \in \N$, on notera par $B_n$ un voisinage compact de $K_n$ et $C_n=\bigcup_{k=0}^n B_k$. \\
-La suite $(C_n)$ est une suite croissante pour l'inclusion et 
-\[ X=\bigcup_{n \in \N} Int(C_n)
-\]
-Soit $V$ un voisinage quelconque de $\infty$ dans $X \cup \infty$. Il existe donc un voisinage $U$ de $\infty$ tel que $U \subset V$. Par définition de la topologie du compactifié, il existe un compact $K$ tel que $U=K^c$. \\
-Par l'égalité \ref{denalinfini} et le fait que la suite $(C_n)$ est croissante, il existe un $N$ tel que $K \subset Int(C_n)$. On en déduit que : 
-	\[Int(C_n)^c \subset K^c=U \subset V
-\]
-\end{proof}
-
-\begin{Lemme}
-Soit $X$ un espace localement connexe. $X$ est la somme de ces composantes connexes.
-\end{Lemme}
-
-\begin{proof}
-Bourbaki TG 1 p 85
-\end{proof}
-
-\begin{Lemme}
-Soit $X$ un espace localement connexe. $X$ est dénombrable à l'infini si, et seulement si, $X$ est paracompact.
-\end{Lemme}
-
-\begin{proof}
-Bourbaki TG 1 p 71
-\end{proof}
-
-
-\begin{Thm}[Smirnov]
-Un espace est métrisable si, et seulement si, il est paracompact et localement métrisable
-\end{Thm}
-
-\begin{Cor}
-Un espace analytique est métrisable.
-
-\end{Cor}
-\subsection{ Distance de Hausdorff}
-\label{Hausdorff}
-Soit $(M,d)$ un espace métrique, $K(M)$ l'ensemble des compacts non vide de $M$. \\
-On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M) \times K(M) \to \R_+$ donnée par :
-	\[ d_H(A,B)=\frac{1}{2}\left[\max\limits_{b \in B} d(A,b)+\max\limits_{a \in A} d(a,B)\right]
-\]
-\begin{Prop}
-Soit $M$ un espace topologique métrisable. Pour toute distance sur $M$ définissant la topologie de $M$, la distance de Hausdorff associée définit la même topologie sur $K(M)$. 
-\end{Prop}
-\begin{proof}
-cf \cite{cac} p 419
-\end{proof}
-On appelera cette topologie la topologie de Hausdorff sur $K(M)$
-\begin{Prop} \label{compHaud}
-Soit $M$ un espace topologique métrisable compact. Alors $K(M)$ est un espace topologique compact.
-\end{Prop}
-
-\begin{Thm}[Bishop] \label{Bishop}
-Soit $(A_m)_{m \in \N}$ une suite de sous-ensembles analytiques (fermés) de dimension $n$ d'un ouvert $W$ de $\C^{n+p}$, convergeant au sens de Hausdorff de $W$ pour la métrique standard de $\C^{n+p}$ vers un ensemble fermé $A$ de $W$. Si le volume des $A_m$ est fini et uniformément majoré, $A$ est un sous-ensemble analytique de $W$ de dimension $n$.
-\end{Thm}
-
-\section{Analyse fonctionnelle}
-
-\begin{Def}%Brezis
-Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
-\end{Def}
-\begin{Not}
-Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
-\end{Not}
-\begin{Thm}[Vitali]
-Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
-	\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
-\]
-est une application linéaire continue compacte.
-\end{Thm}
-\begin{proof}
-Cf p13 \cite{cac}
-\end{proof}
-\section{ Volumes}
-$M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
-\begin{Def}
-Une forme volume sur $M$ est une section  de $\bigwedge^n T^*M$ qui ne s'annule jamais.
-\end{Def}
-\begin{Prop}
-$M$ admet une forme volume  si, et seulement si, $M$ est orientable
-\end{Prop}
-\begin{Prop}
-Soit $(M,g)$ une variété riemannienne orientable. $M$ admet une forme volume naturelle :  en coordonnées locales, elle est donnée par : 
-	\[Vol_g=\sqrt{\det(g_{ij})} dx_1 \wedge \ldots \wedge dx_n
-\]
-où $g_{ij}: x \mapsto g(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j})(x)$. \\
-Cette forme volume vérifie la propriété suivante : \\
-Pour toute point $x$ de $M$ et toute base orthonormée $(e_1,\ldots,e_n)$ de $T_xM$, on a l'égalité : 
-	\[Vol_g(x)(e_1 \wedge \ldots \wedge e_n)=1
-\]
-\end{Prop}
-\begin{Prop}
-Soit $(M,\omega)$ une variété symplectique. Alors $\omega^n$ est une forme volume sur $M$ ($M$ est donc orientée)
-\end{Prop}
-\begin{Thm}
-Soit $(M,h)$ une variété presque complexe muni d'une métrique hermitienne. La forme $g=Re(h)$ est une métrique riemannienne. De plus, en notant $\omega=-Im(h)$, on obtient l'égalité : 
-	\[ Vol_g=\frac{\omega^n}{n !}
-\]
-\end{Thm}
-\begin{proof}
-cf Théorie de Hodge : Claire Voisin
-\end{proof}
-\begin{Rq}
-Supposer $h$ kählérienne permet d'ajouter qu'aucun des $\omega^k$ ne sont exactes et permet d'avoir la formule de Wirtinger (cf Principles of Algebraic Geometry)
-\end{Rq}
-
-
-\bibliographystyle{alpha} 
-\bibliography{biblio} 
 \ifwhole
  \end{document}
 \fi
