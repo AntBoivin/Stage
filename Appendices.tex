@@ -1,0 +1,314 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+
+\section{Topologie générale}
+\subsection{Paracompacité}
+\begin{Def}
+Un espace topologique est paracompact s'il est séparé et si, pour tout recouvrement ouvert de $X$, il existe un recouvrement ouvert plus fin de $X$ qui est localement fini.
+\end{Def}
+\begin{Def}
+Soit $X$ un espace localement compact. $X$ est dit dénombrable à l'infini si le point à l'infini de sa compactification d'Alexandrov admet une base dénombrable de voisinage.
+\end{Def}
+\begin{Prop}
+Soit $X$ un espace localement compact.
+$X$ est dénombrable à l'infini si, et seulement, $X$ est l'union dénombrable de compacts. 
+\end{Prop}
+\begin{proof}
+$ \Rightarrow $ : Soit $(V_i)_{i \in \N}$ la base de voisinage du point à l'infini $\infty$. \\
+Montrons que 
+	\[X=\bigcup_{n \in \N} V_i^c
+\]
+Soit $x \in X$. Comme $X \cup \{\infty\}$ est séparé, il existe des voisinages $V$ de $x$ et $W$ de $\infty$ qui ne rencontrent pas. Ainsi, $x \in W^c$ et par définition de  bases de voisinages, il existe $i \in \N$ tel que $V_i \subset W$ et donc $W^c \subset V_i^c$, ce qui montre que $X \subset \bigcup_{n \in \N} V_i^c$. L'autre inclusion vient du fait que $\infty \in V_i$ pour $i$. \\
+$ \Leftarrow $ : Soit $(K_n)$ une suite de compacts de $X$ tel que : 
+	\begin{equation} \label{denalinfini}
+	X=\bigcup_{n \in \N} K_n
+\end{equation}
+Pour tout $n \in \N$, on notera par $B_n$ un voisinage compact de $K_n$ et $C_n=\bigcup_{k=0}^n B_k$. \\
+La suite $(C_n)$ est une suite croissante pour l'inclusion et 
+\[ X=\bigcup_{n \in \N} Int(C_n)
+\]
+Soit $V$ un voisinage quelconque de $\infty$ dans $X \cup \infty$. Il existe donc un voisinage $U$ de $\infty$ tel que $U \subset V$. Par définition de la topologie du compactifié, il existe un compact $K$ tel que $U=K^c$. \\
+Par l'égalité \ref{denalinfini} et le fait que la suite $(C_n)$ est croissante, il existe un $N$ tel que $K \subset Int(C_n)$. On en déduit que : 
+	\[Int(C_n)^c \subset K^c=U \subset V
+\]
+\end{proof}
+
+%\begin{Lemme}
+%Soit $X$ un espace localement connexe. $X$ est la somme de ces composantes connexes.
+%\end{Lemme}
+%
+%\begin{proof}
+%\cite{btg} p 85
+%\end{proof}
+
+\begin{Lemme}
+Soit $X$ un espace localement connexe. $X$ est dénombrable à l'infini si, et seulement si, $X$ est paracompact.
+\end{Lemme}
+
+\begin{proof}
+Cela découle de \cite{\btg} p 71 et \cite{\btg} p 85
+\end{proof}
+
+
+\begin{Thm}[Smirnov]
+Un espace est métrisable si, et seulement si, il est paracompact et localement métrisable
+\end{Thm}
+
+\begin{Cor}
+Un espace analytique est métrisable.
+
+\end{Cor}
+\subsection{ Distance de Hausdorff}
+\label{Hausdorff}
+Soit $(M,d)$ un espace métrique, $K(M)$ l'ensemble des compacts non vide de $M$. \\
+On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M) \times K(M) \to \R_+$ donnée par :
+	\[ d_H(A,B)=\frac{1}{2}\left[\max\limits_{b \in B} d(A,b)+\max\limits_{a \in A} d(a,B)\right]
+\]
+\begin{Prop}
+Soit $M$ un espace topologique métrisable. Pour toute distance sur $M$ définissant la topologie de $M$, la distance de Hausdorff associée définit la même topologie sur $K(M)$. 
+\end{Prop}
+\begin{proof}
+cf \cite{\cac} p 419
+\end{proof}
+On appelera cette topologie la topologie de Hausdorff sur $K(M)$
+\begin{Prop} \label{compHaud}
+Soit $M$ un espace topologique métrisable compact. Alors $K(M)$ est un espace topologique compact.
+\end{Prop}
+
+\begin{Thm}[Bishop] \label{Bishop}
+Soit $(A_m)_{m \in \N}$ une suite de sous-ensembles analytiques (fermés) de dimension $n$ d'un ouvert $W$ de $\C^{n+p}$, convergeant au sens de Hausdorff de $W$ pour la métrique standard de $\C^{n+p}$ vers un ensemble fermé $A$ de $W$. Si le volume des $A_m$ est fini et uniformément majoré, $A$ est un sous-ensemble analytique de $W$ de dimension $n$.
+\end{Thm}
+
+\section{Analyse fonctionnelle}
+
+\begin{Def}%Brezis
+Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
+\end{Def}
+\begin{Not}
+Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
+\end{Not}
+\begin{Thm}[Vitali]
+Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
+	\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
+\]
+est une application linéaire continue compacte.
+\end{Thm}
+\begin{proof}
+Cf p13 \cite{\cac}
+\end{proof}
+\section{ Volumes}
+$M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
+\begin{Def}
+Une forme volume sur $M$ est une section  de $\bigwedge^n T^*M$ qui ne s'annule jamais.
+\end{Def}
+\begin{Prop}
+$M$ admet une forme volume  si, et seulement si, $M$ est orientable
+\end{Prop}
+\begin{Prop}
+Soit $(M,g)$ une variété riemannienne orientable. $M$ admet une forme volume naturelle :  en coordonnées locales, elle est donnée par : 
+	\[Vol_g=\sqrt{\det(g_{ij})} dx_1 \wedge \ldots \wedge dx_n
+\]
+où $g_{ij}: x \mapsto g(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j})(x)$. \\
+Cette forme volume vérifie la propriété suivante : \\
+Pour toute point $x$ de $M$ et toute base orthonormée $(e_1,\ldots,e_n)$ de $T_xM$, on a l'égalité : 
+	\[Vol_g(x)(e_1 \wedge \ldots \wedge e_n)=1
+\]
+\end{Prop}
+\begin{Prop}
+Soit $(M,\omega)$ une variété symplectique. Alors $\omega^n$ est une forme volume sur $M$ ($M$ est donc orientée)
+\end{Prop}
+\begin{Thm}
+Soit $(M,h)$ une variété presque complexe muni d'une métrique hermitienne. La forme $g=Re(h)$ est une métrique riemannienne. De plus, en notant $\omega=-Im(h)$, on obtient l'égalité : 
+	\[ Vol_g=\frac{\omega^n}{n !}
+\]
+\end{Thm}
+\begin{proof}
+cf Théorie de Hodge : Claire Voisin
+\end{proof}
+\begin{Prop}
+Soit $(X,\omega)$ une variété de Kähler. Alors, pour tout $k=1..n$, $\omega^k$ est fermé mais pas exacte.
+\end{Prop}
+\begin{proof}
+Cela se montre par récurrence (la démonstration du premier fait n'utilise pas celle du deuxième) : \\
+Pour $k=1$, $\omega$ est fermée (par définition) mais n'est pas exacte car : \\
+Si $f : M \to \C$ est une fonction telle que $\omega=df$ alors $\omega^n=d(f \omega^{n-1})$ est exacte donc $Vol(M)=0$, ce qui est absurde. \\
+Supposons la propriété vraie pour $k \in \{1,\ldots,d-1\}$ alors : \\
+$d\omega^{k+1}=d\omega \wedge \omega^k \pm \omega \wedge d\omega^k=0$ (par l'hypothèse de récurrence : $\omega^k$ est fermée). \\
+Si on suppose $\omega^{k+1}=d \gamma$ alors $d(\gamma \wedge \omega^{n-k-1})=\omega^n\pm \gamma d\omega^{n-k-1}=\omega^n$, ce qui est absurde.
+\end{proof}
+
+\begin{Thm}[Wirtinger]
+Soit $(M,h)$ variété hermitienne avec $\omega=-Im(h)$ la forme associée. Soit $S$ une sous-variété de $M$ de dimension $k$. Alors, 
+	\[ Vol(S)=\frac{1}{k !}\int_S \omega^k
+\]
+\end{Thm}
+
+\begin{proof}
+cf \cite{\pag} p31
+\end{proof}
+
+On peut étendre ce résultat aux sous-espaces analytiques en définissant l'intégrale sur un sous-espace analytique comme étant l'intégrale sur son ouvert lisse. 
+
+\subsection{Volume d'un graphe}
+Soient $(X,\omega_1)$ et $(Y,\omega_2)$ deux variétés de Kähler. Alors en posant pour tout $(x,y) \in X \times Y$, $\omega_{(x,y)}=\omega_{1,x}+\omega_{2,y}$, on obtient que $(X \times Y,\omega)$ est une variété de Kähler. 
+\begin{Lemme}
+Soit $f : X \to Y$ une fonction holomorphe. Alors, 
+	\[ Vol(\Gamma_f)=\frac{1}{n ! }\int_X (\omega_1+f^* \omega_2)
+\]
+\end{Lemme}
+
+\begin{proof}
+Par la formule de Wirtinger, en posant $n:=\dim(X)$, 
+	\[Vol(\Gamma_f)=\frac{1}{n ! }\int_{\Gamma_f} \omega^n
+\]
+La projection $\pi$ de $\Gamma_f$ sur $X$ est un difféomorphisme de réciproque $x \mapsto (x,f(x))$. On en déduit que : 
+\[Vol(\Gamma_f)=\frac{1}{n ! }\int_{X} \pi^*\omega^n
+\]
+Pour tout $x \in X$, $v,w \in  T_x X$, 
+	\[\pi^*\omega_x(v,w)=\omega_{(x,f(x))}((v,d_x f(v)),(w,d_x f(w)))=\omega_{1,x}(v,w)+\omega_{2,f(x)}(d_x f(v),d_x f(w))
+	\]
+	Ainsi, $\pi^*\omega=\omega_1+f^* \omega_2$. Ce qui permet de conclure.
+\end{proof}
+\subsection{ Intégrations et classes de cohomologie}
+\begin{Thm}[Lemme de Poincaré]
+Soit $M$ une variété différentielle orientée et soit $k$ un entier, alors on a un isomorphisme
+	\[ H^k_{dR}(M) \simeq H^{n-k}_{dR}(M)^*
+\]
+donné par $[\varphi] \mapsto ([\psi] \mapsto \int_M \varphi \wedge \psi)$.
+
+\end{Thm}
+\begin{proof}
+\cite{\pag}
+\end{proof}
+Soit $M$ une variété complexe compacte, $V \subset M$ un sous-ensemble analytique de dimension $k$. On peut définir une application linéaire :
+	\[ H^{2k}_{dR}(M) \to \R, [\varphi] \mapsto \int_V \varphi
+	\]
+Cette application est bien définie car les formes exactes sont envoyées sur 0 par le théorème de Stokes : 	 
+\begin{Thm}[Stokes pour les espaces analytiques]
+Soit $M$ une variété complexe, $V$ un sous-ensemble analytique de dimension $k$, et $\varphi$ une forme différentielle de degré $2k-1$ à support compact de $M$,
+	\[\int_V d\varphi=0
+\]
+
+\end{Thm}
+\begin{proof}
+cf \cite{\pag} p33
+\end{proof}
+
+Par le lemme de Poincaré \ref{lem_poinc}, cette application détermine un élément de $H^{2n-2k}_{dR}(M)$ que l'on appelera classe (fondamentale) de $V$ et que l'on notera $[V]$. On définit la classe $[Z]$ d'un cycle analytique $Z=\sum_i n_i Z_i$ d'une variété $M$ comme étant $\sum n_i [Z_i]$
+
+Dans le cas où $(M,\omega)$ est une variété de Kähler, on peut définir le volume d'une classe de cohomologie qui généralise celui des sous-espaces analytiques :
+\begin{Def}
+Soit $\alpha \in H^k_{dR}(M)$. On appelle volume de $\alpha$ le réel $Vol(\alpha)=\frac{1}{n !}\int_M \alpha \wedge \omega^{n-k}$.
+\end{Def}
+Si $V$ est un sous-espace analytique de $M$ alors par définition de la classe de $V$, 
+	\[Vol([V])=\frac{1}{n !}\int_V \omega^{n-k}=Vol(V)
+\]
+De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, $Vol([Z])=\sum n_i Vol([Z_i])=\sum n_i Vol(Z_i)$ est appelé volume du cycle $Z$.
+
+On va donner deux résultats sur l'intégration sur les cycles que nous utilisons dans le corps du texte : 
+\begin{Prop}
+Soit $M$ une variété de Kähler\footnote{ A voir s'il faut donner le résultat dans toute sa généralité}. 
+Alors, la fonction $X \in \Cscr_n(M) \mapsto \int X \omega^n$ est continue.
+
+\end{Prop}
+\begin{proof}
+cf \cite{\cac} p 389
+\end{proof}
+
+\begin{Thm}
+Soient $(M,\omega)$ une variété de Kähler\footnote{idem}. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
+\end{Thm}
+\begin{proof}
+cf \cite{\cac} p 409
+\end{proof}
+\section{ Espace normal et faiblement normal}
+\begin{Def}
+Soient $B$ un anneau commutatif et $A$ est un sous-anneau de $B$. On dira que $b \in B$ est entier sur $A$ s'il existe un polynôme unitaire $P \in A[X]$ tel que $P(b)=0$
+\end{Def}
+
+\begin{Def}
+Un anneau commutatif $A$ est dit intégralement clos s'il est intègre et si tout élément du corps de fraction $Frac(A)$ qui est entier sur $A$ est dans $A$.
+\end{Def}
+
+\begin{Def}
+Un espace analytique complexe réduit $X$ sera dit normal en $a \in X$ si l'anneau local $\Ocal_{X,a}$ est intégralement clos. On dira que $X$ est normal s'il est normal en chacun de ses points.
+
+\end{Def}
+En particulier, un espace normal en $a$ est irréductible en $a$.
+
+\subsection{ Fonctions méromorphes}
+
+
+Soit $X$ un espace analytique complexe réduit. On définit les fonctions méromorphes sur $X$ comme suit :  
+\begin{Def}
+Une fonction méromorphe sur $X$ est la donnée d'une classe d'équivalence $(H,f)$ où $H$ est un sous-ensemble analytique de $X$ d'intérieur vide et $f$ est une fonction holomorphe sur $X \setminus H$ tel que, pour chaque $x \in H$, il existe un voisinage $U$ de $x$ dans $X$ et deux fonctions holomorphes $g$ et $h$ sur $V$ telles que les zéros de $H$ soit inclus dans $H \cup V$ et le quotient $g/h$ coïncide avec $f$ sur $V \setminus (V \cap H)$, pour la relation d'équivalence définit comme suit : $(H,f)$ et $(H',f')$ sont dits équivalents si $f$ et $f'$ coïncident sur $M \setminus (H \cap H')$
+\end{Def}
+Une fonction holomorphe $g : X \to \C$ peut être vu comme une fonction méromorphe donnée par la classe d'équivalence de $(\emptyset,g)$. Réciproquement, on peut voir une fonction méromorphe $(H,f)$ qui contient $(\emptyset,g)$ comme une fonction holomorphe. On dira que $g$ prolonge $f$ à $X$.
+
+\begin{Thm}\label{caracnormal}
+Un espace analytique complexe réduit $X$ est normal si, et seulement si, pour tout ouvert $\Omega$ de $X$ et toute hypersurface $H \subset \Omega$ fermée et d'intérieur vide dans $\Omega$, toute fonction holomorphe $g : \Omega \setminus H \to \C$ localement bornée le long de $H$ se prolonge en une fonction holomorphe sur $\Omega$.
+\end{Thm}
+
+\begin{Prop}\label{merom_local}
+Soient $X$ un espace analytique complexe réduit de dimension pure, $H$ un sous-ensemble analytique d'intérieur vide de $M$ et $f : M \setminus H \to \C$ une fonction localement bornée le long de $H$. Alors $f$ est méromorphe sur $X$.
+\end{Prop}
+\begin{Def}
+Un espace complexe réduit $M$ est dit faiblement normal si, pour toit ouvert $U$ de $M$, toute fonction continue sur $U$ est holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
+\end{Def}
+
+Cette propriété est plus faible que celle de normalité en vertu de la caractérisation \ref{caracnormal} et de la proposition \ref{merom_local}
+
+\begin{Thm}
+Soit $f : M \to N$ une application continue entre espaces analytiques complexes avec $M$ faiblement normal. Alors, les condition suivantes sont équivalentes :
+\begin{itemize}
+	\item L'application $f$ est holomorphe.
+	\item Le graphe de $f$ est un sous-ensemble analytique (fermé) de $M \times N$
+\end{itemize}
+\end{Thm}
+\begin{proof}
+$ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc un sous-ensemble analytique de $M \times N$. \\
+$ \Leftarrow $ : Soit $\pi : \Gamma_f \to M$ la projection du graphe de $f$ sur $M$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $M$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $M$ est faiblement normal alors $\pi$ est holomorphe sur $M$ et donc $f$ aussi. 
+\end{proof}
+\section{Géométrie différentielle}
+\begin{Prop}
+Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
+\begin{itemize}
+	\item $f^{-1}(y)$ est fini
+	\item Il existe un voisinage ouvert $V$ de $y$ tel que :
+		\[ \forall z \in V, | f^{-1}(z)|=|f^{-1}(y)|
+	\]
+\end{itemize}
+\end{Prop}
+\begin{proof}
+Lafontaine p 58
+\end{proof}
+\begin{Cor}
+$f$ est un revêtement sur l'ensemble des valeurs régulières.
+\end{Cor}
+
+\begin{Thm}
+Soit $X$ une variété compacte connexe orientée de dimension $n$. Une forme différentielle de degré $n$ est exacte si, et seulement si, elle est d'intégrale nulle
+\end{Thm}
+
+\begin{proof}
+Lafontaine Thm 6 p 232
+\end{proof}
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
