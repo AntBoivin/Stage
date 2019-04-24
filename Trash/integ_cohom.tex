@@ -1,0 +1,35 @@
+\subsection{ Intégrations et classes de cohomologie}
+\begin{Thm}[Lemme de Poincaré]
+Soit $M$ une variété différentielle orientée et soit $k$ un entier, alors on a un isomorphisme
+	\[ H^k_{dR}(M) \simeq H^{n-k}_{dR}(M)^*
+\]
+donné par $[\varphi] \mapsto ([\psi] \mapsto \int_M \varphi \wedge \psi)$.
+
+\end{Thm}
+\begin{proof}
+\cite{\pag}
+\end{proof}
+Soit $M$ une variété complexe compacte, $V \subset M$ un sous-ensemble analytique de dimension $k$. On peut définir une application linéaire :
+	\[ H^{2k}_{dR}(M) \to \R, [\varphi] \mapsto \int_V \varphi
+	\]
+Cette application est bien définie car les formes exactes sont envoyées sur 0 par le théorème de Stokes : 	 
+\begin{Thm}[Stokes pour les espaces analytiques]
+Soit $M$ une variété complexe, $V$ un sous-ensemble analytique de dimension $k$, et $\varphi$ une forme différentielle de degré $2k-1$ à support compact de $M$,
+	\[\int_V d\varphi=0
+\]
+
+\end{Thm}
+\begin{proof}
+cf \cite{\pag} p33
+\end{proof}
+
+Par le lemme de Poincaré \ref{lem_poinc}, cette application détermine un élément de $H^{2n-2k}_{dR}(M)$ que l'on appelera classe (fondamentale) de $V$ et que l'on notera $[V]$. On définit la classe $[Z]$ d'un cycle analytique $Z=\sum_i n_i Z_i$ d'une variété $M$ comme étant $\sum n_i [Z_i]$
+
+Dans le cas où $(M,\omega)$ est une variété de Kähler, on peut définir le volume d'une classe de cohomologie qui généralise celui des sous-espaces analytiques :
+\begin{Def}
+Soit $\alpha \in H^k_{dR}(M)$. On appelle volume de $\alpha$ le réel $Vol(\alpha)=\frac{1}{n !}\int_M \alpha \wedge \omega^{n-k}$.
+\end{Def}
+Si $V$ est un sous-espace analytique de $M$ alors par définition de la classe de $V$, 
+	\[Vol([V])=\frac{1}{n !}\int_V \omega^{n-k}=Vol(V)
+\]
+De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, $Vol([Z])=\sum n_i Vol([Z_i])=\sum n_i Vol(Z_i)$ est appelé volume du cycle $Z$.
