@@ -1,0 +1,85 @@
+\section{ Texte de Liebermann}
+On se fixe une métrique hermitienne $H$ et une 2-forme $\omega$ associée. Ce choix ne change pas le résultat suivant.
+\begin{Thm}[de compacité]
+
+Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seulement si, pour tout famille analytique de cycles paramétrée par $S$,$(Z_s)_{s \in S}$, il existe un compact contenant tout leur support, et tel que le volume des $Z_s$ est uniformément borné.
+
+\end{Thm}
+
+\begin{proof}
+$\Rightarrow$ : Supposons $S$ compact. Par conséquent, $S$ intersecte un nombre fini de composantes de $\Cscr(X)$.
+On peut donc supposer que $S$ est inclus dans un seul d'entre eux, disons inclus dans $\Cscr_k(X)$. \\
+Soit $(Z_s)_{s \in S}$ la famille de cycles analytiques donnée par la restriction de la famille universelle. 
+
+Soit $Y:= \{ (s,y) \in S \times X \mid y \in |Z_s| \}$ le ``cycle universel". La projection de $Y$ sur $S$ est propre (cf. \cite{\barlet} thm 1).
+Ainsi, si on note $pr_1$ (resp. $pr_2$) la projection de $Y$ sur $S$ (resp. sur $X$), on obtient que $pr_1^{-1}(S)$ est compact et donc $pr_2(pr_1^{-1}(S))$ l'est aussi. Mais on peut voir que $pr_2(pr_1^{-1}(S))=\bigcup_{s \in S} |Z_s|$.
+Ensuite, l'application $s \in S \mapsto \frac{1}{k!}\int_{Z_s} \omega^k$ est une application continue comme composée de l'application continue $X \mapsto \frac{1}{k!}\int_X \omega^k$ (cf \ref{int_cont} ) et de l'application continue $s \mapsto Z_s$. Comme $S$ est compact alors cette application est bornée, ce qui finit la preuve de l'implication.
+
+$\Leftarrow$ : Soit $(Z_i)_{i \in S}$ une suite de cycles de $S$. Les $Z_i$ ne peuvent prendre qu'un nombre fini de dimensions ( borné par la dimension de $X$), on peut donc extraire une sous-suite de telle sorte qu'ils soient tous de la même dimension (que l'on notera $k$). \\
+Soit $K$ un compact contenant tous les supports.
+On va extraire une sous-suite de $Z_i$ de sorte que les supports $|Z_i|$ convergent, pour la topologie de Hausdorff vers un compact que l'on notera $|Z_0|$(c.f. \ref{Hausdorff} et plus précisément la proposition \ref{compHaud} pour la compacité de l'ensemble des compacts de $K$ muni de cette topologie).
+On peut ensuite remarquer, en notant $Z_i=\sum m_{ij} Z_{ij}$ (avec $m_{ij} \neq 0$), que l'on a  
+	\[ Vol(|Z_i|)=\sum Vol(Z_{ij}) \leq \sum m_{ij} Vol(Z_{ij})=Vol(Z_i) 
+\]
+C'est-à-dire, le volume des supports est uniformément bornée. On en déduit, par le théorème \ref{Bishop} de Bishop, que $|Z_0|$ est un ensemble analytique.\\
+Montrons maintenant qu'une sous-suite de $Z_i$ converge vers un cycle $Z_0$ pour la topologie de l'espace de Barlet :  \\
+Soit ${U_i}$ un recouvrement de $|Z_0|$ par des ouverts de $X$ et pour chacun de ses ouverts une écaille adaptée $E_i=(\Delta^k,\Delta^{n-k},j : U_i \to W \supset\overline{\Delta^k} \times \overline{\Delta^{n-k}})$ à $X$ (elles existent par le lemme \ref{ecailleadaptee}). Par définition d'écaille adaptée, on a alors, pour tout $j$, 
+	\[d(f_j(|Z_0| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
+\]
+Comme $\lim |Z_i|=|Z_0|$ alors, pour $i$ suffisament grand et pour tout $j$,
+\[d(f_j(|Z_i| \cap U_j),\overline{\Delta^k} \times \partial \Delta^{n-k})>0
+\]
+Quitte à restreindre $U_j$, on a alors :
+	\[|Z_i| \cap U_j \cap f_j^{-1}(\overline{\Delta^k} \times \partial \Delta^{n-k})=\emptyset
+\]
+On en déduit que ${f_j}_*(|Z_i| \cap U_j)$ est un revêtement ramifié sur $\Delta^k$. De même, en notant $Z_i=\sum m_{ik} Z_{ik}$, on obtient que ${f_j}_*(Z_{ik} \cap U_j)$ est un revêtement ramifié. 
+On peut donc voir ${f_j}_*(Z_{i} \cap U_j)$ comme un revêtement ramifié à $n_{ij}$ feuilles \footnote{Si on a un cycle $Z=\sum_i n_i Z_i$ et des revêtements ramifiés $Z_i \to \Delta^k$ à $m_i$ feuilles, on peut voir $Z$ comme un revêtement ramifié à $\sum n_i m_i$ feuilles}\\
+Comme le volume des $Z_i$ est uniformément borné alors les $n_{ij}$ le sont aussi (car il y a un nombre fini de $j$ par compacité de $|Z_0|$
+Les $n_{ij}$ étant des entiers, on peut extraire une sous-suite de la suite $Z_i$ de sorte que pour tout $j$, la suite $(n_{ij})_i$ soit constante. \\
+Par la remarque \ref{revetramif}, on peut identifier $({f_j}_*(Z_{i} \cap U_j))_j$ avec un point $f_i$ de $B:=\prod_j \Hcal(\overline{\Delta^k},Sym^{n_j}(\Delta^{n-k})$.
+ On peut plonger $Sym^{n_j}(\Delta^{n-k}$ dans un certain $\C^N$ (voir \ref{plongement}). Ensuite, on sait que, pour tout ouvert $U' \subset U$ relativement compact, il existe une sous-suite de $(f_i)$ qui converge uniformément sur $\overline{U'}$, par le théorème de Vitali. Et ainsi, les cycles associés de $\Cscr^{loc}_n(U' \times B)$ convergent (cf \ref{cont_cycle}). Par le théorème de localisation \ref{localisation}, on en déduit la convergence dans $\Ccal^{loc}_n(U \times B)$
+%Par le lemme 2.7.22, les points associés au cycle $Z_i$ converge dans $B$ et les cycles associés dans $\Cscr_n^{loc}(\Delta^k \times \Delta^{n-k})$\footnote{ A détailler} \\
+On en déduit que les $Z_i \cap U_j$ convergent dans $\Cscr_n^{loc}(U_j)$ (car les applications induites sont continues). Par le théorème \ref{produit}, la suite $Z_i$ converge dans $\Cscr_n^{loc}(\bigcup U_j) \hookrightarrow \Cscr_n^{loc}(X)$ vers $Z_0$ (car $|Z_0| \subset \bigcup U_j$).
+Comme le support des $Z_i$ est inclus dans $K$ alors la suite converge dans $\Cscr_n(X)$ (par la remarque \ref{convCloc}).
+\end{proof}
+
+\begin{Cor}
+Si $X$ est une variété compacte kählérienne alors $S$ est relativement compact si, et seulement si, les $Z_s$ sont dans un nombre fini de classes de cohomologie.
+\end{Cor}
+
+\begin{proof}
+$\Leftarrow$ : Supposons que les $Z_s$ soit dans un nombre fini de classes de cohomologie $\alpha_1,\ldots,\alpha_p$. Alors, pour tout $s \in S$, 
+	\[ Vol(Z_s) \leq \max_i Vol(\alpha_i) < \infty
+\]
+$\Rightarrow$ : Supposons $S$ est relativement compact et inclus dans un unique $\Cscr_n(M)$. \\
+Alors, $S$ rencontre un nombre fini de composantes connexes de $\Cscr_n(M)$ et comme l'application $X \in \Cscr_n(M) \mapsto \int_X \omega^n \in \R$ est localement constante et donc $Z_s$ n'a qu'un nombre fini de classes de cohomologie.
+\end{proof}
+\begin{Thm} \label{lemmefibre}
+Soit $f : M \to N$ une application holomorphe propre et surjective entre deux espaces complexes irréductibles. Soit $n:=\dim(M)-\dim(N)$. Alors il existe une unique application méromorphe, que l'on appelera l'application fibre de $f$, $\varphi : N \dashrightarrow \Cscr_n(M)$  qui sur un ouvert de Zariski dense de $N$ associe à $y$ le $n$-cycle réduit $f^{-1}(y)$ de $M$.
+\end{Thm}
+\begin{proof}
+\cite{\cac} p 486
+\end{proof}
+\begin{Cor} \label{merom}
+Soient $S$ un espace normal, $Z$ un cycle de $S\times X$  tel que $\pi_1 : |Z| \to S$ soit propre et surjective. \\
+Soit $S_0=\{ s \in S \mid \dim \pi^{-1}(s)=\dim|Z|-\dim S\}$. \\
+L'application naturelle $S_0 \to \Cscr(X)$ (cf \cite{\barlet} Thm 1) s'étend méromorphiquement sur $S$.
+
+\end{Cor}
+
+\begin{proof}
+On décompose $|Z|$ en composantes irréductibles : $|Z|=\bigcup Z_i$. Les images réciproques sont elles-mêmes irréductibles. On a donc des applications $\pi_{1i} : \pi_1^{-1}(Z_i) \to Z_i$ surjectives et propres. 
+On obtient par le théorème \ref{lemmefibre} que pour tout $i$, il existe une application méromorphe $\varphi_i : f^{-1}(Z_i) \dashrightarrow \Cscr_{n_i}(Z_i)$. L'application d'image directe induite par l'inclusion $Z_i \hookrightarrow X$ (par \ref{image_directe}) permet de recoller toutes ces applications en une application méromorphe $S \dashrightarrow \Cscr(X)$.
+\end{proof}
+
+\begin{Cor}
+Soit $X$ un espace analytique compact normal. \\
+Soit $\Rcal$ une relation d'équivalence sur $X$ définissant un ensemble analytique $R$. Il existe un espace analytique $Q$ et une application méromorphe dominante $\pi : X \dashrightarrow Q$ tel que, pour tout $x$ dans un ouvert de Zariski, on ait :
+	\[ \overline{ \pi^{-1}(\pi(x))}=\{ y \in X \mid y \Rcal x\}
+	\]
+
+\end{Cor}
+\begin{proof}
+Comme l'ensemble analytique $R$ peut être vu comme un cycle (grâce à sa décomposition en irréductibles)et que l'on a une projection $p : |R|=R \to X$ qui est surjective et propre. On obtient, grâce au corollaire \ref{merom}, une application $X \dashrightarrow \Cscr(X)$ qui sur un ouvert de Zariski de $X$ envoie $x$ sur $p^{-1}(x)$. On définit $Q$ comme l'adhérence de Zariski de l'image de cette application. On en déduit ainsi le résultat voulu.
+
+\end{proof}
