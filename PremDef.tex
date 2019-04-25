@@ -51,7 +51,7 @@ Pour donner une structure complexe sur $Sym^k(\C^p)$, nous allons montrer que $S
 Soit $S_j :  Sym^k(\C^p) \to S^j(\C^p)$ l'application définie pour tout $j \in \{1,\ldots,k\}$ par : 
 	\[S_j(x_1,\ldots,x_k)=\sum_{1 \leq i_1 < \ldots < i_j \leq k} x_{i_1} \ldots x_{i_j}
 \]
-\begin{Prop}
+\begin{Prop} \label{plongement}
 L'application $S=\bigoplus_{j=0}^k S_i : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)$ est propre et induit un homémorphisme sur son image. Cette image est un sous-ensemble algébrique de $\bigoplus_{j=0}^k S^j(\C^p)$
 \end{Prop}
 \begin{proof}
@@ -126,7 +126,7 @@ Si $f : S \to T$ est une fonction holomorphe et $(Z_t)_{t \in T}$ est une famill
 On peut donc définir le foncteur contravariant $F_X^n$ des espaces complexes réduits de dimension finie dans celui des ensembles qui associe à $S$ l'ensemble des familles analytiques de $n$-cycles paramétrées par $S$. 
 
 \begin{Thm}[Barlet]
-$F_M^n$ est un foncteur représentable par un espace analytique $\Cscr_n(M)$.
+$F_X^n$ est un foncteur représentable par un espace analytique $\Cscr_n(X)$.
 \end{Thm}
 Pour exploiter ce résultat, on va utiliser le lemme de Yoneda : 
 
@@ -137,10 +137,19 @@ Soit $F : \Ccal \to \Dcal$ un foncteur et $X \in Ob(\Ccal)$. Alors, on a une bij
 entre les transformations naturelles entre $\Hom(X,\--)$ et $F$, et les éléments de $F(X)$
 \end{Thm}
 En particulier, si $F$ est représentable par un objet $X$ i.e. s'il existe un isomorphisme de foncteurs $\Hom(X,\--) \to F$ alors, par ce lemme, on obtient un objet $s \in F(X)$. On dira que le couple $(X,s)$ est universel pour $F$. \\ % Le Stum
+Dans notre cas, $F$ est un foncteur de catégorie opposée à celle des espaces analytiques réduits de dimension finie à celle des ensembles. \\
 Ainsi, il existe une famille analytique de cycles indexés par $\Cscr_n(M)$, $(C_s)_{s \in \Cscr_n(M)}$, telle que, pour tout espace complexes réduits de dimension finie $S$ et toute famille analytique $(B_s)_{s \in S}$, il existe une unique application holomorphe $h : S \to \Cscr_n(M)$ telle que pour tout $s \in S$, $B_s=C_{h(s)}$. On appellera cette famille la famille universelle des $n$-cycles.
 
 On en déduit qu'il existe une bijection entre $\Cscr_n(X)$ et l'ensemble des $n$-cycles (en prenant $S$ un singleton). On peut ainsi munir l'ensemble des $n$-cycles d'une structure d'espace analytique réduit de dimension finie.
 
+\begin{Prop}
+$\Cscr_n$ est un endofoncteur de la catégorie des espaces analytiques complexes réduits de dimension finie
+\end{Prop}
+\begin{proof}
+Soit $f : M \to N$ une application holomorphe. Alors, on lui associe l'application d'image directe $f_* : \Cscr_n(M) \to \Cscr_n(N)$ donné en \ref{image_directe}. \\
+Cette application est holomorphe par le théorème 3.5.4 p 459 de \cite{\cac}
+
+\end{proof}
 \section{Topologie de $\Cscr_n(X)$}
 L'espace analytique $\Cscr_n(X)$ obtenu précédement est en particulier un espace topologique. Ces ouverts se décrivent de la façon suivante :
 \begin{Thm}
@@ -156,7 +165,38 @@ Les ouverts $\Cscr^{loc}_n(X)$ sont donnés par les unions quelconques d'intersec
  Par conséquent, si $(Z_n)$ est une suite de $\Cscr_n(X)$ et $Z$ est un cycle compact de $M$ alors $Z_n$ converge vers $Z$ dans $\Cscr_n(X)$ si, et seulement si, $Z_n$ converge vers $Z$ dans $\Cscr_n^{loc}(X)$ et pour tout voisinage ouvert de $|Z|$ dans $X$, il existe un entier $N_W$ tel que pour tout $n \geq N_W$, $|Z_n| \subset W$
 \end{Rq}
 
+Les trois résultats qui viennent sont énoncés pour $\Cscr^{loc}_n$ pour la simplicité mais grâce à la remarque précédente, on peut les traduire dans $\Cscr_n$.
 
+\begin{Prop}\label{cont_cycle}
+Soient $U \subset \C^n$, $B \subset \C^p$ deux polydisques ouverts relativement compacts et un entier$k>0$. Alors l'application 
+	\[ \Hcal(\overline{U},Sym^k(B)) \to \Cscr^{loc}_n(U \times B), f \mapsto Z_f
+\]
+est continue. ($Z_f$ est le cycle que l'on a associé à $f$ dans \ref{revetramif})
+
+\end{Prop}
+\begin{proof}
+Voir \cite{\cac} p 386
+\end{proof}
+\begin{Thm} \label{produit}
+Soient $X$ un espace analytique complexe réduit et $(X_i)_{i \in I}$ un recouvrement ouvert de $X$. Alors, l'application induite par les restrictions 
+	\[ res : \Cscr_n^{loc}(X) \to \prod_{i\in I} \Cscr_n^{loc}(X_i)
+	\]
+est un homéomorphisme sur son image (qui est fermée).	 
+
+
+\end{Thm}
+\begin{proof}
+Voir \cite{\cac} p 396
+\end{proof}
+\begin{Prop}\label{localisation}
+Soit $(Z_m)_{ m \in \N}$ une suite de $\Cscr^{loc}_n(X)$ telle que pour chaque $x \in M$, il existe un voisinage ouvert $X_x$ tel que $(Z_m \cap X_x)_{m \in \N}$ soit une sous-suite convergente dans $\Cscr_n^{loc}(X_x)$. Alors, la suite converge dans $\Cscr_n^{loc}(X)$
+
+\end{Prop}
+\begin{proof}
+Voir \cite{\cac} p 409
+
+
+\end{proof}
 
 
 \ifwhole
