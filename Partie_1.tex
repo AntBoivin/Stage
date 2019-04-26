@@ -1,6 +1,6 @@
 \section{ Texte de Liebermann}
 On se fixe une métrique hermitienne $H$ et une 2-forme $\omega$ associée. Ce choix ne change pas le résultat suivant.
-\begin{Thm}[de compacité]
+\begin{Thm}[de compacité] \label{compact}
 
 Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seulement si, pour tout famille analytique de cycles paramétrée par $S$,$(Z_s)_{s \in S}$, il existe un compact contenant tout leur support, et tel que le volume des $Z_s$ est uniformément borné.
 
@@ -43,17 +43,20 @@ On en déduit que les $Z_i \cap U_j$ convergent dans $\Cscr_n^{loc}(U_j)$ (car le
 Comme le support des $Z_i$ est inclus dans $K$ alors la suite converge dans $\Cscr_n(X)$ (par la remarque \ref{convCloc}).
 \end{proof}
 
-\begin{Cor}
-Si $X$ est une variété compacte kählérienne alors $S$ est relativement compact si, et seulement si, les $Z_s$ sont dans un nombre fini de classes de cohomologie.
+\begin{Cor}\label{Kah_compact}
+Si $X$ est une variété compacte de Kähler alors $S$ est relativement compact si, et seulement si, les $Z_s$ sont dans un nombre fini de classes de cohomologie.
 \end{Cor}
 
 \begin{proof}
 $\Leftarrow$ : Supposons que les $Z_s$ soit dans un nombre fini de classes de cohomologie $\alpha_1,\ldots,\alpha_p$. Alors, pour tout $s \in S$, 
 	\[ Vol(Z_s) \leq \max_i Vol(\alpha_i) < \infty
 \]
+(On pourra trouver des détails sur l'intégration des classes de cohomologie dans \ref{int_cohom}
 $\Rightarrow$ : Supposons $S$ est relativement compact et inclus dans un unique $\Cscr_n(M)$. \\
 Alors, $S$ rencontre un nombre fini de composantes connexes de $\Cscr_n(M)$ et comme l'application $X \in \Cscr_n(M) \mapsto \int_X \omega^n \in \R$ est localement constante et donc $Z_s$ n'a qu'un nombre fini de classes de cohomologie.
 \end{proof}
+En particulier, les composantes irréductibles de $\Cscr(X)$ sont compactes pour $X$ une variété de Kähler compacte.
+
 \begin{Thm} \label{lemmefibre}
 Soit $f : M \to N$ une application holomorphe propre et surjective entre deux espaces complexes irréductibles. Soit $n:=\dim(M)-\dim(N)$. Alors il existe une unique application méromorphe, que l'on appelera l'application fibre de $f$, $\varphi : N \dashrightarrow \Cscr_n(M)$  qui sur un ouvert de Zariski dense de $N$ associe à $y$ le $n$-cycle réduit $f^{-1}(y)$ de $M$.
 \end{Thm}
