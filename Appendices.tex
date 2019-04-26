@@ -162,7 +162,7 @@ On peut étendre ce résultat aux sous-espaces analytiques en définissant l'intégr
 
 \subsection{Volume d'un graphe}
 Soient $(X,\omega_1)$ et $(Y,\omega_2)$ deux variétés de Kähler. Alors en posant pour tout $(x,y) \in X \times Y$, $\omega_{(x,y)}=\omega_{1,x}+\omega_{2,y}$, on obtient que $(X \times Y,\omega)$ est une variété de Kähler. 
-\begin{Lemme}
+\begin{Lemme} \label{Vol_graphe}
 Soit $f : X \to Y$ une fonction holomorphe. Alors, 
 	\[ Vol(\Gamma_f)=\frac{1}{n ! }\int_X (\omega_1+f^* \omega_2)
 \]
@@ -181,7 +181,8 @@ Pour tout $x \in X$, $v,w \in  T_x X$,
 	Ainsi, $\pi^*\omega=\omega_1+f^* \omega_2$. Ce qui permet de conclure.
 \end{proof}
 \subsection{ Intégrations et classes de cohomologie}
-\begin{Thm}[Lemme de Poincaré]
+\label{int_cohom}
+\begin{Thm}[Lemme de Poincaré] \label{lem_poinc}
 Soit $M$ une variété différentielle orientée et soit $k$ un entier, alors on a un isomorphisme
 	\[ H^k_{dR}(M) \simeq H^{n-k}_{dR}(M)^*
 \]
@@ -226,7 +227,7 @@ Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est continue.
 cf \cite{\cac} p 389
 \end{proof}
 
-\begin{Thm}
+\begin{Thm} \label{int_const}
 Soient $(M,\omega)$ une variété de Kähler\footnote{idem}. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
 \end{Thm}
 \begin{proof}
@@ -269,7 +270,7 @@ Un espace complexe réduit $M$ est dit faiblement normal si, pour toit ouvert $U$
 
 Cette propriété est plus faible que celle de normalité en vertu de la caractérisation \ref{caracnormal} et de la proposition \ref{merom_local}
 
-\begin{Thm}
+\begin{Thm}\label{norm_holom}
 Soit $f : M \to N$ une application continue entre espaces analytiques complexes avec $M$ faiblement normal. Alors, les condition suivantes sont équivalentes :
 \begin{itemize}
 	\item L'application $f$ est holomorphe.
@@ -281,7 +282,7 @@ $ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc
 $ \Leftarrow $ : Soit $\pi : \Gamma_f \to M$ la projection du graphe de $f$ sur $M$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $M$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $M$ est faiblement normal alors $\pi$ est holomorphe sur $M$ et donc $f$ aussi. 
 \end{proof}
 \section{Géométrie différentielle}
-\begin{Prop}
+\begin{Prop} 
 Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
 \begin{itemize}
 	\item $f^{-1}(y)$ est fini
@@ -293,7 +294,7 @@ Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient 
 \begin{proof}
 Lafontaine p 58
 \end{proof}
-\begin{Cor}
+\begin{Cor} \label{revet}
 $f$ est un revêtement sur l'ensemble des valeurs régulières.
 \end{Cor}
 
