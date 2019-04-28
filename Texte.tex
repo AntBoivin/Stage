@@ -19,7 +19,7 @@
 \input{Partie_1}
 
 \section{ Applications aux automorphismes et la théorie de la déformation}
-\begin{Thm}
+\begin{Thm}\label{biholo}
 Soit $X$ un espace analytique complexe compact et $f$ un automorphisme de $X$. Soit $\Cscr_\Gamma$ la composante irréductible de l'espace des cycles contenant le graphe de $f$. Alors, l'ensemble des points de $\Cscr_\Gamma$ correspondant aux automorphismes de $X$ est un ouvert de Zariski.
 \end{Thm}
 \begin{proof} 
@@ -30,10 +30,108 @@ Par la proposition 1.21 p 108 de \cite{\scv}, il existe un ouvert de Zariski $U$
 De la même façon, pour les projections $\pi_i : Z \to X$, on obtient que, sur un ouvert de Zariski $S_i$ de $Z$, ce sont des submersions. En tout point $z$ de cet ouvert, on a un isomorphisme entre le quotient  $T_z Z$ par $T_{z} \pi_i^{-1}(\pi_i(x))$ et $T_{\pi_i(x)} X$ (par complétion de la base de $T_{z} \pi_i^{-1}(\pi_i(x))$)  et donc un isomorphisme entre $T_z Z_C$ et $T_{\pi_i(z)} X$ pour tout $z=(x,y,C) \in Z$  tel que $(x,y) \in C$ car l'application $\pi_i \times \pi_3 : Z \to X\times \Cscr$ est à fibres finies (quitte à restreindre) car $X$ est compact et que $\dim Z=\dim X + \dim \Cscr$. \\
 Pour finir, montrons que les points de $\Cscr_\Gamma \setminus \pi_3(S_1^c \cup S_2^c)$ correspondent aux automorphismes de $X$. \\
 Soit $C$ un cycle de $\Cscr_\Gamma$. \\
-Les applications $\pi_i : Z_C \to X$ est un revêtement propre par \ref{}. \\
+Les applications $\pi_i : Z_C \to X$ est un revêtement propre par \ref{revet}. \\
 Comme $\Cscr_\Gamma$ est connexe et localement connexe par arcs alors il est connexe par arcs. Il existe donc un chemin $\gamma : [0,1] \to \Cscr_\Gamma$ entre $C$ et $\Gamma$. Par continuité de la famille $(\gamma(t))_{t \in [0,1]}$ le degré du revêtement reste constant ( au voisinage de chacun des points de $X$) et donc vaut toujours 1. $\pi_i$ est donc un homéomorphisme et donc par l'isomorphisme précédent et le théorème d'inversion locale, c'est un biholomorphisme.
 
 \end{proof}
+\begin{Rq} \label{isom_dens}
+On peut remarquer que l'on peut remplacer l'automorphisme $f$ par un isomorphisme $f : X \to Y$. 
+\end{Rq}
+ Dans le cas où $X$ est une variété de Kähler, les composantes irréductibles de $Aut(X)$ se compactifient comme ouvert de Zariski d'une composante irréductible de $\Cscr(X \times X)$ (qui est compact par \ref{Kah_compact}).
+%Contre-exemple et cas relatifs
+
+Soit $(X,\omega)$ une variété compacte de Kähler de dimension $n$. On note par $Aut_\omega(X)$ le groupe des automorphismes de $X$ préservant la classe de $\omega$. On veut étudier le groupe quotient $Aut_\omega(X)/Aut_0(X)$ (où $Aut_0(X)$ est la composante de l'identité) . Pour cela, on va commencer par montrer qu'il est bien défini : 
+
+\begin{Lemme} \label{inclusion}
+$Aut_0(X) \subset Aut_\omega(X)$
+\end{Lemme}
+\begin{proof}
+?
+\end{proof}
+\begin{Lemme}
+$Aut_0(X)$ est un sous-groupe distingué de $Aut(X)$
+\end{Lemme}
+\begin{proof}
+$Aut_0(X)$ est un sous-groupe de $Aut(X)$ car on a $Id \in Aut_0(X)$ et si on note par $\mu$ l'application $(x,y) \in Aut_0(X) \times Aut_0(X) \mapsto xy^{-1} \in Aut(X)$, on obtient une application continue et comme $Aut_0(X) \times Aut_0(X)$ est connexe alors son image aussi et comme l'identité est dans cette image alors, pour tout $x,y \in Aut_0(X),xy^{-1} \in Aut_0(X)$. \\
+On montre de la même façon que $Aut_0(X)$ est distingué en considérant,pour tout $x \in G$, l'application $h \in G_0 \mapsto xhx^{-1}$.  
+\end{proof}
+En particulier, $Aut_0(X)$ est un sous-groupe distingué de $Aut_\omega(X)$.
+
+\begin{Prop}
+Le quotient $Aut_\omega(X)/Aut_0(X)$ est un sous-groupe fini.
+\end{Prop}
+
+\begin{proof}
+Soit $f \in Aut_\omega(X)$ i.e.  $[f_\omega]=[\omega]$. Le volume de son graphe est donné, en utilisant \ref{Vol_graphe},
+	\[ Vol(\Gamma_f)=\frac{1}{n!}\int_X (\omega+f_* \omega)=\frac{2^n}{n!} \int_X 
+\]
+Le volume de $\Gamma_f$ est uniformément borné sur $Aut_\omega(X)$. Par conséquent, par \ref{compact} $Aut_\omega(X)$ rencontre un nombre fini de composantes irréductibles de $\Cscr(X)$. Par le théorème \ref{biholo}, les composantes irréductibles de $Aut_\omega(X)$ sont en bijection avec ces composantes alors que $Aut_0(X)$ correspondant à la composante de $\Cscr_\Delta(X)$, ce qui permet de conclure.
+
+\end{proof}
+
+
+\begin{Def}
+Soit $X$ un espace analytique complexe. Un sous-espace $U$ est dit constructible si c'est l'union fini d'ensemble localement Zariski-fermé.
+
+\end{Def}
+
+\begin{Lemme}\label{image_constructible}
+Soit $f : X \to Y$ une application holomorphe propre avec $X$ irréductible et réduit, $Y$ réduit. L'image d'un ensemble constructible de $X$ est constructible
+\end{Lemme}
+
+\begin{proof}
+On va se contenter de l'image d'un ouvert de Zariski $U$. \\
+Par le théorème 1.19 p 107 de \cite{\scv}, l'ensemble 
+	\[ V=\{ y \in Y \mid \dim(U \cap f^{-1}(y))=\dim(X)-\dim(Y)\}
+\]
+est un ouvert de Zariski de $Y$. $V$ est inclus dans $f(U)$ car si $x \in f^{-1}(y) \cap U$ alors $y=f(x)$ et $x \in U$ donc $y \in f(U)$.
+Maintenant que l'on a cela, montrons le théorème par récurrence sur la dimension de $Y$ : 
+Le cas de la dimension nulle est immédiat. \\
+Soit $d \in \N$ et supposons le théorème vrai pour $Y$ de dimension $<d$. \\
+Soit $W_1,\ldots,W_t$ les composantes irréductibles de $f(U) \setminus V$. Ce sont des fermés de $Z$ de dimension strictement inférieur à celle de $Y$. \\
+On décompose les $f^{-1}(W_k)$ en composantes irréductibles : $f^{-1}(W_k)=\bigcup_{i=1}^{s_k}Z_{ki}$.\\
+On considère ensuite les restrictions $f_{ij} : Z_{ij} \to W_i$ de $f$. \\
+Par l'hypothèse de récurrence, $f_{ij}(Z_{ij})$ est constructible dans $W_i$ et donc dans $Y$. On en déduit donc que $f(U)=V \cup \bigcup f_{ij}(Z_{ij})$ est constructible.
+
+\end{proof}
+
+
+
+\begin{Prop} \label{Constr_isom}
+Soit $\pi : X\to T$ une application lisse propre d'espaces analytiques complexes. Supposons que les $X_t=\pi^{-1}(t)$ sont des variétés de Kähler avec une classe de Kähler $\omega_t$ dépendant continûment de $t$. Fixons une variété de Kähler $(X_0,\omega_0)$. L'ensemble $T_0:=\{ t \in T | (X_0,\omega_0) \simeq (X_t,\omega_t)\}$ est constructible ( $\varphi : (X_0,\omega_0) \to (X_t,\omega_t)$
+est un isomorphisme de variétés de Kähler si $\varphi : X_0 \to X_t$ est un biholomorphisme et que $\varphi_*\omega_t=\omega_0$)
+
+\end{Prop}
+
+\begin{proof}
+Soit $C$ l'union normalisée des composantes de l'espaces des cycles $\pi$-relatifs de $\Cscr(X \times X_0)$ qui contiennent les graphes d'un isomorphisme $\varphi : (X_0,\omega_0) \to (X_t,\omega_t)$\footnote{ Définir normalisation et cycles $f$-relatifs}.
+Soit $Z$ le cycle universel de $X \times X_0 \times C$.
+En utilisant le théorème \ref{biholo} avec la remarque \ref{isom_dens} associée, et le lemme \ref{inclusion}, on obtient que le sous-ensemble de $C$ corresponsant aux isomorphismes $(X_0,\omega) \simeq (X_t,\omega_t)$ est un ouvert de Zariski. \\
+On a une application naturel holomorphe $\lambda : C \to T$ donnée par $c \mapsto \pi(\pi_1(Z_c))$ : 
+cette application est continue (comme composée d'application continue) et comme son graphe est l'image (modulo l'inversion des termes) de $Z$ par l'application propre $(x,y,c) \in X \times X_0 \times C \mapsto (\pi(x),c) \in T \times C$, il est donc analytique. On en déduit, par normalité de $C$, que $\lambda$ est holomorphe par \ref{norm_holom}. \\
+Montrons maintenant que $\lambda : C \to T$ est propre. \\
+Soit $K$ un compact de $T$. Alors, pour tout $c \in \lambda^{-1}(K)$, le cycle $Z_c$ est dans le compact $\pi^{-1}(K) \times X_0$. De plus, le volume de $Z_c$ est constant :
+Pour tout isomorphisme $f : (X_0,\omega_0) \to (X_t,\omega_t)$,
+	\[ Vol(\Gamma_f)=\frac{1}{n!}\int_{X_0} (f^* \omega_t+\omega_0)^n=\frac{2^n}{n!} Vol(X_0)
+\]
+Par continuité du volume, la constance est vrai pour tout $Z_c$. Par \ref{compact}, $\lambda^{-1}(K)$ est compact. $\lambda$ est donc propre. \\
+On en déduit que $T_0=\lambda(C_0)$ est constructible (car $C_0$ est un ouvert de Zariski) par \ref{image_constructible}
+
+\end{proof}
+
+\begin{Cor}
+Soit $(X_t)_{t \in T}$ une famille de variétés de Kähler tel que $(X_0,\omega_0) \simeq (X_t,\omega_t)$ sur un ensemble Zariski-dense de valeurs de $t$. Alors, cette famille est localement analytiquement trivial sur un ouvert de Zariski $U \subset T$
+
+\end{Cor}
+
+\begin{proof}
+Comme l'ensemble $T_0$ de \ref{Constr_isom} contient un ouvert de Zariski (cf. preuve de \ref{image_constructible}). On choisit une composante normalisé $C$ de $\Cscr(X \times X_0)$ contenant les isomorphismes $(X_0,\omega_0) \simeq (X_t,\omega_t)$ pour $t \in U$. On obtient ainsi le résultat (les fibres sont isomorphes à $Aut_\omega(X_0)$).
+
+\end{proof}
+
+
+%\label{isom_dens}
+
 
 \appendix 
 
