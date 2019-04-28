@@ -1,0 +1,114 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+\begin{Def}
+Un sous-ensemble $X$ de $\C^n$ est appelé ensemble analytique complexe modèle défini par les fonctions holomorphes $f_1,\ldots,f_n$ sur $U$ si 
+	\[ X=\{ x \in U | f_1(x)=\ldots=f_n(x)=0 \}
+\]
+(muni de la topologie induite)
+\end{Def}
+
+On peut associer à un tel ensemble modèle un faisceau $\Ocal_X$ de $\C$-algèbres, de la façon suivante : \\
+Soit $\Ocal_{U}$ le faisceau des fonctions holomorphes sur $U$ et $\Iscr$ le $\Ocal_U$-module engendré par $f_1,\ldots,f_n$.
+On définit $\Ocal_X:=i^{-1} \Ocal_U/\Iscr$ où $i$ est l'inclusion $X \hookrightarrow U$.
+
+\begin{Def}
+On appelle espace analytique complexe un espace localement annelé en $\C$-algèbres $(X,\Ocal_X)$, où $X$ est un espace topologique séparé et dénombrable à l'infini, tel qu'il existe un recouvrement ouvert $\{U_i\}$ de $X$ et un espace modèle $(Y,\Ocal_Y)$ tel que $(U_i,\Ocal_{U_i}) \simeq (Y,\Ocal_{Y})$ où $\Ocal_{U_i}$ et la restriction de $\Ocal_X$ sur $U_i$.
+\end{Def}
+\begin{Ex}
+\begin{itemize}
+	\item Une variété complexe est un espace analytique complexe (localement donné par aucun équation)
+	\item La parabole de Neil donné par $w^2-y^3$ dans $\C^2$ (qui n'est pas lisse en 0)
+	\item Le point d'ordre $m$ donné par la fonction $z^m$ dans $\C$ (qui n'est pas réduit pour $m>1$)
+\end{itemize}
+\end{Ex}
+On définit la catégorie des espaces analytiques complexes comme la sous-catégorie pleine de la catégorie des espaces localement annelés en $\C$-algèbres dont les objets sont les espaces analytiques complexes. On appelera application holomorphe un morphisme d'espaces analytiques complexes.
+
+\begin{Thm}
+Les produits fibrés finis existent dans la catégorie des espaces analytiques complexes.
+
+\end{Thm}
+\begin{proof}
+Voir \cite{scv} paragraphe 5 p37
+\end{proof}
+En particulier, les produits finis et les noyaux existent dans cette catégorie. L'espace topologique sous-jacent du produit (resp. du noyau) est le produit des espaces topologiques sous-jacents ( noyau des applications continues sous-jacentes). \\
+
+\begin{Def}
+Un espace analytique complexe $(X,\Ocal_X)$ est dit réduit si pour tout $x \in X$, $\Ocal_{X,x}$ est réduit (i.e. son nilradical est 0)
+
+\end{Def}
+
+\begin{Thm}
+Si $(X,\Ocal_X)$ est un espace analytique réduit alors $\Ocal_X$ est un sous-faisceau de celui des fonctions continues de $X$.
+
+\end{Thm}
+
+\begin{proof}
+Soit $s \in \Gamma(U,\Ocal_X)$. On peut associer à $s$ une application continue $[s] : U \to \C$ de la façon suivante : \\
+Soit $x \in U$, on peut décomposer la $\C$-algèbre $\Ocal_{X,x}$ en une somme directe : $\Ocal_{X,x}=\C \oplus \mfrak_{X,x}$ ( comme la question est locale, on peut se restreindre aux espaces modèles et on utilise le fait que pour tout ouvert $U$ de $\C^n$ et tout $x=(x_1,\ldots,x_n)\in U$, $\Ocal_{U,x}$ est l'algèbre $\C\{z_1-x_1,\ldots,z_n-x_n\}$ des série entières de rayon strictement positif). On définit $[s](x)=c_x$ où $s_x=c_x \oplus t_x$. L'application $[s]$ est continue (avec le même argument sur les espaces modèles).
+On définit ainsi un morphisme $\Ocal_X \to \Ccal_X$. Pour montrer que c'est un monomorphisme, il suffit de montrer qu'aux fibres, on a un morphisme injectif. Par le Nullstellensatz de Rückert (cf \cite{scv} 8.3 p 52), en tout point $x \in X$, le noyau de $\Ocal_{X,x} \to \Ccal_{X,x}$ est le nilradical de $\Ocal_{X,x}$ qui est nul par hypothèse.
+
+\end{proof}
+
+
+On va maintenant donner quelques résultats importants sur les espaces analytiques : 
+\begin{Thm}
+Soit $f : M \to N$ une application holomorphe propre. Alors l'image de $M$ par $f$ est un espace analytique complexe
+\end{Thm}
+
+\begin{Def} % Point lisse
+Soit $X$ un espace analytique complexe réduit. Un point de $X$ est dit lisse s'il admet un voisinage ouvert dans $M$ qui est une variété complexe. Dans le contraire, il est dit singulier. On notera $S(X)$ l'ensemble des points singuliers.
+\end{Def}
+Une conséquence de cette définition est que si tous les points de $X$ sont lisses alors $X$ est une variété complexe.
+\begin{Thm} %
+Soit $X$ un espace analytique complexe réduit. L'ensemble des points singuliers de $X$ est un sous-espace analytique complexe d'intérieur vide de $M$.
+\end{Thm}
+
+\begin{Prop}
+Soit $X$ un espace analytique complexe réduit. $X$ est irréductible si, et seulement si, $X \setminus S(X)$ est connexe.
+
+\end{Prop}
+Soit $X$ un espace analytique complexe réduit. On appelle dimension de $X$ la dimension de la variété complexe $X \setminus S(X)$
+\begin{Def}
+
+
+\end{Def}
+\subsection{ Cycles}
+
+Soit $X$ un espace analytique et $n \in \N^*$. Un $n$-cycle (fermé) de $X$ est une somme formelle localement finie 
+	\[ Z:=\sum_{i \in I} n_i Z_i
+\]
+
+où $n_i \in \N^*$ et les $Z_i$ sont des sous-espaces analytiques distincts de $X$ irréductibles fermés de dimension finie . \\
+On notera $\emptyset[n]$ le $n$-cycle donné par $J=\emptyset$
+On appelle support d'un tel cycle le sous-espace analytique $\bigcup Z_i$ et on l'identifiera à $Z$ si pour tout $i \in I$, $n_i=1$. On dira alors que $Z$ est réduit. \\
+Un cycle sera dit compact lorsque son support compact. Dans ce cas, $J$ est fini et les $Z_j$ sont compacts (la réciproque est évidemment vraie). \\
+On notera $\Cscr_n^{loc}(X)$ (resp. $\Cscr_n(X)$) l'ensemble des $n$-cycles fermés (resp. compacts).\\
+Dans la suite, on étudiera surtout les cycles compacts mais quelques résultats seront donnés pour les $n$-cycles fermés pour des raisons de simplicité. \\
+On peut définir de façon naturelle la somme de deux cycles en ajoutant terme à terme les deux sommes formelles.
+\begin{Prop}
+Soit $f : X \to Y$ une application holomorphe. Alors il existe une unique application $f_* : \Ccal_n(X) \to \Ccal_n(Y)$ telle que :
+\begin{itemize}
+	\item Pour toute famille finie de $n$-cycles $(Z_i)_{i \in I}$, $\sum_{i \in I} f_*(X_i)=f_*(\sum_{i \in I} X_i)$
+	\item Si $X \in \Ccal_n(X)$ et si $\dim(f(|X|))<n$ alors $f_*(X)=\emptyset[n]$.
+	\item Si le $n$-cycle $Z$ est réduit et si $f$ est génériquement de degré $k$ sur son image $Y=f(X)$ alors $f_*(X)=kY$
+\end{itemize}
+\end{Prop}
+\begin{proof}
+On utilise le lemme 1.3.6 de \cite{cac} et on remarque que dans le cas compact, l'application $f : |Z| \to Y$ est toujours propre. De plus, l'image de l'application $f_* : \Cscr_n(X) \to \Cscr_n^{loc}(Y)$ obtenue par ce lemme est à image dans $\Cscr_n^{loc}(Y)$ par continuité de $f$.
+\end{proof}
+
+
+\ifwhole
+ \end{document}
+\fi
