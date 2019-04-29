@@ -1,0 +1,93 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+
+\begin{Thm}
+Soit $\Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiques complexes dont toutes les fibres sont des variétés de Kähler. Soit $E$ un sous-ensemble de $B_0 \times B_1$ inclus dans un compact $K$. Soit $Z=(Z_T)_{T \in E}$ une famille analytique de cycles de $\Xscr_0 \times \Xscr_1$ tel que, pour tout $(t,t') \in E$, $Z_{t,t'}$ soit le graphe d'un biholomorphisme de $(\Xscr_0)_t$ dans $(\Xscr_1)_{t'}$. Alors, 
+\begin{enumerate}
+	\item $Z$ rencontre un nombre fini de composante irréductible de $\Cscr_n(\Xscr_0 \times \Xscr_1)$. 
+\item Soit $\Cscr_0$ une composante irréductible des cycles $\pi_0 \times \pi_1$-relatifs rencontrant $Z$. Il existe un ouvert de Zariski de $\Cscr_0$ tel que tout cycle de cet ouvert est le graphe d'un biholomorphisme entre une fibre de $\Xscr_0$ et une fibre de $\Xscr_1$.
+\end{enumerate}
+
+\end{Thm}
+
+\begin{proof}
+1) Soit $(t_0,t'_1) \in E$. Posons $M:= \pi_0^{-1}(t_0) \simeq \pi_1^{-1}(t'_1)$. \\
+Alors par le théorème 4.5 de \cite{catan}, les fibres de $\pi_0$ ( et de $\pi_1$) sont toutes difféomorphes ( pas nécessairement biholomorphe) à $M$. On peut définir deux familles continues $(\omega_{0,t})$ et $(\omega_{1,t'})$ de formes de Kähler sur $M$ obtenue par pullback et une famille de difféomorphismes $f_t$ de $M$ obtenue à partir des biholomorphismes $(\Xscr_{0})_t \to (\Xscr_{1})_{t'}$. Ainsi,
+	\[ Vol(Z_{t,t'})=\frac{1}{ n !} \int_M \omega_{0t}+f_{t*}\omega_{1,t'}=\frac{1}{ n !} \int_M \omega_{0t}+\omega_{1,t'}
+	\]
+	 
+L'application $v : (t,t') \in E \mapsto Vol(Z_{t,t'})$ est donc continue. Comme $E$ est inclus dans un compact alors $v$ est bornée. \\
+On peut maintenant utiliser le théorème \ref{compact} : le volume $Z_{t,t'}$ est uniformément borné et les supports des $Z_{t,t'}$ est inclus dans $(\pi_0 \times \pi_1)^{-1}(K)$ qui est compact. $Z$ est donc relativement compact et donc rencontre un nombre fini de composantes irréductibles de $\Cscr_n(\Xscr_0 \times \Xscr_1)$.
+
+2) Soit $A$ le cycle universel de $\Xscr_0 \times \Xscr_1 \times \Cscr_0$. La projection $\pi_3 : A \to \Cscr_0$ et est donc lisse sur un ouvert de Zariski de $\Cscr_0$. \\
+Par le même argument de dimension que dans la preuve de \ref{biholo}, sur un ouvert de Zariski $S_i$ de $Z$, on a un isomorphisme $d_z\pi_i : T_zZ_c \simeq  T_{\pi_i(z)} (\Xscr_i)_{r}$ (où $z=(x,y,c)$ et $c \in \Cscr_0 \cap \Cscr_n((\Xscr_0)_{t}\times (\Xscr_1)_{t'})$, $r=t$ ou $t'$). On va donc restreindre $\Cscr_0$ en $\Cscr_0 \setminus \pi_3(S_1^c \cap S_2^c)$. \\
+De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\Xscr_1)_{t'})$ alors on peut utiliser l'argument final d'homotopie de \ref{biholo}, pour dire que que les projections $Z_c \to \Xscr_i$ sont des homéomorphismes. Par le théorème d'inversion locale, 
+
+\end{proof}
+
+\begin{Ex}
+Soit $E$ un tore complexe. Soit $T : E \times E \to E \times E$ l'application donnée par $(x,y) \mapsto (x+y,x+2y)$. Soit $\tau \in \C$, $Im(\tau)>0$. \\
+On fait agir $\Z^2$ sur $E \times E \times \C$ par : $(n,m) \cdot (x,y, \lambda):=(T^m(x,y),\lambda+n+m\tau)$. \\
+Cette action est sans point fixe car si $\lambda=\lambda+n+m\tau$ alors, comme $Im(\tau)>0$, $m=0$ et donc $n=0$. Elle est aussi propre car un compact de $E \times E \times \C$ est inclus dans un $E \times E \times B(0,a)$
+Soit $X$ la variété quotient de $E \times E \times \C$ par l'action. \\
+La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'application $p : [(x,y,\lambda)] \in X \mapsto [\lambda] \in \C/\Z \oplus \tau \Z$. \\
+Cette application est bien définie car pour tout $(n,m) \in \Z^2$, 
+	\[ p((n,m)\cdot (x,y,\lambda))=p(T^m(x,y),\lambda+n+\tau m)=[\lambda+n+\tau m]=[\lambda]=p(x,y,\lambda)
+\]
+Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre que le fait que l'action n'est pas de point fixe. \\
+
+%**********************************************************************************************************
+On note par $\frac{\partial}{\partial x_1}$,$\frac{\partial}{\partial x_2}$ et $\frac{\partial}{\partial z}$ la base des champs de vecteur sur, respectivement, le premier $E$, le deuxième et sur $\C$. On obtient ainsi une base des champs de vecteurs sur $E \times E \times \C$.
+Un champ de vecteur holomorphe sur $X$ peut être relevé sur $E \times E \times \C$ où il doit avoir la forme 
+	\[\psi=f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial z}
+\]
+où $f_1,f_2$ et $g$ sont des fonctions $\C \to \C$ vérifiant les égalités, pour tout $z \in \C$,  
+	
+	\begin{itemize}
+		\item $\forall m,n \in \Z, g(z+n+m\tau)=g(z)$
+		\item $f_j(z+1)=f(z)$, $j=1,2$
+		\item $f_1(z+1)=2f_1(z)-f_2(z)$
+		\item $f_2(z+\tau)=-f_1(z)+f_2(z)$
+	\end{itemize}
+Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la mêm façon). Alors, on obtient, pour tout $Z=(x,y,z) \in E \times E \times \C$ et pour tout $(m,n) \in \Z$, \\
+	\[\psi(f)(Z)=\psi(f)((n,m)\cdot Z)=\psi(f)((n,m)\cdot Z)=\psi(f)(T^m(x,y),\lambda+\tau m +n)
+\]
+En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial z}$ et $T^p=(T_1^p,T_2^p)$ pour $p \in \N$, on obtient : \\
+\[\psi(f)(Z)=f_1(z+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]\]\[+f_2(z+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]+g(z+\tau m +n)\frac{\partial f}{\partial z}
+\]
+En identifiant les coefficients, on obtient immédiatement que, pour tout $m,n \in \Z$ et pour tout $z \in\C$, 
+	\[ g(z+\tau m+n)=g(z)
+\]
+Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\partial_{ij}$ et donc $f_j(z+1)=f_j(z)$. \\
+Pour $(m,n)=(0,1)$, on obtient 
+\begin{equation} \label{translation}
+\begin{pmatrix}
+f_1(z) \\ f_2(z)
+\end{pmatrix}=T\begin{pmatrix}
+f_1(z+\tau) \\ f_2(z+\tau)
+\end{pmatrix}
+\end{equation}
+Les autres cas se déduisent de ceux-là. \\
+Comme $g$ est une fonction holomorphe doublement périodique alors $g$ est constante.\\
+On écrit les $f_j$ en une série de Fourier : 
+	\[f_j(z)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha z}
+\]
+On a donc $f_j(z+\tau)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha (z+\tau)}$. \\
+Par l'équation \eqref{translation}, $f=0$ sauf $e^{-2i\pi \alpha \tau}$ est une valeur propre de $T$. \\
+Pour des valeurs génériques de $\tau$, les champs de vecteurs sur $X$ sont des multiples de $\frac{\partial}{\partial z}$
+\end{Ex}
+
+\ifwhole
+ \end{document}
+\fi
