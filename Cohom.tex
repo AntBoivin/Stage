@@ -1,0 +1,69 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+
+\section{Cohomologie}
+\begin{Thm}[Foncteurs dérivés] \label{fonct_deriv}
+Soient $\Ccal,\Dcal$ deux catégories abéliennes tels que $\Ccal$ ait suffisamment d'injectifs et $F : \Ccal \to\Dcal$ un foncteur exact à gauche. Alors, pour tout objet $M$ de $\Ccal$ , il existe des objets $R^iF(M)$, $i \geq 0$, dans $\Dcal$, déterminés à isomorphisme près et satisfaisant les conditions suivantes : 
+\begin{itemize}
+	\item $R^0F(M)=F(M)$
+	\item Pour toute suite exacte \xymatrix {
+   0 \ar[r] & A \ar[r]  & B \ar[r] & C \ar[r] &0 \\ 
+  }
+	dans $\Ccal$, on peut construire une suite exacte 
+		\[\xymatrix@!=0.8cm{
+			0 \ar[r] & F(A) \ar[r]  & F(B) \ar[r] & F(C) \ar[r] &R^1F(A) \ar[r] &R^1F(B) \ar[r] &R^1F(C) \ar[r] &\ldots \\ 
+		}
+\]
+	\item Pour tout objet injectif $I$ de $\Ccal$, $R^iF(I)=0$ pour $i>0$
+\end{itemize}
+
+\end{Thm}
+
+Dans ce texte, nous allons considérer la catégorie, que l'on notera $\Ccal$, des faisceaux de $\C$-algèbres sur une variété complexe $X$. 
+
+\begin{Thm}
+La catégorie $\Ccal$ a suffisamment d'injectifs.
+\end{Thm}
+
+On peut donc appliquer le théorème \ref{fonct_deriv} avec le foncteur des sections globales $\Gamma : \Ccal \to \textbf{Ens}$  qui associe à un faisceau $\Fcal$ l'ensemble $\Fcal(X)=\Gamma(X,\Fcal)$. C'est un foncteur exact à gauche (car adjoint à droite du foncteur faisceau constant). On notera par $H^i(X,\Fcal)$ la $\C$-algèbre $R^i \Gamma(\Fcal)$, que l'on appelera le $i$ème groupe de cohomologie de $\Fcal$.
+
+\subsection{Quelques exemples}
+
+Dans ce paragraphe, nous allons relier la cohomologie des faisceaux avec les cohomologies usuelles.
+
+\begin{Thm}[Faisceaux constants]
+Soit $\K=\R$ ou $\C$ et $X$ une variété lisse si $\K=\R$ ou complexe si $\K=\C$.   \\
+On a un isomorphisme naturel, pour tout $k \in \N$, 
+	\[ H^k(X,\underline{\K}) \simeq H_{dR}^k(X,\K)
+\]
+
+\end{Thm}
+
+\begin{proof}[Idée de preuve]
+Le lemme de Poincaré nous dit que les formes fermées sont localement exactes. Par conséquent, cela nous donne une résolution injective acyclique\footnote{Tous les objets $I^k$ de la résolution sont acycliques pour $\Gamma$ i.e. $R^i\Gamma(I^k)=0$} de $ \underline{\K}$ : 
+	\[\xymatrix{
+		0 \ar[r] & \underline{\K} \ar[r]  & \Omega^0(X,\K) \ar[r] & \Omega^1(X,\K) \ar[r] & \Omega^2(X,\K) \ar[r] & \ldots \\ 
+		}
+\]
+où la première flèche est l'inclusion et les suivantes sont les différentielles extérieures.
+\end{proof}
+
+Le résultat est aussi vrai pour $\K=\Z$ (en remplaçant la cohomologie de de Rham par la cohomologie singulière).
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
