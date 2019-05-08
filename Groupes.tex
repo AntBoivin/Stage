@@ -1,0 +1,186 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\subsection{ Groupes topologiques}
+
+\begin{Def}
+Un groupe topologique est un groupe $(G,*)$ dont l'ensemble sous-jacent est muni d'une topologie compatible avec les lois de groupes i.e. les applications $(x,y)  \in G \times G \mapsto x*y \in G$ et $x \in G \mapsto x^{-1} \in G$ sont continues. Autrement dit, un groupe topologique est un groupe dans la catégorie des espaces topologiques.
+
+\end{Def}
+On dira qu'un groupe topologique est connexe, séparé, compact,... si son espace topologique sous-jacent l'est.
+\begin{Prop} \label{identity_component}
+La composante connexe de l'identité $G_0$ est un sous-groupe fermé distingué de $G$
+\end{Prop}
+\begin{proof}
+Le sous-ensemble $G_0$ est un sous-groupe de $G$ car on a $Id \in G_0$ et si on note par $\mu$ l'application $(x,y) \in G_0 \times G_0 \mapsto xy^{-1} \in G$, on obtient une application continue et comme $G_0 \times G_0$ est connexe alors son image aussi et comme l'identité est dans cette image alors, pour tout $x,y \in G_0,xy^{-1} \in G_0$. \\
+On montre de la même façon que $G_0$ est distingué en considérant,pour tout $x \in G$, l'application $h \in G_0 \mapsto xhx^{-1}$.\\
+Montrons maintenant que $G_0$ est fermé : \\
+L'adhérence $\overline{G_0}$ de $G_0$ est connexe (car $G_0$ l'est). Par conséquent, $\overline{G_0}\subset G_0$ et donc $\overline{G_0}=G_0$
+
+\end{proof}
+\begin{Ex}
+$G_0$ n'est pas nécessairement ouvert : si $G=(\Q,+)$ est le groupe des rationnels alors $G_0$ est un singleton et n'est donc pas ouvert.
+
+\end{Ex}
+
+\begin{Prop}\label{engendr}
+Soit $G$ un groupe topologique connexe et $V$ un voisinage ouvert de l'identité. Alors $V$ engendre $G$. 
+
+\end{Prop}
+\begin{proof}
+Soit $H$ le sous-groupe engendré par $V$. Montrons que $G=H$ \\
+Comme $H=\bigcup_{h \in H} hV$ et que les $hV$ sont ouverts car homéomorphes à $V$ alors $H$ est ouvert. \\
+Le groupe $G$ est la réunion disjointe de classe d'équivalence $g_iH$, toute homéomorphe à $H$. De ce fait, $H$ est le complémentaire de l'union des autres classes d'équivalence et est donc fermé. \\
+Comme $G$ est connexe alors $G=H$.
+
+\end{proof}
+
+\begin{Thm}
+Soit $G$ un groupe topologique. Son groupe fondamental $\pi_1(G,e)$ est abélien.
+
+\end{Thm}
+
+\begin{proof}
+Le groupe fondamental $\pi_1$ est un foncteur des espaces topologiques pointés $\textbf{Top}_\bullet$ dans la catégorie des groupes $\textbf{Gr}$, qui commute avec le produit. Ainsi, on peut définir un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}_\bullet) \to \textbf{Gr}(\textbf{Gr})$ entre les groupes des deux catégories citées. En particulier, en restreignant ce foncteur aux groupes topologiques (qui sont pointés par le neutre), on obtient un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}) \to \textbf{Gr}(\textbf{Gr})$. Or, par le principe d'Eckmann-Hilton\footnote{Réf à donner}, $\textbf{Gr}(\textbf{Gr})$ est la catégorie des groupes abéliens, ce qui montre le résultat.
+
+\end{proof}
+
+\subsection{Groupes de Lie}
+
+\begin{Def}
+Un groupe de Lie réel (resp. complexe)  est un groupe $(G,*)$ dont l'ensemble sous-jacent est muni d'une structure de variété lisse (resp. complexe) compatible avec les lois de groupes i.e. les applications $(x,y)  \in G \times G \mapsto x*y \in G$ et $x \in G \mapsto x^{-1} \in G$ sont lisses (resp. holomorphes). Autrement dit, un groupe de Lie réel (resp. complexe) est un groupe dans la catégorie des variétés différentielles (resp. variétés complexes).
+
+\end{Def}
+
+\begin{Def}
+Soit $G$ un groupe de Lie (réel ou complexe). L'algèbre de Lie, notée $\gfrak$, associée à $G$ est l'espace vectoriel (réel ou complexe) des champs de vecteurs invariants à gauche i.e. les champs de vecteurs $X$ tels que, pour tout $g \in G$, $(L_g)_*X=X$ .
+\end{Def}
+L'espace vectoriel $\gfrak$ s'identifie à l'espace tangent de $G$ en le neutre de la façon suivante : \\
+A tout $x \in T_eG$, on associe le champ de vecteur $X : g \in G \mapsto d_e L_g(x)$ qui est invariant à gauche.
+\begin{Def}
+Une variété (lisse ou complexe) est dite parallélisable si son fibré tangent est trivial.
+\end{Def}
+
+\begin{Thm}
+Un groupe de Lie (réel ou complexe) est trivialisable.
+
+\end{Thm}
+
+\begin{proof}
+Soit $G$ un groupe de Lie (réel ou complexe). \\
+On considère les applications \\
+$\begin{array}{ccccc}
+TG &\to& G \times T_e G \\
+(g,v) & \mapsto & (g,d_g L_{g^{-1}}(v))   \\
+\end{array}$ et
+$\begin{array}{ccccc}
+ G \times T_e G & \to & TG \\
+ (x,v) & \mapsto & (x,d_e  L_g(v)) \\
+\end{array}$
+Elles sont lisses (resp. holomorphes) et inverses l'une de l'autre. Ce sont donc des isomorphismes.
+\end{proof}
+
+
+\begin{Thm}
+Soit $G$ un groupe de Lie complexe et $\gfrak$ la $\C$-algèbre de Lie associée.
+L'exponentielle réelle $\exp_\R : G_\R \to \gfrak_\R$ entre les structures réelles des deux espaces induit une application holomorphe $\exp : G \to \gfrak$. 
+\end{Thm}
+\begin{proof}
+Voir \cite{Lee} Thm 1.15 % Lee
+
+ \end{proof}
+
+
+
+\begin{Thm}\label{autom_Lie}
+Soit $M$ un variété complexe compacte. Son groupe d'automorphisme est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
+
+\end{Thm}
+\begin{proof}
+Voir \cite{BM} %Bochner Montgomery
+
+\end{proof}
+
+\begin{Lemme}\label{isotopie} % isotopie
+Soient $M$ une variété lisse, $I$ un intervalle ouvert. Soit $\rho : M \times I \to M$ une isotopie lisse (i.e. pour tout $t \in I$, $\rho(\cdot,t)$ est un difféomorphisme). \\
+Alors, pour toute forme $\omega$ et pour tout $t \in I$, 
+	\[ \left[\frac{d}{ds} {\rho_s}_* \omega\right](t)=(\rho_t)_* \Lcal_{X_t} \omega
+\]
+où $(X_t)$ vérifie $\frac{d\rho_t}{dt} =X_t(\rho_t(\dot))$ et $\Lcal$ est la dérivée de Lie.
+\end{Lemme}
+\begin{proof}
+Voir théorème 36 p 175 \cite{laf}
+\end{proof}
+
+\begin{Lemme}\label{derivee_forme}
+Soit $s \in S \mapsto \omega_s$ une famille de formes différentielles fermées. Alors, 
+	\[ \left[\frac{d \omega_s}{ds}\right]=\frac{d}{ds}\left[ \omega_s\right]
+\]
+où $\left[\omega\right]$ est la classe de cohomologie de $\omega$.
+\end{Lemme}
+\begin{proof}
+Il faut seulement montrer que l'égalité ne dépend pas des classes choisies.\\
+Soit $(\eta_s)$ une autre famille de formes différentielles fermées telle que $[\omega_s]=[\eta_s]$ i.e il existe une famille de formes différentielles exactes $(\gamma_s)$ telles que : 
+	\[\forall s \in S,  \omega_s=\eta_s+d\gamma_s
+\]
+Ainsi, 
+	\[\frac{d}{ds}\omega_s=\frac{d}{ds}\eta_s+\frac{d}{ds}d\gamma_s
+\]
+Or, par le lemme 44 de \cite{laf} (page 179), $\frac{d}{ds}$ et $d$ commute et donc $\frac{d}{ds}d\gamma_s$ est nulle en cohomologie.
+\end{proof}
+\begin{Cor}\label{cohom_isotop}
+Sous les hypothèses de \ref{isotopie}, si on prend une forme fermée $\omega$ et si on suppose $\rho_0=Id$, alors sa classe est préservée par l'isotopie i.e.
+	\[ \forall t \in I, [\omega]=[{\rho_t}_* \omega]
+\]
+\end{Cor}
+\begin{proof}
+Par le lemme \ref{isotopie} , on a, pour tout $t \in T$, 
+	\[ \left(\frac{d}{ds} {\rho_s}_* \omega\right)(t)=(\rho_t)_* \Lcal_{X_t} \omega
+\]
+Or, comme $\omega$ est fermé et que le pullback commute avec la différentielle, on a :
+	\[ (\rho_t)_*\Lcal_{X_t} \omega=(\rho_t)_*(di_{X_t} \omega+i_{X_t} d\omega)=(\rho_t)_*di_{X_t}\omega=d(\rho_t)_*i_{X_t}\omega
+\]
+Ainsi, $\frac{d}{ds} {\rho_s}_*\omega$ est nulle en cohomologie et donc par le lemme \ref{derivee_forme}, ${\rho_s}_*\omega$ est constante et donc, pour tout $t\in T$, 
+	\[[{\rho_t}_* \omega]=[{\rho_0}_*\omega]=[\omega]
+\]
+
+\end{proof}
+\begin{Cor}\label{inclusion}
+Soit $M$ un variété de Kähler compacte.
+	\[Aut_0(X) \subset Aut_\omega(X)
+\]
+
+
+\end{Cor}
+
+\begin{proof}
+Par le théorème \ref{autom_Lie}, $Aut_0(X)$ est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
+Par le théorème d'inversion locale, $\exp$ est un difféomorphisme autour de $0$, disons entre $U \subset \gfrak$ (que l'on supposera convexe) et $V \subset G$. Par le lemme \ref{engendr}, $V$ engendre $Aut_0(X)$. \\
+Ainsi, un élément de $Aut_0(X)$ est de la forme 
+	\[f=\exp(u_1)^{\varepsilon_1} \ldots \exp(u_n)^{\varepsilon_n}
+\]
+, $u_i \in U, \varepsilon_i \in \{\pm 1\}$. \\On peut donc supposer que $f=\exp(u), u \in U$ et montrons que cette application préserve la classe de Kähler. On obtient le résultat voulu en itérant l'égalité obtenue. \\
+L'application $f$ est isotope à l'identité grâce à l'application $\rho : (t,x) \in ]-\varepsilon,1+\varepsilon[ \mapsto \exp(tu)(x)$ pour $\varepsilon$ bien choisi ( $\varepsilon>0$ est choisi de tel sorte que $-\varepsilon u $ et $(1+\varepsilon)u$ soient dans $U$).
+Les $\rho(t,\cdot)$ sont toujours des difféomorphismes grâce au fait que $U$ est convexe et donc $]-\varepsilon,1+\varepsilon[u \subset U$. Par conséquent, on obtient notre résultat grâce au corollaire \ref{cohom_isotop}, 
+
+\end{proof}
+
+
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
