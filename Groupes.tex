@@ -71,8 +71,8 @@ A tout $x \in T_eG$, on associe le champ de vecteur $X : g \in G \mapsto d_e L_g
 Une variété (lisse ou complexe) est dite parallélisable si son fibré tangent est trivial.
 \end{Def}
 
-\begin{Thm}
-Un groupe de Lie (réel ou complexe) est trivialisable.
+\begin{Thm}\label{trivialisable}
+Un groupe de Lie (réel ou complexe) est parallélisable.
 
 \end{Thm}
 
@@ -116,7 +116,7 @@ Soient $M$ une variété lisse, $I$ un intervalle ouvert. Soit $\rho : M \times I 
 Alors, pour toute forme $\omega$ et pour tout $t \in I$, 
 	\[ \left[\frac{d}{ds} {\rho_s}_* \omega\right](t)=(\rho_t)_* \Lcal_{X_t} \omega
 \]
-où $(X_t)$ vérifie $\frac{d\rho_t}{dt} =X_t(\rho_t(\dot))$ et $\Lcal$ est la dérivée de Lie.
+où $(X_t)$ vérifie $\frac{d\rho_t}{dt} =X_t(\rho_t(\cdot))$ et $\Lcal$ est la dérivée de Lie.
 \end{Lemme}
 \begin{proof}
 Voir théorème 36 p 175 \cite{laf}
@@ -148,7 +148,7 @@ Par le lemme \ref{isotopie} , on a, pour tout $t \in T$,
 	\[ \left(\frac{d}{ds} {\rho_s}_* \omega\right)(t)=(\rho_t)_* \Lcal_{X_t} \omega
 \]
 Or, comme $\omega$ est fermé et que le pullback commute avec la différentielle, on a :
-	\[ (\rho_t)_*\Lcal_{X_t} \omega=(\rho_t)_*(di_{X_t} \omega+i_{X_t} d\omega)=(\rho_t)_*di_{X_t}\omega=d(\rho_t)_*i_{X_t}\omega
+	\[ {\rho_t}_*\Lcal_{X_t} \omega={\rho_t}_*(di_{X_t} \omega+i_{X_t} d\omega)={\rho_t}_*di_{X_t}\omega=d({\rho_t}_*i_{X_t})\omega
 \]
 Ainsi, $\frac{d}{ds} {\rho_s}_*\omega$ est nulle en cohomologie et donc par le lemme \ref{derivee_forme}, ${\rho_s}_*\omega$ est constante et donc, pour tout $t\in T$, 
 	\[[{\rho_t}_* \omega]=[{\rho_0}_*\omega]=[\omega]
@@ -156,20 +156,21 @@ Ainsi, $\frac{d}{ds} {\rho_s}_*\omega$ est nulle en cohomologie et donc par le l
 
 \end{proof}
 \begin{Cor}\label{inclusion}
-Soit $M$ un variété de Kähler compacte.
-	\[Aut_0(X) \subset Aut_\omega(X)
+Soit $(M,\omega)$ un variété de Kähler compacte.
+	\[Aut_0(M) \subset Aut_\omega(M)
 \]
 
 
 \end{Cor}
 
 \begin{proof}
-Par le théorème \ref{autom_Lie}, $Aut_0(X)$ est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
-Par le théorème d'inversion locale, $\exp$ est un difféomorphisme autour de $0$, disons entre $U \subset \gfrak$ (que l'on supposera convexe) et $V \subset G$. Par le lemme \ref{engendr}, $V$ engendre $Aut_0(X)$. \\
+Par le théorème \ref{autom_Lie}, $Aut_0(M)$ est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
+Par le théorème d'inversion locale, $\exp$ est un difféomorphisme autour de $0$, disons entre $U \subset \gfrak$ (que l'on supposera convexe) et $V \subset G$. Par le lemme \ref{engendr}, $V$ engendre $Aut_0(M)$. \\
 Ainsi, un élément de $Aut_0(X)$ est de la forme 
 	\[f=\exp(u_1)^{\varepsilon_1} \ldots \exp(u_n)^{\varepsilon_n}
 \]
-, $u_i \in U, \varepsilon_i \in \{\pm 1\}$. \\On peut donc supposer que $f=\exp(u), u \in U$ et montrons que cette application préserve la classe de Kähler. On obtient le résultat voulu en itérant l'égalité obtenue. \\
+où $u_i \in U, \varepsilon_i \in \{\pm 1\}$. \\
+On peut donc supposer que $f=\exp(u), u \in U$ et montrons que cette application préserve la classe de Kähler. On obtient le résultat voulu en itérant l'égalité obtenue. \\
 L'application $f$ est isotope à l'identité grâce à l'application $\rho : (t,x) \in ]-\varepsilon,1+\varepsilon[ \mapsto \exp(tu)(x)$ pour $\varepsilon$ bien choisi ( $\varepsilon>0$ est choisi de tel sorte que $-\varepsilon u $ et $(1+\varepsilon)u$ soient dans $U$).
 Les $\rho(t,\cdot)$ sont toujours des difféomorphismes grâce au fait que $U$ est convexe et donc $]-\varepsilon,1+\varepsilon[u \subset U$. Par conséquent, on obtient notre résultat grâce au corollaire \ref{cohom_isotop}, 
 
