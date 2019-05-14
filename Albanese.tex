@@ -43,7 +43,10 @@ On en déduit que
 	\[ H^{2n-1}(X,\R) \cap H^{n,n-1}(X,\C)=\emptyset
 \]
  car, dans le cas contraire, un point de l'intersection serait dans l'intersection $H^{n,n-1}(X) \cap \overline{H^{n,n-1}(X)}$ (car réel) qui est vide.
-L'application $H^{2n-1}(X,\R) \hookrightarrow H^{2n-1}(X,\C) \twoheadrightarrow H^{2n-1}(X)/H^{n,n-1}(X)$ est injective et donc est un isomorphisme (car ils ont la même dimension).
+L'application 
+	\[H^{2n-1}(X,\R) \hookrightarrow H^{2n-1}(X,\C) \twoheadrightarrow H^{2n-1}(X)/H^{n,n-1}(X)
+\]
+ est injective et donc est un isomorphisme (car ils ont la même dimension).
 Par la dualité de Poincaré(\ref{}), on a $H^{2n-1}(X,\R)=H_1(X,\R)$ et par celle de Serre\footnote{Voir \cite{Voisin} et l'expliquer}, 
 	\[ \overline{H^{n,n-1}(X,\C)}=H^{n-1,n}(X) \simeq H^{1,0}(X)^*=H^0(X,\Omega_X)^*
 \]
@@ -101,7 +104,7 @@ Si $f : \Tcal_1 \to \Tcal_2$ est une application holomorphe entre deux tores com
 
 \begin{proof}
 Quitte à tranlater, on peut supposer $f(0)=0$. \\
-On peut écrire les deux tores sous la forme $\Tcal_1=\C^n/\Lambda_1$ et $\Tcal_1=\C^m/\Lambda_2$. Ces deux tores sont parallélisables et donc $T\Tcal_1=\Tcal_1 \times \C^n$ et $T\Tcal_2=\Tcal_2 \times \C^m$. L'application $df$ est donc une application $\Tcal_1 \times \C^n \to \Tcal_2 \times \C^m$. Si on fixe $v \in \C^m$, on peut définir une application holomorphe $x \in T_1 \mapsto d_xf(v) \in \C^m$. Celle-ci est constante car $\Tcal_1$ est constante. On en déduit que $d_xf(v)$ ne dépend pas de $x$ et donc $df$ est uniquement déterminé par une applcation $\C$-linéaire $\C^n \to \C^m$ (que l'on notera $A$). \\
+On peut écrire les deux tores sous la forme $\Tcal_1=\C^n/\Lambda_1$ et $\Tcal_1=\C^m/\Lambda_2$. Ces deux tores sont parallélisables et donc $T\Tcal_1=\Tcal_1 \times \C^n$ et $T\Tcal_2=\Tcal_2 \times \C^m$. L'application $df$ est donc une application $\Tcal_1 \times \C^n \to \Tcal_2 \times \C^m$. Si on fixe $v \in \C^m$, on peut définir une application holomorphe $x \in T_1 \mapsto d_xf(v) \in \C^m$. Celle-ci est constante car $\Tcal_1$ est compacte. On en déduit que $d_xf(v)$ ne dépend pas de $x$ et donc $df$ est uniquement déterminé par une applcation $\C$-linéaire $\C^n \to \C^m$ (que l'on notera $A$). \\
 Soit $\overline{f} : \C^n \to \C^m$ l'application qui relève $\pi_2 \circ f : \Tcal_1 \to \C^m$ et telle que $\overline{f}(0)=0$. Il suffit donc de montrer que $\overline{f}=A$. Montrons le au voisinage de 0. \\
 La différence de $f$ et celle de $\overline{f}$ coïncide (car la projection est un difféomorphisme local). Soit $z$ dans un voisinage de $0$et $\gamma$ un chemin de $0$ et $z$. Alors, 
 	\[\overline{f}(z)=\int_0^1 d_{\gamma(t)}\overline{f}(\gamma'(t))dt=\int_0^1 A(\gamma'(t))dt=A(\gamma(1))-A(\gamma(0))=A(z)
@@ -112,9 +115,9 @@ Par le prolongement analytique, on obtient $\overline{f}=A$
 \begin{Thm}
 Soit $X$ une variété de Kähler. \\
 $(Alb(X),alb_X)$ vérifie la propriété universelle suivante : 
-Pour toute application holomorphe $f : X \to T$ où $T$ est un tore complexe,il existe une unique application holomorphe $g : Alb(X)\to T$ telle que le diagramme suivant commute
+Pour toute application holomorphe $f : X \to T$ où $T$ est un tore complexe, il existe une unique application holomorphe $g : Alb(X)\to T$ telle que le diagramme suivant commute
  \xymatrix{
-    X \ar[r]^f \ar[d]^{alb_X}  & T \  \\
+    X \ar[r]^f \ar[d]_{alb_X}  & T \  \\
     Alb(X) \ar[ru]_g & 
   }
 
