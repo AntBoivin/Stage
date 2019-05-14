@@ -40,14 +40,14 @@ On peut donc appliquer le théorème \ref{fonct_deriv} avec le foncteur des sectio
 
 \subsection{Quelques exemples}
 
-Dans ce paragraphe, nous allons relier la cohomologie des faisceaux avec les cohomologies usuelles.
+Dans ce paragraphe, nous allons relier la cohomologie des faisceaux avec les cohomologies usuelles puis donner .
 
 \begin{Thm}[Faisceaux constants]
 Soit $\K=\R$ ou $\C$ et $X$ une variété lisse si $\K=\R$ ou complexe si $\K=\C$.   \\
 On a un isomorphisme naturel, pour tout $k \in \N$, 
 	\[ H^k(X,\underline{\K}) \simeq H_{dR}^k(X,\K)
 \]
-
+où $H_{dR}^\bullet$ est la cohomologie de de Rham.
 \end{Thm}
 
 \begin{proof}[Idée de preuve]
@@ -59,9 +59,15 @@ Le lemme de Poincaré nous dit que les formes fermées sont localement exactes. Pa
 où la première flèche est l'inclusion et les suivantes sont les différentielles extérieures.
 \end{proof}
 
-Le résultat est aussi vrai pour $\K=\Z$ (en remplaçant la cohomologie de de Rham par la cohomologie singulière).
+Le résultat est aussi vrai pour $\K=\Z$ (en remplaçant la cohomologie de de Rham par la cohomologie singulière, voir \cite{voisin} Thm 4.47 p 107).
 
+\begin{Thm}
+Soit $X$ une variété complexe. On a un isomorphisme naturel :
+	\[H^q(M,\Omega^{p,0})=H^{p,q}(M)
+\]
+où $H^{\bullet,\bullet}(M)$ est la cohomologie de Dolbeault.
 
+\end{Thm}
 
 
 \ifwhole
