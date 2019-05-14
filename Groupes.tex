@@ -10,7 +10,8 @@
  \begin{document}
 \input{enonce}
 \fi
-
+\section{Groupes}
+Le but de cette section est de montrer le lemme \ref{inclusion} nous disant que, pour une variété de Kähler $(M,\omega)$, tous les éléments de la composantes de l'identité de $Aut(X)$ conserve la classe de $[\omega]$. Pour cela, nous allons faire quelques rappels sur les groupes topologiques et les groupes de Lie qui seront utilisés à d'autres endroits dans le texte.
 \subsection{ Groupes topologiques}
 
 \begin{Def}
@@ -19,28 +20,33 @@ Un groupe topologique est un groupe $(G,*)$ dont l'ensemble sous-jacent est muni
 \end{Def}
 On dira qu'un groupe topologique est connexe, séparé, compact,... si son espace topologique sous-jacent l'est.
 \begin{Prop} \label{identity_component}
-La composante connexe de l'identité $G_0$ est un sous-groupe fermé distingué de $G$
+La composante connexe du neutre $G_0$ est un sous-groupe fermé distingué de $G$
 \end{Prop}
 \begin{proof}
-Le sous-ensemble $G_0$ est un sous-groupe de $G$ car on a $Id \in G_0$ et si on note par $\mu$ l'application $(x,y) \in G_0 \times G_0 \mapsto xy^{-1} \in G$, on obtient une application continue et comme $G_0 \times G_0$ est connexe alors son image aussi et comme l'identité est dans cette image alors, pour tout $x,y \in G_0,xy^{-1} \in G_0$. \\
+Le sous-ensemble $G_0$ est un sous-groupe de $G$. Par définition, le neutre est dans $G_0$, il nous suffit de montrer que : 
+	\[\forall x,y \in G_0,xy^{-1} \in G_0
+	\]
+	 \\
+Pour cela, on considère l'application $\mu : (x,y) \in G_0 \times G_0 \mapsto xy^{-1} \in G$ qui est continue et comme $G_0 \times G_0$ est connexe alors son image aussi. Comme, de plus, le neutre est dans cette image alors, $\mu$ est à valeurs dans $G_0$, ce qui montre le résultat \\
 On montre de la même façon que $G_0$ est distingué en considérant,pour tout $x \in G$, l'application $h \in G_0 \mapsto xhx^{-1}$.\\
 Montrons maintenant que $G_0$ est fermé : \\
 L'adhérence $\overline{G_0}$ de $G_0$ est connexe (car $G_0$ l'est). Par conséquent, $\overline{G_0}\subset G_0$ et donc $\overline{G_0}=G_0$
 
 \end{proof}
-\begin{Ex}
+
 $G_0$ n'est pas nécessairement ouvert : si $G=(\Q,+)$ est le groupe des rationnels alors $G_0$ est un singleton et n'est donc pas ouvert.
 
-\end{Ex}
+
 
 \begin{Prop}\label{engendr}
 Soit $G$ un groupe topologique connexe et $V$ un voisinage ouvert de l'identité. Alors $V$ engendre $G$. 
 
 \end{Prop}
+
 \begin{proof}
 Soit $H$ le sous-groupe engendré par $V$. Montrons que $G=H$ \\
-Comme $H=\bigcup_{h \in H} hV$ et que les $hV$ sont ouverts car homéomorphes à $V$ alors $H$ est ouvert. \\
-Le groupe $G$ est la réunion disjointe de classe d'équivalence $g_iH$, toute homéomorphe à $H$. De ce fait, $H$ est le complémentaire de l'union des autres classes d'équivalence et est donc fermé. \\
+Comme $H=\bigcup_{h \in H} hV$ et que les $hV$ sont ouverts, car homéomorphes à $V$, alors $H$ est ouvert. \\
+Le groupe $G$ est la réunion disjointe de classes d'équivalences $g_iH$, toutes homéo\-morphes à $H$. De ce fait, $H$ est le complémentaire de l'union des autres classes d'équivalence et est donc fermé. \\
 Comme $G$ est connexe alors $G=H$.
 
 \end{proof}
@@ -63,7 +69,7 @@ Un groupe de Lie réel (resp. complexe)  est un groupe $(G,*)$ dont l'ensemble so
 \end{Def}
 
 \begin{Def}
-Soit $G$ un groupe de Lie (réel ou complexe). L'algèbre de Lie, notée $\gfrak$, associée à $G$ est l'espace vectoriel (réel ou complexe) des champs de vecteurs invariants à gauche i.e. les champs de vecteurs $X$ tels que, pour tout $g \in G$, $(L_g)_*X=X$ .
+Soit $G$ un groupe de Lie (réel ou complexe). L'algèbre de Lie, notée $\gfrak$, associée à $G$ est l'espace vectoriel (réel ou complexe) des champs de vecteurs sur $G$ invariants à gauche i.e. les champs de vecteurs $X$ tels que, pour tout $g \in G$, $(L_g)_*X=X$ .
 \end{Def}
 L'espace vectoriel $\gfrak$ s'identifie à l'espace tangent de $G$ en le neutre de la façon suivante : \\
 A tout $x \in T_eG$, on associe le champ de vecteur $X : g \in G \mapsto d_e L_g(x)$ qui est invariant à gauche.
@@ -86,7 +92,7 @@ TG &\to& G \times T_e G \\
 $\begin{array}{ccccc}
  G \times T_e G & \to & TG \\
  (x,v) & \mapsto & (x,d_e  L_g(v)) \\
-\end{array}$
+\end{array}$ \\
 Elles sont lisses (resp. holomorphes) et inverses l'une de l'autre. Ce sont donc des isomorphismes.
 \end{proof}
 
@@ -130,7 +136,7 @@ où $\left[\omega\right]$ est la classe de cohomologie de $\omega$.
 \end{Lemme}
 \begin{proof}
 Il faut seulement montrer que l'égalité ne dépend pas des classes choisies.\\
-Soit $(\eta_s)$ une autre famille de formes différentielles fermées telle que $[\omega_s]=[\eta_s]$ i.e il existe une famille de formes différentielles exactes $(\gamma_s)$ telles que : 
+Soit $(\eta_s)$ une autre famille de formes différentielles fermées telle que, pour tout $s \in S$ $[\omega_s]=[\eta_s]$ i.e il existe une famille de formes différentielles exactes $(\gamma_s)$ telles que : 
 	\[\forall s \in S,  \omega_s=\eta_s+d\gamma_s
 \]
 Ainsi, 
@@ -155,7 +161,7 @@ Ainsi, $\frac{d}{ds} {\rho_s}_*\omega$ est nulle en cohomologie et donc par le l
 \]
 
 \end{proof}
-\begin{Cor}\label{inclusion}
+\begin{Cor}%\label{inclusion}
 Soit $(M,\omega)$ un variété de Kähler compacte.
 	\[Aut_0(M) \subset Aut_\omega(M)
 \]
@@ -171,7 +177,10 @@ Ainsi, un élément de $Aut_0(X)$ est de la forme
 \]
 où $u_i \in U, \varepsilon_i \in \{\pm 1\}$. \\
 On peut donc supposer que $f=\exp(u), u \in U$ et montrons que cette application préserve la classe de Kähler. On obtient le résultat voulu en itérant l'égalité obtenue. \\
-L'application $f$ est isotope à l'identité grâce à l'application $\rho : (t,x) \in ]-\varepsilon,1+\varepsilon[ \mapsto \exp(tu)(x)$ pour $\varepsilon$ bien choisi ( $\varepsilon>0$ est choisi de tel sorte que $-\varepsilon u $ et $(1+\varepsilon)u$ soient dans $U$).
+L'application $f$ est isotope à l'identité grâce à l'application 
+	\[\rho : (t,x) \in ]-\varepsilon,1+\varepsilon[ \mapsto \exp(tu)(x)
+\]
+ pour $\varepsilon$ bien choisi ( $\varepsilon>0$ est choisi de tel sorte que $-\varepsilon u $ et $(1+\varepsilon)u$ soient dans $U$).
 Les $\rho(t,\cdot)$ sont toujours des difféomorphismes grâce au fait que $U$ est convexe et donc $]-\varepsilon,1+\varepsilon[u \subset U$. Par conséquent, on obtient notre résultat grâce au corollaire \ref{cohom_isotop}, 
 
 \end{proof}
