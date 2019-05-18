@@ -1,0 +1,134 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+\section{Variétés complexes}
+\subsection{Premiers énoncés}
+\begin{Def}
+Soit $X$ une variété différentielle de dimension $2n$. Une structure complexe sur $X$ est la donnée d'un atlas $(U_i,\varphi_i: U_i \to \R^{2n} \simeq \C^n)_{i \in I}$ dont les changements de cartes dont holomorphes. Une variété différentielle munie d'une structure complexe est appelé variété complexe. Sa dimension complexe est $n$.
+\end{Def}
+\begin{Def}
+Soient $M,N$ deux variétés complexes. Une application continue $M \to N$ est dite holomorphe autour de $x$ s'il existe une carte $\varphi : U_i \to \C^m$ de $M$ autour de $x$ et une carte $\psi : V_j \to \C^n$ autour de $f(x)$ telles que 
+	\[\psi \circ f \circ \varphi^{-1} :\varphi(U_i) \subset \C^m \to \varphi(V_j) \subset \C^n
+\]
+ est holomorphe. Elle est holomorphe si elle l'est en tout point de $M$. 
+\end{Def}
+Le fait d'être holomorphe ne dépend pas des cartes choisies car les changements de cartes sont holomorphes. \\
+On peut continuer à définir les objets associés à des variétés complexes en remplaçant différentielle par holomorphe : le fibré tangent holomorphe, fibrés vectoriels holomorphes,...\\
+On notera $T_\R X$ le fibré tangent réel et $TX$ le fibré tangent holomorphe. \'Etudions maintenant comment les relier :\\
+Soit $X$ une variété complexe et $\varphi_k : U_k \to \C^n$ les cartes holomorphes de $X$. \\
+Grâce à la différentielle de $\varphi_k$, on peut identifier $T_\R U_k$ avec $U_k \times \C^n$. On peut ainsi définir une application $I_k : T_\R U_k \to T_\R U_k$ qui ramener sur $U_k \times \C^n$ est $i \times id$ (où $i^2=-1$). Comme les changements de cartes sont holomorphes alors leur différentielle est $\C$-linéaire, ce qui permet de recoller les $I_k$ en une application $I : T_\R X \to T_\R X$. \\
+Cette application vérifie l'identité $I^2=-id$ et donc induit une structure de $\C$-espace vectoriel sur les espaces tangents (réels) de $X$ et donc une structure de fibré vectoriel complexe sur $T_\R X$. \\ %i.e. un fibré vectoriel dont toutes les fibres sont des $\C$-espaces vectoriels.
+On peut ensuite remarquer que le fibré tangent holomorphe est inclus dans le complexifié du fibré tangent réel (car localement engendré par les $\frac{\partial}{\partial z_j}=\frac{1}{2}\left(\frac{\partial}{\partial x_j}-i\frac{\partial}{\partial y_j}\right))$ et plus particulièrement, 
+\begin{Thm}
+$TX$ est isomorphe au fibré $T^{1,0}X$ des vecteurs propres de $I \otimes id$ associé à la valeur propre $i$ comme fibré vectoriel complexe. \\
+\end{Thm}
+\begin{proof}
+\cite{\voisin}
+\end{proof}
+La conjugaison complexe agit sur le complexifié $T_\R X\otimes \C$ par $\overline{v \otimes x}=v\otimes \overline{x}$. De ce fait,
+le fibré $T^{0,1}X$ des vecteurs propres de $I \otimes id$ associé à la valeur propre $i$ est le conjugué de $T^{1,0}X$. De plus, 
+on a la décomposition : 
+	\[ T_\R X \otimes \C=T^{1,0} X \oplus T^{0,1} X
+\]
+En composant par $\Hom(\--,\R)$ \footnote{$\Hom(T_\R X \otimes \C,\R)=\Hom(T_\R X ,\C)$} et en regardant les sections, on obtient une décomposition duale : 
+	\[ \Omega_\C X =\Omega^{1,0} X \oplus \Omega^{0,1} X
+\]
+où $\Omega^{1,0} X$ est l'ensemble des formes différentielles $\C$-linéaires et donc engendré par les $dz_i$ et $\Omega^{0,1} X$ est l'ensemble des formes différentielles $\C$-antilinéaires et donc engendré par les $d\overline{z_i}$. \\
+En prenant la puissance extérieure de cette décomposition, on obtient une décomposition\footnote{découle de l'égalité : ...} des $k$-formes complexes : 
+	
+	\begin{equation} \label{decomposition}
+		\Omega^k_\C X= \bigoplus_{p+q=k} \Omega^{p,q} X
+	\end{equation}
+
+où 
+	\[\Omega^{p,q}X=\bigwedge^p \Omega^{1,0} X \otimes \bigwedge^q \Omega^{0,1} X 
+\]
+est appelé ensemble des formes de degré $(p,q)$ ou $(p,q)$-formes. \\
+$\Omega^{p,q}X$ est localement engendré par les 
+	\[dz_{i_1} \wedge \ldots dz_{i_p}  \wedge d\overline{z_{j_1}} \wedge d\overline{z_{j_q}}
+\]
+où $i_1 < \ldots <i_p$ et $j_1<\ldots <j_q$. On notera, pour $I=\{i_1,\ldots,i_p\}$, $dz_I=dz_{i_1} \wedge \ldots dz_{i_p}$ et $J=\{j_1,\ldots,j_q\}$, $d\overline{z_J}=d\overline{z_{j_1}} \wedge \ldots d\overline{z_{j_q}}$. Ainsi, un élément $\alpha$ de $\Omega^{p,q}X$ s'écrit localement sous la forme :
+	\[ \alpha=\sum_{|I|=p,|J|=q} \alpha_{I,J} dz_I \wedge d\overline{z_J}
+\]
+où $\alpha_{IJ}$ est de classe $\Ccal^{\infty}$. \\
+La différentielle d'une telle forme s'écrit 
+	\[d\alpha=\sum_{|I|=p,|J|=q} d\alpha_{I,J} \wedge dz_I \wedge d\overline{z_J}
+\]
+Elle s'écrit donc comme la somme d'uen forme de degré $(p+1,q)$ et d'une forme de degré $(p,q+1)$. La première sera noté $\partial \alpha$ et la seconde $\overline{\partial} \alpha$.
+\begin{Lemme}[Propriétés de $\partial$ et $\overline{\partial}$]
+Les applications $\partial$ et $\overline{\partial}$ sont linéaires et vérifient les égalités suivantes : 
+\begin{itemize}
+	\item Pour tout $\alpha \in \Omega^p X$ et pour tout $\beta \in \Omega^q X$, 
+		\[ \partial(\alpha \wedge \beta)=\partial \alpha \wedge \beta+(-1)^p \alpha \wedge \partial \beta
+	\]
+		\[ \overline{\partial}(\alpha \wedge \beta)=\overline{\partial} \alpha \wedge \beta+(-1)^p \alpha \wedge \overline{\partial} \beta
+	\]
+	\item $\partial^2=0, \; \overline{\partial}\partial+\partial\overline{\partial}=0; \; \overline{\partial}^2=0$
+\end{itemize}
+
+
+\end{Lemme}
+\begin{proof}
+Les deux énoncés s'obtiennent grâce à la décomposition \eqref{decomposition} et des égalités analogues pour la différentielle extérieure $d$.
+\end{proof}
+
+On obtient ainsi des complexes : \\
+  \xymatrix{
+   \ldots \ar[r]  & \Omega^{p,q-1}X \ar[r]& \Omega^{p,q}X \ar[r]& \Omega^{p,q+1}X \ar[r]& \ldots     
+  }\\
+que l'on appelera complexes de Dolbeault. \\
+On peut ainsi définir les groupes de cohomologies associés $H^{p,q}(X)$, appelé $(p,q)$-groupes de Dolbeault.
+
+On peut continuer l'analogie avec la différentielle $d$ avec une variante du lemme de Poincaré : 
+
+\begin{Prop}
+Soit $\alpha$ une forme de type $(p,q)$ avec $q>0$. Si $\overline{\partial} \alpha=0$, il existe localement sur $X$ une forme $\beta$ de type $(p,q-1)$ telle que $\alpha=\overline{\partial} \beta$
+\end{Prop}
+On a un énoncé similaire pour $\partial$.
+
+\subsection{Variétés de Kähler}
+
+\begin{Def}
+Soit $X$ une variété complexe. Une métrique hermitienne sur $X$ est une section $h$ de $T^*X \otimes T^*X$ telle que, pour tout $x \in X$, $h_x$ est un forme hermitienne sur le $\C$-espace vectoriel $T_xX$.
+\end{Def}
+
+\begin{Def}
+Une métrique hermitienne $h$ est dite kählérienne si la (1,1)-forme $\omega=-Im(h)$ est fermée. Une variété munie d'une telle forme\footnote{on retrouve la métrique grâce aux relations de symétrie} est appelé variété de Kähler.
+
+\end{Def}
+\begin{Ex}
+\begin{itemize}
+	\item $\C^n$ muni de la métrique constante valant la forme hermitienne standard est une variété de Kähler
+	\item On appelle métrique de Fubini-Study la métrique associée à la (1,1)-forme $\omega$ définie, localement sur $\P^n$,  par :
+		\[\omega_i=\frac{-1}{2i \pi} \partial \overline{\partial} \ln(1+\sum_{j \neq i} z_i^2)
+	\]
+	(dans la carte $U_i=\{z_i \neq 0\}$)
+	$\P^n$ muni de la métrique de Fubini-Study est une variété de Kähler.
+	\item Si $(M,\omega)$ est une variété de Kähler alors toute sous-variété $N$ munie de la restriction de $\omega$ sur $N$ est une variété de Kähler.
+\end{itemize}
+
+\end{Ex}
+Un des principaux résultats sur les variétés de Kähler (compacte) est du à Hodge et permet de relier la structure topologique de la variété complexe à sa structure complexe, grâce à ces groupes de cohomologies :
+
+\begin{Thm}[Décomposition de Hodge]
+Soit $X$ une variété de Kähler compacte. Alors, pour tout $n \geq 0$,
+	\[ H^n(X,\C)=\bigoplus_{p+q=n} H^{p,q}(X)
+\]
+De plus, pour tout $p,q \geq 0$, 
+	\[H^{p,q}(X)=\overline{H^{q,p}(X)}
+\]
+\end{Thm}
+
+\ifwhole
+ \end{document}
+\fi
