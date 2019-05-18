@@ -1,0 +1,67 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+
+
+\begin{Prop}\label{bij_rr_appli}
+
+Soit $U$ un espace analytique normal de dimension finie et soit $B$ un polydisque de $\C^p$ (ou bien $\C^p$).
+
+Il y a une bijection naturelle entre l'ensemble des revêtements ramifiés de degré $k$ de U, contenus dans $U \times B$, et l'ensemble des applications analytiques $f: U\to Sym^k(B)$.
+
+\end{Prop}
+
+\begin{proof}[Idée de preuve, voir \cite{\barlet} p 25]
+Soit $Z$ un revêtement ramifié de degré $k$ de U, contenus dans $U \times B$. \\
+Comme l'ensemble des points singuliers de $U$ est inclus dans l'ensemble des points de ramifications alors tous les points de $U \setminus R(|Z|)$ sont lisses et donc, pour tout point $t \in U \setminus R(|Z|)$, il existe un voisinage ouvert $V_t$ de $t$ isomorphe à un polydisque (et est donc simplement connexe). Le fait que $V_t$ soit simplement connexe nous donne l'existence de branche locale $(f_j)_{j \in 1..k}$ de $Z$ sur $V_t$ \footnote{i.e. des applications $(f_j : V_t \to \C^p)$ telles que :
+\begin{itemize}
+	\item les germes des $f_j$ en tout point $x$ de $V_t$ sont des sections de $|X| \to U$ autour de $t$
+	\item Si en tout point $x$ de $V_t$, la germe de $f_j$ est répétée un nombre de fois égale à la multiplicité de la composante irréductible de $f_j(x)$
+\end{itemize}
+}. Celles-ci sont uniques à permutation près. \\
+Posons $f_t := q(f_1,\ldots,f_k) : V_t \to Sym^k(B)$ où $q : B^k \to Sym^k(B)$ est l'application quotient. Par unicité (à permutation près), on a $f_{t_1}=f_{t_2}$ sur $V_{t_1} \cap V_{t_2}$. Elles se recollent en une application $f : U \setminus R(|Z|) \to Sym^k(B)$. \\
+Soit $S : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)=:E$ le plongement de \ref{plongement}. Montrons que l'application $S \circ f : U \setminus R(|Z|)$ s'étend holmormophiquement sur tout $U$. Par normalité de $U$ (voir \ref{caracnormal}), il suffit de montrer que cette application est localement bornée sur $R(|Z|)$. Si $t_0 \in R(|X|)$ et si $K$ est un voisinage compact de $t_0$ dans $U$, alors comme la projection $|Z| \to U$ est propre (car les projections $Z_i \to U$ le sont, par définition de revêtement ramifié) alors $|Z| \cap K \times B=\pi^{-1}(K)$ est compact. Sa projection est compacte et est donc inclus dans un polydisque relativement compact inclus dans $B$. On en déduit que, pour tout $t \in K \setminus (K \cap R(|X|)$, 
+	\[S(f(t)) \in S(Sym^k(\overline{B'}))
+\]
+qui est compact. Ce qui permet de montrer que $S \circ f$ est localement bornée. Le prolongement de $S \circ f$ est à valeurs dans $S(Sym^k(B))$ par continuité. On peut donc définir $f$ par composition avec $S^{-1}$. \\
+Réciproquement, si on se donne une application holomorphe $f : U \to Sym^k(B)$, on veut construire un revêtement ramifié qui permet de récupérer $f$ avec la construction précédente. On va montrer ce résultat par récurrence sur $k$ : \\
+\paragraph{Initialisation :}
+Pour $k=1$, cela vient du fait que pour un espace faiblement normal (et a fortiori un espace normal), on a une bijection naturelle entre les applications analytiques $U \to B$ et les graphes analytiques dans $U \times B$ (voir \ref{norm_holom})
+\paragraph{Hérédité :}
+Supposons la propriété vraie au rang $k-1$. \\
+On considère l'ensemble $Sym^k(\C^p) \sharp \C^p$ défini par : 
+	\[ Sym^k(\C^p) \sharp \C^p=\left\{ (x,y) \in Sym^k(\C^p) \times \C^p \mid \sum_{h=0}^k (-1)^h S_h(x)y^{k-h}=0 \right\}
+\]
+Posons :
+	\[ |Z|=(f \times id_B)^{-1} (Sym^k(\C^p) \sharp \C^p)
+\]
+Soit $(Z_i)$ la famille (finie) des composantes irréductibles de $|Z|$. L'application $|Z| \to U$ est surjective. Montrons qu'elle est propre : \\
+Soit $K$ un ouvert de $U$. Alors $f(K)$ est un compact de $Sym^k(B)$, il existe donc un polydisque $B'$ relativement compact dans $B$ tel que $f(K) \subset Sym^k(B')$, cela montre que l'image réciproque de $K$ est un fermé inclus dans $K \times B'$, qui est compact. Celui-ci est donc compact. \\
+Soit $X_i$ une composante irréductible de $X$ telle que la projection sur $X_i$ soit surjective. \\
+$(X_i,1)$ est un revêtement ramifié de $U$ contenu dans $U \times B$ de degré $k_i<k$. Par la première partie de la preuve, il existe une application holomorphe $f_i : U \to Sym^{k_i}(B)$ tel que : 
+\[ |Z_i|=(f_i \times id_B)^{-1} (Sym^k(\C^p) \sharp \C^p)
+\]
+On peut montrer qu'il existe une fonction $g : U \to Sym^{(k-k_i)}(B)$ tels que : 
+	\[ \Delta_{k-k_i,k_i}(g \times f_i)=f
+\]
+où $\Delta_{k-k_i,k_i} : Sym^{k-k_i}(B) \times Sym^{k_i}(B) \to Sym^k(B)$ est l'application induite par l'isomorphisme $B^{k-k_i} \times B^{k_i}\to B^k$. \\
+Comme $k-k_i<k$, on peut appliquer l'hypothèse de récurrence à $g$ et obtenir un revêtement ramifié de degré $k-k_i$. \\
+Posons $Z:=Y+(X_i,k_i)$. \\
+Montrons que l'application associée à $Z$ est $f$. \\
+Soit $t \in U \setminus (R(|Y|) \cap R(|Z_i|)$. \\
+Par définition, les composantes irréductibles de $Z$ sont $X_i$ et les composantes irréductibles de $Y$. Ainsi, les branches locales de $Z$ sont la juxtaposition des branches locales de $Y$ et $k_i$ fois celle de $X_i$. Ainsi,  $\Delta_{k-k_i,k_i}(g \times f_i)$ est l'application associée à $X$ sur $U \setminus (R(|Y|) \cap R(|Z_i|)$. On conclut par normalité de $U$.
+\end{proof}
+
+\ifwhole
+ \end{document}
+\fi
