@@ -1,0 +1,75 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\begin{Thm}\label{biholo}
+Soit $X$ un espace analytique complexe compact et $f$ un automorphisme
+de $X$. Soit $\Cscr_\Gamma$ la composante irréductible de l'espace des
+cycles contenant le graphe de $f$. Alors, l'ensemble des points de
+$\Cscr_\Gamma$ correspondant aux automorphismes de $X$ est un ouvert de
+Zariski.
+\end{Thm}
+\begin{proof}
+  On supposera $X$ lisse et irréductible. \\
+Soit $Z \subset X \times X \times \Cscr_\Gamma$ le cycle universel.  La
+projection naturelle $\pi_3 : Z \to \Cscr_\Gamma$ est propre (cf
+\cite{\barlet} théorème 1).\\
+Quitte à remplacer $\Cscr_\Gamma$ par un ouvert de Zariski, on peut
+supposer $\Cscr_\Gamma$ et $Z$ lisse. En effet, les lieux singuliers de
+$\Cscr_\Gamma$ et $Z$ sont des espaces analytiques. L'image par $\pi_3$
+de ce dernier est aussi un espace analytique et donc son complémentaire
+est un ouvert de Zariski. L'image réciproque de cet ouvert est donc lisse.
+Par la proposition 1.21 p 108 de \cite{\scv}, il existe un ouvert de
+Zariski $U$ tel que $\pi_{3\mid U}$ soit une submersion. Par les mêmes
+considérations que pour la lissité de $Z$, $\pi_3$ est lisse sur un
+ouvert de Zariski de $\Cscr_\Gamma$. Ainsi, toutes les fibres sur cet
+ouvert sont lisses. \\
+
+
+
+De la même façon, pour les projections $\pi_i : Z \to X$, on obtient
+que, sur un ouvert de Zariski $S_i$ de $Z$, ce sont des submersions.
+Elles induisent donc pour tout $c \in \Cscr_\Gamma$, une submersion
+$\pi_{i,c} : U_c \subset Z_c\to X$ car pour tout $y \in X$, $\pi_i^{-1}(y)$ et $Z_c$ s'intersectent transversalement (car pour tout $x \in \pi_i^{-1}(y) $, $T_x\pi^{-1}(y)\subset Kerd_x\pi_i$) et donc $\pi_{i,c}^{-1}(y)=\pi^{-1}(y) \cap Z_c$ est une variété lisse de codimension
+\[codim(\pi_i^{-1}(y))+\codim(Z_c)=dim(Z)-dim(\Cscr_\Gamma)+dim(Z)-dim(X)=dim(Z)\]
+i.e de dimension nulle. \\
+On en déduit, pour des questions de dimension, que $d\pi_i$ est un isomorphisme. L'application $\pi_i$ est une surjection
+car si ce n'était pas le cas $\pi_{i,c}(U_c)$ serait un espace
+analytique de dimension strictement inférieur à $n$. Or, cela voudrait
+que ses fibres serait de dimension supérieure ou égale à $1$. Or, ce
+n'est pas le cas car c'est un difféomorphisme local. \\
+Pour finir, montrons que les points de $\Cscr_\Gamma \setminus\pi_3(S_1^c \cup S_2^c)$ correspondent aux automorphismes de $X$. \\
+Soit $c$ un cycle de $\Cscr_\Gamma$. \\
+Les applications $\pi_i : Z_C \to X$ est un revêtement propre par
+\ref{revet}. \\
+Comme $\Cscr_\Gamma$ est connexe et localement connexe par arcs alors il
+est connexe par arcs. Il existe donc un chemin continu $\gamma : [0,1] \to
+\Cscr_\Gamma$ entre $c$ et $\Gamma$. \\
+Soit $x \in X$. Il existe un ouvert de $X$ autour de $x$ qui est biholomorphe à un polydisque ouvert relativement compact $B$ (carte holomorphe). Ainsi, pour $U$ un polydisque inclus dans $f(B)$, $(B,U,\pi_i)$ définit une écaille adaptée au cycle $\Gamma$. Par continuité de la famille $(\gamma(t))_{t \in [0,1]})$ et la proposition \ref{famille_cont}, le degré du revêtement reste constant, ce qui permet de conclure que $pi_{i,c}$ a le même nombre de feuilles que $\pi_{i,\Gamma}$ i.e. 1. \\
+$\pi_i$ est donc un homéomorphisme et donc par l'isomorphisme précédent et le
+théorème d'inversion locale, c'est un biholomorphisme.
+
+\end{proof}
+
+\begin{Prop}\label{famille_cont}
+  Soit $(Z_s)_{s \in S}$ une famille de $n$-cycles d'un espace analytique $X$. Alors cette famille est continue en $s_0 \in S$ si, et seulement si, pour toute écaille $E=(U,B,f)$ adaptée à $X_{s_0}$, il existe un ouvert $S_0$ de $s_0$ dans $S$, tel que, pour tout $s \in S_0$, l'écaille $E$ soit adaptée à $X_s$ et $\deg_E(X_s)=\deg_E(X_{s_0})$.
+
+
+
+\end{Prop}
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
