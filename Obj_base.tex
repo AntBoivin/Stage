@@ -1,7 +1,7 @@
 
 \newif\ifwhole
 
-\wholetrue
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -14,12 +14,12 @@
 
 \fi
 
-\newcommand{\cac}{barlet_cycles_2014}
-\newcommand{\btg}{bourbaki_topologie_2007}   
-\newcommand{\pag}{griffiths_principles_2011}
-\newcommand{\barlet}{barlet_espace_1975}
-\newcommand{\voisin}{voisin_theorie_2002}
-\newcommand{\scv}{grauert_several_2013}
+%\newcommand{\cac}{barlet_cycles_2014}
+%\newcommand{\btg}{bourbaki_topologie_2007}   
+%\newcommand{\pag}{griffiths_principles_2011}
+%\newcommand{\barlet}{barlet_espace_1975}
+%\newcommand{\voisin}{voisin_theorie_2002}
+%\newcommand{\scv}{grauert_several_2013}
 
 \part{Objets de base}
 Dans cette partie, nous allons donner les définitions des objets qui vont nous intéresser dans ce mémoire : les espaces analytiques complexes et les cycles (compacts). Les premiers sont, localement, les zéros de fonctions holomorphes dans $\C^n$ et les seconds, pour un espace analytique $X$ donné, sont des sommes formelles d'espaces analytiques complexes irréductibles compacts disjoints.
@@ -136,7 +136,7 @@ Un espace analytique complexe réduit $X$ est normal si, et seulement si, pour to
 Soient $X$ un espace analytique complexe réduit de dimension pure, $H$ un sous-ensemble analytique d'intérieur vide de $M$ et $f : M \setminus H \to \C$ une fonction localement bornée le long de $H$. Alors $f$ est méromorphe sur $X$.
 \end{Prop}
 \begin{Def}
-Un espace complexe réduit $M$ est dit faiblement normal si, pour toit ouvert $U$ de $M$, toute fonction continue sur $U$ est holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
+Un espace complexe réduit $M$ est dit faiblement normal si, pour tout ouvert $U$ de $M$, toute fonction continue sur $U$ est holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
 \end{Def}
 
 Cette propriété est plus faible que celle de normalité en vertu de la caractérisation \ref{caracnormal} et de la proposition \ref{merom_local}
@@ -223,7 +223,7 @@ cf \cite{\cac} p 67
 Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe. 
 \begin{itemize}
 	\item Une fonction $f : V \to \C$ est holomorphe si, et seulement si la fonction $f \circ \pi : \pi^{-1}(V) \to \C$ est une fonction holomorphe (où $\pi : (\C^p)^k \to Sym^k(\C^p)$ est la projection canonique).
-	\item Une application $M \to V$ est dite holomorphe si c'est une application continue telle que pour toute fonction holomorphe $Sym^k(\C^p)$, leur composée est holomorphe.
+	\item Une application $M \to V$ est holomorphe si c'est une application continue telle que pour toute fonction holomorphe $Sym^k(\C^p)$, leur composée est holomorphe.
 \end{itemize}
 \end{Thm}
 \begin{proof}
@@ -231,10 +231,11 @@ Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe.
 \end{proof}
 \subsubsection{Revêtements ramifiés}
 \begin{Def}
-Soit $U$ un espace analytique normal de dimension finie. Soit $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$). \\
-On appelera revêtement ramifié\index{revetement ramifie@revêtement ramifié} de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $X_i$ fermés disjoints dans $U \times B$, affectés de multiplicités $n_i > 0$, tels que la restriction à chaque $X_i$ de la projection naturelle $U \times B \to U$ , soit propre, surjective et de degré $k_i$ \footnote{ici, propre implique finie}, de sorte que l'on
+Soit $U$ un espace analytique normal de dimension finie et $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$). \\
+On appelera revêtement ramifié\index{revetement ramifie@revêtement ramifié} de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $Z_i$ fermés disjoints dans $U \times B$, affectés de multiplicités $n_i > 0$, tels que la restriction à chaque $Z_i$ de la projection naturelle $U \times B \to U$ , soit propre, surjective et de degré $k_i$ \footnote{ici, propre implique finie}, de sorte que l'on
 ait $\sum n_ik_i=k$. \\
-On notera $|X|$ le revêtement ramifié $(X_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup X_i$
+On notera $|Z|$ le revêtement ramifié $(Z_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup X_i$. \\
+On appellera ensemble de ramification de $|Z|$, noté $R(|Z|)$, la réunion de l'ensemble des points slnguliers de $U$ et de l'ensemble des points de $U$ ne possédant pas un voisinage ouvert $V$ dans $U$ tel que $|A| \cap V \times \C^p$ soit un revêtement de $V$ par la projection naturelle.
 \end{Def}
 
 \begin{Prop}\label{bij_rr_appli}
@@ -359,9 +360,9 @@ Voir \cite{\cac} p 409
 
 \end{proof}
 
-\printindex
-\bibliographystyle{alpha} 
-\bibliography{biblio2} 
+%\printindex
+%\bibliographystyle{alpha} 
+%\bibliography{biblio2} 
 
 \ifwhole
  \end{document}
