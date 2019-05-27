@@ -30,9 +30,16 @@ Alors par le théorème 4.5 de \cite{catan}, les fibres de $\pi_0$ ( et de $\pi_1$
 L'application $v : (t,t') \in E \mapsto Vol(Z_{t,t'})$ est donc continue. Comme $E$ est inclus dans un compact alors $v$ est bornée. \\
 On peut maintenant utiliser le théorème \ref{compact} : le volume $Z_{t,t'}$ est uniformément borné et les supports des $Z_{t,t'}$ est inclus dans $(\pi_0 \times \pi_1)^{-1}(K)$ qui est compact. $Z$ est donc relativement compact et donc rencontre un nombre fini de composantes irréductibles de $\Cscr_n(\Xscr_0 \times \Xscr_1)$.
 
-2) Soit $A$ le cycle universel de $\Xscr_0 \times \Xscr_1 \times \Cscr_0$. La projection $\pi_3 : A \to \Cscr_0$ et est donc lisse sur un ouvert de Zariski de $\Cscr_0$. \\
-Par le même argument de dimension que dans la preuve de \ref{biholo}, sur un ouvert de Zariski $S_i$ de $Z$, on a un isomorphisme $d_z\pi_i : T_zZ_c \simeq  T_{\pi_i(z)} (\Xscr_i)_{r}$ (où $z=(x,y,c)$ et $c \in \Cscr_0 \cap \Cscr_n((\Xscr_0)_{t}\times (\Xscr_1)_{t'})$, $r=t$ ou $t'$). On va donc restreindre $\Cscr_0$ en $\Cscr_0 \setminus \pi_3(S_1^c \cap S_2^c)$. \\
-De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\Xscr_1)_{t'})$ alors on peut utiliser l'argument final d'homotopie de \ref{biholo}, pour dire que que les projections $Z_c \to \Xscr_i$ sont des homéomorphismes. Par le théorème d'inversion locale, 
+2) La démonstration de cette partie est l'analogue relatif du théorème \ref{biholo}. \\
+Soit $A$ le cycle universel de $\Xscr_0 \times \Xscr_1 \times \Cscr_0$. La projection $p_3 : A \to \Cscr_0$ est propre et est donc lisse sur un ouvert de Zariski de $\Cscr_0$. \\
+Soit $c \in \Cscr$. Alors, il existe $(t,t') \in B_0 \times B_1$ tel que $c \in \Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'})$. \\
+Soit $x \in (\Xscr_0)_t $ (ou $(\Xscr_1)_{t'}$). \\
+Comme dans \ref{biholo}, on va étudier l'intersection $p_1^{-1}(x) \cap Z_c$ : 
+	\[ p_1^{-1}(x) \cap Z_c=p_1^{-1}(x) \cap ((\Xscr_0)_t \times (\Xscr_1)_{t'}\times\Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'})) \cap Z_c
+\]
+Grâce à cette égalité, on peut juste considérer la restriction de $\pi_1$ sur $Z \cap ((\Xscr_0)_t \times (\Xscr_1)_{t'}\times\Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'}))$ et on est ramené au cas non relatif de \ref{biholo}. Ainsi, $p_1 : Z_c \to (\Xscr_0)_t$ est un biholomorphisme local surjectif (idem pour $p_2 : Z_c \to (\Xscr_1)_{t'}$).
+
+De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\Xscr_1)_{t'})$ et qu'il existe un biholomorphisme dans la composante $\Cscr_0$ alors on peut utiliser l'argument final d'homotopie de \ref{biholo}, pour dire que que les projections $Z_c \to (\Xscr_0)_t$ et $Z_c \to (\Xscr_1)_{t'}$ sont des homéomorphismes. Comme, de plus, ce sont des difféomorphismes locaux alors ce sont des biholomorphismes.
 
 \end{proof}
 
@@ -45,7 +52,7 @@ La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'applicatio
 Cette application est bien définie car pour tout $(n,m) \in \Z^2$, 
 	\[ p((n,m)\cdot (x,y,\lambda))=p(T^m(x,y),\lambda+n+\tau m)=[\lambda+n+\tau m]=[\lambda]=p(x,y,\lambda)
 \]
-Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre que le fait que l'action n'est pas de point fixe. \\
+Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre par le fait que l'action n'est pas de point fixe. \\
 
 %**********************************************************************************************************
 On note par $\frac{\partial}{\partial x_1}$,$\frac{\partial}{\partial x_2}$ et $\frac{\partial}{\partial z}$ la base des champs de vecteur sur, respectivement, le premier $E$, le deuxième et sur $\C$. On obtient ainsi une base des champs de vecteurs sur $E \times E \times \C$.
@@ -69,7 +76,7 @@ En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\pa
 En identifiant les coefficients, on obtient immédiatement que, pour tout $m,n \in \Z$ et pour tout $z \in\C$, 
 	\[ g(z+\tau m+n)=g(z)
 \]
-Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\partial_{ij}$ et donc $f_j(z+1)=f_j(z)$. \\
+Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\delta_{ij}$ et donc $f_j(z+1)=f_j(z)$. \\
 Pour $(m,n)=(0,1)$, on obtient 
 \begin{equation} \label{translation}
 \begin{pmatrix}
