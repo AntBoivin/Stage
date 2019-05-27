@@ -1,0 +1,177 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\begin{Lemme}\label{adh_groupe}
+Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Alors $\overline{H}$ est un sous-groupe de $G$.
+
+\end{Lemme}
+\begin{proof}
+Pour montrer que $\overline{H}$ est un sous-groupe de $G$, il suffit de montrer que $\overline{H}$ est stable pour la loi de groupe et par passage à l'inverse. \\
+Soit $a \in \overline{H}$. Soit $U$ un voisinage ouvert de $a^{-1}$ dans $G$. \\
+Comme le passage à l'inverse est un homéomorphisme (et est donc ouvert) alors $V=\{ v \in G | v^{-1} \in U\}$ est un voisinage de $a$ dans $G$. \\
+Comme $a \in \overline{H}$ alors $V \cap H \neq \emptyset$ et comme $H$ est stable par passage à l'inverse alors $U \cap H \neq \emptyset$. On en déduit que $a^{-1} \in \overline{H}$. \\
+Soit $a,b \in \overline{H}$. Soit $W$ un voisinage ouvert de $ab$. \\
+Alors, $m^{-1}(ab)$ est un voisinage ouvert de $(a,b)$ dans $G \times G$ ($m : G \times G$ est la loi du groupe). Il existe donc des ouverts $U$ et $V$ de $G$ tels que $U \times V \subset m^{-1}(ab)$. \\
+Comme $a,b \in \overline{H}$ alors $H \cap U\neq \emptyset$ et $H \cap V\neq \emptyset$. Ainsi, $m(U \times V) \cap H \neq \emptyset$ et donc $W \cap H \neq \emptyset$. On en déduit que $ab \in \overline{H}$. 
+\end{proof}
+\begin{Def}
+Soit $X$ un espace topologique. Un sous-ensemble de $X$ est dit localement fermé s'il est ouvert dans son adhérence ou encore que c'est l'intersection d'un ouvert et d'un fermé de $X$.
+\end{Def}
+\begin{Prop}\label{localement_ferme}
+Soit $G$ un groupe topologique et $H$ un sous-groupe localement fermé de $G$. Alors $H$ est fermé dans $G$
+
+\end{Prop}
+\begin{proof}
+Par le lemme \ref{adh_groupe}, $\overline{H}$ est un sous-groupe de $G$. Supposons, par l'absurde, que $H \neq \overline{H}$. \\
+$H$ est un ouvert dense de $\overline{H}$. On peut décomposer $\overline{H}$ en une somme disjointe de $g_iH$. \\
+Comme $H \neq \overline{H}$, il existe (au moins) deux classes d'équivalences dans cette décomposition. Comme $H$ est un ouvert dense dans $\overline{H}$ alors les $g_iH$ sont aussi des ouverts denses dans $\overline{H}$. On obtient ainsi une contraction car deux ouverts ne sont pas disjoints.
+
+\end{proof}
+
+
+\section{Action compactifiable}
+
+\begin{Def}
+Soit $X$ un espace analytique complexe compact. Soit $H$ un groupe de Lie complexe connexe agissant sur $X$. On dit $X$ agit de façon compactifiable s'il existe un espace analytique complexe compact $Y$, une application holomorphe injective $i : H \to Y$ telle que $i(H)$ est un ouvert de Zariski de $Y$ et une application méromorphe $m : Y \times X \dashrightarrow X$ définit sur $i(H) \times X$ par : 
+	\[ m(i(h),x)=h \cdot x
+\]
+\end{Def}
+Lorsque l'on a une action compactifible de $H$ sur $X$, on peut munir $H$ d'une topologie, dite de Zariski, définie par le fait que cses fermés sont de la forme $i^{-1}(V)$ où $V$ est un sous-espace analytique fermé de $Y$. On appelera $\Zcal$-ouverts (resp. $\Zcal$-fermés) les ouverts (resp. les fermés) de $H$ pour cette topologie (que l'on appelera $\Zcal$-topologie sur $H$).
+
+Cette topologie est, en général, plus grossière que la topologie de Zariski usuelle de $H$ : 
+Prenons $X=\P^n$ et $H=Aut_0(X)=PGL_{n+1}(\C)$\footnote{ Voir Akhiezer} que l'on peut compactifier avec $Y=\P^{(n+1)^2-1}=\P(\Mcal_{n+1}(\C))$ et l'application méromorphe : 
+	\[ m : ([(c_{ij})],[(x_j)] \in Y \times \P^n \mapsto \left[\sum_j c_{ij} x_j\right] \in \P^n
+\]
+Les sous-espaces analytiques de $\P^N$ \footnote{ Trouver qqch} sont des sous-ensembles algébriques. On en déduit que les $\Zcal$-ouverts de $H$ sont les sous-ensembles algébriques de celui-ci.
+
+\begin{Prop} % On suppose Y normal
+Soit $H$ un groupe de Lie complexe connexe agissant effectivement sur un espace analytique complexe compact $X$. L'action est compactifiable si, et seulement si, le graphe des éléments de $H$ forme un ouvert de Zariski d'un sous-espace analytique compact $\Cscr(X \times X)$.
+\end{Prop}
+\begin{proof}
+$\Leftarrow$ : On prend l'adhérence de $H$ dans $\Cscr(X \times X)$
+$\Rightarrow$ : Supposons $H$ compactifiable. Il existe donc un compact $Y$ tel que $H$ s'injecte dans $Y$ et une application méromorphe $m : Y \times X \dashrightarrow X$. De ce fait, par définition, il existe $\Gamma \subset Y \times X \times X$ tel que la projection $\Gamma \to Y \times X$ soit une modification (propre) et $\Gamma \to X$ est holomorphe. Comme $X$ est compact alors la projection $\Gamma \to Y$ est propre (et surjective). On peut donc appliquer la proposition \ref{merom} et obtenir une application méromorphe $Y \dashrightarrow \Cscr(X \times X)$ qui étend l'application $H \to \Cscr(X \times X)$ définie par $h \mapsto \Gamma \cap \{h\}\times X \times X$. \\
+Il existe donc un espace analytique complexe $Y'$, une modification (propre) $\tau : Y' \to Y$ et une application holomorphe $f : Y' \to \Cscr(X \times X)$. Comme $\tau$ est propre et que $Y$ est compact alors $Y'=\tau^{-1}(Y)$ est compact et donc $f(Y')$ est le compact désiré.
+
+\end{proof}
+Par cette proposition, la $\Zcal$-topologie de $H$ est donnée par celle induite par $\Cscr(X \times X)$ et ne dépend pas de la compactification $Y$.
+
+\begin{Prop}
+Soit $H$ agissant de façon compactifiable sur $X$. Un sous-groupe $S \subset H$ agit de façon compactifiable sur $X$ si, et seulement si, $S$ est $\Zcal$-fermé.
+
+\end{Prop}
+\begin{proof}
+Notons $Y$ la compactification de $H$. \\
+$\Leftarrow$ : Si $S$ est $\Zcal$-fermé alors c'est l'intersection d'un fermé de $\Cscr(X \times X)$ et de $H$. C'est donc un ouvert de Zariski de l'intersection d'un fermé de $\Cscr(X \times X)$ et de $Y$ qui est compact
+$\Rightarrow$ : Soit $Y'$ une compactification de $S$. Quitte à l'intersecter avec $H$, on peut supposer $Y' \subset H$. Comme les opérations de groupe de $H$ sont holomorphes alors $H$ muni de sa topologie de Zariski est un groupe topologique. \\
+Par hypothèse, $S$ est $\Zcal$-ouvert dans son $\Zcal$-adhérence alors $S$ est localement fermé et donc, par la proposition \label{localement_ferme}, est ($\Zcal$-)fermé dans $H$
+\end{proof}
+\begin{Thm}
+Si $X$ est une variété de Kähler compacte alors $Aut_0(X)$ agit de façon compactifiable sur $X$
+
+\end{Thm}
+\begin{proof}
+Par le théorème \ref{biholo}, $Aut_0(X)$ est un ouvert de Zariski de $\Cscr_\Delta(X \times X)$ la composante irréductible du graphe de l'identité. Par le théorème \ref{compact}, $\Cscr_\Delta(X \times X)$ est compact, ce qui permet de conclure.
+\end{proof}
+\begin{Def}
+Soit $H$ agissant sur $X$. On définit les deux ensembles :
+	\[H_{\{Z\}}:=\{ h \in H \mid h \cdot Z=Z\}
+\]
+\[H_{Z}:=\{ h \in H \mid \forall z \in Z, h \cdot z=z\}
+\]
+
+\end{Def}
+On peut remarquer que $H_{\{Z\}}$ est un groupe.
+\begin{Prop} \label{fix_topol}
+Si $H$ agit de façon compactifiable sur $X$ alors $H_Z$ est un sous-groupe $\Zcal$-fermé de $H$. Si $Z$ est Zariski-fermé alors $H_{\{Z\}}$ est $\Zcal$-fermé.
+
+\end{Prop}
+\begin{proof}
+Soit $Y$ la compactification de $H$. \\
+On peut commencer par remarquer que :
+	\[H_{\{Z\}}=\bigcap_{z \in Z} \{h \in H \mid hz \in Z \}
+\]
+Puis, en notant $\widetilde{m}$ l'application holomorphe du graphe de $m$, $\Gamma$ dans $X$ et $\tau$ la modification propre $\Gamma \to Y \times X$, on obtient que l'ensemble $\tau(\widetilde{m}(\cdot,z)^{-1}(Z))$ est un sous-espace analytique de $Y$ (si $Z$ en est un lui-même) et que 
+	\[\{h \in H \mid hz \in Z \}=i^{-1}\left((\widetilde{m}(\cdot,z))^{-1}(Z)\right)
+\]
+C'est donc un $\Zcal$-fermé de $H$. On en déduit que $H_{\{Z\}}$ est aussi un $\Zcal$-fermé de $H$. \\
+La première partie se montre en remarquant que 
+	\[ H_Z=\bigcap_{z \in Z} H_\{z\}
+\]
+Tous les ensembles de l'intersection sont $\Zcal$-fermés et donc $H_Z$ l'est aussi.
+\end{proof}
+\begin{Prop} \label{centr_norma}
+Soit $H$ qui agit de façon compactifiable sur $X$. Soit $M$ un sous-ensemble de $H$. Alors, le centralisateur de $M$, défini par :
+	\[Z(M):=\{ h \in H \mid \forall m \in M, hm=mh \}
+\]
+est $\Zcal$-fermé. \\
+Si $M$ est un fermé de Zariski alors son normalisateur, défini par :
+\[N(M):=\{ h \in H \mid hMh^{-1}=M \}
+\]
+est $\Zcal$-fermé. 
+\end{Prop}
+\begin{proof}
+Soit $Y \subset \Cscr(X \times X)$ la compactification de $H$. L'action de $H$ sur $X \times X$ définie par $h \cdot(a,b)=(h\cdot a,h \cdot b)$ induit une action de $H$ sur $\Cscr(X \times X)$ qui induit la conjugaison $k \mapsto hkh^{-1}$ sur $H$ (car l'identification de $H$ avec un sous-ensemble de $\Cscr(X \times H)$ se fait avec les graphes de l'action ). Par continuité, l'action de $H$ préserve $Y$, son adhérence dans $\Cscr(X \times X)$. \\
+D'autre part, l'action de $H$ sur $X$ est compactifiable i.e. il existe une application méromorphe $m' : Y \times X \times X \dashrightarrow X \times X$ définie par $m'(y,a,b):=(m(y,a),m(y,b))$ qui prolonge l'action de $H$ sur $X \times X$. Notons par $\tau : Y' \to Y \times X \times X$ la modification associée et $\widetilde{m'} : Y'\to X$ la fonction holomorphe prolongeant $m'$. On peut donc passer à l'image directe et obtenir des applications : \\
+\xymatrix{
+    \Cscr(Y \times X \times X)    && \Cscr(X \times X)  \\
+    &\Cscr(Y') \ar[ul]\ar[ur] & 
+  }\\
+On peut ensuite injecter $Y \times \Cscr(X \times X)$ dans $\Cscr(Y \times X \times X)$ grâce à l'application : 
+	\[ i : (y,\sum n_i Z_i) \in Y \times \Cscr(X \times X) \mapsto \sum n_i \{y\} \times Z_i
+\]
+L'application $\tau_*^{-1}(Im(i)) \subset \Cscr(Y') \to Y \times \Cscr(X \times X)$ est une modification propre (grâce au fait que $\tau$ l'est et $Y'$ est compact). Ce qui montre que l'appplication obtenue $Y \times \Cscr(X \times X) \to \Cscr(X \times X)$ est méromorphe et donc que $H$ agit de manière compactifiable sur $\Cscr(X \times X)$. On conclut en remarquant que, en notant $h \cdot x=hxh^{-1}$ l'action de $h \in H$ sur $x \in H$, 
+	\[Z(M)=\{ h \in H \mid \forall m \in M, hm=mh\}=\{ h \in H \mid \forall m \in M, h\cdot m=m\}=H_M
+\]
+et 
+\[N(M)=\{ h \in H \mid  hMh^{-1}=M\}=\{ h \in H \mid h\cdot M=M\}=H_{\{M\}}
+\]
+et en utilisant la proposition \ref{fix_topol}.
+\end{proof}
+
+\begin{Lemme} \label{centralisa}
+Soit $S$ un sous-groupe abélien d'un groupe $G$. Alors, $Z(Z(S))$ est un sous-groupe abélien de $G$ qui contient $S$.
+
+\end{Lemme}
+\begin{proof}
+$S$ est contenu dans $Z(Z(S))$ car, par définition de $Z(S)$, tous ces éléments commutent avec ceux de $S$. \\
+Comme $S$ est abélien alors $S \subset Z(S)=\{ h \in H \mid \forall s \in S, hs=sh \}$. On peut ensuite remarquer le fait général que si $X \subset Y$ alors $Z(Y) \subset Z(S)$ (vu que l'on impose moins de conditions sur les éléments). Ainsi, $Z(Z(S)) \subset Z(S)$. \\
+On en déduit que si $x,y \in Z(Z(S)) \subset Z(S)$ alors $xy=yx$ (les éléments de $Z(Z(S))$ commutent avec ceux de $Z(S)$)
+\end{proof}
+\begin{Cor}
+Soit $H$ qui agit de façon compactifiable sur $X$ et $S$ un sous-groupe abélien de $H$. Alors, sa $\Zcal$-adhérence $\overline{S}$ est abélienne.
+
+\end{Cor}
+\begin{proof}
+Par la proposition \ref{centr_norma} et le lemme \ref{centralisa}, $Z(Z(S))$ est un sous-groupe $\Zcal$-fermé abélien contenant $S$. L'adhérence de $S$ est donc contenue dedans et est donc abélienne.
+\end{proof}
+
+\begin{Prop}
+Soit $H$ qui agit de façon compactifiable sur $X$. Un sous-groupe $S$ de $H$ est $\Zcal$-fermé si, et seulement si, pour toute ensemble fini de points $x_1,\ldots,x_n$ de $X$ , la $S$-orbite $(sx_1,\ldots,sx_n)$ est ouverte dans son adhérence de Zariski.
+
+\end{Prop}
+
+\begin{proof}
+$\Rightarrow$ :Si $S$ est $\Zcal$-fermé dans $H$ alors $S$ agit de façon compactifiable. Notons $Y$ sa compactification et $\Gamma$ le graphe de l'application méromorphe $m : Y \times X \dashrightarrow X$ et $\pi_3 : \Gamma \to X$ la projection canonique. 
+Montrons l'implication pour $n=1$. Cela suffit car on peut ensuite remarquer que l'action de $S$ sur $X^n$ est compactifiable avec l'application méromorphe :
+	\[ m(y,x_1,\ldots,x_n)=(m(y,x_1),\ldots,m(y,x_n))
+\]
+$\Gamma \cap S \times X \times X$ est un ouvert de Zariski de $\Gamma$ car $S$ est un ouvert de Zariski de $Y$. Ainsi, l'espace analytique $\pi_3(\pi_3^{-1}(x))$ contient un ouvert de Zariski $U$ contenu dans $S \cdot x$. Donc $S \cdot x=\bigcup_{h \in H} h \cdot U$ est un ouvert de Zariski de son adhérence. \\
+$\Leftarrow$ : Soient $x_1, \ldots,x_n \in X$ tels que l'application $\lambda : H \to X^n$ définie par :
+	\[\lambda(h):=(h \cdot x_1,\ldots,h \cdot x_n)
+\]
+soit injective (on peut toujours le faire car la suite d'intersection $\left( \bigcap_{i=1}^n {Aut_0}_{x_i} \right)$ finira toujours par être réduit )à l'identité en un nombre fini d'étapes). Par hypothèse et la proposition \ref{localement_ferme}, $\lambda(S)$ est Zariski-fermé dans $\lambda(H)$ et donc $S$ est $\Zcal$-fermé dans $H$ (par continuité), $S$ est donc compactifiable.
+\end{proof}
+Le début de la preuve (i.e l'implication) s'adapte si on remplace les points $x_,\ldots, x_n$ par un fermé de Zariski de $X$.
+\ifwhole
+ \end{document}
+\fi
