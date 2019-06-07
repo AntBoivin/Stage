@@ -1,0 +1,93 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\begin{Lemme} \label{prod_dense}
+Soit $G$ un groupe topologique. Soit $U$ un ouvert dense de $G$ et $V$ un ouvert non vide. Alors $UV=G$.
+\end{Lemme}
+\begin{proof}
+Soit $g \in G$. Comme l'inversion $x \mapsto x^{-1}$ et les translations sont des homéomorphismes alors $gV^{-1}$ est un ouvert non vide de $G$. Comme $U$ est dense dans $G$ alors $U \cap gV^{-1}\neq \emptyset$. Ainsi, il existe $u \in U$ et $v \in V$ tel que $u=gv^{-1}$ i.e. $g=uv$.
+
+\end{proof}
+\begin{Prop}
+Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Si $H$ est une partie constructible de $G$ alors $H$ est fermée.
+
+\end{Prop}
+
+\begin{proof}
+Soit $U$ un ouvert dense de $\overline{H}$ contenu dans $H$. Alors, par le lemme \ref{prod_dense}, $UU=\overline{H}$ mais comme $U \subset H$ alors $UU \subset HH=H$. Par conséquent, $H=\overline{H}$.
+
+\end{proof}
+
+\begin{Prop} \label{cccc}
+Un groupe de Lie complexe connexe compact est commutatif.
+\end{Prop}
+\begin{proof}
+Soit $G$ un groupe de Lie complexe connexe compact. \\
+Soit $x \in X$. La conjugaison par $x$ dans $G$, $\sigma_x : y \in G \mapsto xyx^{-1}$ est un automorphisme de $G$. Sa différentielle est donc un isomorphisme. \\
+Soit $\varphi : x \in G \mapsto d_e \sigma_x$. Cette application est holomorphe (car $\sigma_x$ (et donc ses dérivées partielles) le sont. Comme $X$ est compact alors $\varphi$ est localement constante et comme de plus, $X$ est connexe alors $\varphi$ est constante. \\
+On en déduit : 
+	\[ d_e \sigma_x=d_e \sigma_e=id_\gfrak
+\]
+On en déduit que, pour tout $u \in G$,  
+	\[ \sigma_x(\exp(u))=\exp(d_e\sigma_x(u))=\exp(u)
+\]
+Ainsi, 
+	\[\exp(\gfrak) \subset Z(G)
+\]
+De plus, par \ref{}, 
+	\[ G=\left\langle \exp(\gfrak) \right\rangle \subset Z(G) \subset G
+\]
+On en déduit que $Z(G)=G$ et donc que $G$ est commutatif.
+\end{proof}
+
+\begin{Thm}
+Soit $G$ un groupe de Lie complexe connexe compact. Alors l'application $\exp : \gfrak \to G$ est un morphisme surjectif de groupes dont le noyau est un réseau de $\gfrak$. On obtient un isomorphisme :
+	\[ \gfrak/\Ker(\exp) \simeq G
+\]
+
+\end{Thm}
+
+\begin{proof}
+Soient $u,v \in \gfrak$ et $\psi : \C \to G$ définie par : \\
+	\[ \forall t \in \C, \psi(t)=(\exp(tu)\exp(tv))=\varphi_u(t)\varphi_v(t)
+\]
+$\psi$ est une fonction holomorphe. Par la commutativité de $G$ donnée par \ref{cccc}, $\psi$ est un morphisme de groupes : 
+	 
+	 \begin{align*}
+		 \forall t,t' \in \C, \psi(t+t')&=\varphi_u(t+t')\varphi_v(t+t')=\varphi_u(t)\varphi_u(t')\varphi_v(t)\varphi_v(t') \\
+		&=\varphi_u(t)\varphi_v(t)\varphi_u(t')\varphi_v(t')=\psi(t)\psi(t')
+	 \end{align*}
+
+La différentielle de $\psi$ en 0 est donnée par : 
+	\[ d_0 \psi=(u+v)dt
+\]
+Ainsi, par la correspondance \ref{}, on en déduit que 
+	\[ \psi=\varphi_{u+v}
+\]
+En évaluant en 1, on en déduit que : 
+	\[ \exp(u+v)=\exp(u)\exp(v)
+\]
+i.e. $\exp$ est un morphisme de groupes. \\
+On en déduit que $\exp(\gfrak)$ est un groupe et par \ref{} et le fait que $G$ est connexe, 
+	\[ \exp(\gfrak)=\left\langle \exp(\gfrak)\right\rangle=G
+\]
+Pour montrer que $\Ker(\exp)$ est discret, il suffit de le montrer au voisinage de 0 : 
+Soit $U$ un voisinage ouvert de $0$ tel que $\exp_{|U}$ est injective (donnée par le théorème d'inversion locale). Alors,
+$U \cap \Ker(\exp)=\{0\}$. \\
+Soit $\widetilde{\exp} :\gfrak/\Ker(\exp) \to G$ l'application obtenue par passage au quotient. C'est un isomorphisme de groupes qui est un biholomorphisme local en 0 et donc en tout point par translation. 
+\end{proof}
+
+
+\ifwhole
+ \end{document}
+\fi
