@@ -58,7 +58,7 @@ Les sous-espaces analytiques de $\P^N$ \footnote{ Trouver qqch} sont des sous-en
 Soit $H$ un groupe de Lie complexe connexe agissant effectivement sur un espace analytique complexe compact $X$. L'action est compactifiable si, et seulement si, le graphe des éléments de $H$ forme un ouvert de Zariski d'un sous-espace analytique compact $\Cscr(X \times X)$.
 \end{Prop}
 \begin{proof}
-$\Leftarrow$ : On prend l'adhérence de $H$ dans $\Cscr(X \times X)$
+$\Leftarrow$ : On prend l'adhérence de $H$ dans $\Cscr(X \times X)$. \\
 $\Rightarrow$ : Supposons $H$ compactifiable. Il existe donc un compact $Y$ tel que $H$ s'injecte dans $Y$ et une application méromorphe $m : Y \times X \dashrightarrow X$. De ce fait, par définition, il existe $\Gamma \subset Y \times X \times X$ tel que la projection $\Gamma \to Y \times X$ soit une modification (propre) et $\Gamma \to X$ est holomorphe. Comme $X$ est compact alors la projection $\Gamma \to Y$ est propre (et surjective). On peut donc appliquer la proposition \ref{merom} et obtenir une application méromorphe $Y \dashrightarrow \Cscr(X \times X)$ qui étend l'application $H \to \Cscr(X \times X)$ définie par $h \mapsto \Gamma \cap \{h\}\times X \times X$. \\
 Il existe donc un espace analytique complexe $Y'$, une modification (propre) $\tau : Y' \to Y$ et une application holomorphe $f : Y' \to \Cscr(X \times X)$. Comme $\tau$ est propre et que $Y$ est compact alors $Y'=\tau^{-1}(Y)$ est compact et donc $f(Y')$ est le compact désiré.
 
@@ -120,7 +120,11 @@ Si $M$ est un fermé de Zariski alors son normalisateur, défini par :
 est $\Zcal$-fermé. 
 \end{Prop}
 \begin{proof}
-Soit $Y \subset \Cscr(X \times X)$ la compactification de $H$. L'action de $H$ sur $X \times X$ définie par $h \cdot(a,b)=(h\cdot a,h \cdot b)$ induit une action de $H$ sur $\Cscr(X \times X)$ qui induit la conjugaison $k \mapsto hkh^{-1}$ sur $H$ (car l'identification de $H$ avec un sous-ensemble de $\Cscr(X \times H)$ se fait avec les graphes de l'action ). Par continuité, l'action de $H$ préserve $Y$, son adhérence dans $\Cscr(X \times X)$. \\
+Soit $Y \subset \Cscr(X \times X)$ la compactification de $H$. L'action de $H$ sur $X \times X$ définie par $h \cdot(a,b)=(h\cdot a,h \cdot b)$ induit une action de $H$ sur $\Cscr(X \times X)$ qui induit la conjugaison $k \mapsto hkh^{-1}$ sur $H$ (car l'identification de $H$ avec un sous-ensemble de $\Cscr(X \times H)$ se fait avec les graphes de l'action et donc si $k =\Gamma_f$ alors :
+	\[ h \cdot k=\{ (ha,hf(a)) \in X \times X \mid a \in X\}=\{ (a,hf(h^{-1}a)) \in X \times X \mid a \in X\}
+\]
+Et donc, $h \cdot k=\Gamma_{hfh^{-1}}$). \\
+ Par continuité, l'action de $H$ préserve $Y$, son adhérence dans $\Cscr(X \times X)$. \\
 D'autre part, l'action de $H$ sur $X$ est compactifiable i.e. il existe une application méromorphe $m' : Y \times X \times X \dashrightarrow X \times X$ définie par $m'(y,a,b):=(m(y,a),m(y,b))$ qui prolonge l'action de $H$ sur $X \times X$. Notons par $\tau : Y' \to Y \times X \times X$ la modification associée et $\widetilde{m'} : Y'\to X$ la fonction holomorphe prolongeant $m'$. On peut donc passer à l'image directe et obtenir des applications : \\
 \xymatrix{
     \Cscr(Y \times X \times X)    && \Cscr(X \times X)  \\
@@ -171,7 +175,27 @@ $\Leftarrow$ : Soient $x_1, \ldots,x_n \in X$ tels que l'application $\lambda : 
 \]
 soit injective (on peut toujours le faire car la suite d'intersection $\left( \bigcap_{i=1}^n {Aut_0}_{x_i} \right)$ finira toujours par être réduit )à l'identité en un nombre fini d'étapes). Par hypothèse et la proposition \ref{localement_ferme}, $\lambda(S)$ est Zariski-fermé dans $\lambda(H)$ et donc $S$ est $\Zcal$-fermé dans $H$ (par continuité), $S$ est donc compactifiable.
 \end{proof}
-Le début de la preuve (i.e l'implication) s'adapte si on remplace les points $x_,\ldots, x_n$ par un fermé de Zariski de $X$.
+Le début de la preuve (i.e l'implication) s'adapte si on remplace les points $x_1,\ldots, x_n$ par un fermé de Zariski de $X$. \\
+
+On ne peut pas étendre ce résultat au produit cartésien de deux espaces analytiques distincts, même de Kähler : 
+\begin{Ex}[Serre]
+Soit $S=\C^* \times \C^*$. \\
+Une première compactification de $S$ est $X_1=\P^1 \times \P^1$.  Construisons-en une deuxième : \\
+On commence par remarquer que $S\simeq \C^2/\Z^2$\footnote{cela découle de l'isomorphisme $\C/\Z \simeq \C^*$ obtenue par passage au quotient de $\exp(2i \pi \cdot)$}. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\}$ que l'on peut compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
+$S$ agit de façon compactifiable sur $X_1$ et $X_2$. \\
+Soit $x_i \in X_i$, $i=1,2$ dont leur orbite par $S$ est Zariski-dense dans $X_i$. Supposons que $S\cdot( X_1,x_2)$ est un ouvert de Zariski de son adhérence dans $X_1 \times X_2$. On a alors le diagramme : 
+\xymatrix{
+    S\cdot x_1 \subset X_1    && S\cdot x_2 \subset X_2 \\
+    &S\cdot(x_1,x_2) & 
+  }\\
+On obtient donc une application birationnelle de $X_1$ et $X_2$, ce qui est absurde\foonote{https://en.wikipedia.org/wiki/Enriques\%E2\%80\%93Kodaira_classification,https://en.wikipedia.org/wiki/Irregularity_of_a_surface $h^{0,1}$ est un invariant birationnel et est différent regarder diamant de Hodge}
+
+\end{Ex}
+
+
+
+
+
 \ifwhole
  \end{document}
 \fi
