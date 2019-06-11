@@ -11,34 +11,7 @@
 \input{enonce}
 \fi
 
-\begin{Lemme}\label{adh_groupe}
-Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Alors $\overline{H}$ est un sous-groupe de $G$.
-
-\end{Lemme}
-\begin{proof}
-Pour montrer que $\overline{H}$ est un sous-groupe de $G$, il suffit de montrer que $\overline{H}$ est stable pour la loi de groupe et par passage à l'inverse. \\
-Soit $a \in \overline{H}$. Soit $U$ un voisinage ouvert de $a^{-1}$ dans $G$. \\
-Comme le passage à l'inverse est un homéomorphisme (et est donc ouvert) alors $V=\{ v \in G | v^{-1} \in U\}$ est un voisinage de $a$ dans $G$. \\
-Comme $a \in \overline{H}$ alors $V \cap H \neq \emptyset$ et comme $H$ est stable par passage à l'inverse alors $U \cap H \neq \emptyset$. On en déduit que $a^{-1} \in \overline{H}$. \\
-Soit $a,b \in \overline{H}$. Soit $W$ un voisinage ouvert de $ab$. \\
-Alors, $m^{-1}(ab)$ est un voisinage ouvert de $(a,b)$ dans $G \times G$ ($m : G \times G$ est la loi du groupe). Il existe donc des ouverts $U$ et $V$ de $G$ tels que $U \times V \subset m^{-1}(ab)$. \\
-Comme $a,b \in \overline{H}$ alors $H \cap U\neq \emptyset$ et $H \cap V\neq \emptyset$. Ainsi, $m(U \times V) \cap H \neq \emptyset$ et donc $W \cap H \neq \emptyset$. On en déduit que $ab \in \overline{H}$. 
-\end{proof}
-\begin{Def}
-Soit $X$ un espace topologique. Un sous-ensemble de $X$ est dit localement fermé s'il est ouvert dans son adhérence ou encore que c'est l'intersection d'un ouvert et d'un fermé de $X$.
-\end{Def}
-\begin{Prop}\label{localement_ferme}
-Soit $G$ un groupe topologique et $H$ un sous-groupe localement fermé de $G$. Alors $H$ est fermé dans $G$
-
-\end{Prop}
-\begin{proof}
-Par le lemme \ref{adh_groupe}, $\overline{H}$ est un sous-groupe de $G$. Supposons, par l'absurde, que $H \neq \overline{H}$. \\
-$H$ est un ouvert dense de $\overline{H}$. On peut décomposer $\overline{H}$ en une somme disjointe de $g_iH$. \\
-Comme $H \neq \overline{H}$, il existe (au moins) deux classes d'équivalences dans cette décomposition. Comme $H$ est un ouvert dense dans $\overline{H}$ alors les $g_iH$ sont aussi des ouverts denses dans $\overline{H}$. On obtient ainsi une contraction car deux ouverts ne sont pas disjoints.
-
-\end{proof}
-
-
+\newcommand{\ccs}{barth_compact_2004}
 \section{Action compactifiable}
 
 \begin{Def}
@@ -46,13 +19,12 @@ Soit $X$ un espace analytique complexe compact. Soit $H$ un groupe de Lie comple
 	\[ m(i(h),x)=h \cdot x
 \]
 \end{Def}
-Lorsque l'on a une action compactifible de $H$ sur $X$, on peut munir $H$ d'une topologie, dite de Zariski, définie par le fait que cses fermés sont de la forme $i^{-1}(V)$ où $V$ est un sous-espace analytique fermé de $Y$. On appelera $\Zcal$-ouverts (resp. $\Zcal$-fermés) les ouverts (resp. les fermés) de $H$ pour cette topologie (que l'on appelera $\Zcal$-topologie sur $H$).
-
+Lorsque l'on a une action compactifible de $H$ sur $X$, on peut munir $H$ d'une topologie, dite de Zariski, définie par le fait que cses fermés sont de la forme $i^{-1}(V)$ où $V$ est un sous-espace analytique fermé de $Y$. On appelera $\Zcal$-ouverts (resp. $\Zcal$-fermés) les ouverts (resp. les fermés) de $H$ pour cette topologie (que l'on appelera $\Zcal$-topologie sur $H$). \\
 Cette topologie est, en général, plus grossière que la topologie de Zariski usuelle de $H$ : 
-Prenons $X=\P^n$ et $H=Aut_0(X)=PGL_{n+1}(\C)$\footnote{ Voir Akhiezer} que l'on peut compactifier avec $Y=\P^{(n+1)^2-1}=\P(\Mcal_{n+1}(\C))$ et l'application méromorphe : 
+Prenons $X=\P^n$ et $H=Aut_0(X)=PGL_{n+1}(\C)$ (voir \cite{Aut(Pn)} que l'on peut compactifier avec $Y=\P^{(n+1)^2-1}=\P(\Mcal_{n+1}(\C))$ et l'application méromorphe : 
 	\[ m : ([(c_{ij})],[(x_j)] \in Y \times \P^n \mapsto \left[\sum_j c_{ij} x_j\right] \in \P^n
 \]
-Les sous-espaces analytiques de $\P^N$ \footnote{ Trouver qqch} sont des sous-ensembles algébriques. On en déduit que les $\Zcal$-ouverts de $H$ sont les sous-ensembles algébriques de celui-ci.
+Les sous-espaces analytiques de $\P^N$ sont des sous-ensembles algébriques, par le théorème de Chow. On en déduit que les $\Zcal$-ouverts de $H$ sont les sous-ensembles algébriques de celui-ci.
 
 \begin{Prop} % On suppose Y normal
 Soit $H$ un groupe de Lie complexe connexe agissant effectivement sur un espace analytique complexe compact $X$. L'action est compactifiable si, et seulement si, le graphe des éléments de $H$ forme un ouvert de Zariski d'un sous-espace analytique compact $\Cscr(X \times X)$.
@@ -73,9 +45,9 @@ Soit $H$ agissant de façon compactifiable sur $X$. Un sous-groupe $S \subset H$ 
 Notons $Y$ la compactification de $H$. \\
 $\Leftarrow$ : Si $S$ est $\Zcal$-fermé alors c'est l'intersection d'un fermé de $\Cscr(X \times X)$ et de $H$. C'est donc un ouvert de Zariski de l'intersection d'un fermé de $\Cscr(X \times X)$ et de $Y$ qui est compact
 $\Rightarrow$ : Soit $Y'$ une compactification de $S$. Quitte à l'intersecter avec $H$, on peut supposer $Y' \subset H$. Comme les opérations de groupe de $H$ sont holomorphes alors $H$ muni de sa topologie de Zariski est un groupe topologique. \\
-Par hypothèse, $S$ est $\Zcal$-ouvert dans son $\Zcal$-adhérence alors $S$ est localement fermé et donc, par la proposition \label{localement_ferme}, est ($\Zcal$-)fermé dans $H$
+Par hypothèse, $S$ est $\Zcal$-ouvert dans son $\Zcal$-adhérence alors $S$ est localement fermé et donc, par la proposition \ref{localement_ferme}, est ($\Zcal$-)fermé dans $H$
 \end{proof}
-\begin{Thm}
+\begin{Thm}\label{Aut_0_comp}
 Si $X$ est une variété de Kähler compacte alors $Aut_0(X)$ agit de façon compactifiable sur $X$
 
 \end{Thm}
@@ -159,7 +131,7 @@ Soit $H$ qui agit de façon compactifiable sur $X$ et $S$ un sous-groupe abélien 
 Par la proposition \ref{centr_norma} et le lemme \ref{centralisa}, $Z(Z(S))$ est un sous-groupe $\Zcal$-fermé abélien contenant $S$. L'adhérence de $S$ est donc contenue dedans et est donc abélienne.
 \end{proof}
 
-\begin{Prop}
+\begin{Prop} \label{comp_orb_adh}
 Soit $H$ qui agit de façon compactifiable sur $X$. Un sous-groupe $S$ de $H$ est $\Zcal$-fermé si, et seulement si, pour toute ensemble fini de points $x_1,\ldots,x_n$ de $X$ , la $S$-orbite $(sx_1,\ldots,sx_n)$ est ouverte dans son adhérence de Zariski.
 
 \end{Prop}
@@ -181,17 +153,107 @@ On ne peut pas étendre ce résultat au produit cartésien de deux espaces analytiq
 \begin{Ex}[Serre]
 Soit $S=\C^* \times \C^*$. \\
 Une première compactification de $S$ est $X_1=\P^1 \times \P^1$.  Construisons-en une deuxième : \\
-On commence par remarquer que $S\simeq \C^2/\Z^2$\footnote{cela découle de l'isomorphisme $\C/\Z \simeq \C^*$ obtenue par passage au quotient de $\exp(2i \pi \cdot)$}. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\}$ que l'on peut compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
+On commence par remarquer\footnote{cela découle de l'isomorphisme $\C/\Z \simeq \C^*$ obtenue par passage au quotient de $\exp(2i \pi \cdot)$} que $S\simeq \C^2/\Z^2$. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\} \simeq \C$. Toutes les autres fibres sont isomorphes à $\C$ ;  peut donc les compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
 $S$ agit de façon compactifiable sur $X_1$ et $X_2$. \\
 Soit $x_i \in X_i$, $i=1,2$ dont leur orbite par $S$ est Zariski-dense dans $X_i$. Supposons que $S\cdot( X_1,x_2)$ est un ouvert de Zariski de son adhérence dans $X_1 \times X_2$. On a alors le diagramme : 
 \xymatrix{
-    S\cdot x_1 \subset X_1    && S\cdot x_2 \subset X_2 \\
-    &S\cdot(x_1,x_2) & 
+    S\cdot x_1 \subset X_1 \ar@{-->}[rr]   && S\cdot x_2 \subset X_2 \\
+    &S\cdot(x_1,x_2)\ar[ul]\ar[ur] & 
   }\\
-On obtient donc une application birationnelle de $X_1$ et $X_2$, ce qui est absurde\foonote{https://en.wikipedia.org/wiki/Enriques\%E2\%80\%93Kodaira_classification,https://en.wikipedia.org/wiki/Irregularity_of_a_surface $h^{0,1}$ est un invariant birationnel et est différent regarder diamant de Hodge}
+On obtient donc une application biméromorphe de $X_1$ et $X_2$, ce qui est absurde\footnote{Pour voir que $X_1$ et $X_2$ ne sont pas biméromorphes, on peut regarder l'irrégularité de ces deux surfaces i.e. l'entier $q:=h^{0,1}$ qui est un invariant par biméromorphismes (voir \ref{\ccs} Chapitre 3 corollaire 6.4 p 107). \\
+Par la proposition 4.1 du chapitre 5 du même livre, $X_2$ est biméromorphe avec $\P^1 \times E$. Ensuite, par le théorème de Hodge, $q(X_i)=b_1(X_i)/2$ (car $\P^1$ et $E$ sont de Kähler, où $b_i$ est le $i$ème nombre de Betti). \\
+Par la formule de Künneth, 
+	\[b_1(X_1)=b_0(\P^1)b_1(\P^1)+b_1(\P^1)b_0(\P^1)=0
+\]
+car $\P^1$ est connexe et simplement connexe. \\
+Et, 
+\[b_1(X_2)=b_0(\P^1)b_1(C)+b_1(\P^1)b_0(C)=2
+\]
+car $b_1(C)=2h^{1,0}=2\times g(C)=2$. \\
+On en déduit que $q(X_1)=0 \neq 1 =q(X_2)$ et donc que $X_1$ et $X_2$ ne sont pas biméromorphes.}
 
 \end{Ex}
 
+Soit $f : X \to Y$ une fonction holomorphe équivariante pour une action de $H$ sur $X$ et $Y$. Supposons que $H$ agit de façon compactifiable sur $X$ et que $Y$ est de Kähler. \\
+L'équivariance de $f$ fait que l'automorphisme induit par $h \in H$ conserve $f(X)$ i.e. on a une morphisme de groupes holomorphe $H \to Aut_0(Y)_{\{f(X)\}}$ que l'on peut ensuite composer avec la projection canonique 
+	\[Aut_0(Y)_{\{f(X)\}} \to Aut_0(Y)_{\{f(X)\}} /Aut_0(Y)_{f(X)}=:G
+\]
+ pour obtenir un morphisme $\lambda : H \to G$.
+
+\begin{Prop} \label{image_noyau_Zar}
+Le noyau de $\lambda$  est $\Zcal$-fermé et l'image de $\lambda$ est un fermé de $G$ pour la ($\Zcal$-)topologie quotient.
+\end{Prop}
+\begin{proof}
+  Montrons que $\Ker(\lambda)$ est $\Zcal$-fermé :
+  Pour cela, il suffit de montrer l'égalité :
+   \[
+    \Ker(\lambda)=\bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}
+  \]
+  et d'utiliser la proposition \ref{fix_topol}. \\
+  On a, par définition,
+  \[
+    \Ker(\lambda)=\{ h \in H \mid \forall y\in f(X), h \cdot y=y \}
+  \]
+  Soit $h \in \Ker(\lambda)$. Soient $y \in f(X)$ et $x \in f^{-1}(y)$. Alors,
+  \[
+    f(h \cdot x)=h \cdot f(x)=h \cdot y=y
+  \]
+  i.e $h \cdot x \in f^{-1}(y)$. \\
+  Le même raisonnement pour $h^{-1}$ nous montre que $h \in H_{\{f^{-1}(y)\}}$.    \\
+  Cette égalité étant vraie pour tout $y \in Y$, on obtient l'inclusion :  $\Ker(\lambda) \subset \bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}$. \\
+  Réciproquement, si $h \in \bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}$, alors pour tout $y \in f(X)$ et $x \in X$ tel que $y=f(x)$, \\
+  \[
+    h \cdot y=h\cdot f(x)=f(h \cdot x)=y
+  \]
+  car $x \in f^{-1}(y)$. Cela montre que $ h \in Ker(\lambda)$, ce qui montre l'égalité voulue. \\
+  Montrons maintenant que $Im(\lambda)$ est un fermé de Zariski. \\
+  On peut commencer par remarquer que $G$ agit de façon compactifiable sur $f(X)$. En effet, par \ref{Aut_0_comp}, $Aut_0(Y)$ agit de façon compactifiable sur $Y$. Comme $Aut_0(Y)_{\{f(X)\}}$ est un $\Zcal$-fermé (par \ref{fix_topol} et le fait que $f(X)$ est un fermé de Zariski car $f$ est propre) alors $Aut_0(Y)_{\{f(X)\}}$ agit de façon compactifiable sur $Y$ et en particulier sur $f(X)$. Comme $G$ est le quotient de $Aut_0(Y)_{\{f(X)\}}$ par le sous-groupe d'ineffectivité, l'action passe au quotient et on obtient une action de $G$ sur $f(X)$ compactifiable. \\
+  D'après \ref{comp_orb_adh}, on peut choisir $y_1,\ldots,y_n \in f(X)$ de tel sorte que l'application $\varphi : G \to Y^n$ définie , pour tout $h \in H$, par :
+  \[
+    \varphi(g)=(g\cdot y_1,\ldots,g \cdot y_n)
+  \]
+  permette d'identifier $G$ avec un ouvert de Zariski de $\overline{\varphi(G)}$. \\
+  Soit $x_i$ tel que $y_i=f(x_i)$. Par la même proposition, on obtient une application 
+		\[\psi : h\in H \mapsto (h\cdot x_1,\ldots,h\cdot x_n) \in X^n
+	\]
+	 qui identifie $H$ avec un ouvert de Zariski de $\overline{\psi(H)}$. \\
+  Comme $f$ est propre alors $f \times \ldots \times f(\overline{\psi(H)})$ est un fermé de Zariski et par \ref{image_constructible}, $f \times \ldots \times f(\psi(H))$ est un ensemble constructible de $f \times \ldots \times f( \overline{\psi(H)})$. On peut ensuite remarquer que le diagramme: 
+ 
+	 \[\xymatrix{
+			 H \ar[r]^\varphi \ar[d]_\lambda  & X^n \ar[d]^{f \times \cdot \times f} \\
+			G \ar[r]^\psi & Y^n
+		}
+\]
+  est commutatif. En effet, pour tout $h \in H$,
+  \[
+    (f \times \cdot \times f) \circ \psi(h)= (f \times \cdot \times f)(h\cdot x_1,\ldots,h \cdot x_n)=(f(h \cdot x_1),\cdots, f(h \cdots x_n))=(h\cdot y_1,\ldots,h \cdot y_n)
+  \]
+  et
+  \[
+    \varphi(\lambda(h))=\varphi(h : x \mapsto h \cdot x)=(h\cdot y_1,\ldots,h \cdot y_n)
+  \]
+  Par conséquent, $f \times \ldots \times f(\psi(H))$ est inclus dans $ \varphi(G) $. Ce qui veut dire que $f \times \ldots \times f(\psi(H))$ est une partie constructible de $\varphi(G)$. L'identification donnée par $\varphi$ munit $\varphi(G)$ d'une structure de groupe topologique pour laquelle $f \times \ldots \times f(\psi(H))$ est un sous-groupe. Par \ref{image_constructible}, $f \times \ldots \times f(\psi(H))$ est un sous-groupe fermé (pour la topologie de Zariski) et comme $\lambda(H)=\varphi^{-1}(f \times \ldots \times f(\psi(H))$ alors $\lambda(H)$ est un fermé de Zariski.
+
+\end{proof}
+
+
+\begin{Ex}
+  Soient $f$, $X$ et $Y$ comme dans \ref{image_noyau_Zar}, $H$ un sous-groupe Zariski-fermé de $Aut_0(X)$ et soit $\lambda : H \to Aut_0(Y)$ définie par $h \mapsto (y \mapsto g(y))$. Alors $\lambda(H)$ n'est pas nécessairement $\Zcal$-fermé dans $Aut_0(Y)$ : \\
+  Soient $X=\P^1$, $Y=X \times \P^1$ et $H=\C$. $H$ agit sur $X$ par :
+  \[t \cdot [x:y] = \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}[x:y]=[x+ty : y]\]
+  et sur la deuxième composante de $Y$ par :
+    \[t \cdot [x:y] = \begin{pmatrix} 1 & 0 \\ 0 & e^t \end{pmatrix}[x:y]=[x :e^t y]\]
+    On peut commencer par remarquer que $H$ agit de façon compactifiable sur $X$ avec l'injection $\C \to \P^1$ et l'action méromorphe donnée pour $x \in \P^1$ par :
+    \[
+      [1:0] \cdot x=[1:0]
+    \]
+    car, si $x_2 \neq 0$, $\lim \limits_{t \to \infty}x_1+tx_2=\infty$ et si $x_2=0$ alors pour tout $t \in \C$, $t \cdot [x_1,0]=[1:0]$.
+    On peut aussi remarquer que $Y$ est de Kähler comme produit de variétés de Kähler et que $Aut_0(Y)=Aut_0(\P^1) \times Aut_0(\P^1)=PGL_2(\C)^2$ (voir \ref{Aut(Pn)} et \ref{prod_aut} ). \\
+    On obtient donc que :
+    \[\lambda(H)=\left\{\left(\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix},\begin{pmatrix}1 & 0 \\ 0 &e^t \end{pmatrix}\right) \mid t \in \R \right\}
+    \]
+    qui n'est pas $\Zcal$-fermé car la $\Zcal$-topologie sur $PGL_n(\C)$ est la topologie de Zariski algébrique (voir le début de la section) et la présence de l'exponentielle empêche que cela soit algébrique.
+\end{Ex}
 
 
 
