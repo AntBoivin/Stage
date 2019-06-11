@@ -1,0 +1,96 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+
+Soit $f : X \to Y$ une fonction holomorphe équivariante pour une action de $H$ sur $X$ et $Y$. Supposons que $H$ agit de façon compactifiable sur $X$ et que $Y$ est de Kähler. \\
+L'équivariance de $f$ fait que l'automorphisme induit par $h \in H$ conserve $f(X)$ i.e. on a une morphisme de groupes holomorphe $H \to Aut_0(Y)_{\{f(X)\}}$ que l'on peut ensuite composer avec la projection canonique $Aut_0(Y)_{\{f(X)\}} \to Aut_0(Y)_{\{f(X)\}} /Aut_0(Y)_{f(X)}=:G$ pour obtenir un morphisme $\lambda : H \to G$
+
+\begin{Prop} \label{image_noyau_Zar}
+Le noyau de $\lambda$  est $\Zcal$-fermé et l'image de $\lambda$ est un fermé de $G$ pour la ($\Zcal$-)topologie quotient.
+\end{Prop}
+\begin{proof}
+  Montrons que $\Ker(\lambda)$ est $\Zcal$-fermé :
+  Pour cela, il suffit de montrer l'égalité :
+   \[
+    \Ker(\lambda)=\bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}
+  \]
+  et d'utiliser la proposition \ref{}. \\
+  On a, par définition,
+  \[
+    \Ker(\lambda)=\{ h \in H \mid \forall y\in f(X), h \cdot y=y \}
+  \]
+  Soit $h \in \Ker(\lambda)$. Soient $y \in f(X)$ et $x \in f^{-1}(y)$. Alors,
+  \[
+    f(h \cdot x)=h \cdot f(x)=h \cdot y=y
+  \]
+  i.e $h \cdot x \in f^{-1}(y)$. \\
+  Le même raisonnement pour $h^{-1}$ nous montre que $h \in H_{\{f^{-1}(y)\}}$.    \\
+  Cette égalité étant vraie pour tout $y \in Y$, on obtient l'inclusion :  $\Ker(\lambda) \subset \bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}$. \\
+  Réciproquement, si $h \in \bigcap_{y \in f(X)}H_{\{f^{-1}(y)\}}$, alors pour tout $y \in f(X)$ et $x \in X$ tel que $y=f(x)$, \\
+  \[
+    h \cdot y=h\cdot f(x)=f(h \cdot x)=y
+  \]
+  car $x \in f^{-1}(y)$. Cela montre que $ h \in Ker(\lambda)$, ce qui montre l'égalité voulue. \\
+  Montrons maintenant que $Im(\lambda)$ est un fermé de Zariski. \\
+  On peut commencer par remarquer que $G$ agit de façon compactifiable sur $f(X)$. En effet, par \ref{}, $Aut_0(Y)$ agit de façon compactifiable sur $Y$. Comme $Aut_0(Y)_{\{f(X)\}}$ est un $\Zcal$-fermé (par \ref{} et le fait que $f(X)$ est un fermé de Zariski car $f$ est propre) alors $Aut_0(Y)_{\{f(X)\}}$ agit de façon compactifiable sur $Y$ et en particulier sur $f(X)$. Comme $G$ est le quotient de $Aut_0(Y)_{\{f(X)\}}$ par le sous-groupe d'ineffectivité, l'action passe au quotient et on obtient une action de $G$ sur $f(X)$ compactifiable. \\
+  D'après \ref{}, on peut choisir $y_1,\ldots,y_n \in f(X)$ de tel sorte que l'application $\varphi : G \to Y^n$ définie , pour tout $h \in H$, par :
+  \[
+    \varphi(g)=(g\cdot y_1,\ldots,g \cdot y_n)
+  \]
+  permette d'identifier $G$ avec un ouvert de Zariski de $\overline{\varphi(G)}$
+  Soit $x_i$ tel que $y_i=f(x_i)$. Par la même proposition, on obtient une application 
+		\[\psi : h\in H \mapsto (h\cdot x_1,\ldots,h\cdot x_n) \in X^n
+	\]
+	 qui identifie $H$ avec un ouvert de Zariski de $\overline{\psi(H)}$. \\
+  Comme $f$ est propre alors $f \times \ldots \times f(\overline{\psi(H)})$ est un fermé de Zariski et par \ref{}, $f \times \ldots \times f(\psi(H))$ est un ensemble constructible de $f \times \ldots \times f( \overline{\psi(H)})$. On peut ensuite remarquer que le diagramme: 
+ 
+	 \[\xymatrix{
+			 H \ar[r]^\varphi \ar[d]_\lambda  & X^n \ar[d]^{f \times \cdot \times f} \\
+			G \ar[r]^\psi & Y^n
+		}
+\]
+  est commutatif. En effet, pour tout $h \in H$,
+  \[
+    (f \times \cdot \times f) \circ \psi(h)= (f \times \cdot \times f)(h\cdot x_1,\ldots,h \cdot x_n)=(f(h \cdot x_1),\cdots, f(h \cdots x_n))=(h\cdot y_1,\ldots,h \cdot y_n)
+  \]
+  et
+  \[
+    \varphi(\lambda(h))=\varphi(h : x \mapsto h \cdot x)=(h\cdot y_1,\ldots,h \cdot y_n)
+  \]
+  Par conséquent, $f \times \ldots \times f(\psi(H)})$ est inclus dans $ \varphi(G) $. Ce qui veut dire que $f \times \ldots \times f(\psi(H)})$ est une partie constructible de $\varphi(G)$. L'identification donnée par $\varphi$ munit $\varphi(G)$ d'une structure de groupe topologique pour laquelle $f \times \ldots \times f(\psi(H)})$ est un sous-groupe. Par \ref{}, $f \times \ldots \times f(\psi(H)})$ est un sous-groupe fermé (pour la topologie de Zariski) et comme $\lambda(H)=\varphi^{-1}(f \times \ldots \times f(\psi(H)})$ alors $\lambda(H)$ est un fermé de Zariski.
+
+\end{proof}
+
+
+\begin{Ex}
+  Soient $f$, $X$ et $Y$ comme dans \ref{image_noyau_Zar}, $H$ un sous-groupe Zariski-fermé de $Aut_0(X)$ et soit $\lambda : H \to Aut_0(Y)$ définie par $h \mapsto (y \mapsto g(y))$. Alors $\lambda(H)$ n'est pas nécessairement $\Zcal$-fermé dans $Aut_0(Y)$ : \\
+  Soient $X=\P^1$, $Y=X \times \P^1$ et $H=\C$. $H$ agit sur $X$ par :
+  \[t \cdot [x:y] = \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}[x:y]=[x+ty : y]\]
+  et sur la deuxième composante de $Y$ par :
+    \[t \cdot [x:y] = \begin{pmatrix} 1 & 0 \\ 0 & e^t \end{pmatrix}[x:y]=[x :e^t y]\]
+    On peut commencer par remarquer que $H$ agit de façon compactifiable sur $X$ avec l'injection $\C \to \P^1$ et l'action méromorphe donnée pour $x \in \P^1$ par :
+    \[
+      [1:0] \cdot x=[1:0]
+    \]
+    car, si $x_2 \neq 0$, $\lim \limits_{t \to \infty}x_1+tx_2=\infty$ et si $x_2=0$ alors pour tout $t \in \C$, $t \cdot [x_1,0]=[1:0]$.
+    Et que $Y$ est de Kähler comme produit de variétés de Kähler et que $Aut_0(Y)=Aut_0(\P^1) \times Aut_0(\P^1)=PGL_2(\C)^2$. \\
+    On obtient donc que :
+    \[\lambda(H)=\left\{\left(\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix},\begin{pmatrix}1 & 0 \\ 0 &e^t \end{pmatrix}\right) \mid t \in \R \right\}
+    \]
+    qui n'est pas $\Zcal$-fermé car la $\Zcal$-topologie sur $PGL_n(\C)$ est la topologie de Zariski algébrique (voir \ref{}) et la présence de l'exponentielle empêche que cela soit algébrique.
+\end{Ex}
+
+
+\ifwhole
+ \end{document}
+\fi

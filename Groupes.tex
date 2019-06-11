@@ -61,6 +61,63 @@ Le groupe fondamental $\pi_1$ est un foncteur des espaces topologiques pointés $
 
 \end{proof}
 
+\begin{Lemme}\label{adh_groupe}
+Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Alors $\overline{H}$ est un sous-groupe de $G$.
+
+\end{Lemme}
+\begin{proof}
+Pour montrer que $\overline{H}$ est un sous-groupe de $G$, il suffit de montrer que $\overline{H}$ est stable pour la loi de groupe et par passage à l'inverse. \\
+Soit $a \in \overline{H}$. Soit $U$ un voisinage ouvert de $a^{-1}$ dans $G$. \\
+Comme le passage à l'inverse est un homéomorphisme (et est donc ouvert) alors $V=\{ v \in G | v^{-1} \in U\}$ est un voisinage de $a$ dans $G$. \\
+Comme $a \in \overline{H}$ alors $V \cap H \neq \emptyset$ et comme $H$ est stable par passage à l'inverse alors $U \cap H \neq \emptyset$. On en déduit que $a^{-1} \in \overline{H}$. \\
+Soit $a,b \in \overline{H}$. Soit $W$ un voisinage ouvert de $ab$. \\
+Alors, $m^{-1}(ab)$ est un voisinage ouvert de $(a,b)$ dans $G \times G$ ($m : G \times G$ est la loi du groupe). Il existe donc des ouverts $U$ et $V$ de $G$ tels que $U \times V \subset m^{-1}(ab)$. \\
+Comme $a,b \in \overline{H}$ alors $H \cap U\neq \emptyset$ et $H \cap V\neq \emptyset$. Ainsi, $m(U \times V) \cap H \neq \emptyset$ et donc $W \cap H \neq \emptyset$. On en déduit que $ab \in \overline{H}$. 
+\end{proof}
+\begin{Def}
+Soit $X$ un espace topologique. Un sous-ensemble de $X$ est dit localement fermé s'il est ouvert dans son adhérence ou encore que c'est l'intersection d'un ouvert et d'un fermé de $X$.
+\end{Def}
+
+\begin{Def}
+Soit $X$ un espace topologique \footnote{On doit imposer que cela soit un espace noethérien mais dans notre cadre, cela n'est pas restrictif. On supposera dans la suite que nos espaces topologiques sont noethériens}. Un sous-ensemble de $X$ est dit constructible si c'est l'union finie de sous-espaces localement fermés.
+\end{Def}
+\begin{Lemme}
+Une partie constructible $Y$ d'un espace topologique contient un ouvert dense dans $\overline{Y}$. 
+
+\end{Lemme}
+
+\begin{proof} %Borel
+On va traiter le cas où $\overline{Y}$ est irréductible (le cas général se fait par la décomposition irréductible\footnote{La noethérianité est importante, ici}. \\
+Comme $Y$ est constructible, on a une décomposition $Y=\bigcup L_i$ où $L_i$ est une partie localement fermé de $X$. On a, alors, 
+$\overline{Y}=\bigcup \overline{L_i}$. Par irréductibilité de $\overline{Y}$, il existe un $i$ tel que $\overline{Y}=\overline{L_i}$. $L_i$ est ouvert dans son adhérence car il est localement fermé et est donc un ouvert dense dans $\overline{Y}$.
+\end{proof}
+\begin{Lemme} \label{prod_dense}
+Soit $G$ un groupe topologique. Soit $U$ un ouvert dense de $G$ et $V$ un ouvert non vide. Alors $UV=G$.
+\end{Lemme}
+\begin{proof}
+Soit $g \in G$. Comme l'inversion $x \mapsto x^{-1}$ et les translations sont des homéomorphismes alors $gV^{-1}$ est un ouvert non vide de $G$. Comme $U$ est dense dans $G$ alors $U \cap gV^{-1}\neq \emptyset$. Ainsi, il existe $u \in U$ et $v \in V$ tel que $u=gv^{-1}$ i.e. $g=uv$.
+
+\end{proof}
+\begin{Prop}
+Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Si $H$ est une partie constructible de $G$ alors $H$ est fermée.
+
+\end{Prop}
+
+\begin{proof}
+Soit $U$ un ouvert dense de $\overline{H}$ contenu dans $H$. Alors, par le lemme \ref{prod_dense}, $UU=\overline{H}$ mais comme $U \subset H$ alors $UU \subset HH=H$. Par conséquent, $H=\overline{H}$.
+
+\end{proof}
+\begin{Cor}\label{localement_ferme}
+Soit $G$ un groupe topologique et $H$ un sous-groupe localement fermé de $G$. Alors $H$ est fermé dans $G$
+
+\end{Cor}
+%\begin{proof}
+%Par le lemme \ref{adh_groupe}, $\overline{H}$ est un sous-groupe de $G$. Supposons, par l'absurde, que $H \neq \overline{H}$. \\
+%$H$ est un ouvert dense de $\overline{H}$. On peut décomposer $\overline{H}$ en une somme disjointe de $g_iH$. \\
+%Comme $H \neq \overline{H}$, il existe (au moins) deux classes d'équivalences dans cette décomposition. Comme $H$ est un ouvert dense dans $\overline{H}$ alors les $g_iH$ sont aussi des ouverts denses dans $\overline{H}$. On obtient ainsi une contraction car deux ouverts ne sont pas disjoints.
+%
+%\end{proof}
+
 \subsection{Groupes de Lie}
 
 \begin{Def} \index{groupe de Lie}
@@ -73,7 +130,7 @@ Soit $G$ un groupe de Lie (réel ou complexe). L'algèbre de Lie, notée $\gfrak$, 
 \end{Def}
 L'espace vectoriel $\gfrak$ s'identifie à l'espace tangent de $G$ en le neutre de la façon suivante : \\
 A tout $x \in T_eG$, on associe le champ de vecteur $X : g \in G \mapsto d_e L_g(x)$ qui est invariant à gauche.
-\begin{Def} \index{parallelisable @parallélisable
+\begin{Def} \index{parallelisable @parallélisable}
 Une variété (lisse ou complexe) est dite parallélisable si son fibré tangent est trivial.
 \end{Def}
 
@@ -99,15 +156,74 @@ Elles sont lisses (resp. holomorphes) et inverses l'une de l'autre. Ce sont donc
 
 \begin{Thm}
 Soit $G$ un groupe de Lie complexe et $\gfrak$ la $\C$-algèbre de Lie associée.
-L'exponentielle réelle $\exp_\R : G_\R \to \gfrak_\R$ entre les structures réelles des deux espaces induit une application holomorphe $\exp : G \to \gfrak$. 
+L'exponentielle réelle $\exp_\R : \gfrak_\R\to G_\R  $ entre les structures réelles des deux espaces induit une application holomorphe $\exp : \gfrak \to G$. 
 \end{Thm}
 \begin{proof}
 Voir \cite{Lee} Thm 1.15 % Lee
 
  \end{proof}
 
+\begin{Prop} \label{cccc}
+Un groupe de Lie complexe connexe compact est commutatif.
+\end{Prop}
+\begin{proof}
+Soit $G$ un groupe de Lie complexe connexe compact. \\
+Soit $x \in X$. La conjugaison par $x$ dans $G$, $\sigma_x : y \in G \mapsto xyx^{-1}$ est un automorphisme de $G$. Sa différentielle est donc un isomorphisme. \\
+Soit $\varphi : x \in G \mapsto d_e \sigma_x$. Cette application est holomorphe (car $\sigma_x$ (et donc ses dérivées partielles) le sont. Comme $X$ est compact alors $\varphi$ est localement constante et comme de plus, $X$ est connexe alors $\varphi$ est constante. \\
+On en déduit : 
+	\[ d_e \sigma_x=d_e \sigma_e=id_\gfrak
+\]
+On en déduit que, pour tout $u \in G$,  
+	\[ \sigma_x(\exp(u))=\exp(d_e\sigma_x(u))=\exp(u)
+\]
+Ainsi, 
+	\[\exp(\gfrak) \subset Z(G)
+\]
+De plus, par \ref{}, 
+	\[ G=\left\langle \exp(\gfrak) \right\rangle \subset Z(G) \subset G
+\]
+On en déduit que $Z(G)=G$ et donc que $G$ est commutatif.
+\end{proof}
+
+\begin{Thm}
+Soit $G$ un groupe de Lie complexe connexe compact. Alors l'application $\exp : \gfrak \to G$ est un morphisme surjectif de groupes dont le noyau est un réseau de $\gfrak$. On obtient un isomorphisme :
+	\[ \gfrak/\Ker(\exp) \simeq G
+\]
+
+\end{Thm}
+
+\begin{proof}
+Soient $u,v \in \gfrak$ et $\psi : \C \to G$ définie par : \\
+	\[ \forall t \in \C, \psi(t)=(\exp(tu)\exp(tv))=\varphi_u(t)\varphi_v(t)
+\]
+$\psi$ est une fonction holomorphe. Par la commutativité de $G$ donnée par \ref{cccc}, $\psi$ est un morphisme de groupes : 
+	 
+	 \begin{align*}
+		 \forall t,t' \in \C, \psi(t+t')&=\varphi_u(t+t')\varphi_v(t+t')=\varphi_u(t)\varphi_u(t')\varphi_v(t)\varphi_v(t') \\
+		&=\varphi_u(t)\varphi_v(t)\varphi_u(t')\varphi_v(t')=\psi(t)\psi(t')
+	 \end{align*}
+
+La différentielle de $\psi$ en 0 est donnée par : 
+	\[ d_0 \psi=(u+v)dt
+\]
+Ainsi, par la correspondance \ref{}, on en déduit que 
+	\[ \psi=\varphi_{u+v}
+\]
+En évaluant en 1, on en déduit que : 
+	\[ \exp(u+v)=\exp(u)\exp(v)
+\]
+i.e. $\exp$ est un morphisme de groupes. \\
+On en déduit que $\exp(\gfrak)$ est un groupe et par \ref{} et le fait que $G$ est connexe, 
+	\[ \exp(\gfrak)=\left\langle \exp(\gfrak)\right\rangle=G
+\]
+Pour montrer que $\Ker(\exp)$ est discret, il suffit de le montrer au voisinage de 0 : 
+Soit $U$ un voisinage ouvert de $0$ tel que $\exp_{|U}$ est injective (donnée par le théorème d'inversion locale). Alors,
+$U \cap \Ker(\exp)=\{0\}$. \\
+Soit $\widetilde{\exp} :\gfrak/\Ker(\exp) \to G$ l'application obtenue par passage au quotient. C'est un isomorphisme de groupes qui est un biholomorphisme local en 0 et donc en tout point par translation. 
+\end{proof}
 
 
+\subsection{$Aut_0 \subset Aut_\omega$}
 \begin{Thm}\label{autom_Lie}
 Soit $M$ un variété complexe compacte. Son groupe d'automorphisme est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
 
