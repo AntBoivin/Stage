@@ -1,4 +1,5 @@
 
+
 \newif\ifwhole
 
 %\wholetrue
@@ -11,16 +12,17 @@
 \input{enonce}
 \fi
 \section{Modifications}
-Dans cette section, nous allons \'etendre la d\'efinition de fonctions m\'eromorphes dans le cas o\`u le domaine d'arriv\'e est un espace analytique r\'eduit quelconque. Pour cela, on est amen\'e \`a d\'efinir la notion de modification dont un exemple simple est l'\'eclatement de l'origine dans $\C^{n+1}$
-\subsection{Premier exemple : \'eclatement de l'origine dans $\C^{n+1}$}
+Dans cette section, nous allons \'etendre la d\'efinition de fonctions m\'eromorphes dans le cas o\`u le domaine d'arriv\'e est un espace analytique r\'eduit quelconque. Pour cela, on est amen\'e \`a d\'efinir la notion de modification dont un exemple simple est l'\'eclatement de l'origine dans $\C^{n+1}$.
+%\subsection{Premier exemple : \'eclatement de l'origine dans $\C^{n+1}$}
+\begin{Ex}
 On commence par regarder le fibr\'e en droites tautologiques $ \Ocal_{\P^n}(-1)$ sur $\P^n$ d\'efini par :
 \[ \Ocal_{\P^n}(-1):= \{ (L,z) \in \P^n\times \C^{n+1} \mid z \in L \}
 \]
 La projection de $\Ocal_{\P^n}(-1)$ sur $\C^{n+1}$ est submersive en tout point en dehors de $\P^n\times\{0\}=:\Ecal$. \\
-En effet, si on regarde dans les cartes (donn\'ees par : 
-	\[\varphi :(L,z) \in T \cap (U_i \times C^{n+1}) \mapsto (\pi_i(L),z_i)\in \C^n \times \C
+En effet, si on regarde dans les cartes (donn\'ees par :
+    \[\varphi :(L,z) \in T \cap (U_i \times C^{n+1}) \mapsto (\pi_i(L),z_i)\in \C^n \times \C
 \]
- o\`u $U_i=\{z_i \neq 0\} \subset \P^n$ et $\pi : U_i \simeq \C^n$) 
+ o\`u $U_i=\{z_i \neq 0\} \subset \P^n$ et $\pi : U_i \simeq \C^n$)
 de $\Ocal_{\P^n}(-1)$, on obtient une application $\widetilde{\pi}_i : \C^{n+1} \to \C^{n+1}$ d\'efinie par :
 \[  \forall (x_1,\ldots,x_n,z) \in \C^{n+1}, \widetilde{\pi_i}(x_1,\ldots,x_n,z)=z(x_1,\ldots,1,x_n)
 \]
@@ -38,15 +40,15 @@ Son jacobien est donn\'e par :
   \]
   Ainsi, $\widetilde{\pi}$ est submersive en tout point o\`u $z \neq 0$ (et donc $\pi$ aussi).
   Par le th\'eor\`eme d'inversion locale, $\pi : \Ocal_{\P^n}(-1)\setminus \Ecal \to \C^{n+1} \setminus \{0\}$ est un isomorphisme. On appelle \'eclatement de l'origine dans $\C^{n+1}$ la vari\'et\'e $\Ocal_{\P^n}(-1)$ muni de sa projection sur $\C^{n+1}$.
+\end{Ex}
 
-\subsection{Modifications}
 \begin{Def}
   Soit $\tau : \widetilde{X} \to X$ une application holomorphe entre deux espaces analytiques complexes r\'eduits. On dira que l'application $\tau$ est une modification si :
   \begin{itemize}
   \item $\tau$ est propre
-    \item Il existe un sous-ensemble analytique $T$ d'int\'erieur vide dans $X$ tel que l'image r\'eciproque $\tau^{-1}(T)$ soit d'int\'erieur vide dans $\widetilde{X}$ et tel que $\tau$ induise un isomorphisme de $\widetilde{X}\setminus \tau^{-1}(T)$ sur $X \setminus T$. 
+    \item Il existe un sous-ensemble analytique $T$ d'int\'erieur vide dans $X$ tel que l'image r\'eciproque $\tau^{-1}(T)$ soit d'int\'erieur vide dans $\widetilde{X}$ et tel que $\tau$ induise un isomorphisme de $\widetilde{X}\setminus \tau^{-1}(T)$ sur $X \setminus T$.
     \end{itemize}
-On appelera centre de la modification $\tau$ l'intersection des sous-ensembles analytiques $T$ de $X$ qui v\'erifient la condition ci-dessus (i.e. le plus petit d'entre eux) et le lieu exceptionnel l'image r\'eciproque de $\tau$  
+On appelera centre de la modification $\tau$ l'intersection des sous-ensembles analytiques $T$ de $X$ qui v\'erifient la condition ci-dessus (i.e. le plus petit d'entre eux) et le lieu exceptionnel l'image r\'eciproque de $\tau$
 \end{Def}
 
 On peut remarquer qu'une modification est n\'ecessairement surjective car son image est un espace analytique ferm\'e (car $\tau$ est propre) qui contient un ouvert dense, celle-ci est donc $X$ tout entier.
@@ -56,15 +58,15 @@ Soit $X,Y$ deux espaces complexes r\'eduits. Une fonction m\'eromorphe de $X$ da
 \end{Def}
 Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarrow Y$ induit une application holomorphe d'un ouvert de Zariski de $X$ vers $Y$.
 %\begin{Def}
-  %Soit $\pi : X \to Y$ une application holomorphe propre entre deux espaces analytiques complexes r\'eduits. On dira que $\pi$ est un morphisme localement projectif si, tout point $x \in Y$ a un voisinage ouvert tel qu'il existe une application holomorphe $j : \pi^{-1}(U) \to \P^k$ telle que l'application 
-		%\[(\pi,j) : \pi^{-1}(U) \to U \times \P^k
-	%\]
-	 %soit un plongement propre. \\
+  %Soit $\pi : X \to Y$ une application holomorphe propre entre deux espaces analytiques complexes r\'eduits. On dira que $\pi$ est un morphisme localement projectif si, tout point $x \in Y$ a un voisinage ouvert tel qu'il existe une application holomorphe $j : \pi^{-1}(U) \to \P^k$ telle que l'application
+        %\[(\pi,j) : \pi^{-1}(U) \to U \times \P^k
+    %\]
+     %soit un plongement propre. \\
  %On dira qu'un morphisme est localement projectif est projectif si l'on peut choisir $U=Y$. \\
   %Une modification qui est un morphisme localement projectif sera appel\'e modification localement projective.
 %\end{Def}
 %\begin{Rq}
-%Les fibres d'un morphisme localement projectif sont isomorphes \`a un espace analytique inclus dans un espace projectif. Ainsi, par le th\'eor\`eme de Chow\footnote{voir \cite{}}, ce sont des ensembles alg\'ebriques. 
+%Les fibres d'un morphisme localement projectif sont isomorphes \`a un espace analytique inclus dans un espace projectif. Ainsi, par le th\'eor\`eme de Chow\footnote{voir \cite{}}, ce sont des ensembles alg\'ebriques.
 %\end{Rq}
 %
 %\begin{Lemme}
@@ -86,7 +88,7 @@ Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarr
 %\begin{proof}
   %Soit $S$ le centre de la modification $\tau$. Celle-ci induit donc un isomorphisme de $\widetilde{X} \setminus \tau^{-1}(S) \to X \setminus S$. \\
   %Soit $x \in S$ et $j : V \to B$ un plongement d'un voisinage ouvert $V$ de $\tau^{-1}(x)$ dans un polydisque ouvert relativement compact $B \subset \C^n$. \\
-  %Soit $W$ un voisinage ouvert de $x$ dans $M$ tel que $\tau^{-1}(W) \subset V$. Alors chacun des composantes de l'application holomorphe $j \circ \tau^{-1}: W \setminus S \to B$ est born\'ee et donc cette application se prolonge sur tout $W$ puisque $X$ est normal. Comme $j$ est un prolongement ferm\'e, $\tau^{-1}$ se prolonge holomorphiquement sur tout $M$. 
+  %Soit $W$ un voisinage ouvert de $x$ dans $M$ tel que $\tau^{-1}(W) \subset V$. Alors chacun des composantes de l'application holomorphe $j \circ \tau^{-1}: W \setminus S \to B$ est born\'ee et donc cette application se prolonge sur tout $W$ puisque $X$ est normal. Comme $j$ est un prolongement ferm\'e, $\tau^{-1}$ se prolonge holomorphiquement sur tout $M$.
   %\end{proof}
 
 \begin{Def}
@@ -96,7 +98,7 @@ Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarr
   \item L'application $\nu$ est une modification propre de $M$.
   \item Les fibres de $\nu$ sont finies.
   \end{itemize}
-  
+
 \end{Def}
 
 \begin{Thm}
@@ -110,7 +112,7 @@ Voir \cite{\cac}
   \end{proof}
 
 
-    
+
 
 
 
@@ -120,3 +122,6 @@ Voir \cite{\cac}
 \ifwhole
  \end{document}
 \fi
+
+
+
