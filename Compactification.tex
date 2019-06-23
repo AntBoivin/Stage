@@ -1,7 +1,7 @@
 
 \newif\ifwhole
 
-\wholetrue
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -11,9 +11,9 @@
 \input{enonce}
 \fi
 
-\newcommand{\ccs}{barth_compact_2004}
-\section{Action compactifiable}
 
+\section{Action compactifiable}
+\label{compactifiable}
 \begin{Def}
 Soit $X$ un espace analytique complexe compact. Soit $H$ un groupe de Lie complexe connexe agissant sur $X$. On dit $X$ agit de façon compactifiable s'il existe un espace analytique complexe compact $Y$, une application holomorphe injective $i : H \to Y$ telle que $i(H)$ est un ouvert de Zariski de $Y$ et une application méromorphe $m : Y \times X \dashrightarrow X$ définit sur $i(H) \times X$ par : 
 	\[ m(i(h),x)=h \cdot x
@@ -150,7 +150,7 @@ soit injective (on peut toujours le faire car la suite d'intersection $\left( \b
 Le début de la preuve (i.e l'implication) s'adapte si on remplace les points $x_1,\ldots, x_n$ par un fermé de Zariski de $X$. \\
 
 On ne peut pas étendre ce résultat au produit cartésien de deux espaces analytiques distincts, même de Kähler : 
-\begin{Ex}[Serre]
+\begin{Ex}[Serre] \label{contre_ex_Serre}
 Soit $S=\C^* \times \C^*$. \\
 Une première compactification de $S$ est $X_1=\P^1 \times \P^1$.  Construisons-en une deuxième : \\
 On commence par remarquer\footnote{cela découle de l'isomorphisme $\C/\Z \simeq \C^*$ obtenue par passage au quotient de $\exp(2i \pi \cdot)$} que $S\simeq \C^2/\Z^2$. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\} \simeq \C$. Toutes les autres fibres sont isomorphes à $\C$ ;  peut donc les compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
@@ -160,7 +160,7 @@ Soit $x_i \in X_i$, $i=1,2$ dont leur orbite par $S$ est Zariski-dense dans $X_i
     S\cdot x_1 \subset X_1 \ar@{-->}[rr]   && S\cdot x_2 \subset X_2 \\
     &S\cdot(x_1,x_2)\ar[ul]\ar[ur] & 
   }\\
-On obtient donc une application biméromorphe de $X_1$ et $X_2$, ce qui est absurde\footnote{Pour voir que $X_1$ et $X_2$ ne sont pas biméromorphes, on peut regarder l'irrégularité de ces deux surfaces i.e. l'entier $q:=h^{0,1}$ qui est un invariant par biméromorphismes (voir \ref{\ccs} Chapitre 3 corollaire 6.4 p 107). \\
+On obtient donc une application biméromorphe de $X_1$ et $X_2$, ce qui est absurde. Pour montrer cela, on peut regarder l'irrégularité de ces deux surfaces i.e. l'entier $q:=h^{0,1}$ qui est un invariant par biméromorphismes (voir \ref{\ccs} Chapitre 3 corollaire 6.4 p 107). \\
 Par la proposition 4.1 du chapitre 5 du même livre, $X_2$ est biméromorphe avec $\P^1 \times E$. Ensuite, par le théorème de Hodge, $q(X_i)=b_1(X_i)/2$ (car $\P^1$ et $E$ sont de Kähler, où $b_i$ est le $i$ème nombre de Betti). \\
 Par la formule de Künneth, 
 	\[b_1(X_1)=b_0(\P^1)b_1(\P^1)+b_1(\P^1)b_0(\P^1)=0
@@ -170,7 +170,7 @@ Et,
 \[b_1(X_2)=b_0(\P^1)b_1(C)+b_1(\P^1)b_0(C)=2
 \]
 car $b_1(C)=2h^{1,0}=2\times g(C)=2$. \\
-On en déduit que $q(X_1)=0 \neq 1 =q(X_2)$ et donc que $X_1$ et $X_2$ ne sont pas biméromorphes.}
+On en déduit que $q(X_1)=0 \neq 1 =q(X_2)$ et donc que $X_1$ et $X_2$ ne sont pas biméromorphes. \qed
 
 \end{Ex}
 

@@ -1,7 +1,7 @@
 
 \newif\ifwhole
 
-\wholetrue
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -19,16 +19,17 @@
 %\newcommand{\voisin}{voisin_theorie_2002}
 %\newcommand{\scv}{grauert_several_2013}
 
-\part{Objets de base}
+
 Dans cette partie, nous allons donner les définitions des objets qui vont nous intéresser dans ce mémoire : les espaces analytiques complexes et les cycles (compacts). Les premiers sont, localement, les zéros de fonctions holomorphes dans $\C^n$ et les seconds, pour un espace analytique $X$ donné, sont des sommes formelles d'espaces analytiques complexes irréductibles compacts disjoints.
 \section{Espaces analytiques complexes}
+\subsection{Premières définitions et résultats}
 \begin{Def}
 Un sous-ensemble $X$ de $\C^n$ est appelé ensemble analytique complexe modèle\index{espace analytique complexe!modele@modèle} défini par les fonctions holomorphes $f_1,\ldots,f_n$ sur $U$ si 
 	\[ X=\{ x \in U \mid f_1(x)=\ldots=f_n(x)=0 \}
 \]
-
+On munit $X$ de la topologie induite. \\
 \end{Def}
-On les munit de la topologie induite. \\
+
 On peut associer à un tel ensemble modèle un faisceau $\Ocal_X$ de $\C$-algèbres, de la façon suivante : \\
 Soit $\Ocal_{U}$ le faisceau des fonctions holomorphes sur $U$ et $\Iscr$ le $\Ocal_U$-module engendré par $f_1,\ldots,f_n$.
 On définit $\Ocal_X:=i^{-1} \Ocal_U/\Iscr$ où $i$ est l'inclusion $X \hookrightarrow U$.
@@ -46,7 +47,7 @@ On appelle espace analytique complexe\index{espace analytique complexe} un espac
 	\item Le point d'ordre $m$ donné par la fonction $z^m$ dans $\C$ (qui n'est pas réduit pour $m>1$)
 \end{itemize}
 \end{Ex}
-On définit la catégorie des espaces analytiques complexes comme la sous-catégorie pleine de la catégorie des espaces localement annelés en $\C$-algèbres dont les objets sont les espaces analytiques complexes. On appelera application holomorphe un morphisme d'espaces analytiques complexes.
+On définit la catégorie des espaces analytiques complexes comme la sous-catégorie pleine de la catégorie des espaces localement annelés en $\C$-algèbres, dont les objets sont les espaces analytiques complexes. On appelera application holomorphe un morphisme d'espaces analytiques complexes.
 
 \begin{Thm}
 Les produits fibrés finis existent dans la catégorie des espaces analytiques complexes.
@@ -150,7 +151,7 @@ Soit $f : M \to N$ une application continue entre espaces analytiques complexes 
 $ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc un sous-ensemble analytique de $M \times N$. \\
 $ \Leftarrow $ : Soit $\pi : \Gamma_f \to M$ la projection du graphe de $f$ sur $M$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $M$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $M$ est faiblement normal alors $\pi$ est holomorphe sur $M$ et donc $f$ aussi. 
 \end{proof}
-
+\newpage
 \section{ Cycles}
 Soit $X$ un espace analytique et $n \in \N^*$. Un $n$-cycle (fermé) de $X$\index{cycle} est une somme formelle localement finie 
 	\[ Z:=\sum_{i \in I} n_i Z_i
@@ -229,10 +230,16 @@ Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe.
 \end{proof}
 \subsubsection{Revêtements ramifiés}
 \begin{Def}
+Soit $p \in \N^*$. Un polydisque (ouvert) de $\C^p$ est un sous-ensemble $U$ de $\C^p$ tel qu'il existe $R_1,\ldots,R_p$ tels que : 
+	\[ U=\left\{ (x_1,\ldots,x_r) \mid \forall i \in \{1,\ldots,p\}, \left|x_i\right|<R_i \right\}
+\]
+\end{Def}
+Lorsque qu'il n'y aura pas de risque de confusion, on notera $\Delta^k$ un polydisque de $\C^k$ (car ils sont tous isomorphes).
+\begin{Def}
 Soit $U$ un espace analytique normal de dimension finie et $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$). \\
 On appelera revêtement ramifié\index{revetement ramifie@revêtement ramifié} de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $Z_i$ fermés disjoints dans $U \times B$, affectés de multiplicités $n_i > 0$, tels que la restriction à chaque $Z_i$ de la projection naturelle $U \times B \to U$ , soit propre, surjective et de degré $k_i$ \footnote{ici, propre implique finie}, de sorte que l'on
 ait $\sum n_ik_i=k$. \\
-On notera $|Z|$ le revêtement ramifié $(Z_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup X_i$. \\
+On notera $|Z|$ le revêtement ramifié $(Z_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup Z_i$. \\
 On appellera ensemble de ramification de $|Z|$, noté $R(|Z|)$, la réunion de l'ensemble des points slnguliers de $U$ et de l'ensemble des points de $U$ ne possédant pas un voisinage ouvert $V$ dans $U$ tel que $|A| \cap V \times \C^p$ soit un revêtement de $V$ par la projection naturelle.
 \end{Def}
 
@@ -303,6 +310,9 @@ Soit $X$ un espace analytique. Pour tout $n$-cycle complexe $Z$, tout point $z \
 \begin{proof}
 Cela vient du théorème de paramétrisation locale cf. \cite{\cac} thm 3.5.4 page 154 et du caractère local de la définition d'écaille adaptée. 
 \end{proof}
+\begin{Not}
+Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
+\end{Not}
 \begin{Rq}\label{revetramif}
 Si l'écaille $E=(U,B,f)$ est adaptée au cycle $Z$, alors $j_*(Z \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$ (tel que $U_1 \times \overline{B} \subset W$). En notant $k=\deg_E(Z)$, on peut donc associer à $Z$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $Z_E$ sur $U \times B$ en restreignant l'application obtenue par \ref{bij_rr_appli} à $\overline{U}$ qui ne dépend pas du voisinage de $\overline{U}$ choisie.
 \end{Rq}
@@ -340,7 +350,7 @@ Ainsi, il existe une famille analytique de cycles indexés par $\Cscr_n(M)$, $(C_
 On en déduit qu'il existe une bijection entre $\Cscr_n(X)$ et l'ensemble des $n$-cycles (en prenant $S$ un singleton). On peut ainsi munir l'ensemble des $n$-cycles d'une structure d'espace analytique réduit de dimension finie.
 
 \begin{Prop}
-$\Cscr_n$ est un endofoncteur de la catégorie des espaces analytiques complexes réduits de dimension finie
+$\Cscr_n$ est un foncteur de la catégorie des espaces analytiques complexes réduits de dimension finie dans elle-même.
 \end{Prop}
 \begin{proof}
 Soit $f : X \to Y$ une application holomorphe. Alors, on lui associe l'application d'image directe $f_* : \Cscr_n(X) \to \Cscr_n(Y)$ donné en \ref{image_directe}. \\

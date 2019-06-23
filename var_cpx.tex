@@ -1,7 +1,7 @@
 
 \newif\ifwhole
 
-\wholetrue
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -11,7 +11,7 @@
 \input{enonce}
 
 \fi
-\section{Variétés complexes}
+
 \subsection{Premiers énoncés}
 \begin{Def}
 Soit $X$ une variété différentielle de dimension $2n$. Une structure complexe sur $X$ est la donnée d'un atlas $(U_i,\varphi_i: U_i \to \R^{2n} \simeq \C^n)_{i \in I}$ dont les changements de cartes dont holomorphes. Une variété différentielle munie d'une structure complexe est appelé variété complexe. Sa dimension complexe est $n$.
@@ -44,7 +44,10 @@ En composant par $\Hom(\--,\R)$ \footnote{$\Hom(T_\R X \otimes \C,\R)=\Hom(T_\R 
 	\[ \Omega_\C X =\Omega^{1,0} X \oplus \Omega^{0,1} X
 \]
 où $\Omega^{1,0} X$ est l'ensemble des formes différentielles $\C$-linéaires et donc engendré par les $dz_i$ et $\Omega^{0,1} X$ est l'ensemble des formes différentielles $\C$-antilinéaires et donc engendré par les $d\overline{z_i}$. \\
-En prenant la puissance extérieure de cette décomposition, on obtient une décomposition\footnote{découle de l'égalité : ...} des $k$-formes complexes : 
+En prenant la puissance extérieure de cette décomposition, on obtient une décomposition\footnote{découle de l'isomorphisme naturel, pour $E$ et $F$ des faisceaux en $\C$-algèbres : 
+	\[ \bigwedge^n \Ecal \oplus \Fcal=\bigoplus_{p+q=n} \bigwedge^p \Ecal \otimes \bigwedge^q F
+\]
+} des $k$-formes complexes : 
 	
 	\begin{equation} \label{decomposition}
 		\Omega^k_\C X= \bigoplus_{p+q=k} \Omega^{p,q} X
@@ -64,7 +67,7 @@ où $\alpha_{IJ}$ est de classe $\Ccal^{\infty}$. \\
 La différentielle d'une telle forme s'écrit 
 	\[d\alpha=\sum_{|I|=p,|J|=q} d\alpha_{I,J} \wedge dz_I \wedge d\overline{z_J}
 \]
-Elle s'écrit donc comme la somme d'uen forme de degré $(p+1,q)$ et d'une forme de degré $(p,q+1)$. La première sera noté $\partial \alpha$ et la seconde $\overline{\partial} \alpha$.
+Elle s'écrit donc comme la somme d'une forme de degré $(p+1,q)$ et d'une forme de degré $(p,q+1)$. La première sera noté $\partial \alpha$ et la seconde $\overline{\partial} \alpha$.
 \begin{Lemme}[Propriétés de $\partial$ et $\overline{\partial}$]
 Les applications $\partial$ et $\overline{\partial}$ sont linéaires et vérifient les égalités suivantes : 
 \begin{itemize}
@@ -112,15 +115,15 @@ Une métrique hermitienne $h$ est dite kählérienne si la (1,1)-forme $\omega=-Im(
 	\item On appelle métrique de Fubini-Study la métrique associée à la (1,1)-forme $\omega$ définie, localement sur $\P^n$,  par :
 		\[\omega_i=\frac{-1}{2i \pi} \partial \overline{\partial} \ln(1+\sum_{j \neq i} z_i^2)
 	\]
-	(dans la carte $U_i=\{z_i \neq 0\}$)
+	(dans la carte $U_i=\{z_i \neq 0\}$) \\
 	$\P^n$ muni de la métrique de Fubini-Study est une variété de Kähler.
 	\item Si $(M,\omega)$ est une variété de Kähler alors toute sous-variété $N$ munie de la restriction de $\omega$ sur $N$ est une variété de Kähler.
 \end{itemize}
 
 \end{Ex}
-Un des principaux résultats sur les variétés de Kähler (compacte) est du à Hodge et permet de relier la structure topologique de la variété complexe à sa structure complexe, grâce à ces groupes de cohomologies :
+Un des principaux résultats sur les variétés de Kähler (compacte) est dû à Hodge et permet de relier la structure topologique de la variété complexe à sa structure complexe, grâce à ces groupes de cohomologies :
 
-\begin{Thm}[Décomposition de Hodge]
+\begin{Thm}[Décomposition de Hodge] \label{Hodge}
 Soit $X$ une variété de Kähler compacte. Alors, pour tout $n \geq 0$,
 	\[ H^n(X,\C)=\bigoplus_{p+q=n} H^{p,q}(X)
 \]
