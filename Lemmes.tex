@@ -1,0 +1,83 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+ 
+Dans cette section, nous allons donner des lemmes (et un référence pour la démonstration) permettant de montrer des résultats importants de ce mémoire. Premièrement, le théorème de Vitali afin de montrer le théorème \ref{compact} puis le fait qu'une application entre deux variétés de même dimension, et telle que la variété de départ est compact, est un revêtement sur ses valeurs régulières pour le théorème \ref{biholo} et enfin, le calcul du groupe d'automorphismes de $\P^n$ et (la composante de l'identité) de celui d'un produit d'espaces analytiques réduits pour la partie \ref{compactifiable} et particulièrement le contre-exemple \ref{contre_ex_Serre}
+
+\begin{Def}%Brezis
+Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
+\end{Def}
+\begin{Thm}[Vitali]
+Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
+	\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
+\]
+est une application linéaire continue compacte.
+\end{Thm}
+\begin{proof}
+Cf p13 \cite{\cac}
+\end{proof}
+
+\begin{Prop} 
+Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
+\begin{itemize}
+	\item $f^{-1}(y)$ est fini
+	\item Il existe un voisinage ouvert $V$ de $y$ tel que :
+		\[ \forall z \in V, | f^{-1}(z)|=|f^{-1}(y)|
+	\]
+\end{itemize}
+\end{Prop}
+\begin{proof}
+Voir \cite{\laf} section 2-C théorème 21 p 58
+\end{proof}
+\begin{Cor} \label{revet}
+$f$ est un revêtement sur l'ensemble des valeurs régulières.
+\end{Cor}
+
+\begin{Prop}\label{Aut(Pn)}
+$Aut(\P^n) = PGL_n(\C)$
+\end{Prop}
+\begin{proof}
+Soit $\varphi=[\varphi_0:\ldots:\varphi_n] : \P^n \to \P^n$ un biholomorphisme. \\
+Par le théorème de Hurwitz-Weierstra\ss (voir \cite{\cas} chapitre 9 paragraphe 5-3), $\varphi_i/\varphi_0$ est le quotient de polynômes homogènes de même degré. Ainsi, en chassant les dénominateurs, on peut supposer que les $\varphi_i$ sont des polynômes homogènes de même degré. \\
+On peut faire le même raisonnement avec $\varphi^{-1}$. Ainsi, les $\varphi_i$ sont de degré 1. \\
+Un automorphisme de $\P^n$ est induit par une matrice inversible $(n+1) \times (n+1)$. Réciproquement, une matrice de $\GL_{n+1}(\C)$ donne un automorphisme de $\P^n$. \\
+On obtient un morphisme surjectif de groupes $\Phi : \GL_{n+1}(\C) \to Aut(\P^n)$. Calculons maintenant son noyau. \\
+Soit $A \in \GL_{n+1}(\C)$. Dire que $A \in \Ker(\Phi)$ revient à dire que pour tout $z \in \C^{n+1}$, $[Az]=[z]$ ou encore que pour tout $z \in \C^{n+1}$, il existe une constante $\lambda(z) \in \C$ tel que $Az=\lambda(z)$. Cela permet de dire que $A$ est une homothétie \footnote{Soit $(e_1,\ldots,e_{n+1})$ une base de $\C^{n+1}$. Alors pour tout $i \neq j$, 
+	\[\lambda(e_i+e_j)(e_i+e_j)=A(e_i+e_j)=Ae_i+Ae_j=\lambda(e_i)e_i+\lambda(e_j)e_j 
+\]
+Ainsi, $\lambda(e_i)=\lambda(e_i+e_j)=\lambda(e_j)$. Ce qui montre que $A=\lambda Id$}
+i.e. $\Ker(\Phi)=\C^*Id$. \\
+Par le premier théorème d'isomorphisme, 
+	\[ \PGL_{n+1}(\C)=\GL_{n+1}(\C)/Ker(\Phi) \simeq Aut(\P^n)
+\]
+\end{proof}
+
+\begin{Prop} \label{prod_aut}
+Soit $X_1$ et $X_2$ des espaces analytiques complexes compacts réduits. Alors, on a un isomorphisme naturel de groupes de Lie complexes :
+	\[Aut_0(X_1 \times X_2) \simeq Aut_0(X_1) \times Aut_0(X_2)
+\]
+
+\end{Prop}
+\begin{proof}
+Voir \cite{\akh} section 2.4 proposition 2 p 47
+\end{proof}
+
+
+
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi

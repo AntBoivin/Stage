@@ -58,14 +58,14 @@ Soit $X$ un espace localement connexe. $X$ est dénombrable à l'infini si, et seu
 \end{Lemme}
 
 \begin{proof}
-Cela découle de \cite{\btg} p 71 et \cite{btg} p 85.
+Cela découle de \cite{\btg} p 71 et \cite{\btg} p 85.
 \end{proof}
 
 
 \begin{Thm}[Smirnov]
 Un espace est métrisable si, et seulement si, il est paracompact et localement métrisable
 \end{Thm}
-
+Comme les espaces analytiques modèles sont métrisables en restreignant une distance sur $\C^n$ alors, 
 \begin{Cor}
 Un espace analytique est métrisable.
 
@@ -90,24 +90,28 @@ Soit $M$ un espace topologique métrisable compact. Alors $K(M)$ est un espace to
 \begin{Thm}[Bishop] \label{Bishop}
 Soit $(A_m)_{m \in \N}$ une suite de sous-ensembles analytiques (fermés) de dimension $n$ d'un ouvert $W$ de $\C^{n+p}$, convergeant au sens de Hausdorff de $W$ pour la métrique standard de $\C^{n+p}$ vers un ensemble fermé $A$ de $W$. Si le volume des $A_m$ est fini et uniformément majoré, $A$ est un sous-ensemble analytique de $W$ de dimension $n$.
 \end{Thm}
-
-\section{Analyse fonctionnelle}
-
-\begin{Def}%Brezis
-Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
-\end{Def}
-\begin{Not}
-Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
-\end{Not}
-\begin{Thm}[Vitali]
-Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
-	\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
-\]
-est une application linéaire continue compacte.
-\end{Thm}
 \begin{proof}
-Cf p13 \cite{\cac}
+Voir \cite{\bishop}
+
 \end{proof}
+%\section{Analyse fonctionnelle}
+
+%\begin{Def}%Brezis
+%Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
+%\end{Def}
+%%\begin{Not}
+%%Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
+%%\end{Not}
+%\begin{Thm}[Vitali]
+%Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
+	%\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
+%\]
+%est une application linéaire continue compacte.
+%\end{Thm}
+%\begin{proof}
+%Cf p13 \cite{\cac}
+%\end{proof}
+\newpage
 \section{ Volumes}
 $M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
 \begin{Def}
@@ -116,6 +120,10 @@ Une forme volume sur $M$ est une section  de $\bigwedge^n T^*M$ qui ne s'annule 
 \begin{Prop}
 $M$ admet une forme volume  si, et seulement si, $M$ est orientable
 \end{Prop}
+\begin{proof}
+Voir \cite{\laf} Section 6.A théorème 5 p 200
+ 
+\end{proof}
 \begin{Prop}
 Soit $(M,g)$ une variété riemannienne orientable. $M$ admet une forme volume naturelle :  en coordonnées locales, elle est donnée par : 
 	\[Vol_g=\sqrt{\det(g_{ij})} dx_1 \wedge \ldots \wedge dx_n
@@ -126,11 +134,15 @@ Pour toute point $x$ de $M$ et toute base orthonormée $(e_1,\ldots,e_n)$ de $T_x
 	\[Vol_g(x)(e_1 \wedge \ldots \wedge e_n)=1
 \]
 \end{Prop}
+
 \begin{Prop}
-Soit $(M,\omega)$ une variété symplectique. Alors $\omega^n$ est une forme volume sur $M$ ($M$ est donc orientée)
+Soit $(M,\omega)$ une variété symplectique ($n$ est donc pair). Alors $\omega^{n/2}$ est une forme volume sur $M$ ($M$ est donc orientée).
 \end{Prop}
+\begin{proof}
+$\omega^n$ ne s'annule jamais car $\omega$ est non-dégénérée (par définition de forme symplectique).
+\end{proof}
 \begin{Thm}
-Soit $(M,h)$ une variété presque complexe muni d'une métrique hermitienne. La forme $g=Re(h)$ est une métrique riemannienne. De plus, en notant $\omega=-Im(h)$, on obtient l'égalité : 
+Soit $(M,h)$ une variété (presque-)complexe muni d'une métrique hermitienne. La forme $g=Re(h)$ est une métrique riemannienne. De plus, en notant $\omega=-Im(h)$, on obtient l'égalité : 
 	\[ Vol_g=\frac{\omega^n}{n !}
 \]
 \end{Thm}
@@ -138,7 +150,7 @@ Soit $(M,h)$ une variété presque complexe muni d'une métrique hermitienne. La fo
 cf \cite{\voisin}
 \end{proof}
 \begin{Prop}
-Soit $(X,\omega)$ une variété de Kähler. Alors, pour tout $k=1..n$, $\omega^k$ est fermé mais pas exacte.
+Soit $(X,\omega)$ une variété de Kähler. Alors, pour tout $k\in\{1,\ldots,n\}$, $\omega^k$ est fermé mais pas exacte.
 \end{Prop}
 \begin{proof}
 Cela se montre par récurrence (la démonstration du premier fait n'utilise pas celle du deuxième) : \\
@@ -220,7 +232,7 @@ De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, $Vol([Z])=\sum n_i Vol([Z_i
 
 On va donner deux résultats sur l'intégration sur les cycles que nous utilisons dans le corps du texte : 
 \begin{Prop}\label{int_cont}
-Soit $M$ une variété de Kähler\footnote{ A voir s'il faut donner le résultat dans toute sa généralité}. 
+Soit $M$ une variété de Kähler. 
 Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est continue.
 
 \end{Prop}
@@ -229,36 +241,36 @@ cf \cite{\cac} p 389
 \end{proof}
 
 \begin{Thm} \label{int_const}
-Soient $(M,\omega)$ une variété de Kähler\footnote{idem}. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
+Soient $(M,\omega)$ une variété de Kähler. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
 \end{Thm}
 \begin{proof}
 cf \cite{\cac} p 409
 \end{proof}
 
-\section{Géométrie différentielle}
-\begin{Prop} 
-Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
-\begin{itemize}
-	\item $f^{-1}(y)$ est fini
-	\item Il existe un voisinage ouvert $V$ de $y$ tel que :
-		\[ \forall z \in V, | f^{-1}(z)|=|f^{-1}(y)|
-	\]
-\end{itemize}
-\end{Prop}
-\begin{proof}
-Lafontaine p 58
-\end{proof}
-\begin{Cor} \label{revet}
-$f$ est un revêtement sur l'ensemble des valeurs régulières.
-\end{Cor}
+%\section{Géométrie différentielle}
+%\begin{Prop} 
+%Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
+%\begin{itemize}
+	%\item $f^{-1}(y)$ est fini
+	%\item Il existe un voisinage ouvert $V$ de $y$ tel que :
+		%\[ \forall z \in V, | f^{-1}(z)|=|f^{-1}(y)|
+	%\]
+%\end{itemize}
+%\end{Prop}
+%\begin{proof}
+%Voir \cite{\laf} section 2-C théorème 21 p 58
+%\end{proof}
+%\begin{Cor} \label{revet}
+%$f$ est un revêtement sur l'ensemble des valeurs régulières.
+%\end{Cor}
 
-\begin{Thm}
-Soit $X$ une variété compacte connexe orientée de dimension $n$. Une forme différentielle de degré $n$ est exacte si, et seulement si, elle est d'intégrale nulle
-\end{Thm}
-
-\begin{proof}
-Lafontaine Thm 6 p 232
-\end{proof}
+%\begin{Thm}
+%Soit $X$ une variété compacte connexe orientée de dimension $n$. Une forme différentielle de degré $n$ est exacte si, et seulement si, elle est d'intégrale nulle
+%\end{Thm}
+%
+%\begin{proof}
+%Lafontaine Thm 6 p 232
+%\end{proof}
 
 
 
