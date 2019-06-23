@@ -1,0 +1,133 @@
+$M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
+\begin{Def}
+Une forme volume sur $M$ est une section  de $\bigwedge^n T^*M$ qui ne s'annule jamais.
+\end{Def}
+\begin{Prop}
+$M$ admet une forme volume  si, et seulement si, $M$ est orientable
+\end{Prop}
+\begin{proof}
+Voir \cite{\laf} Section 6.A théorème 5 p 200
+ 
+\end{proof}
+\begin{Prop}
+Soit $(M,g)$ une variété riemannienne orientable. $M$ admet une forme volume naturelle :  en coordonnées locales, elle est donnée par : 
+	\[Vol_g=\sqrt{\det(g_{ij})} dx_1 \wedge \ldots \wedge dx_n
+\]
+où $g_{ij}: x \mapsto g(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j})(x)$. \\
+Cette forme volume vérifie la propriété suivante : \\
+Pour toute point $x$ de $M$ et toute base orthonormée $(e_1,\ldots,e_n)$ de $T_xM$, on a l'égalité : 
+	\[Vol_g(x)(e_1 \wedge \ldots \wedge e_n)=1
+\]
+\end{Prop}
+
+\begin{Prop}
+Soit $(M,\omega)$ une variété symplectique ($n$ est donc pair). Alors $\omega^{n/2}$ est une forme volume sur $M$ ($M$ est donc orientée).
+\end{Prop}
+\begin{proof}
+$\omega^n$ ne s'annule jamais car $\omega$ est non-dégénérée (par définition de forme symplectique).
+\end{proof}
+\begin{Thm}
+Soit $(M,h)$ une variété (presque-)complexe muni d'une métrique hermitienne. La forme $g=Re(h)$ est une métrique riemannienne. De plus, en notant $\omega=-Im(h)$, on obtient l'égalité : 
+	\[ Vol_g=\frac{\omega^n}{n !}
+\]
+\end{Thm}
+\begin{proof}
+cf \cite{\voisin}
+\end{proof}
+\begin{Prop}
+Soit $(X,\omega)$ une variété de Kähler. Alors, pour tout $k\in\{1,\ldots,n\}$, $\omega^k$ est fermé mais pas exacte.
+\end{Prop}
+\begin{proof}
+Cela se montre par récurrence (la démonstration du premier fait n'utilise pas celle du deuxième) : \\
+Pour $k=1$, $\omega$ est fermée (par définition) mais n'est pas exacte car : \\
+Si $f : M \to \C$ est une fonction telle que $\omega=df$ alors $\omega^n=d(f \omega^{n-1})$ est exacte donc $Vol(M)=0$, ce qui est absurde. \\
+Supposons la propriété vraie pour $k \in \{1,\ldots,d-1\}$ alors : \\
+$d\omega^{k+1}=d\omega \wedge \omega^k \pm \omega \wedge d\omega^k=0$ (par l'hypothèse de récurrence : $\omega^k$ est fermée). \\
+Si on suppose $\omega^{k+1}=d \gamma$ alors $d(\gamma \wedge \omega^{n-k-1})=\omega^n\pm \gamma d\omega^{n-k-1}=\omega^n$, ce qui est absurde.
+\end{proof}
+
+\begin{Thm}[Wirtinger]
+Soit $(M,h)$ variété hermitienne avec $\omega=-Im(h)$ la forme associée. Soit $S$ une sous-variété de $M$ de dimension $k$. Alors, 
+	\[ Vol(S)=\frac{1}{k !}\int_S \omega^k
+\]
+\end{Thm}
+
+\begin{proof}
+cf \cite{\pag} p31
+\end{proof}
+
+On peut étendre ce résultat aux sous-espaces analytiques en définissant l'intégrale sur un sous-espace analytique comme étant l'intégrale sur son ouvert lisse. 
+
+\section{Volume d'un graphe}
+Soient $(X,\omega_1)$ et $(Y,\omega_2)$ deux variétés de Kähler. Alors en posant pour tout $(x,y) \in X \times Y$, $\omega_{(x,y)}=\omega_{1,x}+\omega_{2,y}$, on obtient que $(X \times Y,\omega)$ est une variété de Kähler. 
+\begin{Lemme} \label{Vol_graphe}
+Soit $f : X \to Y$ une fonction holomorphe. Alors, 
+	\[ Vol(\Gamma_f)=\frac{1}{n ! }\int_X (\omega_1+f^* \omega_2)
+\]
+\end{Lemme}
+
+\begin{proof}
+Par la formule de Wirtinger, en posant $n:=\dim(X)$, 
+	\[Vol(\Gamma_f)=\frac{1}{n ! }\int_{\Gamma_f} \omega^n
+\]
+La projection $\pi$ de $\Gamma_f$ sur $X$ est un difféomorphisme de réciproque $x \mapsto (x,f(x))$. On en déduit que : 
+\[Vol(\Gamma_f)=\frac{1}{n ! }\int_{X} \pi^*\omega^n
+\]
+Pour tout $x \in X$, $v,w \in  T_x X$, 
+	\[\pi^*\omega_x(v,w)=\omega_{(x,f(x))}((v,d_x f(v)),(w,d_x f(w)))=\omega_{1,x}(v,w)+\omega_{2,f(x)}(d_x f(v),d_x f(w))
+	\]
+	Ainsi, $\pi^*\omega=\omega_1+f^* \omega_2$. Ce qui permet de conclure.
+\end{proof}
+\section{ Intégrations et classes de cohomologie}
+\label{int_cohom}
+\begin{Thm}[Lemme de Poincaré] \label{lem_poinc}
+Soit $M$ une variété différentielle orientée et soit $k$ un entier, alors on a un isomorphisme
+	\[ H^k_{dR}(M) \simeq H^{n-k}_{dR}(M)^*
+\]
+donné par $[\varphi] \mapsto ([\psi] \mapsto \int_M \varphi \wedge \psi)$.
+
+\end{Thm}
+\begin{proof}
+\cite{\pag}
+\end{proof}
+Soit $M$ une variété complexe compacte, $V \subset M$ un sous-ensemble analytique de dimension $k$. On peut définir une application linéaire :
+	\[ H^{2k}_{dR}(M) \to \R, [\varphi] \mapsto \int_V \varphi
+	\]
+Cette application est bien définie car les formes exactes sont envoyées sur 0 par le théorème de Stokes : 	 
+\begin{Thm}[Stokes pour les espaces analytiques]
+Soit $M$ une variété complexe, $V$ un sous-ensemble analytique de dimension $k$, et $\varphi$ une forme différentielle de degré $2k-1$ à support compact de $M$,
+	\[\int_V d\varphi=0
+\]
+
+\end{Thm}
+\begin{proof}
+cf \cite{\pag} p33
+\end{proof}
+
+Par le lemme de Poincaré \ref{lem_poinc}, cette application détermine un élément de $H^{2n-2k}_{dR}(M)$ que l'on appelera classe (fondamentale) de $V$ et que l'on notera $[V]$. On définit la classe $[Z]$ d'un cycle analytique $Z=\sum_i n_i Z_i$ d'une variété $M$ comme étant $\sum n_i [Z_i]$
+
+Dans le cas où $(M,\omega)$ est une variété de Kähler, on peut définir le volume d'une classe de cohomologie qui généralise celui des sous-espaces analytiques :
+\begin{Def}
+Soit $\alpha \in H^{2k}_{dR}(M)$. On appelle volume de $\alpha$ le réel $Vol(\alpha)=\frac{1}{(n) !}\int_M \alpha \wedge \omega^{n-k}$.
+\end{Def}
+Si $V$ est un sous-espace analytique de $M$ alors par définition de la classe de $V$, 
+	\[Vol([V])=\frac{1}{n !}\int_V \omega^{k}=Vol(V)
+\]
+De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, $Vol([Z])=\sum n_i Vol([Z_i])=\sum n_i Vol(Z_i)$ est appelé volume du cycle $Z$.
+
+On va donner deux résultats sur l'intégration sur les cycles que nous utilisons dans le corps du texte : 
+\begin{Prop}\label{int_cont}
+Soit $M$ une variété de Kähler. 
+Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est continue.
+
+\end{Prop}
+\begin{proof}
+cf \cite{\cac} p 389
+\end{proof}
+
+\begin{Thm} \label{int_const}
+Soient $(M,\omega)$ une variété de Kähler. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
+\end{Thm}
+\begin{proof}
+cf \cite{\cac} p 409
+\end{proof}

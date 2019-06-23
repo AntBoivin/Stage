@@ -1,0 +1,147 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+
+\fi
+
+
+\section{Paracompacité}
+\begin{Def}
+Un espace topologique est paracompact s'il est séparé et si, pour tout recouvrement ouvert de $X$, il existe un recouvrement ouvert plus fin de $X$ qui est localement fini.
+\end{Def}
+\begin{Def}
+Soit $X$ un espace localement compact. $X$ est dit dénombrable à l'infini si le point à l'infini de sa compactification d'Alexandrov admet une base dénombrable de voisinage.
+\end{Def}
+\begin{Prop}
+Soit $X$ un espace localement compact.
+$X$ est dénombrable à l'infini si, et seulement, $X$ est l'union dénombrable de compacts. 
+\end{Prop}
+\begin{proof}
+$ \Rightarrow $ : Soit $(V_i)_{i \in \N}$ la base de voisinage du point à l'infini $\infty$. \\
+Montrons que 
+	\[X=\bigcup_{n \in \N} V_i^c
+\]
+Soit $x \in X$. Comme $X \cup \{\infty\}$ est séparé, il existe des voisinages $V$ de $x$ et $W$ de $\infty$ qui ne rencontrent pas. Ainsi, $x \in W^c$ et par définition de  bases de voisinages, il existe $i \in \N$ tel que $V_i \subset W$ et donc $W^c \subset V_i^c$, ce qui montre que $X \subset \bigcup_{n \in \N} V_i^c$. L'autre inclusion vient du fait que $\infty \in V_i$ pour $i$. \\
+$ \Leftarrow $ : Soit $(K_n)$ une suite de compacts de $X$ tel que : 
+	\begin{equation} \label{denalinfini}
+	X=\bigcup_{n \in \N} K_n
+\end{equation}
+Pour tout $n \in \N$, on notera par $B_n$ un voisinage compact de $K_n$ et $C_n=\bigcup_{k=0}^n B_k$. \\
+La suite $(C_n)$ est une suite croissante pour l'inclusion et 
+\[ X=\bigcup_{n \in \N} Int(C_n)
+\]
+Soit $V$ un voisinage quelconque de $\infty$ dans $X \cup \infty$. Il existe donc un voisinage $U$ de $\infty$ tel que $U \subset V$. Par définition de la topologie du compactifié, il existe un compact $K$ tel que $U=K^c$. \\
+Par l'égalité \ref{denalinfini} et le fait que la suite $(C_n)$ est croissante, il existe un $N$ tel que $K \subset Int(C_n)$. On en déduit que : 
+	\[Int(C_n)^c \subset K^c=U \subset V
+\]
+\end{proof}
+
+%L'énoncé suivant est utilisé dans la preuve de l'énoncé suivant et dans celle de \ref{identity_component}
+%\begin{Lemme} \label{somme}
+%Soit $X$ un espace localement connexe. $X$ est la somme (dans la catégorie des espaces topologiques) de ces composantes connexes.
+%\end{Lemme}
+%
+%\begin{proof}
+%\cite{btg} p 85
+%\end{proof}
+
+\begin{Lemme} 
+Soit $X$ un espace localement connexe. $X$ est dénombrable à l'infini si, et seulement si, $X$ est paracompact.
+\end{Lemme}
+
+\begin{proof}
+Cela découle de \cite{\btg} p 71 et \cite{\btg} p 85.
+\end{proof}
+
+
+\begin{Thm}[Smirnov]
+Un espace est métrisable si, et seulement si, il est paracompact et localement métrisable
+\end{Thm}
+Comme les espaces analytiques modèles sont métrisables en restreignant une distance sur $\C^n$ alors, 
+\begin{Cor}
+Un espace analytique est métrisable.
+
+\end{Cor}
+\section{ Distance de Hausdorff}
+\label{Hausdorff}
+Soit $(M,d)$ un espace métrique, $K(M)$ l'ensemble des compacts non vide de $M$. \\
+On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M) \times K(M) \to \R_+$ donnée par :
+	\[ d_H(A,B)=\frac{1}{2}\left[\max\limits_{b \in B} d(A,b)+\max\limits_{a \in A} d(a,B)\right]
+\]
+\begin{Prop}
+Soit $M$ un espace topologique métrisable. Pour toute distance sur $M$ définissant la topologie de $M$, la distance de Hausdorff associée définit la même topologie sur $K(M)$. 
+\end{Prop}
+\begin{proof}
+cf \cite{\cac} p 419
+\end{proof}
+On appelera cette topologie la topologie de Hausdorff sur $K(M)$
+\begin{Prop} \label{compHaud}
+Soit $M$ un espace topologique métrisable compact. Alors $K(M)$ est un espace topologique compact.
+\end{Prop}
+
+\begin{Thm}[Bishop] \label{Bishop}
+Soit $(A_m)_{m \in \N}$ une suite de sous-ensembles analytiques (fermés) de dimension $n$ d'un ouvert $W$ de $\C^{n+p}$, convergeant au sens de Hausdorff de $W$ pour la métrique standard de $\C^{n+p}$ vers un ensemble fermé $A$ de $W$. Si le volume des $A_m$ est fini et uniformément majoré, $A$ est un sous-ensemble analytique de $W$ de dimension $n$.
+\end{Thm}
+\begin{proof}
+Voir \cite{\bishop}
+
+\end{proof}
+%\section{Analyse fonctionnelle}
+
+%\begin{Def}%Brezis
+%Soient $E,F$ deux espaces de Banach et $L : E \to F$ une application linéaire continue. On dit que $L$ est compacte si l'image par $L$ de la boule unité de $E$ est relativement compacte dans $F$.
+%\end{Def}
+%%\begin{Not}
+%%Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
+%%\end{Not}
+%\begin{Thm}[Vitali]
+%Soit $U \subset \C^n$ et $U' \subset U$ un ouvert relativement compact de $U$. Alors l'application de restriction 
+	%\[res : \Hcal(\overline{U},\C) \to \Hcal(\overline{U'},\C)
+%\]
+%est une application linéaire continue compacte.
+%\end{Thm}
+%\begin{proof}
+%Cf p13 \cite{\cac}
+%\end{proof}
+
+
+%\section{Géométrie différentielle}
+%\begin{Prop} 
+%Soient $X,Y$ deux variétés de même dimension, $X$ est supposée compacte. Soient $f : X \to Y$ une application lisse et $y$ une valeur régulière de $f$. Alors,
+%\begin{itemize}
+	%\item $f^{-1}(y)$ est fini
+	%\item Il existe un voisinage ouvert $V$ de $y$ tel que :
+		%\[ \forall z \in V, | f^{-1}(z)|=|f^{-1}(y)|
+	%\]
+%\end{itemize}
+%\end{Prop}
+%\begin{proof}
+%Voir \cite{\laf} section 2-C théorème 21 p 58
+%\end{proof}
+%\begin{Cor} \label{revet}
+%$f$ est un revêtement sur l'ensemble des valeurs régulières.
+%\end{Cor}
+
+%\begin{Thm}
+%Soit $X$ une variété compacte connexe orientée de dimension $n$. Une forme différentielle de degré $n$ est exacte si, et seulement si, elle est d'intégrale nulle
+%\end{Thm}
+%
+%\begin{proof}
+%Lafontaine Thm 6 p 232
+%\end{proof}
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
