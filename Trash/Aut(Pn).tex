@@ -1,7 +1,7 @@
 
 \newif\ifwhole
 
-\wholetrue
+%\wholetrue
 % Ajouter \wholetrue si on compile seulement ce fichier
 
 \ifwhole
@@ -12,6 +12,7 @@
 
 \fi
 
+\section{$Aut(\P^n)$}
 
 \begin{Prop}\label{Aut(Pn)}
 $Aut(\P^n) = PGL_n(\C)$
@@ -21,14 +22,14 @@ Soit $\varphi=[\varphi_0:\ldots:\varphi_n] : \P^n \to \P^n$ un biholomorphisme. 
 Par le théorème de Hurwitz-Weierstra\ss (voir \cite{\cas} chapitre 9 paragraphe 5-3), $\varphi_i/\varphi_0$ est le quotient de polynômes homogènes de même degré. Ainsi, en chassant les dénominateurs, on peut supposer que les $\varphi_i$ sont des polynômes homogènes de même degré. \\
 On peut faire le même raisonnement avec $\varphi^{-1}$. Ainsi, les $\varphi_i$ sont de degré 1. \\
 Un automorphisme de $\P^n$ est induit par une matrice inversible $(n+1) \times (n+1)$. Réciproquement, une matrice de $\GL_{n+1}(\C)$ donne un automorphisme de $\P^n$. \\
-On obtient un morphisme surjectif de groupes $\Phi : \GL_n(\C) \to Aut(\P^n)$. Calculons maintenant son noyau. \\
-Soit $A \in \GL_n(\C)$. Dire que $A \in \Ker(\Phi)$ revient à dire que pour tout $z \in \C^{n+1}$, $[Az]=[z]$ ou encore que pour tout $z \in \C^{n+1}$, il existe une constante $\lambda(z) \in \C$ tel que $Az=\lambda(z)$. Cela permet de dire que $A$ est une homothétie \footnote{Soit $(e_1,\ldots,e_{n+1}$ une base de $\C^{n+1}$. Alors pour tout $i \neq j$, 
+On obtient un morphisme surjectif de groupes $\Phi : \GL_{n+1}(\C) \to Aut(\P^n)$. Calculons maintenant son noyau. \\
+Soit $A \in \GL_{n+1}(\C)$. Dire que $A \in \Ker(\Phi)$ revient à dire que pour tout $z \in \C^{n+1}$, $[Az]=[z]$ ou encore que pour tout $z \in \C^{n+1}$, il existe une constante $\lambda(z) \in \C$ tel que $Az=\lambda(z)$. Cela permet de dire que $A$ est une homothétie \footnote{Soit $(e_1,\ldots,e_{n+1}$ une base de $\C^{n+1}$. Alors pour tout $i \neq j$, 
 	\[\lambda(e_i+e_j)(e_i+e_j)=A(e_i+e_j)=Ae_i+Ae_j=\lambda(e_i)e_i+\lambda(e_j)e_j 
 \]
 Ainsi, $\lambda(e_i)=\lambda(e_i+e_j)=\lambda(e_j)$. Ce qui montre que $A=\lambda Id$}
 i.e. $\Ker(\Phi)=\C^*Id$. \\
 Par le premier théorème d'isomorphisme, 
-	\[ \PGL_n(\C)=\GL_n(\C)/Ker(\Phi) \simeq Aut(\P^n)
+	\[ \PGL_{n+1}(\C)=\GL_{n+1}(\C)/Ker(\Phi) \simeq Aut(\P^n)
 \]
 \end{proof}
 
@@ -38,7 +39,9 @@ Soit $X_1$ et $X_2$ des espaces analytiques complexes compacts réduits. Alors, o
 \]
 
 \end{Prop}
-
+\begin{proof}
+Voir \cite{\akh} section 2.4 proposition 2 p 47
+\end{proof}
 
 
 
