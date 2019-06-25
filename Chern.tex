@@ -1,0 +1,106 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{report}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\chapter{Pouet}
+\section{Classes de Chern}
+Les classes de Chern sont des invariants topologiques, calculables dans la pratique, associés aux fibrés vectoriels sur une variété. \\
+Soit $X$ une variété topologique et $E \to X$ un fibré complexe de rang $r$ sur $X$. \\
+Si $r=1$, on définit la première classe de Chern de la façon suivante : \\
+La fonction exponentielle $\exp : \C \to \C$ induit une suite exacte courte de groupes :
+	\[\xymatrix{0 \ar[r] & \Z\ar[r]^{2i\pi} & \C \ar[r]^\exp  &\C \ar[r] & 0 }
+\]
+qui, elle-même, induit une suite exacte de faisceaux de groupes,
+	\[\xymatrix{0 \ar[r] &\underline{\Z}_X \ar[r]^{2i\pi} & \Ccal^0_X \ar[r]^\exp  &(\Ccal^0_X)^* \ar[r] & 0 }
+\]
+où $\underline{\Z}_X$ est le faisceau des fonctions localement constantes à valeurs entières sur $X$, $\Ccal_X^0$ est le faisceau des fonctions continues de $X$ dans $\C$ et $(\Ccal^0_X)^*$ est le faisceau des fonctions continues de $X$ dans $\C$ qui ne s'annulent jamais. 
+On obtient une suite longue en cohomologie : 
+	\[\xymatrix{\cdots \ar[r] & H^1(X,\Ccal^0_X) \ar[r] &H^1(X,(\Ccal^0_X)^*) \ar[r] & H^2(X,\underline{\Z}_X) \ar[r] &H^2(X,\Ccal^0_X) \ar[r] &\cdots}
+\]
+
+Comme il existe des partitions de l'unité continue alors les groupes de cohomologies $H^1(X,\Ccal^0_X)$ et $H^1(X,\Ccal^0_X)$ sont nuls alors on a un isomorphisme $c_1 : H^1(X,(\Ccal^0_X)^*) \simeq H^2(X,\underline{\Z}_X)=H^2(X,\Z) $. De plus, on a le résultat suivant : 
+
+\begin{Prop}
+Le groupe $H^1(X,(\Ccal^0_X)^*)$ est isomorphes aux classes d'isomorphismes de fibrés vectoriels complexes continus de rang 1 muni du produit tensoriel 
+\end{Prop}
+\begin{proof}
+On peut trouver la démonstation de la bijection dans \cite{\voisin} et pour obtenir l'isomorphisme, on pourra regarder les exercices 4.4 et 4.5 du chapitre 3 dans \cite{\Hart} grâce à l'identification entre (classes isomorphismes de) fibrés vectoriels et faiseaux localement libres (voir \cite{\Hart} exercice 5.18)
+\end{proof}
+
+\begin{Def}
+On appele première classe de Chern de $E$ l'élément $c_1(E)$ de $H^2(X,\Z)$.
+\end{Def}
+
+Maintenant que l'on a définit la première classe de Chern d'un fibré en droites, on peut définir les classes de Chern d'un fibré vectoriel quelconque : 
+
+\begin{Thm} \label{classe_Chern}
+On peut associer à tout fibré vectoriel $E \to X$, un unique polynôme $c(E)=\sum_{i=0}^{rk(E)} c_i t^i \in H^*(X,\Z)[t]$ où $c_i \in H^{2i}(X,\Z)$ de telle sorte que : 
+\begin{itemize}
+	\item Si $rk(E)=1$, $c(E)=1+tc_1(E)$
+	\item Si $\varphi : X \to Y$ est une application continue alors $c(\varphi^*E)=\varphi^*c(E)$
+	\item Si $F$ et $G$ sont des fibrés vectoriels sur $X$ alors\footnote{la structure d'algèbre sur $H^*(X,\Z)$ est définie de la façon suivante : \\
+	Soient $\omega_1 \in H^i(X,\Z),\omega_2 \in H^j(X,\Z)$. La formule de Künneth nous donne une application $H^i(X,\Z) \oplus H^j(X,\Z) \to H^{i+j}(X \times X,\Z)$ puis l'application diagonale $X \to X \times X$ nous donne une application $H^{i+j}(X \times X,\Z) \to H^{i+j}(X,\Z)$. Le produit de $\omega_1$ et $\omega_2$, noté $\omega_1 \smallsmile \omega_2$ et appelé cup-produit de $\omega_1$ et $\omega_2$, est la composée des deux applications précédentes appliqué en  $\omega_1$ et $\omega_2$}
+	 $c(F\oplus G)=c(F)c(G)$ 
+\end{itemize}
+\end{Thm}
+
+\begin{Def}
+Le polynôme $c(E)$ est la classe de Chern de $E$.
+\end{Def}
+
+De cette caractérisation, on obtient les résultats immédiats suivant : 
+
+\begin{Prop} \label{Prop_Chern}
+
+\begin{enumerate}
+	\item Si $E$ est un fibré trivial alors $c_1(E)=1$
+	\item Si $E$ est un fibré en droites et $E'$ son dual alors $c_1(E')=-c_1(E)$.
+	\item Si $X$ est une sous-variété de $Y$ et $E \to Y$ un fibré de $Y$ alors la classe de la Chern de la restriction de $E$ est le pullback de $c(E)$ par l'inclusion $i : X \to Y$
+\end{enumerate}
+
+\end{Prop}
+
+\begin{proof}
+1) Soit $X \times \C^n \to X$ le fibré trivial de rang $n$. Si $n=1$, on sait que $c_1(X \times \C)=0$ car $X \times \C$ est le neutre pour le produit tensoriel dans $H^1(X,(\Ccal^0)*)$. Ainsi, par le point 1 et 3 de \ref{classe_Chern},
+	\[c(X \times \C^n)=c\left(\bigoplus_{i=1}^n X \times \C\right)=c(X \times \C)^n=(1+tc_1(E))^n=1
+\]
+2) Comme $c_1$ est un morphisme de groupes et que $E \times E' \to X \times \C$ est non-dégénérée (et donc, est un isomorphisme) alors
+	\[0=c_1(X \times \C)=c_1(E \times E^*)=c_1(E)+c_1(E')
+\]
+3) On applique le point 2 de \ref{classe_Chern} pour l'inclusion $i : X \to Y$
+
+\end{proof}
+
+Soit $X$ une variété complexe compacte. \\
+On va donner des idées de la preuve, donnée dans \cite{\pag} pages 411-414 , de l'égalité entre la première classe de Chern du fibré tangent de $X$ et (l'opposé de) celle du fibré canonique $\omega=\bigwedge^n T^*X$, où $n=\dim_\C X$ : \\ 
+Soit $s_1,\ldots,s_n$ des sections génériques du fibré vectoriel $E \to X$ de rang $k$, dans le sens où, pour tout $i$, $s_{i+1}$ intersecte le sous-espace de $E$ engendré par $s_1,\ldots,s_i$ de façon transversale. \\
+On considère $D_{E} :=\{x \in X \mid (s_1(x),\ldots,s_n(x)) \text{ est une famille liée} \}$ l'ensemble de dégénérescence de $E$, qui ne dépend pas des $s_i$ par généricité. Cela définit un cycle en homologie et de plus,
+\begin{Thm}[Gauss-Bonnet]
+La première classe de Chern $c_1(E)$ est donnée par le dual de Poincaré de $D_E$
+\end{Thm} 
+Ainsi, comme $(u_1,\ldots,u_n)$ est une famille liée si, et seulement si, $u_1 \wedge \ldots \wedge u_n=0$ alors $D_E=D_{\bigwedge^k E}$ car $rk \bigwedge^k E=1$. On en déduit donc que 
+	\[c_1(E)=c_1\left(\bigwedge^k E\right).
+\]
+ En particulier,
+	 \[ c_1(TX)=c_1\left(\bigwedge^k TX\right)
+ \]
+	et par \ref{Prop_Chern}, 
+		\[c_1(TX)=-c_1(\omega).
+	\]
+	
+
+
+
+
+\ifwhole
+ \end{document}
+\fi
