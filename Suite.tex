@@ -1,0 +1,203 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{report}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\begin{Lemme}
+Soit $X$ un sous-espace analytique de $\P^n$. Alors $Aut(\P^n)_{\{X\}}$ est le (projectisé du ) noyau d'une application linéaire.
+\end{Lemme}
+\begin{proof}
+  Comme $X$ est un sous-espace analytique de $\P^n$  alors, par le théorème de Chow, $X$ est un sous-ensemble algébrique de $\P^n$. \\
+  Soit $I(X)$ l'idéal homogène de $\C[X_0,\ldots, X_n]$ définissant $X$.
+  On décompose $I$ en composantes homogènes : \\
+  \[I(X)=\bigoplus_{d \in \N} I_d(X)\]
+  où $I_d(X)=I(X) \cap \C[X_0,\ldots,X_n]_d$ et $\C[X_0,\ldots,X_n]_d$ est l'espace vectoriel des polynômes homogènes de degré $d$. \\
+  $Aut(\P^n)$ agit algébriquement sur la Grassmannienne $G_k(\C[X_0,\ldots,X_n]_d)$ par $g \cdot P:=P(g \cdot X)$ où $g \i Aut(\P^n)$ et $P \in Aut(\P^n)$\\
+  Soient $k_d:=\dim I_d(X)$ et si $k_d>0$, $o_d$ le point de $G_{k_d}(\C[X_0,\ldots,X_n])$ correspondant à $I_d(X)$. Alors,
+  \[Aut(P_n)_{\{X\}}=\bigcap_{k_d>0}Aut(\P^n)_{o_d} \]
+ce qui nous permet de montrer le lemme. \\
+En effet, si $g \in Aut(\P^n)_{\{X\}}$ alors, pour tout $d$ tel que $k_d>0$, on a, par définition de l'action $Aut(\P^n)$ sur la Grassmannienne : 
+\[ 
+g \cdot I(X)=I(g \cdot X)=I(X)
+\]
+Pour montrer la réciproque, il suffit de montrer que, pour $g \in \bigcap_{k_d>0} Aut(\P^n)_{o_d}$, $g \cdot X \subset X$ car $\bigcap_{k_d>0}Aut(\P^n)_{o_d}$ est un groupe. \\
+Comme $I$ est homogène, on peut trouver des générateurs de $I$ qui soit homogène. Notons-les $f_1,\ldots,f_n$ et leur degré $n_i$ \\
+Alors, par défintion de  $g$, $g \cdot f_i \in I_{n_i}$ et donc pour tout $x \in X$, $0=g \cdot f(x)=f(g \cdot x)$ i.e. $g\cdot x \in I_{n_i}$. \\
+En le faisant pour tous les générateurs, on montre que $g \cdot x \in X$.
+\end{proof}
+
+
+
+
+\begin{Thm}
+  Soit $f : X \to \P^n$ un plongement tel que $f(X)$ ne soit contenu dans aucun hyperplan. Soit $H \subset Aut(X)$ un sous-groupe Zariski-fermé et supposons $f$ équivariant par rapport à une représentation $\rho : H \to Aut(\P^n)$ alors $\rho(H)$ est $\Zcal$-fermé.
+\end{Thm}
+\begin{proof}
+  On peut commencer par remarquer que :
+  \[ Aut(\P^n)_{f(X)}=\bigcap_{x \in X} Aut(\P^n)_{\{f(x)\}}=\{id\}
+  \]
+  car si $\varphi \in Aut(\P^n)_{f(X)} \setminus id$ alors $X$ est inclus dans l'orthogonal de la droite projective donné par un point $s$ où $\varphi-id$ ne s'annule pas i.e le projectivisé du plan engendré par ce point et l'image de $e_i$ où $e_i$ est le $i$ème vecteur de la base canonique et $s \in U_i$. \\
+  Ainsi, $\rho=\lambda$ (défini dans \ref{}) et donc $\rho(H)$ est $\Zcal$-fermé (par \ref{})
+\end{proof}
+
+\section{}
+
+Soit $\lambda : Aut(X) \to Aut(Alb(X))$ l'application définie de la façon suivante :
+Soit $\varphi \in Aut(X)$. En appliquant la propriété universelle de $Alb(X)$ à l'application $alb_X \circ \varphi :  X \to Alb(X)$, on obtient l'unique application $\lambda(\varphi)$ qui fait commuter le diagramme :
+\[\xymatrix{X \ar[r]^{alb_X} \ar[d]_\varphi & Alb(X) \ar[d]^{\lambda(\varphi)} \\ X \ar[r]^{alb_X} & Alb(X) }\]
+Comme $\varphi$ est un isomorphisme alors $\lambda(\varphi)$ l'est aussi. \\
+En restreignant $\lambda$ à $Aut_0(X)$, on obtient une application $Aut_0(X) \to Aut_0(Alb(X))=Alb(X)$ (voir \ref{}).
+\begin{Thm}
+  Soit $X$ une variété compacte de Kähler, $H$ un sous-groupe de $Aut_0(X)$ qui agit de façon compactifiable sur $X$. Alors,
+  \begin{enumerate}
+  \item $H/H_0$ est fini.
+    \item L'application $\pi : H_0 \to Alb(X)$ a un sous-tore complexe comme image
+    \end{enumerate}
+\end{Thm}
+\begin{proof}
+  1) Comme $H$ est un sous-groupe qui agit de façon compactifiable sur $X$ d'un groupe qui le fait aussi alors $H$ est $\Zcal$-fermé dans $Aut_0(X)$. Ainsi, $H$ est l'intersection d'un fermé de $\Cscr_\Delta(X \times X)$ (qui est compact) et $Aut_0(X)$. On en déduit que $H$ est un compact de $Aut_0(X)$ et donc a un nombre fini de composantes connexes i.e. $Card(H/H_0) <\infty$. \\
+  2) Par la discussion précédente, $\pi$ est équivariante par rapport à la représentation $\lambda : H_0 \to Aut_0(Alb(X))$. On obtient donc une application $H_0 \to Alb(X)_{\{\pi(X)\}}/Alb(X)_{\pi(X)}$. Comme $Alb(X)$ agit sur lui-même par translation alors $Alb(X)_{\pi(X)}=\{0\}$ et comme $g$ stabilise $alb_X(X)$ si, et seulement si, $g$ stablise $\left\langle alb_X\right\rangle=Alb(X)$ alors $Alb(X)_{\{\pi(X)\}}=Alb(X)$. \\
+  Ainsi, par \ref{}, $\lambda(H)$ est $\Zcal$-fermé dans $Alb(X)$ et est donc compact. Comme, de plus, c'est un groupe connexe (car $H_0$ l'est) dont la loi respecte la structure d'espace analytique de $\lambda(H)$ (c'est donc un groupe de Lie complexe, car lisse partout par translation). Par \ref{}, $\lambda(H)$ est un tore complexe.
+
+\end{proof}
+
+La différentielle de $\lambda$ en l'identité est l'application $\Gamma(X,TX) \to H^0(X,\Omega^1_X)^*$ (voir \ref{}) donnée par $V \mapsto (i(V) : \omega \mapsto \omega(V))$. On peut voir cela en remarquant que, pour $p \in alb_X^{-1}(0)$, $\lambda=alb_X \circ ev_p$ (car pour $\varphi \in H_0$, $\lambda(\varphi)$ est identifié avec $\lambda(\varphi)(0)=alb_X(\varphi(p))$) et en différenciant. \\
+Lichnerowicz a montré que, dans le cas où $X$ est compacte, de Kähler et de première classe de Chern nulle (pour une introduction aux classes de Chern voir \ref{}), $d\lambda$ est un isomorphisme et donc $Aut_0(X) \to Alb(X)$ est une application surjective de noyau fini (car, par compacité, $\lambda$ est alors de fibres finies). On en déduit donc que $Aut_0(X)$ est compact et est donc un tore.
+
+\begin{Thm} \label{Decomposition}
+Si $X$ est une variété de Kähler compacte connexe avec $c_1(X)=0$ alors il existe un tore complexe $T$ et une variété de Kähler compacte connexe telle que :
+\begin{enumerate}
+\item $c_1(M)=\dim H^0(M,\Omega^1_M)(=\frac{1}{2}b_1(M))=0$
+  \item $T \times M$ est un revêtement fini de $X$ avec un groupe de transformations résoluble.
+  \end{enumerate}
+
+
+\end{Thm}
+
+Pour montrer ce théorème, on va construire une suite $(X_k)$ de variétés de Kähler compactes connexes de première classe de Chern nulle dont le premier nombre de Betti diminue à chaque étape. \'A un moment, ce nombre de Betti s'annulera et on aura la variété $M$ voulu. Le tore sera le produit $\prod Aut_0(X_k)$. \\
+Le processus de construction se fera en prenant la fibré en 0 de l'application d'Albanese de la variété précédente, dans ce cas, pour tout $k$, \[\dim(X_{k+1}) =\dim(X_k)-\frac{1}{2}b_1(X_k) < \dim(X_k) \text{ et } \dim(X_k)\geq \dim(\dim H^0(X_k,\Omega^1_{X_k}) \]
+Commençons par montrons que, dans notre cas, l'application d'Albanese est un fibré dont toutes les fibres sont des variété de Kähler compacte connexe : \\
+Les fibres sont des variétés compactes car l'application $alb_X$ est propre et que, génériquement, les fibres sont lisses et comme la variété d'Albanese est un groupe connexe, cela s'étend à tous les points. Les fibres sont de Kähler car ce sont des sous-variétés d'une variété de Kähler.
+Montrons maintenant que les fibres sont connexes : \\
+
+\begin{Prop}[Factorisation de Stein]
+
+Soit $f : X \to Y$ une application holomorphe propre entre deux espaces analytiques. Alors, il existe un unique, à isomorphisme près, un espace analytique $Y'$ et des applications holomorphes $g : X \to Y'$, $h : Y' \to Y$ tel que $f=h \circ g$ où l'application $g$ a des fibres connexes et $h$ est à fibres finies.
+
+\end{Prop}
+
+\begin{proof}[Esquisse de preuve]
+Voir \cite{scv} p 124
+\end{proof}
+
+En appliquant la factorisation de Stein à $alb_X : X \to Alb(X)$, on obtient un revêtement $Y$ de $Alb(X)$ puis, par pullback, une injection $H^0(Y, \Omega^1_Y) \to H^0(Alb(X),\Omega^1_{Alb(X)})$ dont l'image dans $H^0(Alb(X),\Omega^1_{Alb(X)})$ est d'indice le degré $d$ du revêtement. On au aussi une injection $H_0(X,\Omega^1_X) \to H^0(Y, \Omega^1_Y) $. Ainsi, si $d>1$, $H_0(X,\Omega^1_X)$ est un sous-groupe propre de $H^0(Alb(X),\Omega^1_{Alb(X)})$, ce qui est absurde car $H^0(Alb(X),\Omega^1_{Alb(X)})=H_0(X,\Omega^1_X)$ (voir la preuve de \ref{}). Donc $g$ est injective et comme $f$ est à fibres connexes alors $alb_X$ aussi.
+
+Montrons maintenant que $alb_X : X \to Alb(X)$ est un fibré : 
+
+\begin{Const} \label{assoc_bundle}
+Soient $G$ un groupe de Lie complexe, $\pi : P \to X$ un fibré tel que $G$ agit librement sur $P$ de tel sorte que, pour tout $x \in X$ et $g \in G$ tel que $\pi^{-1}(x)g \in \pi^{-1}(x)$ et que pour tout $x \in X$ et tout $y \in \pi^{-1}(x)$, $g \in G\mapsto yg \in \pi^{-1}(x)$ est un homéomorphisme. \\
+Soit $\rho : G \to Aut(F)$ une action (à gauche) effective de $G$ sur $F$. \\
+On fait maintenant agir (à droite) $G$ sur $P \times F$ par :
+	\[(p,f) \cdot g=(p \cdot g, \rho(g^{-1})(f))
+\]
+et on définit la variété $E:=(P\times F)/G$ que l'on note aussu $P \times_\rho F$. \\
+L'application $\pi_\rho : [p,f] \in E \mapsto \pi(p) \in X$ est un fibré (dont les applications de transitions sont données par $\rho(t_{ij}$ où les $t_{ij}$ sont celle du fibré $\pi$.
+Vérifions tout de même que cette application est bien définie : \\
+Soient $p \in P$, $f \in F$ et $g \in G$. \\
+	\[\pi_\rho([p\cdot g,\rho(g^{-1})(f)])=\pi(p \cdot g)=\pi(p)=\pi_\rho(p,f)
+\]
+
+\end{Const}
+
+Refaisons la construction \ref{assoc_bundle} : \\
+$\lambda : Aut_0(X) \to Alb(X)$ est un fibré de fibre $I:=\Ker(\lambda)$ qui agit donc sur $Aut_0(X)$. Soit $X_1:=alb_X^{-1}(0)$ la fibre en 0 de $alb_X$. \\
+
+Soit $x \in X_1$ et $f\in I$. Alors, 
+	\[alb_X(f(x))=\lambda(f)(alb_X(x))=\lambda(f)(0)=0
+\]
+Ainsi, on définit une application $\rho : I \to Aut(X_1)$ définie par $f \mapsto f_{|X_1}$. \\
+On définit une action à droite de $F$ sur $Aut_0(X) \times X_1$ par : 
+	\[(\varphi,x) \cdot f=(\varphi \circ f, f^{-1}(x))
+\]
+On obtient donc un fibré $E=Aut_0 X\times_\rho X_1 \to Alb(X)$ avec pour fibre $X_1$. 
+
+Soit $\beta : Aut_0(X) \times X_1 \to X$ définie par $\beta(\varphi,x)=\varphi(x)$. Cette application est équivariante par l'action de $F$ ; $\beta$ induit donc une application $\widetilde{\beta} : E \to X$. \\
+Cette application fait commuter le diagramme : 
+	\[\xymatrix{
+    E \ar[dr]^{\pi_\rho}\ar[rr]^{\widetilde{\beta}}   && X\ar[dl]^{alb_X} \\
+    &Alb(X) & 
+  }\\
+\]
+
+De plus, on peut construire une bijection réciproque à $\widetilde{\beta}$ de la façon suivante : \\
+Soit $x \in X$. Par surjectivité de $\lambda$, il existe $\varphi \in Aut_0(X)$ tel que $\lambda(\varphi)=alb_X(x)$. On peut donc définir 
+$\widetilde{\beta}^{-1}(x)=[\varphi,\varphi^{-1}(x)]$. Cette application est bien définie car le choix de $\varphi$ se fait modulo $F$. \\
+Ainsi, on déduit que $X \to Alb(X)$ est un fibré holomorphe avec pour fibre $X_1$ et que le groupe de transformation du fibré $Aut_0 X\times X_1 \to X$ est $F$ (voir \cite{\Hatcher} 1.40)   \\
+
+Montrons maintenant que la première classe de Chern de $X_1$ est nulle.
+
+\begin{Lemme}
+Soit $p : E \to B$ un fibré différentiel. Alors, 
+	\[ TE=p^* TB \oplus T_\pi E
+\]
+où $T_p E:=\{(x,v) \in TE \mid x \in E ; v \in T_x p^{-1}(p(x)) \}$
+\end{Lemme}
+
+\begin{proof}
+On a une suite exacte courte : 
+\xymatrix{0 \ar[r]& T_\pi E\ar@{^{(}->}[r]&TE\ar[r]^\pi&p^* TB \ar[r]&0}
+où $\pi : (x,v) \mapsto (x,\pi(x),d_x\pi(v))$. \\
+L'a surjectivité de $\pi$ vient du fait que $p$ est une submersion. L'exactitude du milieu vient du fait que $v \in T_x p^{-1}(p(x))$ si, et seulement si, $d_x p(v)=0$. \\
+En munissant $TE$ d'une métrique riemannienne, on peut trouver un supplémentaire à $T_\pi E$ et donc une section de l'injection, ce qui permet d'obtenir la somme directe voulue. 
+\end{proof}
+
+Utilisons ce lemme avec le fibré $X \to Alb(X)$ afin de calculer la première classe de Chern de $X_1$ : \\
+	\[c(TX)=c(alb_X^* TAlb(X) \oplus T_{alb_X} X)=c(alb_X^* TAlb(X) )c( T_{alb_X} X)=c( T_{alb_X} X)
+\]
+car $TAlb(X)$ est trivialisable (voir \ref{} et \ref{}). \\
+Ainsi, 
+\[0=c_1(TX)=c_1( T_{alb_X} X)
+\]
+et en prenant le pullback de l'inclusion $X_1 \hookrightarrow X$, on obtient : 
+	\[0=i^* c_1( T_{alb_X} X)= c_1(i^* T_{alb_X} X)=c_1(TX_1)
+\]
+
+On a fini la construction de $X_1$ et la démonstration de ces propriétés. \\
+Pour finir la preuve de \ref{Decomposition}, il suffit de voir comment se comporte le groupe de transformation lorsqu'on itère la construction : 
+On veut définir une action de groupe naturelle d'un groupe $G$ sur $Aut_0(X)\times Aut_0(X_1) \times X_2$ à partir de celles de $F_i$ sur $Aut_0(X_i) \times X_{i+1}$ de telle façon que : 
+	\[ X \simeq \frac{Aut_0(X) \times \frac{Aut_0(X_1) \times X_2}{F_1}}{F} \simeq \frac{Aut_0(X)\times Aut_0(X_1) \times X_2}{G}
+\]
+Soit $\Psi : Aut_0(X)\times Aut_0(X_1) \times X_2 \to X$ l'application (surjective) définie par : 
+	\[ \Psi(\varphi,\psi,x)=\varphi(\psi(x))
+\]
+\'Etudions les fibres de cette application : 
+Soient $y \in X$ et $(\varphi,\psi,x) \in Aut_0(X)\times Aut_0(X_1) \times X_2 $ tels que $y=\Psi(\varphi,\psi,x)$. \\ 
+Soit $(\varphi',\psi',x') \in Aut_0(X)\times Aut_0(X_1) \times X_2 $. \\
+Si $y=\Psi(\varphi',\psi',x')$ alors $\varphi(\psi(x))=\varphi'(\psi'(x'))$, autrement dit, par \ref{},  il existe un $f \in F$ tel que :
+	\[ (\varphi \circ f,\rho(f^{-1})(\psi(x)))= (\varphi,\psi(x)) \cdot f=(\varphi',\psi'(x))
+	\]
+	i.e. $\varphi \circ f=\varphi'$ et $\rho(f^{-1})(\psi(x) )=\psi'(x')$.\\
+ Posons $\theta_f=\rho(f^{-1}) \in Aut_0(X_1)$.\\
+De la même façon, par \ref{}, il existe $f_1 \in F_1$ tel que : 
+	\[(\theta_f \circ \psi \circ f_1,\rho_1(f_1^{-1})(x))=  (\theta_{f} \circ \psi,x)\cdot f_1=(\psi',x')
+\]
+où $\theta_{f_1}=\rho(f_1^{-1}) \in Aut_0(X_2)$
+Réciproquement, si $\alpha_{f,f_1}=(\varphi \circ f,\theta_f \circ \psi \circ f_1,\theta_{f_1}(x))$, $\Psi(\alpha_{f,f_1})=y$.
+On peut donc faire agir (à droite) $F \times F_1$ sur $Aut_0(X)\times Aut_0(X_1) \times X_2$ par : 
+	\[(\varphi,\psi,x) \cdot (f,f_1)=\varphi \circ f,\theta_f \circ \psi \circ f_1,\theta_{f_1}(x))
+\]
+et ainsi obtenir l'isomorphisme voulu.
+
+
+
+\ifwhole
+ \end{document}
+\fi
