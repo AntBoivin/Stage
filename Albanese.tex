@@ -138,7 +138,7 @@ L'application $g$ est une application holomorphe  $Alb(X) \to T$ nulle sur $alb_
 
 \begin{Def}
 Soit $X$ un espace analytique complexe réduit.
-On dira que $X$ un irréductible en un point $x$ de $X$ si $x$ admet un système fondamental de voisinages ouverts irréductibles dans $X$ et que $X$ est localement irréductible s'il est irréductible en tous ses points.
+On dira que $X$ est irréductible en un point $x$ de $X$ si $x$ admet un système fondamental de voisinages ouverts irréductibles dans $X$ et que $X$ est localement irréductible s'il est irréductible en tous ses points.
 \end{Def}
 En particulier, il existe un recouvrement de $X$ par des ouverts irréductibles.
 \begin{Prop} \label{connex_irred}
@@ -151,7 +151,7 @@ Un espace topologique localement irréductible est irréductible si, et seulement 
   Soient $\{U_i\}$ un recouvrement de $X$ par des ouverts irréductibles et $V,W$ deux ouverts de $X$ disjoints. \\
   Montrons, tout d'abord, qu'un ouvert $U_i$ rencontre soit $V$ soit $W$ soit aucun des deux : \\
   Supposons, par l'absurde, qu'il existe $U_i$ tel que $U_i \cap V \neq \emptyset \neq U_i \cap W$. Comme $U$ est irréductible et que $U_i \cap V$ et $U_i \cap W$ sont des ouverts de $U_i$ alors $U_i\cap V=\emptyset$ ou $U_i \cap W=\emptyset$, ce qui montre ce que l'on voulait. \\
-  On peut donc les ouverts du recouvrement $\{U_i\}$ en trois familles : ceux qui rencontrent $V$, ceux qui rencontrent $W$ et ceux qui rencontrent ni l'un ni l'autre. Notons par $A$, $B$ et $C$ l'union de, respectivement, des ouverts de la première famille, ceux de la deuxième et ceux de la troisième. On a ainsi écrit $X$ comme une union disjointe de trois ouverts :
+  On peut donc trier les ouverts du recouvrement $\{U_i\}$ en trois familles : ceux qui rencontrent $V$, ceux qui rencontrent $W$ et ceux qui rencontrent ni l'un ni l'autre. Notons par $A$, $B$ et $C$ l'union de, respectivement, des ouverts de la première famille, ceux de la deuxième et ceux de la troisième. On a ainsi écrit $X$ comme une union disjointe de trois ouverts :
   \[ X=A \coprod B \coprod C\]
   Comme $X$ est connexe alors $A \coprod B$ ou $C$ est vide :
   \begin{itemize}
@@ -164,7 +164,7 @@ Un espace topologique localement irréductible est irréductible si, et seulement 
   Comme $U$ et $V$ sont disjoints et que $X$ est irréductible alors $U$ ou $V$ est vide. Ce qui montre que $X$ est connexe.
 \end{proof}
 \begin{Prop} \label{irred_fibre}
-Soient $M$ un espace analytique complexe réduit et $x \in M$. Alors $M$ est irréductible en $x$ si, et seulement si, l'anneau $\Ocal_{X,x}$ est intègre.
+Soient $X$ un espace analytique complexe réduit et $x \in X$. Alors $X$ est irréductible en $x$ si, et seulement si, l'anneau $\Ocal_{X,x}$ est intègre.
 \end{Prop}
 \begin{proof}
 Voir \cite{\cac} p171
@@ -247,7 +247,7 @@ Et donc, si pour un $\varepsilon>0$, on a une borne $N_i$ pour que, pour tout $n
 
 \end{proof}
 
-\begin{Thm}
+\begin{Thm} \label{Aut_0_Alb}
 Soit $X$ une variété de Kähler compacte. Alors,
     \[ Aut_0(Alb(X)) \simeq Alb(X)
 \]
@@ -270,12 +270,12 @@ En particulier, pour $x=0$,
 Supposons que $\varphi_n \neq Id$ i.e il existe $x \in X$ tel que $\varphi_n(x) \neq x$. Pour $\varepsilon$ suffisamment petit, il existe $m \in \N$ tel que
     \[m|\varphi_n(x)-x|=|\varphi_n(mx)-mx|>2\varepsilon
 \]
-(car $\varphi_n$ est un morhisme de groupes). Ainsi, $\|Id-\varphi_n\|_\infty>2\varepsilon$
+(car $\varphi_n$ est un morphisme de groupes). Ainsi, $\|Id-\varphi_n\|_\infty>2\varepsilon$. \\
 On obtient ainsi une contradiction car :
     \[ \|Id-\varphi_n\|_\infty \leq \|Id-f_n\|_\infty+|\lambda_n|\leq 2 \varepsilon
 \]
 On en déduit que $\varphi_n=Id$. \\
-Soient $f \in Aut_0(Alb(X))$ et un arc $\gamma : [0,1] \to Aut_0(X)$ reliant $Id$ et $f$. En recouvrant $\gamma([0,1])$ en un nombre (fini) d'ouverts suffisamment petit, on en déduit, grâce à la discussion précédente que, pour tout $t \in [0,1]$, $\gamma(t)$ est une translation. \\
+Soient $f \in Aut_0(Alb(X))$ et un arc $\gamma : [0,1] \to Aut_0(X)$ reliant $Id$ et $f$. En recouvrant $\gamma([0,1])$ par un nombre (fini) d'ouverts suffisamment petit, on en déduit, grâce à la discussion précédente que, pour tout $t \in [0,1]$, $\gamma(t)$ est une translation. \\
 L'isomorphisme $Aut_0(Alb(X)) \to Alb(X)$ est donnée par $f \mapsto f(0)$.
 \end{proof}
 

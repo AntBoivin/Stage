@@ -11,7 +11,7 @@
 \input{enonce}
 \fi
 \section{Groupes}
-Le but de cette section est de redonner quelques résultats sur les groupes topologiques et sur les groupes de Lie complexes afin d'étudier le groupe d'automorphismes d'un espace analytique dans la partie \ref{partie_autom} et les actions compactifiables dans la partie \ref{compactifiable} 
+Le but de cette section est de redonner quelques résultats sur les groupes topologiques et sur les groupes de Lie complexes afin d'étudier le groupe d'automorphismes d'un espace analytique dans la section \ref{partie_autom} et les actions compactifiables dans la partie \ref{compactifiable} 
 
 
 \subsection{ Groupes topologiques}
@@ -53,15 +53,15 @@ Comme $G$ est connexe alors $G=H$.
 
 \end{proof}
 
-\begin{Thm}
-Soit $G$ un groupe topologique. Son groupe fondamental $\pi_1(G,e)$ est abélien.
-
-\end{Thm}
-
-\begin{proof}
-Le groupe fondamental $\pi_1$ est un foncteur des espaces topologiques pointés $\textbf{Top}_\bullet$ dans la catégorie des groupes $\textbf{Gr}$, qui commute avec le produit. Ainsi, on peut définir un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}_\bullet) \to \textbf{Gr}(\textbf{Gr})$ entre les groupes des deux catégories citées. En particulier, en restreignant ce foncteur aux groupes topologiques (qui sont pointés par le neutre), on obtient un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}) \to \textbf{Gr}(\textbf{Gr})$. Or, par le principe d'Eckmann-Hilton\footnote{Réf à donner}, $\textbf{Gr}(\textbf{Gr})$ est la catégorie des groupes abéliens, ce qui montre le résultat.
-
-\end{proof}
+%\begin{Thm}
+%Soit $G$ un groupe topologique. Son groupe fondamental $\pi_1(G,e)$ est abélien.
+%
+%\end{Thm}
+%
+%\begin{proof}
+%Le groupe fondamental $\pi_1$ est un foncteur des espaces topologiques pointés $\textbf{Top}_\bullet$ dans la catégorie des groupes $\textbf{Gr}$, qui commute avec le produit. Ainsi, on peut définir un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}_\bullet) \to \textbf{Gr}(\textbf{Gr})$ entre les groupes des deux catégories citées. En particulier, en restreignant ce foncteur aux groupes topologiques (qui sont pointés par le neutre), on obtient un foncteur $\textbf{Gr}(\pi_1) : \textbf{Gr}(\textbf{Top}) \to \textbf{Gr}(\textbf{Gr})$. Or, par le principe d'Eckmann-Hilton\footnote{Réf à donner}, $\textbf{Gr}(\textbf{Gr})$ est la catégorie des groupes abéliens, ce qui montre le résultat.
+%
+%\end{proof}
 
 \begin{Lemme}\label{adh_groupe}
 Soit $G$ un groupe topologique et $H$ un sous-groupe de $G$. Alors $\overline{H}$ est un sous-groupe de $G$.
@@ -89,7 +89,7 @@ Une partie constructible $Y$ d'un espace topologique contient un ouvert dense da
 \end{Lemme}
 
 \begin{proof} %Borel
-On va traiter le cas où $\overline{Y}$ est irréductible (le cas général se fait par la décomposition irréductible\footnote{La noethérianité est importante, ici}. \\
+On va traiter le cas où $\overline{Y}$ est irréductible (le cas général se fait par la décomposition en irréductible\footnote{La noethérianité est importante, ici}. \\
 Comme $Y$ est constructible, on a une décomposition $Y=\bigcup L_i$ où $L_i$ est une partie localement fermé de $X$. On a, alors, 
 $\overline{Y}=\bigcup \overline{L_i}$. Par irréductibilité de $\overline{Y}$, il existe un $i$ tel que $\overline{Y}=\overline{L_i}$. $L_i$ est ouvert dans son adhérence car il est localement fermé et est donc un ouvert dense dans $\overline{Y}$.
 \end{proof}
@@ -184,13 +184,13 @@ On en déduit que, pour tout $u \in G$,
 Ainsi, 
 	\[\exp(\gfrak) \subset Z(G)
 \]
-De plus, par \ref{}, 
+De plus, par \ref{engendr}, 
 	\[ G=\left\langle \exp(\gfrak) \right\rangle \subset Z(G) \subset G
 \]
 On en déduit que $Z(G)=G$ et donc que $G$ est commutatif.
 \end{proof}
 
-\begin{Thm}
+\begin{Thm} \label{Tore}
 Soit $G$ un groupe de Lie complexe connexe compact. Alors l'application $\exp : \gfrak \to G$ est un morphisme surjectif de groupes dont le noyau est un réseau de $\gfrak$. On obtient un isomorphisme :
 	\[ \gfrak/\Ker(\exp) \simeq G
 \]

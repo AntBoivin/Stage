@@ -132,7 +132,7 @@ De plus, pour tout $p,q \geq 0$,
 \]
 \end{Thm}
  \newpage
-\section{Classes de Chern}
+\section{Classes de Chern} \label{section_Classe_Chern}
 Les classes de Chern sont des invariants topologiques, calculables dans la pratique, associés aux fibrés vectoriels sur une variété. \\
 Soit $X$ une variété topologique et $E \to X$ un fibré complexe de rang $r$ sur $X$. \\
 Si $r=1$, on définit la première classe de Chern de la façon suivante : \\
@@ -200,23 +200,23 @@ De cette caractérisation, on obtient les résultats immédiats suivant :
 
 \end{proof}
 
-Soit $X$ une variété complexe compacte. \\
-On va donner des idées de la preuve, donnée dans \cite{\pag} pages 411-414 , de l'égalité entre la première classe de Chern du fibré tangent de $X$ et (l'opposé de) celle du fibré canonique $\omega=\bigwedge^n T^*X$, où $n=\dim_\C X$ : \\ 
-Soit $s_1,\ldots,s_n$ des sections génériques du fibré vectoriel $E \to X$ de rang $k$, dans le sens où, pour tout $i$, $s_{i+1}$ intersecte le sous-espace de $E$ engendré par $s_1,\ldots,s_i$ de façon transversale. \\
-On considère $D_{E} :=\{x \in X \mid (s_1(x),\ldots,s_n(x)) \text{ est une famille liée} \}$ l'ensemble de dégénérescence de $E$, qui ne dépend pas des $s_i$ par généricité. Cela définit un cycle en homologie et de plus,
-\begin{Thm}[Gauss-Bonnet]
-La première classe de Chern $c_1(E)$ est donnée par le dual de Poincaré de $D_E$
-\end{Thm} 
-Ainsi, comme $(u_1,\ldots,u_n)$ est une famille liée si, et seulement si, $u_1 \wedge \ldots \wedge u_n=0$ alors $D_E=D_{\bigwedge^k E}$ car $rk \bigwedge^k E=1$. On en déduit donc que 
-	\[c_1(E)=c_1\left(\bigwedge^k E\right).
-\]
- En particulier,
-	 \[ c_1(TX)=c_1\left(\bigwedge^k TX\right)
- \]
-	et par \ref{Prop_Chern}, 
-		\[c_1(TX)=-c_1(\omega).
-	\]
-	
+%Soit $X$ une variété complexe compacte. \\
+%On va donner des idées de la preuve, donnée dans \cite{\pag} pages 411-414 , de l'égalité entre la première classe de Chern du fibré tangent de $X$ et (l'opposé de) celle du fibré canonique $\omega=\bigwedge^n T^*X$, où $n=\dim_\C X$ : \\ 
+%Soit $s_1,\ldots,s_n$ des sections génériques du fibré vectoriel $E \to X$ de rang $k$, dans le sens où, pour tout $i$, $s_{i+1}$ intersecte le sous-espace de $E$ engendré par $s_1,\ldots,s_i$ de façon transversale. \\
+%On considère $D_{E} :=\{x \in X \mid (s_1(x),\ldots,s_n(x)) \text{ est une famille liée} \}$ l'ensemble de dégénérescence de $E$, qui ne dépend pas des $s_i$ par généricité. Cela définit un cycle en homologie et de plus,
+%\begin{Thm}[Gauss-Bonnet]
+%La première classe de Chern $c_1(E)$ est donnée par le dual de Poincaré de $D_E$
+%\end{Thm} 
+%Ainsi, comme $(u_1,\ldots,u_n)$ est une famille liée si, et seulement si, $u_1 \wedge \ldots \wedge u_n=0$ alors $D_E=D_{\bigwedge^k E}$ car $rk \bigwedge^k E=1$. On en déduit donc que 
+	%\[c_1(E)=c_1\left(\bigwedge^k E\right).
+%\]
+ %En particulier,
+	 %\[ c_1(TX)=c_1\left(\bigwedge^k TX\right)
+ %\]
+	%et par \ref{Prop_Chern}, 
+		%\[c_1(TX)=-c_1(\omega).
+	%\]
+	%
 \ifwhole
  \end{document}
 \fi

@@ -2,7 +2,7 @@
 On se fixe une métrique hermitienne $H$ et une 2-forme $\omega$ associée. Ce choix ne change pas le résultat suivant.
 \begin{Thm}[de compacité] \label{compact}
 
-Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seulement si, il existe un compact contenant le support de chaque cycles de $S$, et si le volume de ces cycles est uniformément borné.
+Soit $S$ un sous-ensemble de $\Cscr(X)$. $S$ est relativement compact si, et seulement si, il existe un compact contenant le support de chaque cycle de $S$, et si le volume de ces cycles est uniformément borné.
 
 \end{Thm}
 
@@ -13,9 +13,8 @@ Soit $(Z_s)_{s \in S}$ la famille de cycles analytiques donnée par la restrictio
 
 Soit $Y:= \{ (s,y) \in S \times X \mid y \in |Z_s| \}$ le ``cycle universel". La projection de $Y$ sur $S$ est propre (cf. \cite{\barlet} thm 1).
 Ainsi, si on note $pr_1$ (resp. $pr_2$) la projection de $Y$ sur $S$ (resp. sur $X$), on obtient que $pr_1^{-1}(S)$ est compact et donc $pr_2(pr_1^{-1}(S))$ l'est aussi. Mais on peut voir que $pr_2(pr_1^{-1}(S))=\bigcup_{s \in S} |Z_s|$.
-Ensuite, l'application $s \in S \mapsto \frac{1}{k!}\int_{Z_s} \omega^k$ est une application continue comme composée de l'application continue $X \mapsto \frac{1}{k!}\int_X \omega^k$ (cf \ref{int_cont} ) et de l'application continue $s \mapsto Z_s$. Comme $S$ est compact alors cette application est bornée, ce qui finit la preuve de l'implication.
-
-$\Leftarrow$ : Soit $(Z_i)_{i \in S}$ une suite de cycles de $S$. Les $Z_i$ ne peuvent prendre qu'un nombre fini de dimensions ( borné par la dimension de $X$), on peut donc extraire une sous-suite de telle sorte qu'ils soient tous de la même dimension (que l'on notera $k$). \\
+Ensuite, l'application $s \in S \mapsto \frac{1}{k!}\int_{Z_s} \omega^k$ est une application continue comme composée de l'application continue $X \mapsto \frac{1}{k!}\int_X \omega^k$ (cf \ref{int_cont} ) et de l'application continue $s \mapsto Z_s$. Comme $S$ est compact alors cette application est bornée, ce qui finit la preuve de l'implication. \\
+$\Leftarrow$ : Soit $(Z_i)_{i \in \N}$ une suite de cycles de $S$. Les $Z_i$ ne peuvent prendre qu'un nombre fini de dimensions ( borné par la dimension de $X$), on peut donc extraire une sous-suite de telle sorte qu'ils soient tous de la même dimension (que l'on notera $k$). \\
 Soit $K$ un compact contenant tous les supports.
 On va extraire une sous-suite de $Z_i$ de sorte que les supports $|Z_i|$ convergent, pour la topologie de Hausdorff vers un compact que l'on notera $|Z_0|$(c.f. \ref{Hausdorff} et plus précisément la proposition \ref{compHaud} pour la compacité de l'ensemble des compacts de $K$ muni de cette topologie).
 On peut ensuite remarquer, en notant $Z_i=\sum m_{ij} Z_{ij}$ (avec $m_{ij} \neq 0$), que l'on a  
@@ -37,7 +36,7 @@ On peut donc voir ${f_j}_*(Z_{i} \cap U_j)$ comme un revêtement ramifié à $n_{ij
 Comme le volume des $Z_i$ est uniformément borné alors les $n_{ij}$ le sont aussi (car il y a un nombre fini de $j$ par compacité de $|Z_0|$
 Les $n_{ij}$ étant des entiers, on peut extraire une sous-suite de la suite $Z_i$ de sorte que pour tout $j$, la suite $(n_{ij})_i$ soit constante. \\
 Par la remarque \ref{revetramif}, on peut identifier $({f_j}_*(Z_{i} \cap U_j))_j$ avec un point $f_i$ de $B:=\prod_j \Hcal(\overline{\Delta^k},Sym^{n_j}(\Delta^{n-k})$.
- On peut plonger $Sym^{n_j}(\Delta^{n-k}$ dans un certain $\C^N$ (voir \ref{plongement}). Ensuite, on sait que, pour tout ouvert $U' \subset U$ relativement compact, il existe une sous-suite de $(f_i)$ qui converge uniformément sur $\overline{U'}$, par le théorème de Vitali. Et ainsi, les cycles associés de $\Cscr^{loc}_n(U' \times B)$ convergent (cf \ref{cont_cycle}). Par le théorème de localisation \ref{localisation}, on en déduit la convergence dans $\Ccal^{loc}_n(U \times B)$
+ On peut plonger $Sym^{n_j}(\Delta^{n-k})$ dans un certain $\C^N$ (voir \ref{plongement}). Ensuite, on sait que, pour tout ouvert $U' \subset U$ relativement compact, il existe une sous-suite de $(f_i)$ qui converge uniformément sur $\overline{U'}$, par le théorème de Vitali. Et ainsi, les cycles associés de $\Cscr^{loc}_n(U' \times B)$ convergent (cf \ref{cont_cycle_fct}). Par le théorème de localisation \ref{localisation}, on en déduit la convergence dans $\Ccal^{loc}_n(U \times B)$
 %Par le lemme 2.7.22, les points associés au cycle $Z_i$ converge dans $B$ et les cycles associés dans $\Cscr_n^{loc}(\Delta^k \times \Delta^{n-k})$\footnote{ A détailler} \\
 On en déduit que les $Z_i \cap U_j$ convergent dans $\Cscr_n^{loc}(U_j)$ (car les applications induites sont continues). Par le théorème \ref{produit}, la suite $Z_i$ converge dans $\Cscr_n^{loc}(\bigcup U_j) \hookrightarrow \Cscr_n^{loc}(X)$ vers $Z_0$ (car $|Z_0| \subset \bigcup U_j$).
 Comme le support des $Z_i$ est inclus dans $K$ alors la suite converge dans $\Cscr_n(X)$ (par la remarque \ref{convCloc}).
