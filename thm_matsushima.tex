@@ -1,0 +1,42 @@
+
+\newif\ifwhole
+
+\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+On veut construire une action de groupe naturelle d'un groupe $G$ sur $Aut_0(X)\times Aut_0(X_1) \times X_2$ à partir de celles de $F_i$ sur $Aut_0(X_i) \times X_{i+1}$ de telle façon que : 
+	\[ X \simeq \frac{Aut_0(X) \times \frac{Aut_0(X_1) \times X_2}{F_1}}{F} \simeq \frac{Aut_0(X)\times Aut_0(X_1) \times X_2}{G}
+\]
+Soit $\Psi : Aut_0(X)\times Aut_0(X_1) \times X_2 \to X$ l'application (surjective) définie par : 
+	\[ \Psi(\varphi,\psi,x)=\varphi(\psi(x))
+\]
+\'Etudions les fibres de cette application : 
+Soient $y \in X$ et $(\varphi,\psi,x) \in Aut_0(X)\times Aut_0(X_1) \times X_2 $ tels que $y=\Psi(\varphi,\psi,x)$. \\ 
+Soit $(\varphi',\psi',x') \in Aut_0(X)\times Aut_0(X_1) \times X_2 $. \\
+Si $y=\Psi(\varphi',\psi',x')$ alors $\varphi(\psi(x))=\varphi'(\psi'(x'))$, autrement dit, par \ref{},  il existe un $f \in F$ tel que :
+	\[ (\varphi \circ f,\rho(f^{-1})(\psi(x)))= (\varphi,\psi(x)) \cdot f=(\varphi',\psi'(x))
+	\]
+	i.e. $\varphi \circ f=\varphi'$ et $\rho(f^{-1})(\psi(x) )=\psi'(x')$.\\
+ Posons $\theta_f=\rho(f^{-1}) \in Aut_0(X_1)$.\\
+De la même façon, par \ref{}, il existe $f_1 \in F_1$ tel que : 
+	\[(\theta_f \circ \psi \circ f_1,\rho_1(f_1^{-1})(x))=  (\theta_{f} \circ \psi,x)\cdot f_1=(\psi',x')
+\]
+où $\theta_{f_1}=\rho(f_1^{-1}) \in Aut_0(X_2)$
+Réciproquement, si $\alpha_{f,f_1}=(\varphi \circ f,\theta_f \circ \psi \circ f_1,\theta_{f_1}(x))$, $\Psi(\alpha_{f,f_1})=y$.
+On peut donc faire agir (à droite) $F \times F_1$ sur $Aut_0(X)\times Aut_0(X_1) \times X_2$ par : 
+	\[(\varphi,\psi,x) \cdot (f,f_1)=\varphi \circ f,\theta_f \circ \psi \circ f_1,\theta_{f_1}(x))
+\]
+et ainsi obtenir l'isomorphisme voulu.
+
+
+
+\ifwhole
+ \end{document}
+\fi
