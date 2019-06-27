@@ -13,11 +13,13 @@
 \usepackage{makeidx}
 \usepackage[Bjornstrup]{fncychap}
 \usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[toc]{appendix}
 \makeindex
 \pagestyle{fancy}
 \fancyhead[L]{\leftmark}
 \fancyhead[R]{}
 \onehalfspacing
-
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \toks0=\expandafter{\xy}
 \edef\xy{\noexpand\shorthandoff{!?;:}\the\toks0 }

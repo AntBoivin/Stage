@@ -1,28 +1,11 @@
 
-\documentclass[a4page,12pt,openright]{report}
+\documentclass[a4page,12pt, twoside,openright]{report}
 \input{entete}
 \begin{document}
 \input{enonce}
 
 
-
-\newcommand{\bishop}{bishop_conditions_1964}
-\newcommand{\cac}{barlet_cycles_2014}
-\newcommand{\btg}{bourbaki_topologie_2007}   
-\newcommand{\pag}{griffiths_principles_2011}
-\newcommand{\barlet}{barlet_espace_1975}
-\newcommand{\voisin}{voisin_theorie_2002}
-\newcommand{\scv}{grauert_several_2013}
-\newcommand{\bredon}{bredon_topology_1993}
-\newcommand{\BM}{bochner_groups_1947}
-\newcommand{\Lee}{lee_structure_2001}
-\newcommand{\laf}{lafontaine_introduction_2012}
-\newcommand{\ccs}{barth_compact_2004}
-\newcommand{\cas}{grauert_coherent_1984}
-\newcommand{\akh}{akhiezer_lie_2012}
-\newcommand{\catan}{catanese_moduli_1988}
-
-%\tableofcontents
+\tableofcontents
 
 
 \chapter{Objets de base}
@@ -34,31 +17,31 @@
 \newpage
 \section{Variétés d'Albanese}
 \input{Albanese}
-\newpage
 \chapter{Espace des cycles}
 \input{Partie_1}
 \newpage
 \input{Partie_2}
-\newpage
 \chapter{Compactification}
 \input{Compactification}
-\newpage
-\chapter{Appendices}
-\appendix 
-\input{Appendices}
-\newpage
-\section{Variétés complexes}
+\begin{appendices}
+\chapter{Topologie générale} 
+\input{Topologie_Generale}
+\chapter{Volumes}
+\input{Volumes}
+\chapter{Variétés complexes}
 \input{var_cpx}
-\newpage
-\section{Quelques lemmes}
+\chapter{Quelques lemmes}
 \input{Lemmes}
 \newpage
 \input{Exercices}
 \newpage
+\end{appendices}
 
+%\nocite{*}
 \bibliographystyle{alpha} 
-\bibliography{Biblio4} 
-
+\bibliography{Biblio5} 
+\printindex
 
 
  \end{document}
+
