@@ -1,0 +1,104 @@
+\begin{Def} \index{groupe de Lie}
+Un groupe de Lie réel (resp. complexe)  est un groupe $(G,*)$ dont l'ensemble sous-jacent est muni d'une structure de variété lisse (resp. complexe) compatible avec les lois de groupes i.e. les applications $(x,y)  \in G \times G \mapsto x*y \in G$ et $x \in G \mapsto x^{-1} \in G$ sont lisses (resp. holomorphes). Autrement dit, un groupe de Lie réel (resp. complexe) est un groupe dans la catégorie des variétés différentielles (resp. variétés complexes).
+
+\end{Def}
+
+\begin{Def} \index{algebre de Lie@algèbre de Lie}
+Soit $G$ un groupe de Lie (réel ou complexe). L'algèbre de Lie, notée $\gfrak$, associée à $G$ est l'espace vectoriel (réel ou complexe) des champs de vecteurs sur $G$ invariants à gauche i.e. les champs de vecteurs $X$ tels que, pour tout $g \in G$, $(L_g)_*X=X$ .
+\end{Def}
+L'espace vectoriel $\gfrak$ s'identifie à l'espace tangent de $G$ au neutre de la façon suivante : \\
+A tout $x \in T_eG$, on associe le champ de vecteur $X : g \in G \mapsto d_e L_g(x)$ qui est invariant à gauche.
+\begin{Def} \index{parallelisable @parallélisable}
+Une variété (lisse ou complexe) est dite parallélisable si son fibré tangent est trivial.
+\end{Def}
+
+\begin{Thm}\label{trivialisable}
+Un groupe de Lie (réel ou complexe) est parallélisable.
+
+\end{Thm}
+
+\begin{proof}
+Soit $G$ un groupe de Lie (réel ou complexe). \\
+On considère les applications \\
+$\begin{array}{ccccc}
+TG &\to& G \times \gfrak \\
+(g,v) & \mapsto & (g,d_g L_{g^{-1}}(v))   \\
+\end{array}$ et
+$\begin{array}{ccccc}
+ G \times \gfrak & \to & TG \\
+ (x,v) & \mapsto & (x,d_e  L_g(v)) \\
+\end{array}$ \\
+Elles sont lisses (resp. holomorphes) et inverses l'une de l'autre. Ce sont donc des isomorphismes.
+\end{proof}
+
+De façon analogue au cas réel, on définit les sous-groupes à un paramètre comme les morphismes de groupes $\C \to G$. On a une bijection entre les sous-groupes à un paramètre et les éléments de l'algèbre de Lie $\gfrak$ : \\
+A tout sous-groupe à un paramètre $\varphi : \C \to G$, on associe l'élément $d_0\varphi\left(\frac{d}{dz}\right) \in \gfrak$ et un élément $g \in \gfrak$, on associe l'unique morphisme $\varphi_g : \C \to G$ tel que $d_0\varphi\left(\frac{d}{dz}\right)=g$ que l'on définit par $t \in \C \mapsto \exp_{G_\R}(tg)$ où $\exp_{G_\R}$ est l'exponentielle entre les espaces réels sous-jacents (l'unicité découle de celle du cas réel). On définit l'exponentielle d'un élément $g \in \gfrak$ par :
+\[\exp(g)=\varphi_g(1) \]
+
+\begin{Thm} \label{exp}
+Soit $G$ un groupe de Lie complexe et $\gfrak$ la $\C$-algèbre de Lie associée.
+L'exponentielle réelle $\exp_\R : \gfrak_\R\to G_\R  $ entre les structures réelles des deux espaces induit une application holomorphe $\exp : \gfrak \to G$. 
+\end{Thm}
+\begin{proof}
+Voir \cite{\Lee} Théorème 1.15 % Lee
+
+ \end{proof}
+
+\begin{Prop} \label{cccc}
+Un groupe de Lie complexe connexe compact est commutatif.
+\end{Prop}
+\begin{proof}
+Soit $G$ un groupe de Lie complexe connexe compact. \\
+Soit $x \in X$. La conjugaison par $x$ dans $G$, $\sigma_x : y \in G \mapsto xyx^{-1}$ est un automorphisme de $G$. Sa différentielle est donc un isomorphisme. \\
+Soit $\varphi : x \in G \mapsto d_e \sigma_x$. Cette application est holomorphe (car $\sigma_x$ (et donc ses dérivées partielles) le sont. Comme $X$ est compact alors $\varphi$ est localement constante et comme de plus, $X$ est connexe alors $\varphi$ est constante. \\
+On en déduit : 
+	\[ d_e \sigma_x=d_e \sigma_e=id_\gfrak
+\]
+On en déduit que, pour tout $u \in G$,  
+	\[ \sigma_x(\exp(u))=\exp(d_e\sigma_x(u))=\exp(u)
+\]
+Ainsi, 
+	\[\exp(\gfrak) \subset Z(G)
+\]
+De plus, par \ref{engendr}, 
+	\[ G=\left\langle \exp(\gfrak) \right\rangle \subset Z(G) \subset G
+\]
+On en déduit que $Z(G)=G$ et donc que $G$ est commutatif.
+\end{proof}
+
+\begin{Thm} \label{Tore}
+Soit $G$ un groupe de Lie complexe connexe compact. Alors l'application $\exp : \gfrak \to G$ est un morphisme surjectif de groupes dont le noyau est un réseau de $\gfrak$. On obtient un isomorphisme :
+	\[ \gfrak/\Ker(\exp) \simeq G
+\]
+
+\end{Thm}
+
+\begin{proof}
+Soient $u,v \in \gfrak$ et $\psi : \C \to G$ définie par : \\
+	\[ \forall t \in \C, \psi(t)=(\exp(tu)\exp(tv))=\varphi_u(t)\varphi_v(t)
+\]
+$\psi$ est une fonction holomorphe. Par la commutativité de $G$ donnée par \ref{cccc}, $\psi$ est un morphisme de groupes : 
+	 
+	 \begin{align*}
+		 \forall t,t' \in \C, \psi(t+t')&=\varphi_u(t+t')\varphi_v(t+t')=\varphi_u(t)\varphi_u(t')\varphi_v(t)\varphi_v(t') \\
+		&=\varphi_u(t)\varphi_v(t)\varphi_u(t')\varphi_v(t')=\psi(t)\psi(t')
+	 \end{align*}
+
+La différentielle de $\psi$ en 0 est donnée par : 
+	\[ d_0 \psi=(u+v)dt
+\]
+Ainsi, par la correspondance précédant le théorème \ref{exp}, on en déduit que 
+	\[ \psi=\varphi_{u+v}
+\]
+En évaluant en 1, on en déduit que : 
+	\[ \exp(u+v)=\exp(u)\exp(v)
+\]
+i.e. $\exp$ est un morphisme de groupes. \\
+On en déduit que $\exp(\gfrak)$ est un groupe et par \ref{engendr} et le fait que $\exp$ est un difféomorphisme local en 0 et que $G$ est connexe, 
+	\[ \exp(\gfrak)=\left\langle \exp(\gfrak)\right\rangle=G
+\]
+Pour montrer que $\Ker(\exp)$ est discret, il suffit de le montrer au voisinage de 0 : 
+Soit $U$ un voisinage ouvert de $0$ tel que $\exp_{|U}$ est injective (donnée par le théorème d'inversion locale). Alors,
+$U \cap \Ker(\exp)=\{0\}$. \\
+Soit $\widetilde{\exp} :\gfrak/\Ker(\exp) \to G$ l'application obtenue par passage au quotient. C'est un isomorphisme de groupes qui est un biholomorphisme local en 0 et donc en tout point par translation. 
+\end{proof}

@@ -56,7 +56,22 @@ On peut remarquer qu'une modification est n\'ecessairement surjective car son im
 \begin{Def}
 Soit $X,Y$ deux espaces complexes r\'eduits. Une fonction m\'eromorphe de $X$ dans $Y$ est la donn\'ee d'un sous-espace analytique r\'eduit $\Gamma$ de $X \times Y$ muni d'une modification propre $\Gamma \to X$ et une application holomorphe $\Gamma \to Y$. On la note $X \dashrightarrow Y$
 \end{Def}
-Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarrow Y$ induit une application holomorphe d'un ouvert de Zariski de $X$ vers $Y$.
+Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarrow Y$ induit une application holomorphe d'un ouvert de Zariski de $X$ vers $Y$. \\
+Cette d\'efinition co\"incide avec la d\'efinition donn\'ee dans \ref{def_fct_merom} : 
+\begin{Lemme}
+Soit $\widetilde{f}$ une fonction m\'eromorphe (comme d\'efini dans \ref{def_fct_merom}) sur un espace analytique irr\'eductible $X$. Pour chaque $(H,f) \in \widetilde{f}$, l'adh\'erence dans $X \times \P^1$ du graphe :
+	\[\Gamma_{(H,f)}=\{(x,[z_0 : z_1]) \in (X \setminus H) \times P^1 \mid z_0f(x)=z_1\}
+	\]
+	est un sous-espace analytique irr\'eductible dans $M \times \P^1$, ind\'ependant du choix du repr\'esentant de $\widetilde{f}$. La projection $\overline{\Gamma_{(H,f)}} \to M$ est une modification propre. Ainsi, $\widetilde{f}$ est une application m\'eromorphe $M \dashrightarrow \C$
+
+\end{Lemme}
+
+\begin{proof}
+Soit $x_0 \in H$. Il existe un voisinage $U$ de $x_0$ dans $X$ et des applications holomorphes $g,h : U \to \C$ tels que les z\'eros de $h$ soient contenus dans $H$ et tels que $f$ et $g/h$ co\"incide sur $U\setminus U \cap H$. Ainsi, par d\'efinition de $\Gamma_{(H,f)}$, 
+	\[\Gamma_{(H,f)} \cap (U \times \P^1) \subset \{ (x,[z_0 : z_1]) \in U \times \P^1 \mid z_0g(x)=z_1 h(x) \}=:Z
+\]
+Et donc l'adh\'erence $\overline{\Gamma_{(H,f)}}\cap (U \times \P^1)$ est aussi inclus dans $Z$. Ainsi, $\overline{\Gamma_{(H,f)}}\cap (U \times \P^1)$ est \'egal \`a la composante irr\'eductible de $Z$ la contenant. Cela prouve que $\overline{\Gamma_{(H,f)}}$ est un ensemble analytique de $M \times \P^1$. De plus, il est ind\'ependant du choix de $(H,f)$ car deux repr\'esentants $(H,f)$ et $(H',f)$ sont \'equivalents si $f$ et $f'$ sont \'egaux sur $X \setminus \{H \cup H'\}$
+\end{proof}
 %\begin{Def}
   %Soit $\pi : X \to Y$ une application holomorphe propre entre deux espaces analytiques complexes r\'eduits. On dira que $\pi$ est un morphisme localement projectif si, tout point $x \in Y$ a un voisinage ouvert tel qu'il existe une application holomorphe $j : \pi^{-1}(U) \to \P^k$ telle que l'application
         %\[(\pi,j) : \pi^{-1}(U) \to U \times \P^k

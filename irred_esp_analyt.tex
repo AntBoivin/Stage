@@ -1,0 +1,40 @@
+\begin{Def}
+Soit $X$ un espace analytique complexe réduit.
+On dira que $X$ est irréductible en un point $x$ de $X$ si $x$ admet un système fondamental de voisinages ouverts irréductibles dans $X$ et que $X$ est localement irréductible s'il est irréductible en tous ses points.
+\end{Def}
+En particulier, il existe un recouvrement de $X$ par des ouverts irréductibles.
+\begin{Prop} \label{connex_irred}
+Un espace topologique localement irréductible est irréductible si, et seulement si, il est connexe.
+
+\end{Prop}
+\begin{proof}
+  $\Leftarrow$ :
+  Soit $X$ un espace topologique localement irréductible connexe. \\
+  Soient $\{U_i\}$ un recouvrement de $X$ par des ouverts irréductibles et $V,W$ deux ouverts de $X$ disjoints. \\
+  Montrons, tout d'abord, qu'un ouvert $U_i$ rencontre soit $V$ soit $W$ soit aucun des deux : \\
+  Supposons, par l'absurde, qu'il existe $U_i$ tel que $U_i \cap V \neq \emptyset \neq U_i \cap W$. Comme $U$ est irréductible et que $U_i \cap V$ et $U_i \cap W$ sont des ouverts de $U_i$ alors $U_i\cap V=\emptyset$ ou $U_i \cap W=\emptyset$, ce qui montre ce que l'on voulait. \\
+  On peut donc trier les ouverts du recouvrement $\{U_i\}$ en trois familles : ceux qui rencontrent $V$, ceux qui rencontrent $W$ et ceux qui rencontrent ni l'un ni l'autre. Notons par $A$, $B$ et $C$ l'union de, respectivement, des ouverts de la première famille, ceux de la deuxième et ceux de la troisième. On a ainsi écrit $X$ comme une union disjointe de trois ouverts :
+  \[ X=A \coprod B \coprod C\]
+  Comme $X$ est connexe alors $A \coprod B$ ou $C$ est vide :
+  \begin{itemize}
+  \item Si $A \coprod B$ est vide alors $V$ et $W$ le sont aussi.
+  \item Si $C$ est vide alors $X=A \coprod B$. Comme $X$ est connexe alors $A$ ou $B$ est vide. Et donc $V$ ou $W$ est vide.
+  \end{itemize}
+  Ce qui montre que $X$ est irréductible. \\
+  $\Rightarrow$ : Soit $X$ un espace topologique irréductible. \\
+  Soit $U,V$ deux ouverts disjoints tel que $X=U \cup V$. \\
+  Comme $U$ et $V$ sont disjoints et que $X$ est irréductible alors $U$ ou $V$ est vide. Ce qui montre que $X$ est connexe.
+\end{proof}
+\begin{Prop} \label{irred_fibre}
+Soient $X$ un espace analytique complexe réduit et $x \in X$. Alors $X$ est irréductible en $x$ si, et seulement si, l'anneau $\Ocal_{X,x}$ est intègre.
+\end{Prop}
+\begin{proof}
+Voir \cite{\cac} p171
+\end{proof}
+\begin{Cor} \label{normal_irred}
+Un espace analytique réduit, connexe et normal est irréductible.
+\end{Cor}
+\begin{proof}
+Soit $X$ un espace analytique réduit, connexe et normal.
+Comme $X$ est normal alors en tout point $x \in X$, $\Ocal_{X,x}$ est intégralement clos et en particulier est intègre. Autrement dit, par la proposition \ref{irred_fibre}, $X$ est irréductible en tout ses points ou encore $X$ est localement irréductible. Comme, de plus, $X$ est connexe alors, par \ref{connex_irred}, $X$ est irréductible.
+\end{proof}

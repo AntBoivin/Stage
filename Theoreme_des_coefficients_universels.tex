@@ -1,0 +1,23 @@
+\subsection{Théorème des coefficients universels}
+
+\begin{Thm}[Théorème des coefficients universels]\label{homol_sing}
+Soient $C=(C_\bullet,\partial)$ un complexe de chaines de $\Z$-modules libres, $G$ un groupe abélien. Alors, les groupes d'homologies $H_i(C,G)$ du complexe de chaines $C \otimes G=(C_\bullet \otimes G,\partial \otimes id)$ sont déterminés par les groupes d'homologie $H_i(C_\bullet)$ via la suite exacte courte :
+	\[\xymatrix {
+		0 \ar[r] & H_i(C,G) \ar[r]  & H_i(C \otimes G) \ar[r] & Tor(H_{i-1}(C),G) \ar[r] &0 \\ 
+		}
+\]
+	où $Tor$ est le foncteur dérivé du produit tensoriel.
+\end{Thm}
+\begin{proof}
+\cite{\bredon}
+\end{proof}
+Si $k$ est un corps de caractéristique 0, $(k,+)$ est sans torsion et donc 
+	\[\forall i \in \N, Tor(H_{i-1}(C),k)=0
+\]
+Ainsi, 
+	\[ H_i(C) \otimes k=H_i(C \otimes k)
+\]
+Dans le cas de l'homologie singulière pour $X$ un espace topologique, 
+\[ H_i(C,\Z) \otimes k=H_i(X,k)
+\]
+On en déduit une inclusion de $H_i(C,\Z)$ modulo la torsion (que l'on notera $H_i(C,\Z)^{libre}$)  dans $H_i(X,\R)$. On en déduit que $H_i(C,\Z)^{libre}$ forme un réseau de $H_i(C,\R)$

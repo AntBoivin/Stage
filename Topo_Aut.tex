@@ -1,0 +1,70 @@
+
+Soit $X$ un espace analytique complexe réduit, compact, normal et connexe de dimension $m$ et $Y$ un espace analytique complexe. On identifiera une fonction holomorphe $X \to Y$ à son graphe, irréductible car $X$ l'est (\ref{normal_irred}) lui-même identifié à un $m$-cycle irréductible et réduit de $X \times Y$. Autrement dit, on identifie $Hol(X,Y)$ à un sous-ensemble de $\Cscr(X \times Y)$. \\
+
+\begin{Prop} \label{prop_topolog_cycle_cpt}
+ Soit $X$ un espace analytique réduit. \\
+La topologie sur $\Cscr_n(X)$ est la topologie la moins fine rendant continue l'injection naturelle $\Cscr_n(X) \hookrightarrow \Cscr_n^{loc}(X)$ et toutes les injections $\Cscr_n(U) \hookrightarrow \Cscr_n(X)$ où $U$ est un ouvert de $X$.
+
+  \end{Prop}
+
+
+
+
+\begin{Thm}
+Sous les hypothèses précédentes, $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$.
+
+\end{Thm}
+\begin{proof}
+  Soit $p :X \times Y \to Y$ la projection canonique et $p_* : \Cscr_m(X \times Y) \to \Cscr_m(X)$ l'application (holomorphe) d'image directe induite par $p$. Comme $X$ est irréductible (par \ref{normal_irred})  alors le seul sous-espace irréductible de $X$ est $X$ et donc $\Cscr_m(X)=\N[X]$. \\
+  $p_*^{-1}(1[X])$ est ouvert et fermé dans $\Cscr(X \times Y)$ (car $1[X]$ l'est). Ainsi,  $p_*^{-1}(1[X])$ est l'union de composantes connexes de $\Cscr_m(X \times Y)$ et contient $Hol(X,Y)$. \\
+  Montrons que $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$. \\
+  Soit $X_0\in Hol(X,Y)$. Soient $B_i$ un recouvrement (fini) de $Im(X_0)$ et $U_i:= X_0^{-1}(B_i)$ un recouvrement de $X$. Ainsi, $X_0 \cap (U_i \times Y) \subset U_i \times B_i$. \\
+  Soit $L:= \bigcup U_i \times (N \setminus B_i)$ un fermé de $X \times Y$ tel que : $L \cap X_0=\emptyset$. Par \ref{prop_topolog_cycle_cpt}, $\Cscr(X\times Y \setminus L)$ est un ouvert de $\Cscr(X \times Y)$. Ainsi, $U:=p_*^{-1}(1[X]) \cap \Cscr_m(X \times Y \setminus L)$ est un voisinage ouvert de $X_0$ dans $\Cscr_m(X \times Y)$. \\
+  Montrons que $U \subset Hol(X \times Y)$ : \\
+  Soient $Z \in U$, $p_Z : |Z| \to X$ la projection canonique. Cette application est propre car $|Z|$ est compact. De plus, comme $\dim(|Z|)=\dim(X)$, alors il existe un ouvert de Zariski $V$ tel que la fibre $p^{-1}(x)$ soit finie. Comme $Z=|Z| \in p_*^{-1}(1[X])$ alors le degré de $p_Z$ est de degré 1. \\
+  L'espace analytique $Z \cap V \times Y$ est le graphe de l'application $x \in V \subset X \mapsto \pi(p_z^{-1}(x)) \in Y$. Par faible normalité de $X$ et le fait que $Z \cap V \times Y$ soit un espace analytique, on obtient que c'est le graphe d'une fonction holomorphe $V \to Y$. La normalité de $X$ nous donne que cette application se prolonge en une fonction holomorphe sur $X$ (voir \ref{caracnormal}).
+
+\end{proof}
+
+
+%\begin{Thm} \label{param_locale}
+%Soient $X$ un sous-ensemble analytique de dimension $n$ d'un ouvert $V$ de $\C^{n+p}$ et $x_0 \in X$. Quitte à faire un changement linéaire orthogonal de coordonnées, il existe des polydisques ouverts relativement compacts $U$ et $B$ dans $\C^n$ et $\C^{p}$ respectivement, qui vérifient :
+ %
+ %\begin{itemize}
+     %\item $x_0 \in U \times B$, $\overline{U} \times \overline{B} \subset V$,
+    %\item $X \cap (\overline{U} \times \partial B)=\emptyset$
+ %\end{itemize}
+%
+%\end{Thm}
+%\begin{proof}
+%Voir \cite{\cac} p154
+%
+%\end{proof}
+
+
+
+\begin{Prop}
+La topologie sur $Hol(X,Y)$ est la topologie de la convergence uniforme des applications holomorphes.
+
+\end{Prop}
+\begin{proof}
+On va commencer par considérer le cas où $X$ est un sous-espace analytique de dimension $m$ d'un ouvert $V_1$ de $\C^n$ et $Y$ un sous-espace analytique d'un ouvert $V_2$ de $\C^p$ : \\
+Soit $f \in Hol(X,Y)$. Son graphe $\Gamma$ est un espace analytique irréductible dans l'ouvert $V_1 \times V_2$ de $\C^{n+p}$. \\
+Par la proposition \ref{ecailleadaptee} et la remarque \ref{revetramif} pour $\Gamma\times\Delta^{n-m}  $, il existe deux polydisques $U$ et $B$ de, respectivement $\C^n$ et $\C^{n-m-p}$ et une application $g \in \Hcal(\overline{U},Sym^1(B))=\Hcal(\overline{U},B)$ tels que $\Gamma$ soit localement associée à $g$. En prenant, les $p$ premières composantes de $g$, on obtient une application $\widetilde{g} \in \Hcal(\overline{U},\Delta^p)$. Par construction,
+\begin{align} \label{rest_graphe}
+    f_{M \cap \overline{U}}=\widetilde{g}_M
+\end{align}
+Par la proposition \ref{localisation}, si une suite de cycles converge localement alors les restrictions se recollent. On peut donc travailler localement. \\ %Localisation
+Par les propositions \ref{cont_cycle_fct} et \ref{cont_fct_cycle}, une suite de fonctions holomorphe $f_n$ (et donc leur graphe) convergent si, et seulement si, les applications $\widetilde{g_n} \in \Hcal(\overline{U},\Delta^p)$ convergent. Comme la topologie sur $\Hcal(\overline{U},\Delta^p)$ est celle de la convergence uniforme alors grâce à \eqref{rest_graphe}, la suite $f_n$ converge dans $Hol(X,Y)$ si, et seulement si, elle converge uniformément. \\
+Le cas général se déduit de celui-ci en utilisant la localisation de la convergence \ref{localisation} et en remarquant que le fait suivant : \\
+Soit $\{U_i\}_{i=1..n}$ un recouvrement (fini) d'espaces analytiques modèles de $M$. Alors, en notant par $f_n$ une suite de fonctions holomorphes, $f$ une fonction holomorphe et  $d$ la distance sur $N$, \\
+    \[ \|f-f_n\|_\infty:=\max\limits_{x \in X} d(f(x),f_n(x))=\max\limits_{1 \leq i \leq n}\max\limits_{x \in \overline{U_i}} d(f(x),f_n(x))
+\]
+Et donc, si pour un $\varepsilon>0$, on a une borne $N_i$ pour que, pour tout $n \geq N_i$,
+    \[\max\limits_{x \in \overline{U_i}} d(f(x),f_n(x)) <\varepsilon
+\]
+ alors en notant $N:=\max\limits_{1 \leq i \leq n} N_i$, on a, pour tout $n \geq N$,
+    \[\|f-f_n\|_\infty <\varepsilon
+\]
+
+\end{proof}

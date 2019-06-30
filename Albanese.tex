@@ -11,31 +11,7 @@
 \input{enonce}
 \fi
 
-\subsection{Théorème des coefficients universels}
 
-\begin{Thm}[Théorème des coefficients universels]\label{homol_sing}
-Soient $C=(C_\bullet,\partial)$ un complexe de chaines de $\Z$-modules libres, $G$ un groupe abélien. Alors, les groupes d'homologies $H_i(C,G)$ du complexe de chaines $C \otimes G=(C_\bullet \otimes G,\partial \otimes id)$ sont déterminés par les groupes d'homologie $H_i(C_\bullet)$ via la suite exacte courte :
-	\[\xymatrix {
-		0 \ar[r] & H_i(C,G) \ar[r]  & H_i(C \otimes G) \ar[r] & Tor(H_{i-1}(C),G) \ar[r] &0 \\ 
-		}
-\]
-	où $Tor$ est le foncteur dérivé du produit tensoriel.
-\end{Thm}
-\begin{proof}
-\cite{\bredon}
-\end{proof}
-Si $k$ est un corps de caractéristique 0, $(k,+)$ est sans torsion et donc 
-	\[\forall i \in \N, Tor(H_{i-1}(C),k)=0
-\]
-Ainsi, 
-	\[ H_i(C) \otimes k=H_i(C \otimes k)
-\]
-Dans le cas de l'homologie singulière pour $X$ un espace topologique, 
-\[ H_i(C,\Z) \otimes k=H_i(X,k)
-\]
-On en déduit une inclusion de $H_i(C,\Z)$ modulo la torsion (que l'on notera $H_i(C,\Z)^{libre}$)  dans $H_i(X,\R)$. On en déduit que $H_i(C,\Z)^{libre}$ forme un réseau de $H_i(C,\R)$
-
-\subsection{Variété d'Albanese}
 Soit $X$ une variété de Kähler connexe de dimension complexe $n$. \\
 Par la décomposition de Hodge (\ref{Hodge}), \\
 	\[ H^{2n-1}(X,\C)=H^{n,n-1}(X,\C) \oplus \overline{H^{n,n-1}(X,\C)}
@@ -132,120 +108,9 @@ Soit $g_1,g_2$ deux solutions du problème. Posons $g:=g_1-g_2$. \\
 L'application $g$ est une application holomorphe  $Alb(X) \to T$ nulle sur $alb_X(X)$ et en particulier en $0$. Par \ref{holom_tore}, c'est une morphisme de groupes. Comme $alb_X(X)$ engendre $Alb(X)$ par \ref{engend_alb} alors $g$ est nulle sur tout $Alb(X)$.
 \end{proof}
 
-\subsection{Automorphismes de $Alb(X)$}
-
-\subsubsection{Groupes d'automorphismes}
-
-\begin{Def}
-Soit $X$ un espace analytique complexe réduit.
-On dira que $X$ est irréductible en un point $x$ de $X$ si $x$ admet un système fondamental de voisinages ouverts irréductibles dans $X$ et que $X$ est localement irréductible s'il est irréductible en tous ses points.
-\end{Def}
-En particulier, il existe un recouvrement de $X$ par des ouverts irréductibles.
-\begin{Prop} \label{connex_irred}
-Un espace topologique localement irréductible est irréductible si, et seulement si, il est connexe.
-
-\end{Prop}
-\begin{proof}
-  $\Leftarrow$ :
-  Soit $X$ un espace topologique localement irréductible connexe. \\
-  Soient $\{U_i\}$ un recouvrement de $X$ par des ouverts irréductibles et $V,W$ deux ouverts de $X$ disjoints. \\
-  Montrons, tout d'abord, qu'un ouvert $U_i$ rencontre soit $V$ soit $W$ soit aucun des deux : \\
-  Supposons, par l'absurde, qu'il existe $U_i$ tel que $U_i \cap V \neq \emptyset \neq U_i \cap W$. Comme $U$ est irréductible et que $U_i \cap V$ et $U_i \cap W$ sont des ouverts de $U_i$ alors $U_i\cap V=\emptyset$ ou $U_i \cap W=\emptyset$, ce qui montre ce que l'on voulait. \\
-  On peut donc trier les ouverts du recouvrement $\{U_i\}$ en trois familles : ceux qui rencontrent $V$, ceux qui rencontrent $W$ et ceux qui rencontrent ni l'un ni l'autre. Notons par $A$, $B$ et $C$ l'union de, respectivement, des ouverts de la première famille, ceux de la deuxième et ceux de la troisième. On a ainsi écrit $X$ comme une union disjointe de trois ouverts :
-  \[ X=A \coprod B \coprod C\]
-  Comme $X$ est connexe alors $A \coprod B$ ou $C$ est vide :
-  \begin{itemize}
-  \item Si $A \coprod B$ est vide alors $V$ et $W$ le sont aussi.
-  \item Si $C$ est vide alors $X=A \coprod B$. Comme $X$ est connexe alors $A$ ou $B$ est vide. Et donc $V$ ou $W$ est vide.
-  \end{itemize}
-  Ce qui montre que $X$ est irréductible. \\
-  $\Rightarrow$ : Soit $X$ un espace topologique irréductible. \\
-  Soit $U,V$ deux ouverts disjoints tel que $X=U \cup V$. \\
-  Comme $U$ et $V$ sont disjoints et que $X$ est irréductible alors $U$ ou $V$ est vide. Ce qui montre que $X$ est connexe.
-\end{proof}
-\begin{Prop} \label{irred_fibre}
-Soient $X$ un espace analytique complexe réduit et $x \in X$. Alors $X$ est irréductible en $x$ si, et seulement si, l'anneau $\Ocal_{X,x}$ est intègre.
-\end{Prop}
-\begin{proof}
-Voir \cite{\cac} p171
-\end{proof}
-\begin{Cor} \label{normal_irred}
-Un espace analytique réduit, connexe et normal est irréductible.
-\end{Cor}
-\begin{proof}
-Soit $X$ un espace analytique réduit, connexe et normal.
-Comme $X$ est normal alors en tout point $x \in X$, $\Ocal_{X,x}$ est intégralement clos et en particulier est intègre. Autrement dit, par la proposition \ref{irred_fibre}, $X$ est irréductible en tout ses points ou encore $X$ est localement irréductible. Comme, de plus, $X$ est connexe alors, par \ref{connex_irred}, $X$ est irréductible.
-\end{proof}
-
-Soit $X$ un espace analytique complexe réduit, compact, normal et connexe de dimension $m$ et $Y$ un espace analytique complexe. On identifiera une fonction holomorphe $X \to Y$ à son graphe, irréductible car $X$ l'est (\ref{normal_irred}) lui-même identifier au $m$-cycle irréductible et réduit de $X \times Y$. Autrement dit, on identifie $Hol(X,Y)$ à un sous-ensemble de $\Cscr(X \times Y)$. \\
-
-\begin{Prop} \label{prop_topolog_cycle_cpt}
- Soit $X$ un espace analytique réduit. \\
-La topologie sur $\Cscr_n(X)$ est la topologie la moins fine rendant continue l'injection naturelle $\Cscr_n(X) \hookrightarrow \Cscr_n^{loc}(X)$ et toutes les injections $\Cscr_n(U) \hookrightarrow \Cscr_n(X)$ où $U$ est un ouvert de $X$.
-
-  \end{Prop}
-
-
-
-
-\begin{Thm}
-Sous les hypothèses précédentes, $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$.
-
-\end{Thm}
-\begin{proof}
-  Soit $p :X \times Y \to Y$ la projection canonique et $p_* : \Cscr_m(X \times Y) \to \Cscr_m(X)$ l'application (holomorphe) d'image directe induite par $p$. Comme $X$ est irréductible (par \ref{normal_irred})  alors le seul sous-espace irréductible de $X$ est $X$ et donc $\Cscr_m(X)=\N[X]$. \\
-  $p_*^{-1}(1[X])$ est ouvert et fermé dans $\Cscr(X \times Y)$ (car $1[X]$ l'est). Ainsi,  $p_*^{-1}(1[X])$ est l'union de composantes connexes de $\Cscr_m(X \times Y)$ et contient $Hol(X,Y)$. \\
-  Montrons que $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$. \\
-  Soit $X_0\in Hol(X,Y)$. Soient $B_i$ un recouvrement (fini) de $Im(X_0)$ et $U_i:= X_0^{-1}(B_i)$ un recouvrement de $X$. Ainsi, $X_0 \cap (U_i \times Y) \subset U_i \times B_i$. \\
-  Soit $L:= \bigcup U_i \times (N \setminus B_i)$ un fermé de $X \times Y$ tel que : $L \cap X_0=\emptyset$. Par \ref{prop_topolog_cycle_cpt}, $\Cscr(X\times Y \setminus L)$ est un ouvert de $\Cscr(X \times Y)$. Ainsi, $U:=p_*^{-1}(1[X]) \cap \Cscr_m(X \times Y \setminus L)$ est un voisinage ouvert de $X_0$ dans $\Cscr_m(X \times Y)$. \\
-  Montrons que $U \subset Hol(X \times Y)$ : \\
-  Soient $Z \in U$, $p_Z : |Z| \to X$ la projection canonique. Cette application est propre car $|Z|$ est compact. De plus, comme $\dim(|Z|)=\dim(X)$, alors il existe un ouvert de Zariski $V$ tel que la fibre $p^{-1}(x)$ soit finie. Comme $Z=|Z| \in p_*^{-1}(1[X])$ alors le degré de $p_Z$ est de degré 1. \\
-  L'espace analytique $Z \cap V \times Y$ est le graphe de l'application $x \in V \subset X \mapsto \pi(p_z^{-1}(x)) \in Y$. Par faible normalité de $X$ et le fait que $Z \cap V \times Y$ soit un espace analytique, on obtient que c'est le graphe d'une fonction holomorphe $V \to Y$. La normalité de $X$ nous donne que cette application se prolonge en une fonction holomorphe sur $X$ (voir \ref{caracnormal}).
-
-\end{proof}
-
-
-%\begin{Thm} \label{param_locale}
-%Soient $X$ un sous-ensemble analytique de dimension $n$ d'un ouvert $V$ de $\C^{n+p}$ et $x_0 \in X$. Quitte à faire un changement linéaire orthogonal de coordonnées, il existe des polydisques ouverts relativement compacts $U$ et $B$ dans $\C^n$ et $\C^{p}$ respectivement, qui vérifient :
- %
- %\begin{itemize}
-     %\item $x_0 \in U \times B$, $\overline{U} \times \overline{B} \subset V$,
-    %\item $X \cap (\overline{U} \times \partial B)=\emptyset$
- %\end{itemize}
+%\subsection{Automorphismes de $Alb(X)$}
 %
-%\end{Thm}
-%\begin{proof}
-%Voir \cite{\cac} p154
-%
-%\end{proof}
-
-
-
-\begin{Prop}
-La topologie sur $Hol(X,Y)$ est la topologie de la convergence uniforme des applications holomorphes.
-
-\end{Prop}
-\begin{proof}
-On va commencer par considérer le cas où $X$ est un sous-espace analytique de dimension $m$ d'un ouvert $V_1$ de $\C^n$ et $Y$ un sous-espace analytique d'un ouvert $V_2$ de $\C^p$ : \\
-Soit $f \in Hol(X,Y)$. Son graphe $\Gamma$ est un espace analytique irréductible dans l'ouvert $V_1 \times V_2$ de $\C^{n+p}$. \\
-Par la proposition \ref{ecailleadaptee} et la remarque \ref{revetramif} pour $\Gamma\times\Delta^{n-m}  $, il existe deux polydisques $U$ et $B$ de, respectivement $\C^n$ et $\C^{n-m-p}$ et une application $g \in \Hcal(\overline{U},Sym^1(B))=\Hcal(\overline{U},B)$ tels que $\Gamma$ soit localement associée à $g$. En prenant, les $p$ premières composantes de $g$, on obtient une application $\widetilde{g} \in \Hcal(\overline{U},\Delta^p)$. Par construction,
-\begin{align} \label{rest_graphe}
-    f_{M \cap \overline{U}}=\widetilde{g}_M
-\end{align}
-Par la proposition \ref{localisation}, si une suite de cycles converge localement alors les restrictions se recollent. On peut donc travailler localement. \\ %Localisation
-Par les propositions \ref{cont_cycle_fct} et \ref{cont_fct_cycle}, une suite de fonctions holomorphe $f_n$ (et donc leur graphe) convergent si, et seulement si, les applications $\widetilde{g_n} \in \Hcal(\overline{U},\Delta^p)$ convergent. Comme la topologie sur $\Hcal(\overline{U},\Delta^p)$ est celle de la convergence uniforme alors grâce à \eqref{rest_graphe}, la suite $f_n$ converge dans $Hol(X,Y)$ si, et seulement si, elle converge uniformément. \\
-Le cas général se déduit de celui-ci en utilisant la localisation de la convergence \ref{localisation} et en remarquant que le fait suivant : \\
-Soit $\{U_i\}_{i=1..n}$ un recouvrement (fini) d'espaces analytiques modèles de $M$. Alors, en notant par $f_n$ une suite de fonctions holomorphes, $f$ une fonction holomorphe et  $d$ la distance sur $N$, \\
-    \[ \|f-f_n\|_\infty:=\max\limits_{x \in X} d(f(x),f_n(x))=\max\limits_{1 \leq i \leq n}\max\limits_{x \in \overline{U_i}} d(f(x),f_n(x))
-\]
-Et donc, si pour un $\varepsilon>0$, on a une borne $N_i$ pour que, pour tout $n \geq N_i$,
-    \[\max\limits_{x \in \overline{U_i}} d(f(x),f_n(x)) <\varepsilon
-\]
- alors en notant $N:=\max\limits_{1 \leq i \leq n} N_i$, on a, pour tout $n \geq N$,
-    \[\|f-f_n\|_\infty <\varepsilon
-\]
-
-\end{proof}
+%\subsubsection{Groupes d'automorphismes}
 
 \begin{Thm} \label{Aut_0_Alb}
 Soit $X$ une variété de Kähler compacte. Alors,

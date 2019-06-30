@@ -1,0 +1,150 @@
+
+\newif\ifwhole
+
+%\wholetrue
+% Ajouter \wholetrue si on compile seulement ce fichier
+
+\ifwhole
+ \documentclass[a4page,10pt]{article}
+     \input{entete}
+ \begin{document}
+\input{enonce}
+\fi
+
+\section{Groupe d'automorphisme d'une variété complexe compacte} 
+\label{demo_inclusion}
+
+Soit $X$ une variété complexe compacte. Dans cette section, on va étudier le groupe des automorphismes (biholomorphismes) de $X$, que l'on notera $Aut(X)$,  et certains de ses sous-groupes. \\
+On va commencer par un exemple : 
+
+\begin{Prop}\label{Aut_Pn}
+$Aut(\P^n) = PGL_n(\C)$
+\end{Prop}
+\begin{proof}
+Soit $\varphi=[\varphi_0:\ldots:\varphi_n] : \P^n \to \P^n$ un biholomorphisme. \\
+Par le théorème de Hurwitz-Weierstra\ss (voir \cite{\cas} chapitre 9 paragraphe 5-3), $\varphi_i/\varphi_0$ est le quotient de polynômes homogènes de même degré. Ainsi, en chassant les dénominateurs, on peut supposer que les $\varphi_i$ sont des polynômes homogènes de même degré. \\
+On peut faire le même raisonnement avec $\varphi^{-1}$. Ainsi, les $\varphi_i$ sont de degré 1. \\
+Un automorphisme de $\P^n$ est induit par une matrice inversible $(n+1) \times (n+1)$. Réciproquement, une matrice de $\GL_{n+1}(\C)$ donne un automorphisme de $\P^n$. \\
+On obtient un morphisme surjectif de groupes $\Phi : \GL_{n+1}(\C) \to Aut(\P^n)$. Calculons maintenant son noyau. \\
+Soit $A \in \GL_{n+1}(\C)$. Dire que $A \in \Ker(\Phi)$ revient à dire que pour tout $z \in \C^{n+1}$, $[Az]=[z]$ ou encore que pour tout $z \in \C^{n+1}$, il existe une constante $\lambda(z) \in \C$ tel que $Az=\lambda(z)$. Cela permet de dire que $A$ est une homothétie \footnote{Soit $(e_1,\ldots,e_{n+1})$ une base de $\C^{n+1}$. Alors pour tout $i \neq j$, 
+	\[\lambda(e_i+e_j)(e_i+e_j)=A(e_i+e_j)=Ae_i+Ae_j=\lambda(e_i)e_i+\lambda(e_j)e_j 
+\]
+Ainsi, $\lambda(e_i)=\lambda(e_i+e_j)=\lambda(e_j)$. Ce qui montre que $A=\lambda Id$}
+i.e. $\Ker(\Phi)=\C^*Id$. \\
+Par le premier théorème d'isomorphisme, 
+	\[ \PGL_{n+1}(\C)=\GL_{n+1}(\C)/Ker(\Phi) \simeq Aut(\P^n)
+\]
+\end{proof}
+
+On munit le groupe des automorphismes de la topologie induite par la convergence sur tout compact (on expliquera dans la section \ref{topo_aut} pourquoi cette topologie est naturelle). Mais dans notre cas, on peut mettre plus de structure sur ce groupe : 
+
+\begin{Thm}\label{autom_Lie}
+Soit $M$ un variété complexe compacte. Son groupe d'automorphisme est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
+
+\end{Thm}
+\begin{proof}
+Voir \cite{\BM} %Bochner Montgomery
+
+\end{proof}
+
+\begin{Rq}Si $X$ n'est pas compacte alors ce n'est plus cas : \\
+Si $X$ est un disque de $\C$, alors $Aut(X)=PSL_2(\R)$ que l'on ne peut pas munir d'une structure complexe.
+\end{Rq}
+
+\begin{Not}
+On notera $Aut_0(X)$ la composante connexe de l'identité dans $Aut(X)$
+
+\end{Not}
+
+L'intérêt de travailler avec la composante de l'identité est qu'elle se comporte mieux vis-à-vis des produits : 
+
+\begin{Prop} \label{prod_aut}
+Soit $X_1$ et $X_2$ des espaces analytiques complexes compacts réduits. Alors, on a un isomorphisme naturel de groupes de Lie complexes :
+	\[Aut_0(X_1 \times X_2) \simeq Aut_0(X_1) \times Aut_0(X_2)
+\]
+
+\end{Prop}
+\begin{proof}
+Voir \cite{\akh} section 2.4 proposition 2 p 47
+\end{proof}
+
+
+
+La fin de cette section servira à montrer que, pour une variété de Kähler $(M,\omega)$, tous les éléments de la composantes de l'identité de $Aut(X)$ conserve la classe de $[\omega]$. On note par $Aut_\omega(X)$ le groupe des automorphismes de $X$ préservant la classe de $\omega$.
+\begin{Lemme}\label{isotopie} % isotopie
+Soient $M$ une variété lisse, $I$ un intervalle ouvert. Soit $\rho : M \times I \to M$ une isotopie lisse (i.e. pour tout $t \in I$, $\rho(\cdot,t)$ est un difféomorphisme). \\
+Alors, pour toute forme $\omega$ et pour tout $t \in I$, 
+	\[ \left[\frac{d}{ds} {\rho_s}_* \omega\right](t)=(\rho_t)_* \Lcal_{X_t} \omega
+\]
+où $(X_t)$ vérifie $\frac{d\rho_t}{dt} =X_t(\rho_t(\cdot))$ et $\Lcal$ est la dérivée de Lie.
+\end{Lemme}
+\begin{proof}
+Voir théorème 36 p 175 \cite{\laf}
+\end{proof}
+
+\begin{Lemme}\label{derivee_forme}
+Soit $s \in S \mapsto \omega_s$ une famille de formes différentielles fermées. Alors, 
+	\[ \left[\frac{d \omega_s}{ds}\right]=\frac{d}{ds}\left[ \omega_s\right]
+\]
+où $\left[\omega\right]$ est la classe de cohomologie de $\omega$.
+\end{Lemme}
+\begin{proof}
+Il faut seulement montrer que l'égalité ne dépend pas des classes choisies.\\
+Soit $(\eta_s)$ une autre famille de formes différentielles fermées telle que, pour tout $s \in S$ $[\omega_s]=[\eta_s]$ i.e il existe une famille de formes différentielles exactes $(\gamma_s)$ telles que : 
+	\[\forall s \in S,  \omega_s=\eta_s+d\gamma_s
+\]
+Ainsi, 
+	\[\frac{d}{ds}\omega_s=\frac{d}{ds}\eta_s+\frac{d}{ds}d\gamma_s
+\]
+Or, par le lemme 44 de \cite{\laf} (page 179), $\frac{d}{ds}$ et $d$ commute et donc $\frac{d}{ds}d\gamma_s$ est nulle en cohomologie.
+\end{proof}
+\begin{Cor}\label{cohom_isotop}
+Sous les hypothèses de \ref{isotopie}, si on prend une forme fermée $\omega$ et si on suppose $\rho_0=Id$, alors sa classe est préservée par l'isotopie i.e.
+	\[ \forall t \in I, [\omega]=[{\rho_t}_* \omega]
+\]
+\end{Cor}
+\begin{proof}
+Par le lemme \ref{isotopie} , on a, pour tout $t \in T$, 
+	\[ \left(\frac{d}{ds} {\rho_s}_* \omega\right)(t)=(\rho_t)_* \Lcal_{X_t} \omega
+\]
+Or, comme $\omega$ est fermé et que le pullback commute avec la différentielle, on a :
+	\[ {\rho_t}_*\Lcal_{X_t} \omega={\rho_t}_*(di_{X_t} \omega+i_{X_t} d\omega)={\rho_t}_*di_{X_t}\omega=d({\rho_t}_*i_{X_t})\omega
+\]
+Ainsi, $\frac{d}{ds} {\rho_s}_*\omega$ est nulle en cohomologie et donc par le lemme \ref{derivee_forme}, ${\rho_s}_*\omega$ est constante et donc, pour tout $t\in T$, 
+	\[[{\rho_t}_* \omega]=[{\rho_0}_*\omega]=[\omega]
+\]
+
+\end{proof}
+\begin{Cor}\label{inclusion}
+Soit $(M,\omega)$ un variété de Kähler compacte.
+	\[Aut_0(M) \subset Aut_\omega(M)
+\]
+
+
+\end{Cor}
+
+\begin{proof}
+Par le théorème \ref{autom_Lie}, $Aut_0(M)$ est un groupe de Lie complexe dont l'algèbre de Lie est constitué des champs de vecteurs holomorphes sur $M$.
+Par le théorème d'inversion locale, $\exp$ est un difféomorphisme autour de $0$, disons entre $U \subset \gfrak$ (que l'on supposera convexe) et $V \subset G$. Par le lemme \ref{engendr}, $V$ engendre $Aut_0(M)$. \\
+Ainsi, un élément de $Aut_0(X)$ est de la forme 
+	\[f=\exp(u_1)^{\varepsilon_1} \ldots \exp(u_n)^{\varepsilon_n}
+\]
+où $u_i \in U, \varepsilon_i \in \{\pm 1\}$. \\
+On peut donc supposer que $f=\exp(u), u \in U$ et montrons que cette application préserve la classe de Kähler. On obtient le résultat voulu en itérant l'égalité obtenue. \\
+L'application $f$ est isotope à l'identité grâce à l'application 
+	\[\rho : (t,x) \in ]-\varepsilon,1+\varepsilon[ \mapsto \exp(tu)(x)
+\]
+ pour $\varepsilon$ bien choisi ( $\varepsilon>0$ est choisi de tel sorte que $-\varepsilon u $ et $(1+\varepsilon)u$ soient dans $U$).
+Les $\rho(t,\cdot)$ sont toujours des difféomorphismes grâce au fait que $U$ est convexe et donc $]-\varepsilon,1+\varepsilon[u \subset U$. Par conséquent, on obtient notre résultat grâce au corollaire \ref{cohom_isotop}, 
+
+\end{proof}
+
+
+
+
+
+
+
+\ifwhole
+ \end{document}
+\fi

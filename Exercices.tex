@@ -12,7 +12,7 @@
 
 \fi
 \section{Exercices}
-
+Le théorème suivant est la version relative du théorème précédent (mais n'est pas dans l'article de Liebermann).
 \begin{Thm}
 Soit $\Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiques complexes dont toutes les fibres sont des variétés de Kähler. Soit $E$ un sous-ensemble de $B_0 \times B_1$ inclus dans un compact $K$. Soit $Z=(Z_T)_{T \in E}$ une famille analytique de cycles de $\Xscr_0 \times \Xscr_1$ tel que, pour tout $(t,t') \in E$, $Z_{t,t'}$ soit le graphe d'un biholomorphisme de $(\Xscr_0)_t$ dans $(\Xscr_1)_{t'}$. Alors, 
 \begin{enumerate}
@@ -43,7 +43,7 @@ Grâce à cette égalité, on peut juste considérer la restriction de $\pi_1$ sur $Z
 De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\Xscr_1)_{t'})$ et qu'il existe un biholomorphisme dans la composante $\Cscr_0$ alors on peut utiliser l'argument final d'homotopie de \ref{biholo}, pour dire que que les projections $Z_c \to (\Xscr_0)_t$ et $Z_c \to (\Xscr_1)_{t'}$ sont des homéomorphismes. Comme, de plus, ce sont des difféomorphismes locaux alors ce sont des biholomorphismes.
 
 \end{proof}
-
+Dans l'exemple qui suit, on montre que le fait que le théorème n'est pas vrai si $X$ n'est pas de Kähler. 
 \begin{Ex}
 Soit $E$ un tore complexe. Soit $T : E \times E \to E \times E$ l'application donnée par $(x,y) \mapsto (x+y,x+2y)$. Soit $\tau \in \C$, $Im(\tau)>0$. \\
 On fait agir $\Z^2$ sur $E \times E \times \C$ par : $(n,m) \cdot (x,y, \lambda):=(T^m(x,y),\lambda+n+m\tau)$. \\
@@ -53,47 +53,55 @@ La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'applicatio
 Cette application est bien définie car pour tout $(n,m) \in \Z^2$, 
 	\[ p((n,m)\cdot (x,y,\lambda))=p(T^m(x,y),\lambda+n+\tau m)=[\lambda+n+\tau m]=[\lambda]=p(x,y,\lambda)
 \]
-Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre par le fait que l'action n'est pas de point fixe. \\
-
-%**********************************************************************************************************
-On note par $\frac{\partial}{\partial x_1}$,$\frac{\partial}{\partial x_2}$ et $\frac{\partial}{\partial z}$ la base des champs de vecteur sur, respectivement, le premier $E$, le deuxième et sur $\C$. On obtient ainsi une base des champs de vecteurs sur $E \times E \times \C$.
+Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre par le fait que l'action n'est pas de point fixe.
+\paragraph{Calcul de $Aut_0(X)$}
+Pour étudier $Aut_0(X)$, nous allons calculer son algèbre de Lie, l'espace des champs de vecteurs sur $X$ :  \\
+On note par $\frac{\partial}{\partial x_1}$,$\frac{\partial}{\partial x_2}$ et $\frac{\partial}{\partial \lambda}$ la base des champs de vecteur sur, respectivement, le premier $E$, le deuxième et sur $\C$. On obtient ainsi une base des champs de vecteurs sur $E \times E \times \C$.
 Un champ de vecteur holomorphe sur $X$ peut être relevé sur $E \times E \times \C$ où il doit avoir la forme 
-	\[\psi=f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial z}
+	\[\psi=f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial \lambda}
 \]
-où $f_1,f_2$ et $g$ sont des fonctions $\C \to \C$ vérifiant les égalités, pour tout $z \in \C$,  
+où $f_1,f_2$ et $g$ sont des fonctions $\C \to \C$ vérifiant les égalités, pour tout $\lambda \in \C$,  
 	
 	\begin{itemize}
-		\item $\forall m,n \in \Z, g(z+n+m\tau)=g(z)$
-		\item $f_j(z+1)=f(z)$, $j=1,2$
-		\item $f_1(z+1)=2f_1(z)-f_2(z)$
-		\item $f_2(z+\tau)=-f_1(z)+f_2(z)$
+		\item $\forall m,n \in \Z, g(\lambda+n+m\tau)=g(\lambda)$
+		\item $f_j(\lambda+1)=f(\lambda)$, $j=1,2$
+		\item $f_1(\lambda+1)=2f_1(\lambda)-f_2(\lambda)$
+		\item $f_2(\lambda+\tau)=-f_1(\lambda)+f_2(\lambda)$
 	\end{itemize}
-Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la mêm façon). Alors, on obtient, pour tout $Z=(x,y,z) \in E \times E \times \C$ et pour tout $(m,n) \in \Z$, \\
+Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la mêm façon). Alors, on obtient, pour tout $Z=(x,y,\lambda) \in E \times E \times \C$ et pour tout $(m,n) \in \Z^2$, \\
 	\[\psi(f)(Z)=\psi(f)((n,m)\cdot Z)=\psi(f)((n,m)\cdot Z)=\psi(f)(T^m(x,y),\lambda+\tau m +n)
 \]
-En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial z}$ et $T^p=(T_1^p,T_2^p)$ pour $p \in \N$, on obtient : \\
-\[\psi(f)(Z)=f_1(z+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]\]\[+f_2(z+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]+g(z+\tau m +n)\frac{\partial f}{\partial z}
+En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial \lambda}$ et $T^p=(T_1^p,T_2^p)$ pour $p \in \N$, on obtient : \\
+\[\psi(f)(Z)=f_1(\lambda+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]\]\[+f_2(\lambda+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]+g(\lambda+\tau m +n)\frac{\partial f}{\partial \lambda}
 \]
 En identifiant les coefficients, on obtient immédiatement que, pour tout $m,n \in \Z$ et pour tout $z \in\C$, 
 	\[ g(z+\tau m+n)=g(z)
 \]
-Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\delta_{ij}$ et donc $f_j(z+1)=f_j(z)$. \\
+Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\delta_{ij}$ et donc $f_j(\lambda+1)=f_j(\lambda)$. \\
 Pour $(m,n)=(0,1)$, on obtient 
 \begin{equation} \label{translation}
 \begin{pmatrix}
-f_1(z) \\ f_2(z)
+f_1(\lambda) \\ f_2(\lambda)
 \end{pmatrix}=T\begin{pmatrix}
-f_1(z+\tau) \\ f_2(z+\tau)
+f_1(\lambda+\tau) \\ f_2(\lambda+\tau)
 \end{pmatrix}
 \end{equation}
 Les autres cas se déduisent de ceux-là. \\
 Comme $g$ est une fonction holomorphe doublement périodique alors $g$ est constante.\\
 On écrit les $f_j$ en une série de Fourier : 
-	\[f_j(z)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha z}
+	\[f_j(\lambda)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha \lambda}
 \]
-On a donc $f_j(z+\tau)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha (z+\tau)}$. \\
+On a donc $f_j(\lambda+\tau)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha (\lambda+\tau)}$. \\
 Par l'équation \eqref{translation}, $f=0$ sauf $e^{-2i\pi \alpha \tau}$ est une valeur propre de $T$. \\
-Pour des valeurs génériques de $\tau$, les champs de vecteurs sur $X$ sont des multiples de $\frac{\partial}{\partial z}$
+Pour des valeurs génériques de $\tau$, les champs de vecteurs sur $X$ sont des multiples de $\frac{\partial}{\partial \lambda}$. \\
+Ainsi, $Aut_0(X)$ est composé des applications $\varphi_a : [x,y,\lambda] \in X  \mapsto [x,y,\lambda+a] \in X$ pour $a \in \C$. \\
+\'Etudions maintenant l'action de $Aut_0(X)$ sur $X$ : \\
+Soit $p=[x,y,\lambda] \in X$. Quitte à translater, on peut supposer que $\lambda=0$\\% et considérons la courbe $a \in \C \mapsto \varphi_a(x)$. \\
+Si $a\in [m,m+1[ \oplus \R i$ alors $\varphi_a(p)=[T^{-m}(x,y),a-m]$. Pour des valeurs génériques de $(x,y) \in E \times E$, $(x,y)$ n'est pas une valeur propre de $T$ et par conséquence, l'orbite de $p$ est Zariski-dense dans $X$. \\
+Si $\Cscr_\Delta(X \times X)$ est une compactification de $Aut_0(X)\simeq \C$ alors $\Cscr_\Delta(X \times X) \simeq \P^1$ et l'action de $Aut_0(X)$ s'étend en une action méromorphe de $\P^1$ sur $X$ et en projetant le graphe $\Gamma$ (qui est compact car $\P^1$ l'est), on obtient un espace analytique fermé de $X$ qui contient l'orbite (dense) de $Aut_0(X)$, ce qui aboutit à une contradiction dû au fait qur $\P^1$ est de dimension 1 et $X$ 3.
+
+
+
 \end{Ex}
 
 \ifwhole

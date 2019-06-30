@@ -23,33 +23,23 @@ Soit $Z \subset X \times X \times \Cscr_\Gamma$ le cycle universel.  La
 projection naturelle $\pi_3 : Z \to \Cscr_\Gamma$ est propre (cf
 \cite{\barlet} théorème 1).\\
 Quitte à remplacer $\Cscr_\Gamma$ par un ouvert de Zariski, on peut
-supposer $\Cscr_\Gamma$ et $Z$ lisse. En effet, les lieux singuliers de
-$\Cscr_\Gamma$ et $Z$ sont des espaces analytiques. L'image par $\pi_3$
-de ce dernier est aussi un espace analytique et donc son complémentaire
-est un ouvert de Zariski. L'image réciproque de cet ouvert est donc lisse.
-Par la proposition 1.21 p 108 de \cite{\scv}, il existe un ouvert de
-Zariski $U$ tel que $\pi_{3\mid U}$ soit une submersion. Par les mêmes
-considérations que pour la lissité de $Z$, $\pi_3$ est lisse sur un
-ouvert de Zariski de $\Cscr_\Gamma$. Ainsi, toutes les fibres sur cet
-ouvert sont lisses. \\
-
-
-
+supposer $\Cscr_\Gamma$. \\
+Par le théorème \ref{submersion}, il existe un ouvert de
+Zariski $U$ tel que $\pi_{3\mid U}$ soit une submersion. Quitte à restreindre $\Cscr_\Gamma$, on peut supposer que toutes les fibres de $\pi$ sont lisses et de même dimension $\dim(Z)-\dim(\Cscr_\Gamma)$ (on redéfinit $\Cscr_\Gamma$ par $\pi_3(U)^c$ qui est un ouvert de Zariski car $\pi$ est propre) et donc $Z$ par $Z \cap X\times X \times \pi_3(U)^c$) . \\
 De la même façon, pour les projections $\pi_i : Z \to X$, on obtient
 que, sur un ouvert de Zariski $S_i$ de $Z$, ce sont des submersions.
 Elles induisent donc pour tout $c \in \Cscr_\Gamma$, une submersion
 $\pi_{i,c} : U_c \subset Z_c\to X$ car pour tout $y \in X$, $\pi_i^{-1}(y)$ et $Z_c$ s'intersectent transversalement dans $Z$ (car pour tout $x \in \pi_i^{-1}(y) $, $T_x\pi^{-1}(y)\subset Kerd_x\pi_i$ et que $\dim(\pi_i^{-1}(y))+\dim(Z_c)=\dim(Z)$) et donc $\pi_{i,c}^{-1}(y)=\pi^{-1}(y) \cap Z_c$ est une variété lisse (lorsqu'elle n'est pas vide) de codimension
 \[codim(\pi_i^{-1}(y))+codim(Z_c)=\dim(Z)-\dim(\Cscr_\Gamma)+\dim(Z)-\dim(X)=\dim(Z)\]
 i.e de dimension nulle. \\
-On en déduit, pour des questions de dimension, que $d\pi_{i,c}$ est un isomorphisme (sur les points où la fibre n'est pas vide). L'application $\pi_i$ est une surjection
+On en déduit, pour des questions de dimension, que $d\pi_{i,c}$ est un isomorphisme sur les points où la fibre n'est pas vide. L'application $\pi_i$ est une surjection
 car si ce n'était pas le cas $\pi_{i,c}(U_c)$ serait un espace
 analytique de dimension strictement inférieur à $n$ (car $\pi_{i,c}$ est propre). Or, cela voudrait
 que ses fibres serait de dimension supérieure ou égale à $1$  . Or, ce
 n'est pas le cas car c'est un difféomorphisme local. \\
 Pour finir, montrons que les points de $\Cscr_\Gamma \setminus\pi_3(S_1^c \cup S_2^c)$ correspondent aux automorphismes de $X$. \\
 Soit $c$ un cycle de $\Cscr_\Gamma$. \\
-Les applications $\pi_i : Z_C \to X$ est un revêtement propre par
-\ref{revet}. \\
+Les applications $\pi_i : Z_C \to X$ sont des revêtements propres (car toutes les points de $X$ sont des valeurs régulières). \\
 Comme $\Cscr_\Gamma$ est connexe et localement connexe par arcs alors il
 est connexe par arcs. Il existe donc un chemin continu $\gamma : [0,1] \to
 \Cscr_\Gamma$ entre $c$ et $\Gamma$. \\
@@ -60,8 +50,105 @@ $\pi_i$ est donc un homéomorphisme et donc par l'isomorphisme précédent et le th
 \begin{Rq} \label{isom_dens}
 On peut remarquer que l'on peut remplacer l'automorphisme $f$ par un isomorphisme $f : X \to Y$. 
 \end{Rq}
- Dans le cas où $X$ est une variété de Kähler, les composantes irréductibles de $Aut(X)$ se compactifient comme ouvert de Zariski d'une composante irréductible de $\Cscr(X \times X)$ (qui est compact par \ref{Kah_compact}).
+
+Le théorème suivant est la version relative du théorème précédent (mais n'est pas dans l'article de Liebermann).
+\begin{Thm}
+Soit $\Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiques complexes dont toutes les fibres sont des variétés de Kähler. Soit $E$ un sous-ensemble de $B_0 \times B_1$ inclus dans un compact $K$. Soit $Z=(Z_T)_{T \in E}$ une famille analytique de cycles de $\Xscr_0 \times \Xscr_1$ tel que, pour tout $(t,t') \in E$, $Z_{t,t'}$ soit le graphe d'un biholomorphisme de $(\Xscr_0)_t$ dans $(\Xscr_1)_{t'}$. Alors, 
+\begin{enumerate}
+	\item $Z$ rencontre un nombre fini de composante irréductible de $\Cscr_n(\Xscr_0 \times \Xscr_1)$. 
+\item Soit $\Cscr_0$ une composante irréductible des cycles $\pi_0 \times \pi_1$-relatifs rencontrant $Z$. Il existe un ouvert de Zariski de $\Cscr_0$ tel que tout cycle de cet ouvert est le graphe d'un biholomorphisme entre une fibre de $\Xscr_0$ et une fibre de $\Xscr_1$.
+\end{enumerate}
+
+\end{Thm}
+
+\begin{proof}
+1) Soit $(t_0,t'_1) \in E$. Posons $M:= \pi_0^{-1}(t_0) \simeq \pi_1^{-1}(t'_1)$. \\
+Alors par le théorème 4.5 de \cite{\catan}, les fibres de $\pi_0$ ( et de $\pi_1$) sont toutes difféomorphes ( pas nécessairement biholomorphe) à $M$. On peut définir deux familles continues $(\omega_{0,t})$ et $(\omega_{1,t'})$ de formes de Kähler sur $M$ obtenue par pullback et une famille de difféomorphismes $f_t$ de $M$ obtenue à partir des biholomorphismes $(\Xscr_{0})_t \to (\Xscr_{1})_{t'}$. Ainsi,
+	\[ Vol(Z_{t,t'})=\frac{1}{ n !} \int_M \omega_{0t}+f_{t*}\omega_{1,t'}=\frac{1}{ n !} \int_M \omega_{0t}+\omega_{1,t'}
+	\]
+	 
+L'application $v : (t,t') \in E \mapsto Vol(Z_{t,t'})$ est donc continue. Comme $E$ est inclus dans un compact alors $v$ est bornée. \\
+On peut maintenant utiliser le théorème \ref{compact} : le volume $Z_{t,t'}$ est uniformément borné et les supports des $Z_{t,t'}$ est inclus dans $(\pi_0 \times \pi_1)^{-1}(K)$ qui est compact. $Z$ est donc relativement compact et donc rencontre un nombre fini de composantes irréductibles de $\Cscr_n(\Xscr_0 \times \Xscr_1)$.
+
+2) La démonstration de cette partie est l'analogue relatif du théorème \ref{biholo}. \\
+Soit $A$ le cycle universel de $\Xscr_0 \times \Xscr_1 \times \Cscr_0$. La projection $p_3 : A \to \Cscr_0$ est propre et est donc lisse sur un ouvert de Zariski de $\Cscr_0$. \\
+Soit $c \in \Cscr$. Alors, il existe $(t,t') \in B_0 \times B_1$ tel que $c \in \Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'})$. \\
+Soit $x \in (\Xscr_0)_t $ (ou $(\Xscr_1)_{t'}$). \\
+Comme dans \ref{biholo}, on va étudier l'intersection $p_1^{-1}(x) \cap Z_c$ : 
+	\[ p_1^{-1}(x) \cap Z_c=p_1^{-1}(x) \cap ((\Xscr_0)_t \times (\Xscr_1)_{t'}\times\Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'})) \cap Z_c
+\]
+Grâce à cette égalité, on peut juste considérer la restriction de $\pi_1$ sur $Z \cap ((\Xscr_0)_t \times (\Xscr_1)_{t'}\times\Cscr_n((\Xscr_0)_t \times (\Xscr_1)_{t'}))$ et on est ramené au cas non relatif de \ref{biholo}. Ainsi, $p_1 : Z_c \to (\Xscr_0)_t$ est un biholomorphisme local surjectif (idem pour $p_2 : Z_c \to (\Xscr_1)_{t'}$).
+
+De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\Xscr_1)_{t'})$ et qu'il existe un biholomorphisme dans la composante $\Cscr_0$ alors on peut utiliser l'argument final d'homotopie de \ref{biholo}, pour dire que que les projections $Z_c \to (\Xscr_0)_t$ et $Z_c \to (\Xscr_1)_{t'}$ sont des homéomorphismes. Comme, de plus, ce sont des difféomorphismes locaux alors ce sont des biholomorphismes.
+
+\end{proof}
+
+ Dans le cas où $X$ est une variété de Kähler, les composantes irréductibles de $Aut(X)$ admettent une compactification qui est la composante irréductible associé de $\Cscr_{\dim(X)}(X \times X)$ (qui est compact par \ref{Kah_compact}).
 %Contre-exemple et cas relatifs
+
+Dans l'exemple qui suit, on montre que le fait que le théorème n'est pas vrai si $X$ n'est pas de Kähler. 
+\begin{Ex}
+Soit $E$ un tore complexe. Soit $T : E \times E \to E \times E$ l'application donnée par $(x,y) \mapsto (x+y,x+2y)$. Soit $\tau \in \C$, $Im(\tau)>0$. \\
+On fait agir $\Z^2$ sur $E \times E \times \C$ par : $(n,m) \cdot (x,y, \lambda):=(T^m(x,y),\lambda+n+m\tau)$. \\
+Cette action est sans point fixe car si $\lambda=\lambda+n+m\tau$ alors, comme $Im(\tau)>0$, $m=0$ et donc $n=0$. Elle est aussi propre car un compact de $E \times E \times \C$ est inclus dans un $E \times E \times B(0,a)$
+Soit $X$ la variété quotient de $E \times E \times \C$ par l'action. \\
+La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'application $p : [(x,y,\lambda)] \in X \mapsto [\lambda] \in \C/\Z \oplus \tau \Z$. \\
+Cette application est bien définie car pour tout $(n,m) \in \Z^2$, 
+	\[ p((n,m)\cdot (x,y,\lambda))=p(T^m(x,y),\lambda+n+\tau m)=[\lambda+n+\tau m]=[\lambda]=p(x,y,\lambda)
+\]
+Les fibres de $p$ sont toutes isomorphes à $E \times E$. En effet, pour tout $\lambda \in \C$ et tout $q \in p^{-1}([\lambda])$, il existe un unique couple $(x,y)$ tel que $q=[x,y,\lambda]$. En effet, soit $(\widetilde{x},\widetilde{y},\widetilde{\lambda})$ un représentant de $q$. Alors, par définition, $\widetilde{\lambda} \in [\lambda]$ et donc il existe $(m,n) \in \Z^2$ tel que $\widetilde{\lambda}=\lambda+n+\tau m$. Ainsi, on définit $(x,y)$ tels que : $(x,y,\lambda)=(-m,-n)\cdot (\widetilde{x},\widetilde{y},\widetilde{\lambda})$. L'unicité se montre par le fait que l'action n'est pas de point fixe.
+\paragraph{Calcul de $Aut_0(X)$}
+Pour étudier $Aut_0(X)$, nous allons calculer son algèbre de Lie, l'espace des champs de vecteurs sur $X$ :  \\
+On note par $\frac{\partial}{\partial x_1}$,$\frac{\partial}{\partial x_2}$ et $\frac{\partial}{\partial \lambda}$ la base des champs de vecteur sur, respectivement, le premier $E$, le deuxième et sur $\C$. On obtient ainsi une base des champs de vecteurs sur $E \times E \times \C$.
+Un champ de vecteur holomorphe sur $X$ peut être relevé sur $E \times E \times \C$ où il doit avoir la forme 
+	\[\psi=f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial \lambda}
+\]
+où $f_1,f_2$ et $g$ sont des fonctions $\C \to \C$ vérifiant les égalités, pour tout $\lambda \in \C$,  
+	
+	\begin{itemize}
+		\item $\forall m,n \in \Z, g(\lambda+n+m\tau)=g(\lambda)$
+		\item $f_j(\lambda+1)=f(\lambda)$, $j=1,2$
+		\item $f_1(\lambda+1)=2f_1(\lambda)-f_2(\lambda)$
+		\item $f_2(\lambda+\tau)=-f_1(\lambda)+f_2(\lambda)$
+	\end{itemize}
+Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la mêm façon). Alors, on obtient, pour tout $Z=(x,y,\lambda) \in E \times E \times \C$ et pour tout $(m,n) \in \Z^2$, \\
+	\[\psi(f)(Z)=\psi(f)((n,m)\cdot Z)=\psi(f)((n,m)\cdot Z)=\psi(f)(T^m(x,y),\lambda+\tau m +n)
+\]
+En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial \lambda}$ et $T^p=(T_1^p,T_2^p)$ pour $p \in \N$, on obtient : \\
+\[\psi(f)(Z)=f_1(\lambda+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_1}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]\]\[+f_2(\lambda+\tau m +n)\left[\frac{\partial T_1^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_1}(T(x_1,x_2)+\frac{\partial T_2^m}{\partial x_2}(x_1,x_2)\frac{\partial f}{\partial x_2}(T(x_1,x_2)\right]+g(\lambda+\tau m +n)\frac{\partial f}{\partial \lambda}
+\]
+En identifiant les coefficients, on obtient immédiatement que, pour tout $m,n \in \Z$ et pour tout $z \in\C$, 
+	\[ g(z+\tau m+n)=g(z)
+\]
+Ensuite, pour $(m,n)=(0,1)$, $T^m=Id$ et $\frac{\partial T_i^m}{\partial x_j}=\delta_{ij}$ et donc $f_j(\lambda+1)=f_j(\lambda)$. \\
+Pour $(m,n)=(0,1)$, on obtient 
+\begin{equation} \label{translation}
+\begin{pmatrix}
+f_1(\lambda) \\ f_2(\lambda)
+\end{pmatrix}=T\begin{pmatrix}
+f_1(\lambda+\tau) \\ f_2(\lambda+\tau)
+\end{pmatrix}
+\end{equation}
+Les autres cas se déduisent de ceux-là. \\
+Comme $g$ est une fonction holomorphe doublement périodique alors $g$ est constante.\\
+On écrit les $f_j$ en une série de Fourier : 
+	\[f_j(\lambda)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha \lambda}
+\]
+On a donc $f_j(\lambda+\tau)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha (\lambda+\tau)}$. \\
+Par l'équation \eqref{translation}, $f=0$ sauf $e^{-2i\pi \alpha \tau}$ est une valeur propre de $T$. \\
+Pour des valeurs génériques de $\tau$, les champs de vecteurs sur $X$ sont des multiples de $\frac{\partial}{\partial \lambda}$. \\
+Ainsi, $Aut_0(X)$ est composé des applications $\varphi_a : [x,y,\lambda] \in X  \mapsto [x,y,\lambda+a] \in X$ pour $a \in \C$. \\
+\'Etudions maintenant l'action de $Aut_0(X)$ sur $X$ : \\
+Soit $p=[x,y,\lambda] \in X$. Quitte à translater, on peut supposer que $\lambda=0$\\% et considérons la courbe $a \in \C \mapsto \varphi_a(x)$. \\
+Si $a\in [m,m+1[ \oplus \R i$ alors $\varphi_a(p)=[T^{-m}(x,y),a-m]$. Pour des valeurs génériques de $(x,y) \in E \times E$, $(x,y)$ n'est pas une valeur propre de $T$ et par conséquence, l'orbite de $p$ est Zariski-dense dans $X$. \\
+Si $\Cscr_\Delta(X \times X)$ est une compactification de $Aut_0(X)\simeq \C$ alors $\Cscr_\Delta(X \times X) \simeq \P^1$ et l'action de $Aut_0(X)$ s'étend en une action méromorphe de $\P^1$ sur $X$ et en projetant le graphe $\Gamma$ (qui est compact car $\P^1$ l'est), on obtient un espace analytique fermé de $X$ qui contient l'orbite (dense) de $Aut_0(X)$, ce qui aboutit à une contradiction dû au fait qur $\P^1$ est de dimension 1 et $X$ 3.
+
+
+
+\end{Ex}
+
+
+\subsection{Applications}
 
 Soit $(X,\omega)$ une variété compacte de Kähler de dimension $n$. On rappelle que $Aut_\omega(X)$ est le groupe des automorphismes de $X$ préservant la classe de $\omega$. On veut étudier le groupe quotient $Aut_\omega(X)/Aut_0(X)$ (où $Aut_0(X)$ est la composante de l'identité) . Pour cela, on va commencer par montrer qu'il est bien défini : 
 
