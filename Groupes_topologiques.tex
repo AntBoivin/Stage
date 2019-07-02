@@ -2,7 +2,9 @@
 %Le but de cette section est de redonner quelques résultats sur les groupes topologiques et sur les groupes de Lie complexes afin d'étudier le groupe d'automorphismes d'un espace analytique dans la section \ref{partie_autom} et les actions compactifiables dans la partie \ref{compactifiable} 
 
 
-\subsection{ Groupes topologiques}
+\section{ Groupes topologiques}
+\label{groupe_topologique}
+Les groupes topologiques arrivent naturellement dans l'étude des automorphismes car $Aut(X)$ en est un. On va étudier quelques propriétés qui nous seront utiles pour le corps du texte (et notamment dans la la partie \ref{compactifiable} )
 
 \begin{Def} \index{groupe topologique}
 Un groupe topologique est un groupe $(G,*)$ dont l'ensemble sous-jacent est muni d'une topologie compatible avec la loi du groupe i.e. les applications $(x,y)  \in G \times G \mapsto x*y \in G$ et $x \in G \mapsto x^{-1} \in G$ sont continues. Autrement dit, un groupe topologique est un groupe dans la catégorie des espaces topologiques.
@@ -68,7 +70,7 @@ Comme $a,b \in \overline{H}$ alors $H \cap U\neq \emptyset$ et $H \cap V\neq \em
 Soit $X$ un espace topologique. Un sous-ensemble de $X$ est dit localement fermé s'il est ouvert dans son adhérence ou encore que c'est l'intersection d'un ouvert et d'un fermé de $X$.
 \end{Def}
 
-\begin{Def}
+\begin{Def} \label{constructible}
 Soit $X$ un espace topologique \footnote{On doit imposer que cela soit un espace noethérien mais dans notre cadre, cela n'est pas restrictif. On supposera dans la suite que nos espaces topologiques sont noethériens}. Un sous-ensemble de $X$ est dit constructible si c'est l'union finie de sous-espaces localement fermés.
 \end{Def}
 \begin{Lemme}

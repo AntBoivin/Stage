@@ -12,20 +12,24 @@
 \fi
 
 \label{compactifiable}
+Le but de cette partie est d'étudier les actions compactifiables en utilisant les résultats de la partie précédente.
 \section{Action compactifiable}
-
+\subsection{Premières définitions et résultats}
+Commençons par définir ce qu'est une action compactifiable : 
 \begin{Def}
 Soit $X$ un espace analytique complexe compact. Soit $H$ un groupe de Lie complexe connexe agissant sur $X$. On dit $X$ agit de façon compactifiable s'il existe un espace analytique complexe compact $Y$, une application holomorphe injective $i : H \to Y$ telle que $i(H)$ est un ouvert de Zariski de $Y$ et une application méromorphe $m : Y \times X \dashrightarrow X$ définit sur $i(H) \times X$ par : 
 	\[ m(i(h),x)=h \cdot x
 \]
 \end{Def}
+
 Lorsque l'on a une action compactifible de $H$ sur $X$, on peut munir $H$ d'une topologie, dite de Zariski, définie par le fait que cses fermés sont de la forme $i^{-1}(V)$ où $V$ est un sous-espace analytique fermé de $Y$. On appelera $\Zcal$-ouverts (resp. $\Zcal$-fermés) les ouverts (resp. les fermés) de $H$ pour cette topologie (que l'on appelera $\Zcal$-topologie sur $H$). \\
 Cette topologie est, en général, plus grossière que la topologie de Zariski usuelle de $H$ : 
-Prenons $X=\P^n$ et $H=Aut_0(X)=PGL_{n+1}(\C)$ (voir \cite{Aut_Pn}) que l'on peut compactifier avec $Y=\P^{(n+1)^2-1}=\P(\Mcal_{n+1}(\C))$ et l'application méromorphe : 
+Prenons $X=\P^n$ et $H=Aut_0(X)=PGL_{n+1}(\C)$ (voir \ref{Aut_Pn}) que l'on peut compactifier avec $Y=\P^{(n+1)^2-1}=\P(\Mcal_{n+1}(\C))$ et l'application méromorphe : 
 	\[ m : ([(c_{ij})],[(x_j)] \in Y \times \P^n \mapsto \left[\sum_j c_{ij} x_j\right] \in \P^n
 \]
-Les sous-espaces analytiques de $\P^N$ sont des sous-ensembles algébriques, par le théorème de Chow. On en déduit que les $\Zcal$-ouverts de $H$ sont les sous-ensembles algébriques de celui-ci.
+Les sous-espaces analytiques de $\P^N$ sont des sous-ensembles algébriques, par le théorème de Chow\footnote{Voir \cite{\Gun} p 150}. On en déduit que les $\Zcal$-fermés de $H$ sont les sous-ensembles algébriques de celui-ci.
 
+Pour montrer que $\Zcal$-topologie de $H$ est bien définie, il faut montrer que celle-ci ne dépend pas de la compactification choisie : 
 \begin{Prop} % On suppose Y normal
 Soit $H$ un groupe de Lie complexe connexe agissant effectivement sur un espace analytique complexe compact $X$. L'action est compactifiable si, et seulement si, le graphe des éléments de $H$ forme un ouvert de Zariski d'un sous-espace analytique compact $\Cscr(X \times X)$.
 \end{Prop}
@@ -35,7 +39,9 @@ $\Rightarrow$ : Supposons $H$ compactifiable. Il existe donc un compact $Y$ tel 
 Il existe donc un espace analytique complexe $Y'$, une modification (propre) $\tau : Y' \to Y$ et une application holomorphe $f : Y' \to \Cscr(X \times X)$. Comme $\tau$ est propre et que $Y$ est compact alors $Y'=\tau^{-1}(Y)$ est compact et donc $f(Y')$ est le compact désiré.
 
 \end{proof}
-Par cette proposition, la $\Zcal$-topologie de $H$ est donnée par celle induite par $\Cscr(X \times X)$ et ne dépend pas de la compactification $Y$.
+Par cette proposition, la $\Zcal$-topologie de $H$ est donnée par celle induite par $\Cscr(X \times X)$ et ne dépend pas de la compactification $Y$. \\
+
+Pour continuer l'étude des actions compactifiables, on va montrer un critère pratique permettant d'identifier les groupes agissant de façon compactifiable : 
 
 \begin{Prop}
 Soit $H$ agissant de façon compactifiable sur $X$. Un sous-groupe $S \subset H$ agit de façon compactifiable sur $X$ si, et seulement si, $S$ est $\Zcal$-fermé.
@@ -47,6 +53,24 @@ $\Leftarrow$ : Si $S$ est $\Zcal$-fermé alors c'est l'intersection d'un fermé de
 $\Rightarrow$ : Soit $Y'$ une compactification de $S$. Quitte à l'intersecter avec $H$, on peut supposer $Y' \subset H$. Comme les opérations de groupe de $H$ sont holomorphes alors $H$ muni de sa topologie de Zariski est un groupe topologique. \\
 Par hypothèse, $S$ est $\Zcal$-ouvert dans son $\Zcal$-adhérence alors $S$ est localement fermé et donc, par la proposition \ref{localement_ferme}, est ($\Zcal$-)fermé dans $H$
 \end{proof}
+Maintenant que l'on a ce résultat, on peut donner facilement des exemples : 
+
+ \begin{Ex}
+Soit 
+	\[H:=\left\{ \left[\begin{pmatrix} 1& 0 \\0 & e^z\end{pmatrix}\right]  \mid z \in \C \right\} \subset \PGL_2(\C)
+\]
+ qui agit sur $\P^1$. $H$ n'est pas $\Zcal$-fermé dans $PGL_2(\C)$ car ce groupe n'est pas algébrique. $H$ n'agit donc pas de façon compactifiable sur $\P^1$. \\
+Cependant, $\C$ qui agit sur $\P^1$ par 
+	\[z\cdot [x:y]=\begin{pmatrix} 1& 0 \\0 & e^z\end{pmatrix} [x:y]=[x,e^z y]
+\]
+est compactifiable par $\P^1$ avec l'action méromorphe donnée par : 
+	\[\forall z\in \C, [1:0] \cdot z=[0:1], [1:0]\cdot [1:0]=[1:0]
+\]
+
+\end{Ex}
+
+Un autre exemple simple est donnée par le groupes d'automorphisme d'une variété de Kähler grâce à la partie précédente.
+
 \begin{Thm}\label{Aut_0_comp}
 Si $X$ est une variété de Kähler compacte alors $Aut_0(X)$ agit de façon compactifiable sur $X$
 
@@ -54,6 +78,10 @@ Si $X$ est une variété de Kähler compacte alors $Aut_0(X)$ agit de façon compact
 \begin{proof}
 Par le théorème \ref{biholo}, $Aut_0(X)$ est un ouvert de Zariski de $\Cscr_\Delta(X \times X)$ la composante irréductible du graphe de l'identité. Par le théorème \ref{compact}, $\Cscr_\Delta(X \times X)$ est compact, ce qui permet de conclure.
 \end{proof}
+
+\subsection{Sous-groupes et compactifiabilité}
+\'Etudions maintenant la topologie de certains sous-groupes d'un groupe agit de façon compactifiable : 
+
 \begin{Def}
 Soit $H$ agissant sur $X$. On définit les deux ensembles :
 	\[H_{\{Z\}}:=\{ h \in H \mid h \cdot Z=Z\}
@@ -120,7 +148,7 @@ Soit $S$ un sous-groupe abélien d'un groupe $G$. Alors, $Z(Z(S))$ est un sous-gr
 \end{Lemme}
 \begin{proof}
 $S$ est contenu dans $Z(Z(S))$ car, par définition de $Z(S)$, tous ces éléments commutent avec ceux de $S$. \\
-Comme $S$ est abélien alors $S \subset Z(S)=\{ h \in H \mid \forall s \in S, hs=sh \}$. On peut ensuite remarquer le fait général que si $X \subset Y$ alors $Z(Y) \subset Z(S)$ (vu que l'on impose moins de conditions sur les éléments). Ainsi, $Z(Z(S)) \subset Z(S)$. \\
+Comme $S$ est abélien alors $S \subset Z(S)=\{ h \in H \mid \forall s \in S, hs=sh \}$. On peut ensuite remarquer le fait général que si $X \subset Y$ alors $Z(Y) \subset Z(X)$ (vu que l'on impose moins de conditions sur les éléments). Ainsi, $Z(Z(S)) \subset Z(S)$. \\
 On en déduit que si $x,y \in Z(Z(S)) \subset Z(S)$ alors $xy=yx$ (les éléments de $Z(Z(S))$ commutent avec ceux de $Z(S)$)
 \end{proof}
 \begin{Cor}
@@ -131,6 +159,8 @@ Soit $H$ qui agit de façon compactifiable sur $X$ et $S$ un sous-groupe abélien 
 Par la proposition \ref{centr_norma} et le lemme \ref{centralisa}, $Z(Z(S))$ est un sous-groupe $\Zcal$-fermé abélien contenant $S$. L'adhérence de $S$ est donc contenue dedans et est donc abélienne.
 \end{proof}
 
+\subsection{Orbites d'une action compactifiable}
+Le fait que l'action d'un groupe sur un espace analytique est compactifiable se voit aussi sur l'orbite des points de l'ensemble analytique par cette action : 
 \begin{Prop} \label{comp_orb_adh}
 Soit $H$ qui agit de façon compactifiable sur $X$. Un sous-groupe $S$ de $H$ est $\Zcal$-fermé si, et seulement si, pour toute ensemble fini de points $x_1,\ldots,x_n$ de $X$ , la $S$-orbite $(sx_1,\ldots,sx_n)$ est ouverte dans son adhérence de Zariski.
 
@@ -145,23 +175,24 @@ $\Gamma \cap S \times X \times X$ est un ouvert de Zariski de $\Gamma$ car $S$ e
 $\Leftarrow$ : Soient $x_1, \ldots,x_n \in X$ tels que l'application $\lambda : H \to X^n$ définie par :
 	\[\lambda(h):=(h \cdot x_1,\ldots,h \cdot x_n)
 \]
-soit injective (on peut toujours le faire car la suite d'intersection $\left( \bigcap_{i=1}^n {Aut_0}_{x_i} \right)$ finira toujours par être réduit )à l'identité en un nombre fini d'étapes). Par hypothèse et la proposition \ref{localement_ferme}, $\lambda(S)$ est Zariski-fermé dans $\lambda(H)$ et donc $S$ est $\Zcal$-fermé dans $H$ (par continuité), $S$ est donc compactifiable.
+soit injective (on peut toujours le faire car la suite d'intersection $\left( \bigcap_{i=1}^n {Aut_0}_{x_i}(X) \right)$ finira toujours par être réduit )à l'identité en un nombre fini d'étapes). Par hypothèse et la proposition \ref{localement_ferme}, $\lambda(S)$ est Zariski-fermé dans $\lambda(H)$ et donc $S$ est $\Zcal$-fermé dans $H$ (par continuité), $S$ est donc compactifiable.
 \end{proof}
 Le début de la preuve (i.e l'implication) s'adapte si on remplace les points $x_1,\ldots, x_n$ par un fermé de Zariski de $X$. \\
 
-On ne peut pas étendre ce résultat au produit cartésien de deux espaces analytiques distincts, même de Kähler : 
+On ne peut pas étendre ce résultat au produit cartésien de deux espaces analytiques distincts, même pour des variétés de Kähler : 
 \begin{Ex}[Serre] \label{contre_ex_Serre}
+On va construire 
 Soit $S=\C^* \times \C^*$. \\
 Une première compactification de $S$ est $X_1=\P^1 \times \P^1$.  Construisons-en une deuxième : \\
-On commence par remarquer\footnote{cela découle de l'isomorphisme $\C/\Z \simeq \C^*$ obtenue par passage au quotient de $\exp(2i \pi \cdot)$} que $S\simeq \C^2/\Z^2$. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\} \simeq \C$. Toutes les autres fibres sont isomorphes à $\C$ ;  peut donc les compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
+On commence par remarquer\footnote{vient de l'isomorphisme $\C/\Z \simeq \C^*$ obtenu par passage au quotient de $\exp(2i \pi \cdot)$} que $S\simeq \C^2/\Z^2$. Soit $f : \C^2 \to \C$ l'application linéaire donnée par : $f((1,0))=1$ et $f((0,1))=i$. De cette façon, $f(\Z^2)=\Z \oplus \Z i$. Par construction, l'application $\pi \circ f : \C^2 \to \C/(\Z \oplus \Z i)=:E$ passe au quotient et on obtient un morphisme de groupes holomorphe $S \to E$ de noyau $\{(x,ix)\mid x \in \C\} \simeq \C$. Toutes les autres fibres sont isomorphes à $\C$ ;  peut donc les compactifier en $\P^1$. Le fibré $X_2$ à fibre $\P^1$ sur $E$ ainsi obtenu est un compact contenant $S$. \\
 $S$ agit de façon compactifiable sur $X_1$ et $X_2$. \\
-Soit $x_i \in X_i$, $i=1,2$ dont leur orbite par $S$ est Zariski-dense dans $X_i$. Supposons que $S\cdot( X_1,x_2)$ est un ouvert de Zariski de son adhérence dans $X_1 \times X_2$. On a alors le diagramme : 
+Soit $x_i \in X_i$, $i=1,2$ dont leur orbite par $S$ est Zariski-dense dans $X_i$. Supposons que $S\cdot( x_1,x_2)$ est un ouvert de Zariski de son adhérence dans $X_1 \times X_2$. On a alors le diagramme : 
 \xymatrix{
-    S\cdot x_1 \subset X_1 \ar@{-->}[rr]   && S\cdot x_2 \subset X_2 \\
-    &S\cdot(x_1,x_2)\ar[ul]\ar[ur] & 
+    X_1 \ar@{-->}[rr]   && X_2 \\
+    &\overline{S\cdot(x_1,x_2)}\ar[ul]\ar[ur] & 
   }\\
-On obtient donc une application biméromorphe de $X_1$ et $X_2$, ce qui est absurde. Pour montrer cela, on peut regarder l'irrégularité de ces deux surfaces i.e. l'entier $q:=h^{0,1}$ qui est un invariant par biméromorphismes (voir \ref{\ccs} Chapitre 3 corollaire 6.4 p 107). \\
-Par la proposition 4.1 du chapitre 5 du même livre, $X_2$ est biméromorphe avec $\P^1 \times E$. Ensuite, par le théorème de Hodge, $q(X_i)=b_1(X_i)/2$ (car $\P^1$ et $E$ sont de Kähler, où $b_i$ est le $i$ème nombre de Betti). \\
+On obtient donc une application biméromorphe de $X_1$ et $X_2$, ce qui est absurde. Pour montrer cela, on peut regarder l'irrégularité de ces deux surfaces i.e. l'entier $q:=h^{0,1}$ qui est un invariant par biméromorphismes (voir \cite{\ccs} Chapitre 3 corollaire 6.4 p 107). \\
+Par la proposition 4.1 du chapitre 5 du même livre, $X_2$ est biméromorphe avec $\P^1 \times E$. Ensuite, par la décomposition de Hodge, $q(X_i)=b_1(X_i)/2$ (car $\P^1$ et $E$ sont de Kähler, où $b_i$ est le $i$ème nombre de Betti). \\
 Par la formule de Künneth, 
 	\[b_1(X_1)=b_0(\P^1)b_1(\P^1)+b_1(\P^1)b_0(\P^1)=0
 \]
@@ -174,6 +205,7 @@ On en déduit que $q(X_1)=0 \neq 1 =q(X_2)$ et donc que $X_1$ et $X_2$ ne sont pa
 
 \end{Ex}
 
+\subsection{\'Equivariance et $\Zcal$-topologie}
 Soit $f : X \to Y$ une fonction holomorphe équivariante pour une action de $H$ sur $X$ et $Y$. Supposons que $H$ agit de façon compactifiable sur $X$ et que $Y$ est de Kähler. \\
 L'équivariance de $f$ fait que l'automorphisme induit par $h \in H$ conserve $f(X)$ i.e. on a une morphisme de groupes holomorphe $H \to Aut_0(Y)_{\{f(X)\}}$ que l'on peut ensuite composer avec la projection canonique 
 	\[Aut_0(Y)_{\{f(X)\}} \to Aut_0(Y)_{\{f(X)\}} /Aut_0(Y)_{f(X)}=:G
@@ -229,7 +261,7 @@ Le noyau de $\lambda$  est $\Zcal$-fermé et l'image de $\lambda$ est un fermé de
 \]
   est commutatif. En effet, pour tout $h \in H$,
   \[
-    (f \times \cdot \times f) \circ \psi(h)= (f \times \cdot \times f)(h\cdot x_1,\ldots,h \cdot x_n)=(f(h \cdot x_1),\cdots, f(h \cdots x_n))=(h\cdot y_1,\ldots,h \cdot y_n)
+    (f \times \cdots \times f) \circ \psi(h)= (f \times \cdot \times f)(h\cdot x_1,\ldots,h \cdot x_n)=(f(h \cdot x_1),\cdots, f(h \cdot x_n))=(h\cdot y_1,\ldots,h \cdot y_n)
   \]
   et
   \[
@@ -251,15 +283,15 @@ Le noyau de $\lambda$  est $\Zcal$-fermé et l'image de $\lambda$ est un fermé de
       [1:0] \cdot x=[1:0]
     \]
     car, si $x_2 \neq 0$, $\lim \limits_{t \to \infty}x_1+tx_2=\infty$ et si $x_2=0$ alors pour tout $t \in \C$, $t \cdot [x_1,0]=[1:0]$.
-    On peut aussi remarquer que $Y$ est de Kähler comme produit de variétés de Kähler et que $Aut_0(Y)=Aut_0(\P^1) \times Aut_0(\P^1)=PGL_2(\C)^2$ (voir \ref{Aut(Pn)} et \ref{prod_aut} ). \\
+    On peut aussi remarquer que $Y$ est de Kähler comme produit de variétés de Kähler et que $Aut_0(Y)=Aut_0(\P^1) \times Aut_0(\P^1)=PGL_2(\C)^2$ (voir \ref{Aut_Pn} et \ref{prod_aut} ). \\
     On obtient donc que :
-    \[\lambda(H)=\left\{\left(\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix},\begin{pmatrix}1 & 0 \\ 0 &e^t \end{pmatrix}\right) \mid t \in \R \right\}
+    \[\lambda(H)=\left\{\left(\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix},\begin{pmatrix}1 & 0 \\ 0 &e^t \end{pmatrix}\right) \mid t \in \C \right\}
     \]
     qui n'est pas $\Zcal$-fermé car la $\Zcal$-topologie sur $PGL_n(\C)$ est la topologie de Zariski algébrique (voir le début de la section) et la présence de l'exponentielle empêche que cela soit algébrique.
 \end{Ex}
 
 \begin{Lemme}
-Soit $X$ un sous-espace analytique de $\P^n$. Alors $Aut(\P^n)_{\{X\}}$ est le (projectisé du ) noyau d'une application linéaire.
+Soit $X$ un sous-espace analytique de $\P^n$. Alors $Aut(\P^n)_{\{X\}}$ est le (projectivisé du) noyau d'une application linéaire.
 \end{Lemme}
 \begin{proof}
   Comme $X$ est un sous-espace analytique de $\P^n$  alors, par le théorème de Chow, $X$ est un sous-ensemble algébrique de $\P^n$. \\
@@ -277,7 +309,10 @@ g \cdot I(X)=I(g \cdot X)=I(X)
 \]
 Pour montrer la réciproque, il suffit de montrer que, pour $g \in \bigcap_{k_d>0} Aut(\P^n)_{o_d}$, $g \cdot X \subset X$ car $\bigcap_{k_d>0}Aut(\P^n)_{o_d}$ est un groupe. \\
 Comme $I$ est homogène, on peut trouver des générateurs de $I$ qui soit homogène. Notons-les $f_1,\ldots,f_n$ et leur degré $n_i$ \\
-Alors, par défintion de  $g$, $g \cdot f_i \in I_{n_i}$ et donc pour tout $x \in X$, $0=g \cdot f(x)=f(g \cdot x)$ i.e. $g\cdot x \in I_{n_i}$. \\
+Alors, par défintion de  $g$, $g \cdot f_i \in I_{n_i}$ et donc pour tout $x \in X$, 
+	\[0=g \cdot f(x)=f(g \cdot x)
+\]
+Autrement dit, $g\cdot x \in I_{n_i}$. \\
 En le faisant pour tous les générateurs, on montre que $g \cdot x \in X$.
 \end{proof}
 
@@ -297,6 +332,8 @@ En le faisant pour tous les générateurs, on montre que $g \cdot x \in X$.
 
 \section{Théorème de Matsushima}
 
+Dans cette section, nous allons généraliser un théorème de Matsushima (le théorème 3 de \cite{\matsu}) qui était sur le variété de Hodge (i.e. des variétés algébriques projectives) au cas Kähler : \\ 
+
 Soit $\lambda : Aut(X) \to Aut(Alb(X))$ l'application définie de la façon suivante :
 Soit $\varphi \in Aut(X)$. En appliquant la propriété universelle de $Alb(X)$ à l'application $alb_X \circ \varphi :  X \to Alb(X)$, on obtient l'unique application $\lambda(\varphi)$ qui fait commuter le diagramme :
 \[\xymatrix{X \ar[r]^{alb_X} \ar[d]_\varphi & Alb(X) \ar[d]^{\lambda(\varphi)} \\ X \ar[r]^{alb_X} & Alb(X) }\]
@@ -306,7 +343,7 @@ En restreignant $\lambda$ à $Aut_0(X)$, on obtient une application $Aut_0(X) \to
   Soit $X$ une variété compacte de Kähler, $H$ un sous-groupe de $Aut_0(X)$ qui agit de façon compactifiable sur $X$. Alors,
   \begin{enumerate}
   \item $H/H_0$ est fini.
-    \item L'application $\pi : H_0 \to Alb(X)$ a un sous-tore complexe comme image
+    \item L'application $\lambda : H_0 \to Alb(X)$ a un sous-tore complexe comme image
     \end{enumerate}
 \end{Thm}
 \begin{proof}
@@ -317,12 +354,12 @@ En restreignant $\lambda$ à $Aut_0(X)$, on obtient une application $Aut_0(X) \to
 \end{proof}
 
 La différentielle de $\lambda$ en l'identité est l'application $\Gamma(X,TX) \to H^0(X,\Omega^1_X)^*$ (voir \ref{autom_Lie}) donnée par $V \mapsto (i(V) : \omega \mapsto \omega(V))$. On peut voir cela en remarquant que, pour $p \in alb_X^{-1}(0)$, $\lambda=alb_X \circ ev_p$ (car pour $\varphi \in H_0$, $\lambda(\varphi)$ est identifié avec $\lambda(\varphi)(0)=alb_X(\varphi(p))$) et en différenciant. \\
-Lichnerowicz a montré (dans \ref{Lich} corollaire 3) que, dans le cas où $X$ est compacte, de Kähler et de première classe de Chern nulle (pour une introduction aux classes de Chern voir \ref{section_Classe_Chern}), $d\lambda$ est un isomorphisme et donc $Aut_0(X) \to Alb(X)$ est une application surjective de noyau fini (car, par compacité, $\lambda$ est alors de fibres finies). On en déduit donc que $Aut_0(X)$ est compact et est donc un tore.
+Lichnerowicz a montré (dans \cite{\Lich} corollaire 3) que, dans le cas où $X$ est compacte, de Kähler et de première classe de Chern nulle (pour une introduction aux classes de Chern voir \ref{section_Classe_Chern}), $d\lambda$ est un isomorphisme et donc $Aut_0(X) \to Alb(X)$ est une application surjective de noyau fini (car, par compacité, $\lambda$ est alors de fibres finies). On en déduit donc que $Aut_0(X)$ est compact et est donc un tore.
 
 \begin{Thm} \label{Decomposition}
 Si $X$ est une variété de Kähler compacte connexe avec $c_1(X)=0$ alors il existe un tore complexe $T$ et une variété de Kähler compacte connexe telle que :
 \begin{enumerate}
-\item $c_1(M)=\dim H^0(M,\Omega^1_M)(=\frac{1}{2}b_1(M))=0$
+\item $c_1(M)=\dim H^0(M,\Omega_M)(=\frac{1}{2}b_1(M))=0$
   \item $T \times M$ est un revêtement fini de $X$ avec un groupe de transformations résoluble.
   \end{enumerate}
 
@@ -330,7 +367,7 @@ Si $X$ est une variété de Kähler compacte connexe avec $c_1(X)=0$ alors il exist
 \end{Thm}
 
 Pour montrer ce théorème, on va construire une suite $(X_k)$ de variétés de Kähler compactes connexes de première classe de Chern nulle dont le premier nombre de Betti diminue à chaque étape. \`A un moment, ce nombre de Betti s'annulera et on aura la variété $M$ voulu. Le tore sera le produit $\prod Aut_0(X_k)$. \\
-Le processus de construction se fera en prenant la fibré en 0 de l'application d'Albanese de la variété précédente, dans ce cas, pour tout $k$, \[\dim(X_{k+1}) =\dim(X_k)-\frac{1}{2}b_1(X_k) < \dim(X_k) \text{ et } \dim(X_k)\geq \dim H^0(X_k,\Omega^1_{X_k}) \]
+Le processus de construction se fera en prenant la fibré en 0 de l'application d'Albanese de la variété précédente, dans ce cas, pour tout $k$, \[\dim(X_{k+1}) =\dim(X_k)-\frac{1}{2}b_1(X_k) < \dim(X_k) \text{ et } \dim(X_k)\geq \dim H^0(X_k,\Omega_{X_k}) \]
 Commençons par montrons que, dans notre cas, l'application d'Albanese est un fibré dont toutes les fibres sont des variétés de Kähler compactes connexes : \\
 Les fibres sont des variétés compactes car l'application $alb_X$ est propre et que, génériquement, les fibres sont lisses et comme la variété d'Albanese est un groupe connexe, cela s'étend à tous les points. Les fibres sont de Kähler car ce sont des sous-variétés d'une variété de Kähler.
 Montrons maintenant que les fibres sont connexes : \\
@@ -345,12 +382,12 @@ Soit $f : X \to Y$ une application holomorphe propre entre deux espaces analytiq
 Voir \cite{\scv} p 124
 \end{proof}
 
-En appliquant la factorisation de Stein à $alb_X : X \to Alb(X)$, on obtient un revêtement $Y$ de $Alb(X)$ puis, par pullback, une injection $H^0(Y, \Omega^1_Y) \to H^0(Alb(X),\Omega^1_{Alb(X)})$ dont l'image dans $H^0(Alb(X),\Omega^1_{Alb(X)})$ est d'indice le degré $d$ du revêtement. On au aussi une injection $H_0(X,\Omega^1_X) \to H^0(Y, \Omega^1_Y) $. Ainsi, si $d>1$, $H_0(X,\Omega^1_X)$ est un sous-groupe propre de $H^0(Alb(X),\Omega^1_{Alb(X)})$, ce qui est absurde car $H^0(Alb(X),\Omega^1_{Alb(X)})=H_0(X,\Omega^1_X)$ (voir la preuve de \ref{tore_alb}). Donc $g$ est injective et comme $f$ est à fibres connexes alors $alb_X$ aussi.
+En appliquant la factorisation de Stein à $alb_X : X \to Alb(X)$, on obtient un revêtement $Y$ de $Alb(X)$ puis, par pullback, une injection $H^0(Y, \Omega_Y) \to H^0(Alb(X),\Omega_{Alb(X)})$ dont l'image dans $H^0(Alb(X),\Omega_{Alb(X)})$ est d'indice le degré $d$ du revêtement. On au aussi une injection $H_0(X,\Omega_X) \to H^0(Y, \Omega^1_Y) $. Ainsi, si $d>1$, $H_0(X,\Omega_X)$ est un sous-groupe propre de $H^0(Alb(X),\Omega_{Alb(X)})$, ce qui est absurde car $H^0(Alb(X),\Omega_{Alb(X)})=H_0(X,\Omega_X)$ (voir la preuve de \ref{tore_alb}). Donc $g$ est injective et comme $f$ est à fibres connexes alors $alb_X$ aussi.
 
 Montrons maintenant que $alb_X : X \to Alb(X)$ est un fibré : 
 
 \begin{Const} \label{assoc_bundle}
-Soient $G$ un groupe de Lie complexe, $\pi : P \to X$ un fibré tel que $G$ agit librement sur $P$ de tel sorte que, pour tout $x \in X$ et $g \in G$ tel que $\pi^{-1}(x)g \in \pi^{-1}(x)$ et que pour tout $x \in X$ et tout $y \in \pi^{-1}(x)$, $g \in G\mapsto yg \in \pi^{-1}(x)$ est un homéomorphisme. \\
+Soient $G$ un groupe de Lie complexe, $\pi : P \to X$ un fibré tel que $G$ agit (à droite) librement sur $P$ de tel sorte que, pour tout $x \in X$ et $g \in G$ tel que $\pi^{-1}(x) \cdot g \in \pi^{-1}(x)$ et que pour tout $x \in X$ et tout $y \in \pi^{-1}(x)$, $g \in G\mapsto yg \in \pi^{-1}(x)$ est un homéomorphisme. \\
 Soit $\rho : G \to Aut(F)$ une action (à gauche) effective de $G$ sur $F$. \\
 On fait maintenant agir (à droite) $G$ sur $P \times F$ par :
 	\[(p,f) \cdot g=(p \cdot g, \rho(g^{-1})(f))

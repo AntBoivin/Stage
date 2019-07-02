@@ -4,10 +4,15 @@
 \begin{document}
 \input{enonce}
 
+\input{Page_de_garde}
 
+\input{Remerciements}
 \tableofcontents
 
+\chapter*{Introduction}
+\input{Intro}
 
+\setcounter{chapter}{-1} 
 \chapter{Rudiments de géométrie complexe }
 \input{Obj_base}
 \newpage 
@@ -26,19 +31,19 @@
 \chapter{Actions compactifiables et théorème de Matsushima}
 \input{Compactification}
 \begin{appendices}
-\chapter{Topologie générale} 
+\chapter{Topologie générale et algébrique} 
 \input{Topologie_Generale}
 \newpage 
 \input{Groupes_topologiques}
 \newpage
 \input{Theoreme_des_coefficients_universels}
-\chapter{Volumes}
-\input{Volumes}
-\chapter{Variétés complexes}
+\chapter{Variétés complexes et de Kähler, et classes de Chern}
 \input{var_cpx}
 \newpage
 \section{Groupes de Lie}
 \input{Groupes_Lie}
+\chapter{Volumes}
+\input{Volumes}
 %\chapter{Quelques lemmes}
 %\input{Lemmes}
 \end{appendices}
@@ -46,7 +51,7 @@
 %\nocite{*}
 \bibliographystyle{alpha} 
 \bibliography{Biblio5} 
-\printindex
+%\printindex
 
 
  \end{document}

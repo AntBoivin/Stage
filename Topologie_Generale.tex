@@ -12,8 +12,9 @@
 
 \fi
 
-
+Le but de cette annexe est de redonner quelques notions de topologie (générale et algébrique) utilisés dans le corps du texte. 
 \section{Paracompacité}
+Tout d'abord, on redonne les définitions de dénombrable à l'infini et de paracompacité (qui apparaissent, de manière interchangeable dans la littérature) dans la définition d'espace analytique ( et de variété différentielle)  et on montre pourquoi elles sont équivalentes dans notre cas.
 \begin{Def}
 Un espace topologique est paracompact s'il est séparé et si, pour tout recouvrement ouvert de $X$, il existe un recouvrement ouvert plus fin de $X$ qui est localement fini.
 \end{Def}
@@ -61,7 +62,7 @@ Soit $X$ un espace localement connexe. $X$ est dénombrable à l'infini si, et seu
 Cela découle de \cite{\btg} p 71 et \cite{\btg} p 85.
 \end{proof}
 
-
+Pour introduire la prochaine section, on va montrer que les espaces analytiques sont métrisables :
 \begin{Thm}[Smirnov]
 Un espace est métrisable si, et seulement si, il est paracompact et localement métrisable
 \end{Thm}
@@ -72,6 +73,9 @@ Un espace analytique est métrisable.
 \end{Cor}
 \section{ Distance de Hausdorff}
 \label{Hausdorff}
+
+Pour montrer le théorème \ref{compact}, on utilise le théorème de Bishop qui nous donne des conditions pour qu'une suite de espaces analytiques compactes pour une certaine topologie (dite de Hausdorff). On va donner les outils pour comprendre ce théorème et le théorème lui-même. \\
+
 Soit $(M,d)$ un espace métrique, $K(M)$ l'ensemble des compacts non vide de $M$. \\
 On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M) \times K(M) \to \R_+$ donnée par :
 	\[ d_H(A,B)=\frac{1}{2}\left[\max\limits_{b \in B} d(A,b)+\max\limits_{a \in A} d(a,B)\right]
@@ -80,13 +84,15 @@ On appelle distance de Hausdorff de cet espace métrique l'application $d_H : K(M
 Soit $M$ un espace topologique métrisable. Pour toute distance sur $M$ définissant la topologie de $M$, la distance de Hausdorff associée définit la même topologie sur $K(M)$. 
 \end{Prop}
 \begin{proof}
-cf \cite{\cac} p 419
+Voir \cite{\cac} p 419
 \end{proof}
 On appelera cette topologie la topologie de Hausdorff sur $K(M)$
 \begin{Prop} \label{compHaud}
 Soit $M$ un espace topologique métrisable compact. Alors $K(M)$ est un espace topologique compact.
 \end{Prop}
-
+\begin{proof}
+Voir \cite{\cac} p 420
+\end{proof}
 \begin{Thm}[Bishop] \label{Bishop}
 Soit $(A_m)_{m \in \N}$ une suite de sous-ensembles analytiques (fermés) de dimension $n$ d'un ouvert $W$ de $\C^{n+p}$, convergeant au sens de Hausdorff de $W$ pour la métrique standard de $\C^{n+p}$ vers un ensemble fermé $A$ de $W$. Si le volume des $A_m$ est fini et uniformément majoré, $A$ est un sous-ensemble analytique de $W$ de dimension $n$.
 \end{Thm}

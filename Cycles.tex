@@ -1,16 +1,17 @@
+\label{Chap_1}
 \section{Premières définitions}
 Soit $X$ un espace analytique et $n \in \N^*$. Un $n$-cycle (fermé) de $X$\index{cycle} est une somme formelle localement finie 
 	\[ Z:=\sum_{i \in I} n_i Z_i
 \]
 où $n_i \in \N^*$ et les $Z_i$ sont des sous-espaces analytiques distincts de $X$ irréductibles fermés de dimension $n$ . \\
-On notera $\emptyset[n]$ le $n$-cycle donné par $J=\emptyset$. \\
+%On notera $\emptyset[n]$ le $n$-cycle donné par $J=\emptyset$. \\
 On appelle support d'un tel cycle le sous-espace analytique $\bigcup Z_i$ et on l'identifiera à $Z$ si pour tout $i \in I$, $n_i=1$. On dira alors que $Z$ est réduit. \\
 Un cycle sera dit compact\index{cycle compact} lorsque son support compact. Dans ce cas, $J$ est fini et les $Z_j$ sont compacts (la réciproque est évidemment vraie). \\
 On notera $\Cscr_n^{loc}(X)$ (resp. $\Cscr_n(X)$) l'ensemble des $n$-cycles fermés (resp. compacts).\\
 Dans la suite, on étudiera surtout les cycles compacts mais quelques résultats seront donnés pour les $n$-cycles fermés pour des raisons de simplicité. \\
 On peut définir de façon naturelle la somme de deux cycles en ajoutant terme à terme les deux sommes formelles.
 \begin{Prop}\label{image_directe}
-Soit $f : X \to Y$ une application holomorphe. Alors il existe une unique application $f_* : \Ccal_n(X) \to \Ccal_n(Y)$, appelé image directe\index{image directe}, telle que :
+Soit $f : X \to Y$ une application holomorphe. Alors il existe une unique application $f_* : \Cscr_n(X) \to \Cscr_n(Y)$, appelé image directe\index{image directe}, telle que :
 \begin{itemize}
 	\item Pour toute famille finie de $n$-cycles $(Z_i)_{i \in I}$, $\sum_{i \in I} f_*(X_i)=f_*(\sum_{i \in I} X_i)$
 	\item Si $X \in \Ccal_n(X)$ et si $\dim(f(|X|))<n$ alors $f_*(X)=\emptyset[n]$.
@@ -20,6 +21,9 @@ Soit $f : X \to Y$ une application holomorphe. Alors il existe une unique applic
 \begin{proof}
 On utilise le lemme 1.3.6 de \cite{\cac} et on remarque que dans le cas compact, l'application $f : |Z| \to Y$ est toujours propre. De plus, l'image de l'application $f_* : \Cscr_n(X) \to \Cscr_n^{loc}(Y)$ obtenue par ce lemme est à image dans $\Cscr_n^{loc}(Y)$ par continuité de $f$.
 \end{proof}
+
+Cela définit ainsi un foncteur $\Cscr_n$ de la catégorie des espaces analytiques réduits vers la catégorie des ensembles. \\
+Dans la suite, on va munir $\Cscr_n(X)$ d'une structure d'espace analytique réduit en le voyant comme le représentant d'un foncteur contravariant $F^n_X$ de la catégorie des espaces analytiques réduits vers la catégorie des ensembles.
 \newpage\section{Produits symétriques}
 
 \begin{Def}
@@ -74,7 +78,8 @@ Soient $V$ un ouvert de $Sym^k(\C^p)$ et $M$ une variété complexe.
 \begin{proof}
 \cite{\cac} p 78-85
 \end{proof}
-\subsubsection{Revêtements ramifiés}
+\subsection{Revêtements ramifiés}
+L'utilité de ces produits symétriques est de permettre de décrire les revêtements ramifiés : 
 \begin{Def}
 Soit $p \in \N^*$. Un polydisque (ouvert) de $\C^p$ est un sous-ensemble $U$ de $\C^p$ tel qu'il existe $R_1,\ldots,R_p \in \R_+ \cup \{\infty\}$ tels que : 
 	\[ U=\left\{ (x_1,\ldots,x_r) \mid \forall i \in \{1,\ldots,p\}, \left|x_i\right|<R_i \right\}
@@ -85,28 +90,39 @@ Lorsque qu'il n'y aura pas de risque de confusion (et notamment si tous les $R_i
 Soit $U$ un espace analytique normal de dimension finie et $B$ un polydisque de $\C^p$ (qui peut être égal à $\C^p$). \\
 On appelera revêtement ramifié\index{revetement ramifie@revêtement ramifié} de degré $k$ de $U$ , contenu dans $U \times B$, la donnée d'un nombre fini de sous-ensembles analytiques irréductibles $Z_i$ fermés disjoints dans $U \times B$, affectés de multiplicités $n_i > 0$, tels que la restriction à chaque $Z_i$ de la projection naturelle $U \times B \to U$ , soit propre, surjective et de degré $k_i$ \footnote{ici, propre implique finie}, de sorte que l'on
 ait $\sum n_ik_i=k$. \\
-On notera $|Z|$ le revêtement ramifié $(Z_i,1)$ que l'on appelera support de $X$ qu'on identifiera avec l'ensemble analytique $\bigcup Z_i$. \\
-On appellera ensemble de ramification de $|Z|$, noté $R(|Z|)$, la réunion de l'ensemble des points slnguliers de $U$ et de l'ensemble des points de $U$ ne possédant pas un voisinage ouvert $V$ dans $U$ tel que $|A| \cap V \times \C^p$ soit un revêtement de $V$ par la projection naturelle.
+On notera $|Z|$ le revêtement ramifié $(Z_i,1)$ que l'on appelera support de $Z$ qu'on identifiera avec l'ensemble analytique $\bigcup Z_i$. \\
 \end{Def}
+\begin{Rq}
+Cette définition de revêtements ramifiés peut être relié à celle plus classique disant que c'est une application propre à fibre finies $|Z| \to U$ qui soit un revêtement sur un ouvert de Zariski de $U$. 
+
+\end{Rq}
+\begin{Def}
+On appellera ensemble de ramification de $|Z|$, noté $R(|Z|)$, la réunion de l'ensemble des points singuliers de $U$ et de l'ensemble des points de $U$ ne possédant pas un voisinage ouvert $V$ dans $U$ tel que $|Z| \cap V \times \C^p$ soit un revêtement de $V$ par la projection naturelle.
+\end{Def}
+
 
 \begin{Prop}\label{bij_rr_appli}
 
 Soit $U$ un espace analytique normal de dimension finie et soit $B$ un polydisque de $\C^p$ (ou bien $\C^p$).
 
-Il y a une bijection naturelle entre l'ensemble des revêtements ramifiés de degré $k$ de U, contenus dans $U \times B$, et l'ensemble des applications analytiques $f: U\to Sym^k(B)$.
-
+Il y a une bijection naturelle entre l'ensemble des revêtements ramifiés de degré $k$ de U, contenus dans $U \times B$, et l'ensemble des applications analytiques $f: U\to Sym^k(B)$. \\
+On a, alors, 
+	\[(f \times id_B)^{-1}(Sym^k(\C^p) \sharp \C^p)=|X|
+\]
+où $Sym^k(\C^p) \sharp \C^p=\left\{ (x,y) \in Sym^k(\C^p) \times \C^p \mid \sum_{h=0}^k (-1)^h S_h(x)y^{k-h}=0 \right\}$.
 \end{Prop}
 
 \begin{proof}[Idée de preuve, voir \cite{\barlet} p 25]
 Soit $Z$ un revêtement ramifié de degré $k$ de U, contenus dans $U \times B$. \\
-Comme l'ensemble des points singuliers de $U$ est inclus dans l'ensemble des points de ramifications alors tous les points de $U \setminus R(|Z|)$ sont lisses et donc, pour tout point $t \in U \setminus R(|Z|)$, il existe un voisinage ouvert $V_t$ de $t$ isomorphe à un polydisque (et est donc simplement connexe). Le fait que $V_t$ soit simplement connexe nous donne l'existence de branche locale $(f_j)_{j \in \{1..k\}}$ de $Z$ sur $V_t$ \footnote{i.e. des applications $(f_j : V_t \to \C^p)$ telles que :
+Comme l'ensemble des points singuliers de $U$ est inclus dans l'ensemble des points de ramifications alors tous les points de $U \setminus 
+R(|Z|)$ sont lisses et donc, pour tout point $t \in U \setminus R(|Z|)$, il existe un voisinage ouvert $V_t$ de $t$ isomorphe à un polydisque (et est donc simplement connexe). Le fait que $V_t$ soit simplement connexe nous donne l'existence de branche locale $(f_j)_{j \in \{1..k\}}$ de $Z$ sur $V_t$ \footnote{i.e. des applications $(f_j : V_t \to \C^p)$ telles que :
 \begin{itemize}
-	\item les germes des $f_j$ en tout point $x$ de $V_t$ sont des sections de $|X| \to U$ autour de $t$
+	\item les germes des $f_j$ en tout point $x$ de $V_t$ sont des sections de $|Z| \to U$ autour de $t$
 	\item Si en tout point $x$ de $V_t$, la germe de $f_j$ est répétée un nombre de fois égale à la multiplicité de la composante irréductible de $f_j(x)$
 \end{itemize}
 }. Celles-ci sont uniques à permutation près. \\
 Posons $f_t := q(f_1,\ldots,f_k) : V_t \to Sym^k(B)$ où $q : B^k \to Sym^k(B)$ est l'application quotient. Par unicité (à permutation près), on a $f_{t_1}=f_{t_2}$ sur $V_{t_1} \cap V_{t_2}$. Elles se recollent en une application $f : U \setminus R(|Z|) \to Sym^k(B)$. \\
-Soit $S : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)=:E$ le plongement de \ref{plongement}. Montrons que l'application $S \circ f : U \setminus R(|Z|)$ s'étend holmormophiquement sur tout $U$. Par normalité de $U$ (voir \ref{caracnormal}), il suffit de montrer que cette application est localement bornée sur $R(|Z|)$. Si $t_0 \in R(|X|)$ et si $K$ est un voisinage compact de $t_0$ dans $U$, alors comme la projection $|Z| \to U$ est propre (car les projections $Z_i \to U$ le sont, par définition de revêtement ramifié) alors $|Z| \cap K \times B=\pi^{-1}(K)$ est compact. Sa projection est compacte et est donc inclus dans un polydisque relativement compact inclus dans $B$. On en déduit que, pour tout $t \in K \setminus (K \cap R(|X|)$, 
+Soit $S : Sym^k(\C^p) \to \bigoplus_{j=0}^k S^j(\C^p)=:E$ le plongement de \ref{plongement}. Montrons que l'application $S \circ f : U \setminus R(|Z|)$ s'étend holmormophiquement sur tout $U$. Par normalité de $U$ (voir \ref{caracnormal}), il suffit de montrer que cette application est localement bornée sur $R(|Z|)$. Si $t_0 \in R(|Z|)$ et si $K$ est un voisinage compact de $t_0$ dans $U$, alors comme la projection $|Z| \to U$ est propre (car les projections $Z_i \to U$ le sont, par définition de revêtement ramifié) alors $|Z| \cap K \times B=\pi^{-1}(K)$ est compact. Sa projection est compacte et est donc inclus dans un polydisque relativement compact inclus dans $B$. On en déduit que, pour tout $t \in K \setminus (K \cap R(|Z|)$, 
 	\[S(f(t)) \in S(Sym^k(\overline{B'}))
 \]
 qui est compact. Ce qui permet de montrer que $S \circ f$ est localement bornée. Le prolongement de $S \circ f$ est à valeurs dans $S(Sym^k(B))$ par continuité. On peut donc définir $f$ par composition avec $S^{-1}$. \\
@@ -115,15 +131,13 @@ Réciproquement, si on se donne une application holomorphe $f : U \to Sym^k(B)$, 
 Pour $k=1$, cela vient du fait que pour un espace faiblement normal (et a fortiori un espace normal), on a une bijection naturelle entre les applications analytiques $U \to B$ et les graphes analytiques dans $U \times B$ (voir \ref{norm_holom})
 \paragraph{Hérédité :}
 Supposons la propriété vraie au rang $k-1$. \\
-On considère l'ensemble $Sym^k(\C^p) \sharp \C^p$ défini par : 
-	\[ Sym^k(\C^p) \sharp \C^p=\left\{ (x,y) \in Sym^k(\C^p) \times \C^p \mid \sum_{h=0}^k (-1)^h S_h(x)y^{k-h}=0 \right\}
-\]
 Posons :
 	\[ |Z|=(f \times id_B)^{-1} (Sym^k(\C^p) \sharp \C^p)
 \]
+On va maintenant construire un espace analytique dont le support est $Z$. \\
 Soit $(Z_i)$ la famille (finie) des composantes irréductibles de $|Z|$. L'application $|Z| \to U$ est surjective. Montrons qu'elle est propre : \\
 Soit $K$ un ouvert de $U$. Alors $f(K)$ est un compact de $Sym^k(B)$, il existe donc un polydisque $B'$ relativement compact dans $B$ tel que $f(K) \subset Sym^k(B')$, cela montre que l'image réciproque de $K$ est un fermé inclus dans $K \times B'$, qui est compact. Celui-ci est donc compact. \\
-Soit $X_i$ une composante irréductible de $X$ telle que la projection sur $X_i$ soit surjective. \\
+Soit $Z_i$ une composante irréductible de $|Z|$ telle que la projection sur $Z_i$ soit surjective. \\
 $(X_i,1)$ est un revêtement ramifié de $U$ contenu dans $U \times B$ de degré $k_i<k$. Par la première partie de la preuve, il existe une application holomorphe $f_i : U \to Sym^{k_i}(B)$ tel que : 
 \[ |Z_i|=(f_i \times id_B)^{-1} (Sym^k(\C^p) \sharp \C^p)
 \]
@@ -145,38 +159,60 @@ Une $n$-écaille\index{ecailles@écailles} sur un espace analytique $X$ est la don
 On dira qu'une écaille $(U,B,f)$ est adaptée au $n$-cycle $Z$ si 
 	\[f^{-1}(\overline{U} \times \partial B) \cap |Z|=\emptyset
 \]
-.
 \end{Def}
-Si $E=(U,B,f)$ est une écaille de $X$ et $Z=\sum n_i Z_i $ un cycle de $X$, on note par $f_*(Z \cap V_E)$ le cycle $\sum n_i f(V_E \cap Z_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $Z_E:=f_*(Z \cap V_E) \cap U \times B \to U$ (\cite{\cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
+Autrement dit, une écaille est la donnée d'une carte de $X$ dans un ouvert $ W \subset \C^n \times \C^p$ tels que $\overline{U} \times \overline{B} \subset W$. \\
 
+Le lemme suivant nous dit qu'on peut toujours trouver une écaille adaptée à un cycle donné :
 \begin{Lemme}\label{ecailleadaptee}
-Soit $X$ un espace analytique. Pour tout $n$-cycle complexe $Z$, tout point $z \in X$ et tout voisinage $V$ de $z$, il existe une $n$-écaille adaptée à $Z$ dont le centre contient $z$ et dont le domaine est contenu dans $V$. Si $z \notin |Z|$, on peut choisir $E$ de sorte que $\deg_E(X)=0$.
+Soit $X$ un espace analytique. Pour tout $n$-cycle complexe $Z$, tout point $z \in X$ et tout voisinage $V$ de $z$, il existe une $n$-écaille adaptée à $Z$ dont le centre contient $z$ et dont le domaine est contenu dans $V$. Si $z \notin |Z|$, on peut choisir $E$ de sorte que $\deg_E(Z)=0$.
 
 \end{Lemme}
 \begin{proof}
 Cela vient du théorème de paramétrisation locale cf. \cite{\cac} thm 3.5.4 page 154 et du caractère local de la définition d'écaille adaptée. 
 \end{proof}
+
+Si $E=(U,B,f)$ est une écaille de $X$ et $Z=\sum n_i Z_i $ un cycle de $X$, on note par $f_*(Z \cap V_E)$ le cycle $\sum n_i f(V_E \cap Z_i)$. Si, de plus, $E$ est une écaille adaptée à $X$ alors on a un revêtement ramifié $Z_E:=f_*(Z \cap V_E) \cap U \times B \to U$ (\cite{\cac} p 151). On notera par $\deg_E(X)$ le degré de ce revêtement ramifié. 
+
 \begin{Not}
 Soit $U \subset \C^n$ un ouvert relativement compact de $\C^n$ et $F$ un $\C$-espace vectoriel normé de dimension finie. On note $\Hcal(\overline{U},F)$ l'espace de Banach des applications continues $\overline{U} \to F$, holomorphes sur $U$ muni de la norme $\| f\|=\sup\limits_{x \in \overline{U}} \|f(x)\|_F$ 
 \end{Not}
 \begin{Rq}\label{revetramif}
-Si l'écaille $E=(U,B,f)$ est adaptée au cycle $Z$, alors $j_*(Z \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$ (tel que $U_1 \times \overline{B} \subset W$). En notant $k=\deg_E(Z)$, on peut donc associer à $Z$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $Z_E$ sur $U \times B$ en restreignant l'application obtenue par \ref{bij_rr_appli} à $\overline{U}$ qui ne dépend pas du voisinage de $\overline{U}$ choisie.
+Si l'écaille $E=(U,B,f)$ est adaptée au cycle $Z$, alors $f_*(Z \cap V_E)$ définit un revêtement ramifié sur $U_1$, un polydisque ouvert suffisamment petit contenant $\overline{U}$ (tel que $U_1 \times \overline{B} \subset W$). En notant $k=\deg_E(Z)$, on peut donc associer à $Z$ un élément $f_E \in \Hcal(\overline{U},Sym^k(B))$ tel que le cycle sous-jacent à son graphe coïncide avec $Z_E$ sur $U \times B$ en restreignant l'application obtenue par \ref{bij_rr_appli} à $\overline{U}$ qui ne dépend pas du voisinage de $\overline{U}$ choisie.
 \end{Rq}
 %cf \cite{\cac} Chap IV Rem iii) après 2.1.3 
 \newpage\section{Familles analytiques et espaces des cycles}
+Pour définir notre foncteur $F^n_X$, on va considérer, pour un espace analytique $S$, une certain type de familles paramétrées par $S$ :  
  \begin{Def}
-Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\index{analytique, famille}\footnote{ dans \cite{\cac}, c'est analytique propre} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|Z_s| \subset W$ et si pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
+Soient $X$ un espace analytique et $S$ un espace analytique réduit. Une famille $(Z_s)_{s \in S}$ de $n$-cycles sera dite analytique\index{analytique, famille}\footnote{ dans \cite{\cac}, c'est analytique propre car ils considèrent une définition plus restrictive de famille analytique adaptée au cycle non nécessairement compact} au voisinage de $s_0 \in S$, s'il existe un ouvert $W$ relativement compact dans $X$ tel que, pour chaque $s \in S$ suffisamment proche de $s_0$, on ait $|Z_s| \subset W$ et si, pour toute écaille $E=(U_E,B_E,f_E)$ adaptée à $X_{s_0}$, il existe un voisinage ouvert $S_E$ de $s_0$ dans $S$ tel que : 
 \begin{itemize} 
-	\item $E$ soit adapté à $X_s$ pour tout $s$ dans $S_E$.
-	\item $\deg_E(X_s)=\deg_E(X_{s_0})$ pour tout $s$ dans $S_E$
-	\item L'application $f_E : S_E \times U \to Sym^k(B_E)$ induite par les cycles $(j_* Z_s)_{s \in S_E}$ est holomorphe.
+	\item $E$ soit adapté à $Z_s$ pour tout $s$ dans $S_E$.
+	\item $\deg_E(Z_s)=\deg_E(Z_{s_0})$ pour tout $s$ dans $S_E$
+	\item L'application $f_E : S_E \times U \to Sym^k(B_E)$ induite par les cycles $({f_E}_* Z_s)_{s \in S_E}$ est holomorphe.
 \end{itemize}
-La famille $(X_s)_{s \in S}$ sera dite analytique si elle l'est en tout point.
+La famille $(Z_s)_{s \in S}$ sera dite analytique si elle l'est en tout point.
 \end{Def}
+
+\begin{Thm} \label{famille_parametre}
+Soit $S$ un espace analytique réduit. Pour chaque famille analytique $(Z_s)_{s \in S}$ de cycles compacts de dimension $n$ de $X$ paramétrée par $S$, le sous-ensemble $Y= \{(s,z) \in S \times X \mid z \in  |Z_s| \}$ de $S \times X$ est analytique fermé. La restriction à $Y$ de la projection naturelle sur $S$ est propre, surjective et à fibres de dimension $n$. Si $S$ est irréductible, pour chaque composante irréductible $Y_i$ de $Y$, il existe un entier $n_i\geq 0$, tel que les multiplicités des composantes irréductibles de $|Z_s|$ contenues dans $Y_i$ soient génériquement sur $S$ égales à $n_i$. \\
+Réciproquement, si $S$ est normal, la donnée d'un nombre fini de sous-ensembles analytiques $ Y_i$ de $S \times X$ affectés d'entiers $n_i > 0$, tels que les projections $Y_i \to S$ soient propres, surjectives et à fibres de dimension $n$, définit une famille analytique $(Z_s)_{s \in S}$ de cycles de dimension $n$ de $X$ paramétrés par $S$.
+
+\end{Thm}
+
+On va maintenant définir un foncteur contravariant $F_X^n$ des espaces complexes réduits de dimension finie dans celui des ensembles qui associe à $S$ l'ensemble des familles analytiques de $n$-cycles paramétrées par $S$. Pour ce faire, il faut étudier comment il agit sur les morphismes d'espaces analytiques : 
 \begin{Lemme}
 Si $f : S \to T$ est une fonction holomorphe et $(Z_t)_{t \in T}$ est une famille analytique alors $(Z_{f(s)})_{s \in S}$ est une famille analytique.
 \end{Lemme}
-On peut donc définir le foncteur contravariant $F_X^n$ des espaces complexes réduits de dimension finie dans celui des ensembles qui associe à $S$ l'ensemble des familles analytiques de $n$-cycles paramétrées par $S$. 
+
+\begin{proof}
+Soit $s_0 \in S$. Soit $W$ un ouvert relativement compact tel que pour $t \in T$ suffisamment proche de $f(s_0)$ , on ait $|Z_t| \subset W$. \\
+Alors, par continuité de $f$, pour tout $s$ suffisamment proche de $s_0$, $|Z_{f(s)}| \subset W $. \\
+Soit $E=(U,B,f)$ une écaille adaptée à $Z_{f(s_0)}$.\\
+Comme $(Z_{t})_{t \in T}$ est une famille analytique alors il existe un voisinage ouvert $T_E$ de $f(s_0)$ dans $T$ qui vérifient les conditions de la définition. \\
+Soit $S_E:=f^{-1}(T_E)$. \\
+Par définition, $E$ est adaptée à $Z_{f(s)}$ et $\deg_E(X_{f(s)})=\deg_E(X_{f(s_0)})$ pour tout $s \in S_E$ car $f(S_E) \subset T_E$. \\
+L'application $f_E : S_E \times U \to Sym^k(B)$ induite par les cycles $(f_* Z_{f(s)})_{s \in S}$ est la composée de l'application $f \times Id$ (qui est holomorphe) suivie de l'application induite par les cycles $(f_* Z_{t})_{t \in T}$ (qui est holomorphe). Elle est donc holomorphe, ce qui permet de montrer que $(Z_{f(s)})_{s \in S}$ est analytique.
+\end{proof}
+Barlet a étudié ce foncteur dans \cite{\barlet} et a montré le résultat suivant : 
 
 \begin{Thm}[Barlet]
 $F_X^n$ est un foncteur représentable par un espace analytique $\Cscr_n(X)$.
@@ -184,33 +220,64 @@ $F_X^n$ est un foncteur représentable par un espace analytique $\Cscr_n(X)$.
 Pour exploiter ce résultat, on va utiliser le lemme de Yoneda : 
 
 \begin{Thm}[Lemme de Yoneda]
-Soit $F : \Ccal \to \Dcal$ un foncteur et $X \in Ob(\Ccal)$. Alors, on a une bijection naturelle, 
+Soit $F : \Ccal \to \Ens$ un foncteur et $X \in Ob(\Ccal)$. Alors, on a une bijection naturelle, 
 	\[ \Hom(\Hom(X,\--),F) \simeq F(X)
 \]
 entre les transformations naturelles entre $\Hom(X,\--)$ et $F$, et les éléments de $F(X)$
 \end{Thm}
 En particulier, si $F$ est représentable par un objet $X$ i.e. s'il existe un isomorphisme de foncteurs $\Hom(X,\--) \to F$ alors, par ce lemme, on obtient un objet $s \in F(X)$. On dira que le couple $(X,s)$ est universel pour $F$. \\ % Le Stum
-Dans notre cas, $F$ est un foncteur de la catégorie opposée à celle des espaces analytiques réduits de dimension finie à celle des ensembles. \\
-Ainsi, il existe une famille analytique de cycles indexés par $\Cscr_n(M)$, $(C_s)_{s \in \Cscr_n(M)}$, telle que, pour tout espace complexes réduits de dimension finie $S$ et toute famille analytique $(B_s)_{s \in S}$, il existe une unique application holomorphe $h : S \to \Cscr_n(M)$ telle que pour tout $s \in S$, $B_s=C_{h(s)}$. On appellera cette famille la famille universelle des $n$-cycles.
-
+Expliquons cette dénomination dans notre cas : $F$ est un foncteur de la catégorie opposée à celle des espaces analytiques réduits de dimension finie à celle des ensembles. \\
+Il existe une famille analytique de cycles indexés par $\Cscr_n(X)$, $(C_s)_{s \in \Cscr_n(X)}$, (le $s$ du couple) telle que, pour tout espace complexe réduit de dimension finie $S$ et toute famille analytique $(B_s)_{s \in S}$, il existe une unique application holomorphe $h : S \to \Cscr_n(X)$ telle que pour tout $s \in S$, $B_s=C_{h(s)}$. \\
+On appellera cette famille la famille universelle des $n$-cycles. \\
 On en déduit qu'il existe une bijection entre $\Cscr_n(X)$ et l'ensemble des $n$-cycles (en prenant $S$ un singleton). On peut ainsi munir l'ensemble des $n$-cycles d'une structure d'espace analytique réduit de dimension finie.
 
 \begin{Prop}
 $\Cscr_n$ est un foncteur de la catégorie des espaces analytiques complexes réduits de dimension finie dans elle-même.
 \end{Prop}
 \begin{proof}
-Soit $f : X \to Y$ une application holomorphe. Alors, on lui associe l'application d'image directe $f_* : \Cscr_n(X) \to \Cscr_n(Y)$ donné en \ref{image_directe}. \\
-Cette application est holomorphe par le théorème 3.5.4 p 459 de \cite{\cac}
+Dans la proposition \ref{image_directe}, on a vu que $\Cscr_n$ est un foncteur de la catégorie des espaces analytiques réduits de dimension finie dans les ensembles. \\
+Soit $f : X\to Y$ une fonction holomorphe. \\
+Pour la structure d'espace analytique sur $\Cscr_n(X)$, l'application $\Cscr_n(f)$ est holomorphe par le théorème 3.5.4 p 459 de \cite{\cac}
 
 \end{proof}
+
+\subsection{Cycles relatifs}
+
+Dans ce paragraphe, nous allons donner des énoncés sur les cycles relatifs qui peuvent être vus comme un analogue des familles de variétés vues dans \ref{famille_lisse}.
+
+\begin{Def}
+Soit $f : X \to Y$ une application entre deux espaces analytiques réduits. Un $n$-cycle $Z$ de $X$ est dit $f$-relatif s'il existe $y \in Y$ tel que l'on ait l'inclusion $|Z| \subset f^{-1}(y)$.\\
+ On notera $\Cscr_n(X)^f$ les $n$-cycles $f$-relatifs de $X$
+\end{Def}
+
+\begin{Thm}
+Soit $f : X \to Y$ une application entre deux espaces analytiques réduits. Alors, l'ensemble $\Cscr_n(X)^f$ est un sous-espace analytique de $\Cscr_n(X)$
+\end{Thm}
+
+\begin{proof}
+Voir \cite{\cac} Chapitre 4, 8.2.2
+
+\end{proof}
+
+\begin{Prop} \label{Graphe_analyt}
+Soit $f : X \to Y$ une application holomorphe entre deux espaces analytiques réduits et $n \in \N^*$. Alors, $\{(y,Z) \in Y \times \Cscr_n(X) \mid |Z| \subset f^{-1}(y)\}$ est un sous-espace analytique fermé dans $Y \times \Cscr_n(X)$
+
+\end{Prop}
 \newpage\section{Topologie de $\Cscr_n(X)$}
 L'espace analytique $\Cscr_n(X)$ obtenu précédement est en particulier un espace topologique. Ces ouverts se décrivent de la façon suivante :
 \begin{Thm}
 Un sous-ensemble $U$ de $\Cscr_n(X)$ est ouvert si, et seulement si, pour tout $Z_0 \in U$, il existe des écailles $E_1,\ldots,E_m$ sur $M$ adaptée à $Z_0$ et un voisinage ouvert $W$ de $Z_0$ tels que, si l'on pose $k_i:=\deg_{E_i}(Z_0)$ pour chaque $i \in \{1,\ldots,m\}$,on ait : 
-	\[ \bigcap_{i=1}^m \{Z \in \Cscr_n(W) \mid E_i \text{ est adaptée à } Z, \deg_{E_i}(Z)=k_i \} \subset U
+	\[ \bigcap_{i=1}^m \left\{Z \in \Cscr_n(W) \mid E_i \text{ est adaptée à } Z, \deg_{E_i}(Z)=k_i \right\} \subset U
 \]
 \end{Thm}
-
+En particulier, 
+\begin{Prop} \label{prop_topolog_cycle_cpt}
+ Soit $X$ un espace analytique réduit. Pour tout ouvert $U$ de $X$, $\Cscr_n(U)$ est un ouvert de $\Cscr_n(X)$.
+  \end{Prop}
+\begin{proof}
+En tout cycle de $\Cscr_n(U)$, on choisit aucune écaille et $W=U$.
+\end{proof}	
+	
 \begin{Prop}\label{famille_cont}
   Soit $(Z_s)_{s \in S}$ une famille de $n$-cycles d'un espace analytique $X$. Alors cette famille est continue en $s_0 \in S$ si, et seulement si, pour toute écaille $E=(U,B,f)$ adaptée à $X_{s_0}$, il existe un ouvert $S_0$ de $s_0$ dans $S$, tel que, pour tout $s \in S_0$, l'écaille $E$ soit adaptée à $X_s$ et $\deg_E(X_s)=\deg_E(X_{s_0})$.
 
@@ -234,6 +301,7 @@ est continue. ($Z_f$ est le cycle que l'on a associé à $f$ dans \ref{revetramif}
 \end{Prop}
 \begin{proof}
 Voir \cite{\cac} p 386
+\end{proof}
 \begin{Prop} \label{cont_fct_cycle}
 Soit $E=(U,B,f)$ une écaille sur un espace analytique $X$. L'application naturelle $\mu : \Omega_k(E) \to \Hcal(\overline{U},Sym^k(B))$ est continue.
 \end{Prop}
@@ -241,7 +309,7 @@ Soit $E=(U,B,f)$ une écaille sur un espace analytique $X$. L'application naturel
 Voir \cite{\cac} p 385
 \end{proof}
 
-\end{proof}
+
 \begin{Thm} \label{produit}
 Soient $X$ un espace analytique complexe réduit et $(X_i)_{i \in I}$ un recouvrement ouvert de $X$. Alors, l'application induite par les restrictions 
 	\[ res : \Cscr_n^{loc}(X) \to \prod_{i\in I} \Cscr_n^{loc}(X_i)
@@ -254,25 +322,17 @@ est un homéomorphisme sur son image (qui est fermée).
 Voir \cite{\cac} p 396
 \end{proof}
 \begin{Prop}\label{localisation}
-Soit $(Z_m)_{ m \in \N}$ une suite de $\Cscr^{loc}_n(X)$ telle que pour chaque $x \in M$, il existe un voisinage ouvert $X_x$ tel que $(Z_m \cap X_x)_{m \in \N}$ soit une sous-suite convergente dans $\Cscr_n^{loc}(X_x)$. Alors, la suite converge dans $\Cscr_n^{loc}(X)$
+Soit $(Z_m)_{ m \in \N}$ une suite de $\Cscr^{loc}_n(X)$ telle que pour chaque $x \in X$, il existe un voisinage ouvert $X_x$ tel que $(Z_m \cap X_x)_{m \in \N}$ soit une sous-suite convergente dans $\Cscr_n^{loc}(X_x)$. Alors, la suite converge dans $\Cscr_n^{loc}(X)$
 
 \end{Prop}
 \begin{proof}
 Voir \cite{\cac} p 409
+ \end{proof}
 
-\newpage\section{Topologie du groupe d'automorphismes}
+\newpage\section{Topologie du groupe d'automorphismes} \label{Top_Aut}
 
 
 Soit $X$ un espace analytique complexe réduit, compact, normal et connexe de dimension $m$ et $Y$ un espace analytique complexe. On identifiera une fonction holomorphe $X \to Y$ à son graphe, irréductible car $X$ l'est (\ref{normal_irred}) lui-même identifié à un $m$-cycle irréductible et réduit de $X \times Y$. Autrement dit, on identifie $Hol(X,Y)$ à un sous-ensemble de $\Cscr(X \times Y)$. \\
-
-\begin{Prop} \label{prop_topolog_cycle_cpt}
- Soit $X$ un espace analytique réduit. \\
-La topologie sur $\Cscr_n(X)$ est la topologie la moins fine rendant continue l'injection naturelle $\Cscr_n(X) \hookrightarrow \Cscr_n^{loc}(X)$ et toutes les injections $\Cscr_n(U) \hookrightarrow \Cscr_n(X)$ où $U$ est un ouvert de $X$.
-
-  \end{Prop}
-
-
-
 
 \begin{Thm}
 Sous les hypothèses précédentes, $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$.
@@ -282,7 +342,7 @@ Sous les hypothèses précédentes, $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y
   Soit $p :X \times Y \to Y$ la projection canonique et $p_* : \Cscr_m(X \times Y) \to \Cscr_m(X)$ l'application (holomorphe) d'image directe induite par $p$. Comme $X$ est irréductible (par \ref{normal_irred})  alors le seul sous-espace irréductible de $X$ est $X$ et donc $\Cscr_m(X)=\N[X]$. \\
   $p_*^{-1}(1[X])$ est ouvert et fermé dans $\Cscr(X \times Y)$ (car $1[X]$ l'est). Ainsi,  $p_*^{-1}(1[X])$ est l'union de composantes connexes de $\Cscr_m(X \times Y)$ et contient $Hol(X,Y)$. \\
   Montrons que $Hol(X,Y)$ est un ouvert de $\Cscr_m(X \times Y)$. \\
-  Soit $X_0\in Hol(X,Y)$. Soient $B_i$ un recouvrement (fini) de $Im(X_0)$ et $U_i:= X_0^{-1}(B_i)$ un recouvrement de $X$. Ainsi, $X_0 \cap (U_i \times Y) \subset U_i \times B_i$. \\
+  Soit $X_0\in Hol(X,Y)$. Soient $B_i$ un recouvrement (fini) de l'image de $X_0$ et $U_i:= X_0^{-1}(B_i)$ un recouvrement de $X$. Ainsi, $X_0 \cap (U_i \times Y) \subset U_i \times B_i$. \\
   Soit $L:= \bigcup U_i \times (N \setminus B_i)$ un fermé de $X \times Y$ tel que : $L \cap X_0=\emptyset$. Par \ref{prop_topolog_cycle_cpt}, $\Cscr(X\times Y \setminus L)$ est un ouvert de $\Cscr(X \times Y)$. Ainsi, $U:=p_*^{-1}(1[X]) \cap \Cscr_m(X \times Y \setminus L)$ est un voisinage ouvert de $X_0$ dans $\Cscr_m(X \times Y)$. \\
   Montrons que $U \subset Hol(X \times Y)$ : \\
   Soient $Z \in U$, $p_Z : |Z| \to X$ la projection canonique. Cette application est propre car $|Z|$ est compact. De plus, comme $\dim(|Z|)=\dim(X)$, alors il existe un ouvert de Zariski $V$ tel que la fibre $p^{-1}(x)$ soit finie. Comme $Z=|Z| \in p_*^{-1}(1[X])$ alors le degré de $p_Z$ est de degré 1. \\
@@ -316,12 +376,12 @@ On va commencer par considérer le cas où $X$ est un sous-espace analytique de di
 Soit $f \in Hol(X,Y)$. Son graphe $\Gamma$ est un espace analytique irréductible dans l'ouvert $V_1 \times V_2$ de $\C^{n+p}$. \\
 Par la proposition \ref{ecailleadaptee} et la remarque \ref{revetramif} pour $\Gamma\times\Delta^{n-m}  $, il existe deux polydisques $U$ et $B$ de, respectivement $\C^n$ et $\C^{n-m-p}$ et une application $g \in \Hcal(\overline{U},Sym^1(B))=\Hcal(\overline{U},B)$ tels que $\Gamma$ soit localement associée à $g$. En prenant, les $p$ premières composantes de $g$, on obtient une application $\widetilde{g} \in \Hcal(\overline{U},\Delta^p)$. Par construction,
 \begin{align} \label{rest_graphe}
-    f_{M \cap \overline{U}}=\widetilde{g}_M
+    f_{X \cap \overline{U}}=\widetilde{g}_X
 \end{align}
 Par la proposition \ref{localisation}, si une suite de cycles converge localement alors les restrictions se recollent. On peut donc travailler localement. \\ %Localisation
 Par les propositions \ref{cont_cycle_fct} et \ref{cont_fct_cycle}, une suite de fonctions holomorphe $f_n$ (et donc leur graphe) convergent si, et seulement si, les applications $\widetilde{g_n} \in \Hcal(\overline{U},\Delta^p)$ convergent. Comme la topologie sur $\Hcal(\overline{U},\Delta^p)$ est celle de la convergence uniforme alors grâce à \eqref{rest_graphe}, la suite $f_n$ converge dans $Hol(X,Y)$ si, et seulement si, elle converge uniformément. \\
 Le cas général se déduit de celui-ci en utilisant la localisation de la convergence \ref{localisation} et en remarquant que le fait suivant : \\
-Soit $\{U_i\}_{i=1..n}$ un recouvrement (fini) d'espaces analytiques modèles de $M$. Alors, en notant par $f_n$ une suite de fonctions holomorphes, $f$ une fonction holomorphe et  $d$ la distance sur $N$, \\
+Soit $\{U_i\}_{i=1..n}$ un recouvrement (fini) d'espaces analytiques modèles de $X$. Alors, en notant par $f_n$ une suite de fonctions holomorphes, $f$ une fonction holomorphe et  $d$ la distance sur $Y$, \\
     \[ \|f-f_n\|_\infty:=\max\limits_{x \in X} d(f(x),f_n(x))=\max\limits_{1 \leq i \leq n}\max\limits_{x \in \overline{U_i}} d(f(x),f_n(x))
 \]
 Et donc, si pour un $\varepsilon>0$, on a une borne $N_i$ pour que, pour tout $n \geq N_i$,
@@ -333,4 +393,7 @@ Et donc, si pour un $\varepsilon>0$, on a une borne $N_i$ pour que, pour tout $n
 
 \end{proof}
 
-\end{proof}
+\begin{Def}
+Soit $X$ un espace analytique. On munit $Aut(X)$ de la topologie induite par $Hol(X,X)$ 
+
+\end{Def}

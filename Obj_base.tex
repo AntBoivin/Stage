@@ -21,8 +21,12 @@
 
 
 %Dans cette partie, nous allons donner les définitions des objets qui vont nous intéresser dans ce mémoire : les espaces analytiques complexes et les cycles (compacts). Les premiers sont, localement, les zéros de fonctions holomorphes dans $\C^n$ et les seconds, pour un espace analytique $X$ donné, sont des sommes formelles d'espaces analytiques complexes irréductibles compacts disjoints.
+\label{Chap_0}
 \section{Espaces analytiques complexes}
+\label{esp_analyt}
+Cette section a pour but de définir la notion d'espace analytique complexe, qui étend celle de variété complexe en autorisant des singularités, et qui permettra de définir les cycles et est la structure adéquate à mettre sur l'ensemble des cycles.
 \subsection{Premières définitions et résultats}
+Comme dans le cas des schémas, on commence par donner des modèles locaux d'espaces analytiques et un faisceau associé puis on définit les espaces analytiques comme un espace annelé localement isomorphe aux modèles. 
 \begin{Def}
 Un sous-ensemble $X$ de $\C^n$ est appelé ensemble analytique complexe modèle\index{espace analytique complexe!modele@modèle} défini par les fonctions holomorphes $f_1,\ldots,f_n$ sur $U$ si 
 	\[ X=\{ x \in U \mid f_1(x)=\ldots=f_n(x)=0 \}
@@ -32,7 +36,8 @@ On munit $X$ de la topologie induite. \\
 
 On peut associer à un tel ensemble modèle un faisceau $\Ocal_X$ de $\C$-algèbres, de la façon suivante : \\
 Soit $\Ocal_{U}$ le faisceau des fonctions holomorphes sur $U$ et $\Iscr$ le $\Ocal_U$-module engendré par $f_1,\ldots,f_n$.
-On définit $\Ocal_X:=i^{-1} \Ocal_U/\Iscr$ où $i$ est l'inclusion $X \hookrightarrow U$.
+On définit $\Ocal_X:=i^{-1} \Ocal_U/\Iscr$ où $i$ est l'inclusion $X \hookrightarrow U$. \\
+
 
 \begin{Def}
 On appelle espace analytique complexe\index{espace analytique complexe} un espace localement annelé en $\C$-algèbres $(X,\Ocal_X)$, où $X$ est un espace topologique séparé et dénombrable à l'infini, tel qu'il existe un recouvrement ouvert $\{U_i\}$ de $X$ et des espaces modèles $(Y_i,\Ocal_{Y_i})$ tels que 
@@ -60,7 +65,7 @@ En particulier, les produits finis et les noyaux existent dans cette catégorie (
 
 
 \begin{Def}
-Un espace analytique complexe $(X,\Ocal_X)$ est dit réduit\index{espace analytique complexe!reduit@réduits} si pour tout $x \in X$, $\Ocal_{X,x}$ est réduit (i.e. son nilradical est 0)
+Un espace analytique complexe $(X,\Ocal_X)$ est dit réduit\index{espace analytique complexe!reduit@réduit} si, pour tout $x \in X$, $\Ocal_{X,x}$ est réduit (i.e. son nilradical est 0)
 
 \end{Def}
 Cela sera le cadre de ce mémoire : on ne considérera uniquement des espaces analytiques réduits. Pour la raison suivante :
@@ -75,7 +80,7 @@ Soit $x \in U$, on peut décomposer la $\C$-algèbre $\Ocal_{X,x}$ en une somme di
 On définit ainsi un morphisme $\Ocal_X \to \Ccal_X$. Pour montrer que c'est un monomorphisme, il suffit de montrer qu'aux fibres, on a un morphisme injectif. Par le Nullstellensatz de Rückert (cf \cite{\scv} 8.3 p 52), en tout point $x \in X$, le noyau de $\Ocal_{X,x} \to \Ccal_{X,x}$ est le nilradical de $\Ocal_{X,x}$ qui est nul par hypothèse.
 
 \end{proof}
-
+Ainsi, une fonction holomorphe est entièrement déterminé par sa fonction continue.
 
 On va maintenant donner quelques résultats importants sur les espaces analytiques : 
 \begin{Thm}[Remmert]
@@ -103,7 +108,79 @@ Soit $X$ un espace analytique complexe réduit. On appelle dimension de $X$ la di
 
 \end{Def}
 
-\subsection{ Espace normal et faiblement normal}
+\subsection{Submersion}
+\label{para_submersion}
+Dans ce paragraphe, on va montrer qu'on peut restreindre une application holomorphe surjective sur un ouvert de Zariski de telle sorte que celle-ci soit submersive (au sens usuel des variétés).
+
+\begin{Thm}[du rang constant]
+Soient $M \subset \C^n$ et $N \subset \C^p$ deux ouverts et $f : M \to N$ une application holomorphe de rang constant égal à $r$ (i.e pour tout $x \in M,rk(d_x f)=r$ ). Alors, pour tout $x \in M$, il existe des voisinages ouverts de $x$ dans $M$ et $W$ de $f(x)$ dans $N$ et des applications biholomorphes $\varphi : V \to V_1$ et $\psi : W \to W_1$ sur des voisinages ouverts $V_1$ et $W_1$ de l'origine respectivement dans $\C^n$ et $\C^p$ qui vérifient les conditions :
+\begin{enumerate}
+	\item $\varphi(V)=V_1=U \times U_1$ et $\psi(W)=W_1=U \times U_2$, $U \in\C^r$, $U_1 \subset \C^{n-r}$, $U_2 \subset \C^{p-r}$
+	\item $\forall (z_1,z_2) \in U \times U_1,\psi \circ f \circ \varphi^{-1}(z_1,z_2)=(z_1,0)$
+\end{enumerate}
+
+\end{Thm}
+\begin{proof}
+\cite{\Dieu}
+\end{proof}
+Une autre façon de voir ce théorème est qu'en tout point de $M$, il existe un voisinage $V$ de $x$ tel que $f(V)$ soit une variété de dimension $r$ (qui est égal à $\varphi^{-1}(U \times \{0\})$).
+\begin{Cor}
+Soit $f : M\to N$ une application holomorphe entre deux variétés complexes de rang constant. Alors, toute fibre de $f$ est une sous-variété complexe de $M$ de dimension égale à $dim(M)-rk(df)$.
+
+\end{Cor}
+\begin{proof}
+Notons $r:=rk(d_xf)$. \\
+Soit $y=f(x) \in N$. Comme $N$ est une variété alors il existe une carte de $N$, $(V,\varphi : V \to \C^{\dim(N)})$, autour de $y$. De la même façon, on a une carte $(U,\psi :U \to \C^{\dim(M)})$ autour de $x$ tel que $f(U) \subset V$. On applique le théorème du rang constant à $f_1=\psi \circ f \circ \varphi^{-1}:\varphi(U)\to \psi(V)$. Il existe donc un ouvert $U' \subset \psi(U)$ et $V' \subset \psi(V)$ et des isomorphismes $\lambda : U' \simeq U'' \times U_1$ et $\mu : V' \simeq U'' \times U_2$ tels que :
+	\[\forall (z_1,z_2) \in U'' \times U_1, f_2(z_1,z_2):=\mu \circ f \circ \lambda^{-1}(z_1,z_2)=(z_1,0).
+	\]
+	\\
+Ainsi, $f_2^{-1}(0)$ et $\lambda\circ \varphi$ nous donne une carte de $f^{-1}(y)$ autour de $x$, ce qui montre que $f^{-1}(y)$ est une variété.
+\end{proof}
+\begin{Cor}
+Soit $f : M \to N$ une application holomorphe de rang constant $q<\dim(N)$. Alors $f(M)$ est d'intérieur vide dans $N$. 
+
+\end{Cor}
+
+\begin{proof}
+Soit $x \in X$. Par le théorème du rang constant, il existe un voisinage $V$ de $x$ tel que $f(V)$ est une variété de dimension $q$. Par un argument de dimension, on déduit que $f(V)$ est d'intérieur vide. Ainsi, l'image de tout voisinage compact de $x$ dans $V$ est d'intérieur vide dans $N$. Comme $M$ peut être recouvert par de tels voisinages compacts alors $f(M)$ est aussi d'intérieur vide car $M$ est localement compact (propriété de Baire).
+
+\end{proof}
+Supposons $M$ et $N$ connexes (et donc irréductible) pour simplifier les explications : \\
+Si $k$ est le rang maximal d'une application $f$ alors les points où $f$ sont de rang strictement inférieur sont des espaces analytiques d'intérieur vide (comme zéros des mineurs qui sont des fonctions holomorphes). Ainsi, le complémentaire de l'union (finie !) de ces espaces analytiques est un ouvert de Zariski et quitte à l'intersecter avec son lieu régulier, on peut supposer que c'est une variété. \\
+Ainsi, si on suppose $f$ surjective alors $k=\dim(N)$. Sur notre ouvert, les fibres sont des variétés complexes de dimension $\dim(M)-\dim(N)$ ou autrement dit, $f$ est une submersion. Cela nous permet de montrer le résultat suivant : 
+
+\begin{Thm} \label{submersion}
+Soit $f :X \to Y$ une application surjective holomorphe entre un espace analytique réduit irréductible et une variété connexe. Alors, il existe un ouvert de Zariski $U$ de $X$ (qui est lisse) telle que $f_{|U}$ est une submersion.
+
+\end{Thm}
+\subsection{Morphismes lisses}
+
+Dans ce paragraphe, on va étendre la définition de submersion au cas général des espaces analytiques afin de pouvoir définir une bonne notion de ``familles de variétés"  :  
+
+\begin{Def}
+Soit $A$ un anneau commutatif. Un $A$-module $M$ est dit $A$-plat si pour toute morphisme injectif $N_1 \to N_2$ de $A$-modules, le morphisme induit $N_1 \otimes_A M \to N_2 \otimes_A M$ est injectif. \\
+Autrement dit, $M$ est $A$-plat si le foncteur $\-- \otimes M$ est exact.
+\end{Def}
+
+\begin{Def}
+Une application holomorphe $f : X \to Y$ entre deux espaces analytiques réduits est dite plate si, pour tout $x \in X$, $\Ocal_{X,x}$ est un $\Ocal_{Y,f(x)}$-module plat (où l'action de $\Ocal_{Y,f(x)}$ sur $\Ocal_{X,x}$ est donnée par le morphisme induit dans les fibres $f_x^\sharp : \Ocal_{Y,f(x)} \to \Ocal_{X,x}$).
+
+\end{Def}
+
+\begin{Def}
+Un application holomorphe $f :X \to Y$ est appelée morphisme lisse si $f$ est plate et si le faisceau $coker(df : f^* \Omega^1_Y \to \Omega^1_X)$ est localement libre de dimension $\dim(X)-\dim(Y)$ (où on définit localement $df$ sur les espaces modèles comme la différentielle usuelle)
+\end{Def}
+
+Pour mieux comprendre cette définition, regardons le cas où $X$ et $Y$ sont des variétés : \\
+La deuxième condition nous dit que $f$ est une submersion. Mais, de plus, on peut montrer que si $f$ est une submersion alors elle est plate. La notion de morphisme lisse étend donc celle de submersion du cas lisse. De plus, on a le résultat, classique pour le cas lisse, suivant :
+
+\begin{Prop} \label{famille_lisse}
+Soit $f : X \to Y$ un morphisme surjectif lisse. Alors les fibres de $f$ sont lisses et de dimension $\dim(Y)-\dim(X)$.
+
+\end{Prop}
+ Un morphisme lisse définit ainsi une famille $(f^{-1}(y))_{y \in Y}$ de variétés lisses.
+\subsection{ Espaces normaux et faiblement normaux}
+On va maintenant regarder les espaces analytiques normaux. L'intérêt de ceux-ci est, notamment, de permettre de prolonger une fonction holomorphe définie en dehors d'une hypersurface sur l'espace tout entier.
 \begin{Def}
 Soient $B$ un anneau commutatif et $A$ est un sous-anneau de $B$. On dira que $b \in B$ est entier sur $A$ s'il existe un polynôme unitaire $P \in A[X]$ tel que $P(b)=0$
 \end{Def}
@@ -117,6 +194,15 @@ Un espace analytique complexe réduit $X$ sera dit normal\index{espace analytique
 
 \end{Def}
 %En particulier, un espace normal en $a$ est irréductible en $a$.
+
+A défaut d'être tous normaux, les points normaux est un ouvert de Zariski : 
+\begin{Thm}[Oka] \label{non_normal}
+L'ensemble $N(X)$ des points non-normaux d'un espace analytique réduit est un sous-espace analytique de $X$ qui est contenu dans le lieu singulier $S(X)$.
+\end{Thm}
+
+\begin{proof}
+Voir \cite{\scv} section 6 paragraphe 5
+\end{proof}
 
 \subsubsection{ Fonctions méromorphes}
 
@@ -132,24 +218,25 @@ Un espace analytique complexe réduit $X$ est normal si, et seulement si, pour to
 \end{Thm}
 
 \begin{Prop}\label{merom_local}
-Soient $X$ un espace analytique complexe réduit de dimension pure, $H$ un sous-ensemble analytique d'intérieur vide de $M$ et $f : M \setminus H \to \C$ une fonction localement bornée le long de $H$. Alors $f$ est méromorphe sur $X$.
+Soient $X$ un espace analytique complexe réduit de dimension pure, $H$ un sous-ensemble analytique d'intérieur vide de $X$ et $f : X\setminus H \to \C$ une fonction localement bornée le long de $H$. Alors $f$ est méromorphe sur $X$.
 \end{Prop}
+La notion d'espace normal est parfois trop forte. On peut parfois juste supposer l'espace faiblement normal : 
 \begin{Def}
-Un espace complexe réduit $M$ est dit faiblement normal si, pour tout ouvert $U$ de $M$, toute fonction continue sur $U$ et holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
+Un espace complexe réduit $X$ est dit faiblement normal si, pour tout ouvert $U$ de $X$, toute fonction continue sur $U$ et holomorphe sur un ouvert de Zariski dense de $U$ est holomorphe sur $U$.
 \end{Def}
 
 Cette propriété est plus faible que celle de normalité en vertu de la caractérisation \ref{caracnormal} et de la proposition \ref{merom_local}
 
 \begin{Thm}\label{norm_holom}
-Soit $f : M \to N$ une application continue entre espaces analytiques complexes avec $M$ faiblement normal. Alors, les condition suivantes sont équivalentes :
+Soit $f : X \to Y$ une application continue entre espaces analytiques complexes avec $M$ faiblement normal. Alors, les condition suivantes sont équivalentes :
 \begin{itemize}
 	\item L'application $f$ est holomorphe.
-	\item Le graphe de $f$ est un sous-ensemble analytique (fermé) de $M \times N$
+	\item Le graphe de $f$ est un sous-ensemble analytique (fermé) de $X \times Y$
 \end{itemize}
 \end{Thm}
 \begin{proof}
-$ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc un sous-ensemble analytique de $M \times N$. \\
-$ \Leftarrow $ : Soit $\pi : \Gamma_f \to M$ la projection du graphe de $f$ sur $M$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $M$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $M$ est faiblement normal alors $\pi$ est holomorphe sur $M$ et donc $f$ aussi. 
+$ \Rightarrow $ : Le graphe de $f$ est le lieu des zéros de $y-f(x)$ et est donc un sous-ensemble analytique de $X \times Y$. \\
+$ \Leftarrow $ : Soit $\pi : \Gamma_f \to X$ la projection du graphe de $f$ sur $X$. C'est un homéomorphisme holomorphe ($\pi$ est donc propre). Il existe donc un ouvert de Zariski $U$ de $X$ tel que $\pi : \pi^{-1}(U) \to U$ soit une submersion et est donc un biholomorphisme ( par le théorème d'inversion locale). Ainsi, $\pi^{-1}$ est continue, et holomorphe sur $U$. Comme $X$ est faiblement normal alors $\pi$ est holomorphe sur $X$ et donc $f$ aussi. 
 \end{proof}
 
 \subsection{Espaces irréductibles}

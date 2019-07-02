@@ -12,6 +12,7 @@
 \input{enonce}
 \fi
 \section{Modifications}
+\label{Modif}
 Dans cette section, nous allons \'etendre la d\'efinition de fonctions m\'eromorphes dans le cas o\`u le domaine d'arriv\'e est un espace analytique r\'eduit quelconque. Pour cela, on est amen\'e \`a d\'efinir la notion de modification dont un exemple simple est l'\'eclatement de l'origine dans $\C^{n+1}$.
 %\subsection{Premier exemple : \'eclatement de l'origine dans $\C^{n+1}$}
 \begin{Ex}
@@ -48,7 +49,7 @@ Son jacobien est donn\'e par :
   \item $\tau$ est propre
     \item Il existe un sous-ensemble analytique $T$ d'int\'erieur vide dans $X$ tel que l'image r\'eciproque $\tau^{-1}(T)$ soit d'int\'erieur vide dans $\widetilde{X}$ et tel que $\tau$ induise un isomorphisme de $\widetilde{X}\setminus \tau^{-1}(T)$ sur $X \setminus T$.
     \end{itemize}
-On appelera centre de la modification $\tau$ l'intersection des sous-ensembles analytiques $T$ de $X$ qui v\'erifient la condition ci-dessus (i.e. le plus petit d'entre eux) et le lieu exceptionnel l'image r\'eciproque de $\tau$
+On appelera centre de la modification $\tau$ l'intersection des sous-ensembles analytiques $T$ de $X$ qui v\'erifient la condition ci-dessus (i.e. le plus petit d'entre eux).
 \end{Def}
 
 On peut remarquer qu'une modification est n\'ecessairement surjective car son image est un espace analytique ferm\'e (car $\tau$ est propre) qui contient un ouvert dense, celle-ci est donc $X$ tout entier.
@@ -60,7 +61,7 @@ Par d\'efinition de modification, une application m\'eromorphe $ X \dashrightarr
 Cette d\'efinition co\"incide avec la d\'efinition donn\'ee dans \ref{def_fct_merom} : 
 \begin{Lemme}
 Soit $\widetilde{f}$ une fonction m\'eromorphe (comme d\'efini dans \ref{def_fct_merom}) sur un espace analytique irr\'eductible $X$. Pour chaque $(H,f) \in \widetilde{f}$, l'adh\'erence dans $X \times \P^1$ du graphe :
-	\[\Gamma_{(H,f)}=\{(x,[z_0 : z_1]) \in (X \setminus H) \times P^1 \mid z_0f(x)=z_1\}
+	\[\Gamma_{(H,f)}=\{(x,[z_0 : z_1]) \in (X \setminus H) \times \P^1 \mid z_0f(x)=z_1\}
 	\]
 	est un sous-espace analytique irr\'eductible dans $M \times \P^1$, ind\'ependant du choix du repr\'esentant de $\widetilde{f}$. La projection $\overline{\Gamma_{(H,f)}} \to M$ est une modification propre. Ainsi, $\widetilde{f}$ est une application m\'eromorphe $M \dashrightarrow \C$
 
@@ -106,6 +107,8 @@ Et donc l'adh\'erence $\overline{\Gamma_{(H,f)}}\cap (U \times \P^1)$ est aussi 
   %Soit $W$ un voisinage ouvert de $x$ dans $M$ tel que $\tau^{-1}(W) \subset V$. Alors chacun des composantes de l'application holomorphe $j \circ \tau^{-1}: W \setminus S \to B$ est born\'ee et donc cette application se prolonge sur tout $W$ puisque $X$ est normal. Comme $j$ est un prolongement ferm\'e, $\tau^{-1}$ se prolonge holomorphiquement sur tout $M$.
   %\end{proof}
 
+Au vu des propri\'et\'es des espaces normaux, lorsqu'on a une espace $X$ qui ne l'est pas, on voudrait trouver un espace normal $\widetilde{X}$ sans perdre trop d'informations sur $X$ :  
+
 \begin{Def}
   Soit $X$ un espace analytique complexe r\'eduit. Une application holomorphe $\nu:Y \to X$ est appel\'e normalisation de $M$ si :
   \begin{itemize}
@@ -120,7 +123,7 @@ Et donc l'adh\'erence $\overline{\Gamma_{(H,f)}}\cap (U \times \P^1)$ est aussi 
 Tout espace complexe r\'eduit admet une normalisation.
 \end{Thm}
 \begin{proof}
-Voir \cite{\cac}
+Voir \cite{\scv}
 
 
 

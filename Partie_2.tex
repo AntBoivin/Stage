@@ -14,16 +14,16 @@
 
 \section{ Applications aux automorphismes et la théorie de la déformation}
 \label{partie_autom}
+
+Comme vu dans \ref{Top_Aut}, on peut voir $Aut(X)$ comme un sous-ensemble de $\Cscr_{\dim(X)}(X \times X)$ grâce au graphe. Mais, on peut dire beaucoup plus : dans les composantes irréductibles où il y a un automorphisme, $Aut(X)$ est un ouvert de Zariski de cette composante : 
 \begin{Thm}\label{biholo}
 Soit $X$ un espace analytique complexe compact et $f$ un automorphisme de $X$. Soit $\Cscr_\Gamma$ la composante irréductible de l'espace des cycles contenant le graphe de $f$. Alors, l'ensemble des points de $\Cscr_\Gamma$ correspondant aux automorphismes de $X$ est un ouvert de Zariski.
 \end{Thm}
 \begin{proof}
  On supposera $X$ lisse et irréductible. \\
-Soit $Z \subset X \times X \times \Cscr_\Gamma$ le cycle universel.  La
-projection naturelle $\pi_3 : Z \to \Cscr_\Gamma$ est propre (cf
-\cite{\barlet} théorème 1).\\
-Quitte à remplacer $\Cscr_\Gamma$ par un ouvert de Zariski, on peut
-supposer $\Cscr_\Gamma$. \\
+Soit $Z =\{(x,y,c)\in X \times X \times \Cscr_\Gamma \mid (x,y) \in Z_c \}$ le cycle universel (où $Z_c$ est le support de c \footnote{On utilise cette notation pour insister sur le fait que ce sont des fibres (de $\pi_3$)}).  La
+projection naturelle $\pi_3 : Z \to \Cscr_\Gamma$ est propre (cf. \ref{famille_parametre}).\\
+Quitte à remplacer $\Cscr_\Gamma$ par un ouvert de Zariski, on peut supposer $\Cscr_\Gamma$ lisse. \\
 Par le théorème \ref{submersion}, il existe un ouvert de
 Zariski $U$ tel que $\pi_{3\mid U}$ soit une submersion. Quitte à restreindre $\Cscr_\Gamma$, on peut supposer que toutes les fibres de $\pi$ sont lisses et de même dimension $\dim(Z)-\dim(\Cscr_\Gamma)$ (on redéfinit $\Cscr_\Gamma$ par $\pi_3(U)^c$ qui est un ouvert de Zariski car $\pi$ est propre) et donc $Z$ par $Z \cap X\times X \times \pi_3(U)^c$) . \\
 De la même façon, pour les projections $\pi_i : Z \to X$, on obtient
@@ -51,9 +51,9 @@ $\pi_i$ est donc un homéomorphisme et donc par l'isomorphisme précédent et le th
 On peut remarquer que l'on peut remplacer l'automorphisme $f$ par un isomorphisme $f : X \to Y$. 
 \end{Rq}
 
-Le théorème suivant est la version relative du théorème précédent (mais n'est pas dans l'article de Liebermann).
+Le théorème suivant est la version relative du théorème \ref{compact} et du théorème précédent (mais n'est pas dans l'article de Liebermann).
 \begin{Thm}
-Soit $\Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiques complexes dont toutes les fibres sont des variétés de Kähler. Soit $E$ un sous-ensemble de $B_0 \times B_1$ inclus dans un compact $K$. Soit $Z=(Z_T)_{T \in E}$ une famille analytique de cycles de $\Xscr_0 \times \Xscr_1$ tel que, pour tout $(t,t') \in E$, $Z_{t,t'}$ soit le graphe d'un biholomorphisme de $(\Xscr_0)_t$ dans $(\Xscr_1)_{t'}$. Alors, 
+Soit $\pi_i : \Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiques complexes dont toutes les fibres sont des variétés de Kähler. Soit $E$ un sous-ensemble de $B_0 \times B_1$ inclus dans un compact $K$. Soit $Z=(Z_T)_{T \in E}$ une famille analytique de cycles de $\Xscr_0 \times \Xscr_1$ tel que, pour tout $(t,t') \in E$, $Z_{t,t'}$ soit le graphe d'un biholomorphisme de $(\Xscr_0)_t$ dans $(\Xscr_1)_{t'}$. Alors, 
 \begin{enumerate}
 	\item $Z$ rencontre un nombre fini de composante irréductible de $\Cscr_n(\Xscr_0 \times \Xscr_1)$. 
 \item Soit $\Cscr_0$ une composante irréductible des cycles $\pi_0 \times \pi_1$-relatifs rencontrant $Z$. Il existe un ouvert de Zariski de $\Cscr_0$ tel que tout cycle de cet ouvert est le graphe d'un biholomorphisme entre une fibre de $\Xscr_0$ et une fibre de $\Xscr_1$.
@@ -64,7 +64,7 @@ Soit $\Xscr_i \to B_i$, $i=0,1$ un morphisme lisse et propre d'espaces analytiqu
 \begin{proof}
 1) Soit $(t_0,t'_1) \in E$. Posons $M:= \pi_0^{-1}(t_0) \simeq \pi_1^{-1}(t'_1)$. \\
 Alors par le théorème 4.5 de \cite{\catan}, les fibres de $\pi_0$ ( et de $\pi_1$) sont toutes difféomorphes ( pas nécessairement biholomorphe) à $M$. On peut définir deux familles continues $(\omega_{0,t})$ et $(\omega_{1,t'})$ de formes de Kähler sur $M$ obtenue par pullback et une famille de difféomorphismes $f_t$ de $M$ obtenue à partir des biholomorphismes $(\Xscr_{0})_t \to (\Xscr_{1})_{t'}$. Ainsi,
-	\[ Vol(Z_{t,t'})=\frac{1}{ n !} \int_M \omega_{0t}+f_{t*}\omega_{1,t'}=\frac{1}{ n !} \int_M \omega_{0t}+\omega_{1,t'}
+	\[ Vol(Z_{t,t'})=\frac{1}{ n !} \int_M \omega_{0t}+f_{t}^*\omega_{1,t'}=\frac{1}{ n !} \int_M \omega_{0t}+\omega_{1,t'}
 	\]
 	 
 L'application $v : (t,t') \in E \mapsto Vol(Z_{t,t'})$ est donc continue. Comme $E$ est inclus dans un compact alors $v$ est bornée. \\
@@ -83,16 +83,16 @@ De même, comme tous les cycles de $\Cscr_0$ sont dans un $\Cscr_n((\Xscr_0)_t,(\
 
 \end{proof}
 
- Dans le cas où $X$ est une variété de Kähler, les composantes irréductibles de $Aut(X)$ admettent une compactification qui est la composante irréductible associé de $\Cscr_{\dim(X)}(X \times X)$ (qui est compact par \ref{Kah_compact}).
+ Dans le cas où $X$ est une variété de Kähler, les composantes irréductibles de $Aut(X)$ admettent une compactification qui est la composante irréductible associée de $\Cscr_{\dim(X)}(X \times X)$ (qui est compact par \ref{Kah_compact}).
 %Contre-exemple et cas relatifs
 
-Dans l'exemple qui suit, on montre que le fait que le théorème n'est pas vrai si $X$ n'est pas de Kähler. 
+Le contre-exemple qui suit nous montre le théorème n'est pas vrai si $X$ n'est pas de Kähler. 
 \begin{Ex}
 Soit $E$ un tore complexe. Soit $T : E \times E \to E \times E$ l'application donnée par $(x,y) \mapsto (x+y,x+2y)$. Soit $\tau \in \C$, $Im(\tau)>0$. \\
 On fait agir $\Z^2$ sur $E \times E \times \C$ par : $(n,m) \cdot (x,y, \lambda):=(T^m(x,y),\lambda+n+m\tau)$. \\
 Cette action est sans point fixe car si $\lambda=\lambda+n+m\tau$ alors, comme $Im(\tau)>0$, $m=0$ et donc $n=0$. Elle est aussi propre car un compact de $E \times E \times \C$ est inclus dans un $E \times E \times B(0,a)$
 Soit $X$ la variété quotient de $E \times E \times \C$ par l'action. \\
-La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'application $p : [(x,y,\lambda)] \in X \mapsto [\lambda] \in \C/\Z \oplus \tau \Z$. \\
+La variété $X$ est un fibré au dessus de $\C/\Z \oplus \tau \Z$ par l'application $p : [(x,y,\lambda)] \in X \mapsto [\lambda] \in \C/(\Z \oplus \tau \Z)$. \\
 Cette application est bien définie car pour tout $(n,m) \in \Z^2$, 
 	\[ p((n,m)\cdot (x,y,\lambda))=p(T^m(x,y),\lambda+n+\tau m)=[\lambda+n+\tau m]=[\lambda]=p(x,y,\lambda)
 \]
@@ -111,7 +111,7 @@ où $f_1,f_2$ et $g$ sont des fonctions $\C \to \C$ vérifiant les égalités, pour 
 		\item $f_1(\lambda+1)=2f_1(\lambda)-f_2(\lambda)$
 		\item $f_2(\lambda+\tau)=-f_1(\lambda)+f_2(\lambda)$
 	\end{itemize}
-Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la mêm façon). Alors, on obtient, pour tout $Z=(x,y,\lambda) \in E \times E \times \C$ et pour tout $(m,n) \in \Z^2$, \\
+Pour montrer cela, on va commencer par considérer un champ de vecteurs holomorphe $\psi$ sur $X$ et une fonction holomorphe $f : X \to \C$ et leur relèvement sur $E \times E \times \C$ (que l'on notera de la même façon). Alors, on obtient, pour tout $Z=(x,y,\lambda) \in E \times E \times \C$ et pour tout $(m,n) \in \Z^2$, \\
 	\[\psi(f)(Z)=\psi(f)((n,m)\cdot Z)=\psi(f)((n,m)\cdot Z)=\psi(f)(T^m(x,y),\lambda+\tau m +n)
 \]
 En écrivant $\psi$ sous la forme $f_1 \frac{\partial}{\partial x_1}+f_2\frac{\partial}{\partial x_2}+g\frac{\partial}{\partial \lambda}$ et $T^p=(T_1^p,T_2^p)$ pour $p \in \N$, on obtient : \\
@@ -135,21 +135,20 @@ On écrit les $f_j$ en une série de Fourier :
 	\[f_j(\lambda)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha \lambda}
 \]
 On a donc $f_j(\lambda+\tau)=\sum_\alpha c_{j \alpha} e^{2i\pi\alpha (\lambda+\tau)}$. \\
-Par l'équation \eqref{translation}, $f=0$ sauf $e^{-2i\pi \alpha \tau}$ est une valeur propre de $T$. \\
+Par l'équation \eqref{translation}, $f=0$ sauf si $e^{-2i\pi \alpha \tau}$ est une valeur propre de $T$. \\
 Pour des valeurs génériques de $\tau$, les champs de vecteurs sur $X$ sont des multiples de $\frac{\partial}{\partial \lambda}$. \\
 Ainsi, $Aut_0(X)$ est composé des applications $\varphi_a : [x,y,\lambda] \in X  \mapsto [x,y,\lambda+a] \in X$ pour $a \in \C$. \\
 \'Etudions maintenant l'action de $Aut_0(X)$ sur $X$ : \\
 Soit $p=[x,y,\lambda] \in X$. Quitte à translater, on peut supposer que $\lambda=0$\\% et considérons la courbe $a \in \C \mapsto \varphi_a(x)$. \\
 Si $a\in [m,m+1[ \oplus \R i$ alors $\varphi_a(p)=[T^{-m}(x,y),a-m]$. Pour des valeurs génériques de $(x,y) \in E \times E$, $(x,y)$ n'est pas une valeur propre de $T$ et par conséquence, l'orbite de $p$ est Zariski-dense dans $X$. \\
-Si $\Cscr_\Delta(X \times X)$ est une compactification de $Aut_0(X)\simeq \C$ alors $\Cscr_\Delta(X \times X) \simeq \P^1$ et l'action de $Aut_0(X)$ s'étend en une action méromorphe de $\P^1$ sur $X$ et en projetant le graphe $\Gamma$ (qui est compact car $\P^1$ l'est), on obtient un espace analytique fermé de $X$ qui contient l'orbite (dense) de $Aut_0(X)$, ce qui aboutit à une contradiction dû au fait qur $\P^1$ est de dimension 1 et $X$ 3.
+Si $\Cscr_\Delta(X \times X)$ est une compactification de $Aut_0(X)\simeq \C$ alors $\Cscr_\Delta(X \times X) \simeq \P^1$ et l'action de $Aut_0(X)$ s'étend en une action méromorphe de $\P^1$ sur $X$ et en projetant le graphe $\Gamma$ (qui est compact car $\P^1$ l'est), on obtient un espace analytique fermé de $X$ qui contient l'orbite (dense) de $Aut_0(X)$, ce qui aboutit à une contradiction dû au fait que $\P^1$ est de dimension 1 et $X$ 3. \qed
 
 
 
 \end{Ex}
 
 
-\subsection{Applications}
-
+On va maintenant donner des applications du théorème \ref{biholo} : \\
 Soit $(X,\omega)$ une variété compacte de Kähler de dimension $n$. On rappelle que $Aut_\omega(X)$ est le groupe des automorphismes de $X$ préservant la classe de $\omega$. On veut étudier le groupe quotient $Aut_\omega(X)/Aut_0(X)$ (où $Aut_0(X)$ est la composante de l'identité) . Pour cela, on va commencer par montrer qu'il est bien défini : 
 
 \begin{Lemme} 
@@ -172,14 +171,14 @@ Le quotient $Aut_\omega(X)/Aut_0(X)$ est un sous-groupe fini.
 \end{Prop}
 
 \begin{proof}
-Soit $f \in Aut_\omega(X)$ i.e.  $[f_\omega]=[\omega]$. Le volume de son graphe est donné, en utilisant \ref{Vol_graphe},
-	\[ Vol(\Gamma_f)=\frac{1}{n!}\int_X (\omega+f_* \omega)^n=\frac{2^n}{n!} \int_X \omega=\frac{2^n}{n!} Vol(X)
+Soit $f \in Aut_\omega(X)$ i.e.  $[f^*\omega]=[\omega]$. Le volume de son graphe est donné, en utilisant \ref{Vol_graphe},
+	\[ Vol(\Gamma_f)=\frac{1}{n!}\int_X (\omega+f^* \omega)^n=\frac{2^n}{n!} \int_X \omega=\frac{2^n}{n!} Vol(X)
 \]
 Le volume de $\Gamma_f$ est uniformément borné sur $Aut_\omega(X)$. Par conséquent, par \ref{compact} $Aut_\omega(X)$ rencontre un nombre fini de composantes irréductibles de $\Cscr(X)$. Par le théorème \ref{biholo}, les composantes irréductibles de $Aut_\omega(X)$ sont en bijection avec ces composantes alors que $Aut_0(X)$ correspondant à la composante de $\Cscr_\Delta(X)$, ce qui permet de conclure.
 
 \end{proof}
 
-
+Avant de donner une autre application du théorème \ref{biholo}, on va redonner (voir aussi \ref{constructible}) la définition d'espace constructible dans le cadre des espaces analytiques et montrer la stabilité par l'image par une application propre. 
 \begin{Def}
 Soit $X$ un espace analytique complexe. Un sous-espace $U$ est dit constructible si c'est l'union finie d'ensembles localement Zariski-fermés.
 
@@ -191,11 +190,11 @@ Soit $f : X \to Y$ une application holomorphe propre avec $X$ irréductible et ré
 
 \begin{proof}
 On va se contenter de l'image d'un ouvert de Zariski $U$. \\
-Par le théorème 1.19 p 107 de \cite{\scv}, l'ensemble 
+Comme vu dans le paragraphe \ref{para_submersion}, l'ensemble 
 	\[ V=\{ y \in Y \mid \dim(U \cap f^{-1}(y))=\dim(X)-\dim(Y)\}
 \]
 est un ouvert de Zariski de $Y$. $V$ est inclus dans $f(U)$ car si $x \in f^{-1}(y) \cap U$ alors $y=f(x)$ et $x \in U$ donc $y \in f(U)$.
-Maintenant que l'on a cela, montrons le théorème par récurrence sur la dimension de $Y$ : 
+Maintenant que l'on a cela, montrons le théorème par récurrence sur la dimension de $Y$ : \\
 Le cas de la dimension nulle est immédiat. \\
 Soit $d \in \N$ et supposons le théorème vrai pour $Y$ de dimension $<d$. \\
 Soit $W_1,\ldots,W_t$ les composantes irréductibles de $f(U) \setminus V$. Ce sont des fermés de $Z$ de dimension strictement inférieur à celle de $Y$. \\
@@ -214,7 +213,7 @@ est un isomorphisme de variétés de Kähler si $\varphi : X_0 \to X_t$ est un biho
 \end{Prop}
 
 \begin{proof}
-Soit $C$ l'union normalisée des composantes de l'espaces des cycles $\pi$-relatifs de $\Cscr(X \times X_0)$ qui contiennent les graphes d'un isomorphisme $\varphi : (X_0,\omega_0) \to (X_t,\omega_t)$\footnote{ Définir normalisation et cycles $f$-relatifs}.
+Soit $C$ l'union normalisée des composantes de l'espaces des cycles $\pi$-relatifs de $\Cscr(X \times X_0)$ qui contiennent les graphes d'un isomorphisme $\varphi : (X_0,\omega_0) \to (X_t,\omega_t)$.
 Soit $Z$ le cycle universel de $X \times X_0 \times C$.
 En utilisant le théorème \ref{biholo} avec la remarque \ref{isom_dens} associée, et le lemme \ref{inclusion}, on obtient que le sous-ensemble de $C$ corresponsant aux isomorphismes $(X_0,\omega) \simeq (X_t,\omega_t)$ est un ouvert de Zariski. \\
 On a une application naturel holomorphe $\lambda : C \to T$ donnée par $c \mapsto \pi(\pi_1(Z_c))$ : 
@@ -229,8 +228,9 @@ On en déduit que $T_0=\lambda(C_0)$ est constructible (car $C_0$ est un ouvert d
 
 \end{proof}
 
+On voit mieux ce que ce théorème dit avec son corollaire suivant : 
 \begin{Cor}
-Soit $(X_t)_{t \in T}$ une famille de variétés de Kähler tel que $(X_0,\omega_0) \simeq (X_t,\omega_t)$ sur un ensemble Zariski-dense de valeurs de $t$. Alors, cette famille est localement analytiquement trivial sur un ouvert de Zariski $U \subset T$
+Soit $(X_t)_{t \in T}$ une famille de variétés de Kähler tel que $(X_0,\omega_0) \simeq (X_t,\omega_t)$ sur un ensemble Zariski-dense de valeurs de $t$. Alors, cette famille est localement analytiquement triviale sur un ouvert de Zariski $U \subset T$
 
 \end{Cor}
 

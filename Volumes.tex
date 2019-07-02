@@ -1,3 +1,6 @@
+\label{Vol}
+Cette annexe a pour but de donner tous les résultats nécessaires sur les volumes et l'intégration de formes différentielles sur des espaces analytiques complexes.
+\section{formes volume}
 $M$ désignera une variété de classe $\Ccal^\infty$ de dimension (réelle) $n$.
 \begin{Def}
 Une forme volume sur $M$ est une section  de $\bigwedge^n T^*M$ qui ne s'annule jamais.
@@ -57,7 +60,7 @@ cf \cite{\pag} p31
 \end{proof}
 
 On peut étendre ce résultat aux sous-espaces analytiques en définissant l'intégrale sur un sous-espace analytique comme étant l'intégrale sur son ouvert lisse. 
-
+\newpage
 \section{Volume d'un graphe}
 Soient $(X,\omega_1)$ et $(Y,\omega_2)$ deux variétés de Kähler. Alors en posant pour tout $(x,y) \in X \times Y$, $\omega_{(x,y)}=\omega_{1,x}+\omega_{2,y}$, on obtient que $(X \times Y,\omega)$ est une variété de Kähler. 
 \begin{Lemme} \label{Vol_graphe}
@@ -78,6 +81,7 @@ Pour tout $x \in X$, $v,w \in  T_x X$,
 	\]
 	Ainsi, $\pi^*\omega=\omega_1+f^* \omega_2$. Ce qui permet de conclure.
 \end{proof}
+\newpage
 \section{ Intégrations et classes de cohomologie}
 \label{int_cohom}
 \begin{Thm}[Lemme de Poincaré] \label{lem_poinc}
@@ -113,18 +117,22 @@ Soit $\alpha \in H^{2k}_{dR}(M)$. On appelle volume de $\alpha$ le réel $Vol(\al
 Si $V$ est un sous-espace analytique de $M$ alors par définition de la classe de $V$, 
 	\[Vol([V])=\frac{1}{n !}\int_V \omega^{k}=Vol(V)
 \]
-De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, $Vol([Z])=\sum n_i Vol([Z_i])=\sum n_i Vol(Z_i)$ est appelé volume du cycle $Z$.
+De plus, si $Z=\sum_i n_i Z_i$ est un cycle  de $M$, 
+	\[Vol([Z])=\sum n_i Vol([Z_i])=\sum n_i Vol(Z_i)
+\]
+
+est appelé volume du cycle $Z$.
 
 On va donner deux résultats sur l'intégration sur les cycles que nous utilisons dans le corps du texte : 
 \begin{Prop}\label{int_cont}
-Soit $M$ une variété de Kähler. 
+Soit $(M,h)$ une variété hermitienne et $\omega=-Im(h)$ la (1,1)-forme associée. 
 Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est continue.
 
 \end{Prop}
 \begin{proof}
 cf \cite{\cac} p 389
 \end{proof}
-
+Dans le cas Kähler, on peut même être un peu plus précis : 
 \begin{Thm} \label{int_const}
 Soient $(M,\omega)$ une variété de Kähler. Alors, la fonction $X \in \Cscr_n(M) \mapsto \int_X \omega^n$ est localement constante.
 \end{Thm}

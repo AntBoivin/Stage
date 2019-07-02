@@ -11,7 +11,8 @@
 \input{enonce}
 
 \fi
-
+\label{var_cpx}
+Dans cette annexe, nous allons donner des résultats de géométrie différentielle complexe. Dans un premier temps, on redonnera les définitions des analogues complexes d'objets classiques en réelle. Puis on donnera la définition de variété de Kähler et un des résultats importants de la théorie des variétés de Kähler, la décomposition de Hodge. On continuera en parlant des classes de Chern, qui sont des invariants topologiques pour les fibrés. Et enfin, on finira cette annexe en donnant quelques résultats autour des groupes de Lie.
 \section{Premiers énoncés}
 \begin{Def}
 Soit $X$ une variété différentielle de dimension $2n$. Une structure complexe sur $X$ est la donnée d'un atlas $(U_i,\varphi_i: U_i \to \R^{2n} \simeq \C^n)_{i \in I}$ dont les changements de cartes dont holomorphes. Une variété différentielle munie d'une structure complexe est appelé variété complexe. Sa dimension complexe est $n$.
@@ -45,7 +46,7 @@ En composant par $\Hom(\--,\R)$ \footnote{$\Hom(T_\R X \otimes \C,\R)=\Hom(T_\R 
 \]
 où $\Omega^{1,0} X$ est l'ensemble des formes différentielles $\C$-linéaires et donc engendré par les $dz_i$ et $\Omega^{0,1} X$ est l'ensemble des formes différentielles $\C$-antilinéaires et donc engendré par les $d\overline{z_i}$. \\
 En prenant la puissance extérieure de cette décomposition, on obtient une décomposition\footnote{découle de l'isomorphisme naturel, pour $E$ et $F$ des faisceaux en $\C$-algèbres : 
-	\[ \bigwedge^n \Ecal \oplus \Fcal=\bigoplus_{p+q=n} \bigwedge^p \Ecal \otimes \bigwedge^q F
+	\[ \bigwedge^n \Ecal \oplus \Fcal\simeq\bigoplus_{p+q=n} \bigwedge^p \Ecal \otimes \bigwedge^q F
 \]
 } des $k$-formes complexes : 
 	
@@ -102,7 +103,7 @@ On a un énoncé similaire pour $\partial$.
 \section{Variétés de Kähler}
 
 \begin{Def}
-Soit $X$ une variété complexe. Une métrique hermitienne sur $X$ est une section $h$ de $T^*X \otimes T^*X$ telle que, pour tout $x \in X$, $h_x$ est un forme hermitienne sur le $\C$-espace vectoriel $T_xX$.
+Soit $X$ une variété complexe. Une métrique hermitienne sur $X$ est une section $h$ de $\Hom(T^{1,0} \otimes T^{0,1},\C)$ telle que, pour tout $x \in X$, $h_x$ est un forme hermitienne sur le $\C$-espace vectoriel $T_xX$.
 \end{Def}
 
 \begin{Def}
@@ -137,7 +138,7 @@ Les classes de Chern sont des invariants topologiques, calculables dans la prati
 Soit $X$ une variété topologique et $E \to X$ un fibré complexe de rang $r$ sur $X$. \\
 Si $r=1$, on définit la première classe de Chern de la façon suivante : \\
 La fonction exponentielle $\exp : \C \to \C$ induit une suite exacte courte de groupes :
-	\[\xymatrix{0 \ar[r] & \Z\ar[r]^{2i\pi} & \C \ar[r]^\exp  &\C \ar[r] & 0 }
+	\[\xymatrix{0 \ar[r] & \Z\ar[r]^{2i\pi} & \C \ar[r]^\exp  &\C^* \ar[r] & 0 }
 \]
 qui, elle-même, induit une suite exacte de faisceaux de groupes,
 	\[\xymatrix{0 \ar[r] &\underline{\Z}_X \ar[r]^{2i\pi} & \Ccal^0_X \ar[r]^\exp  &(\Ccal^0_X)^* \ar[r] & 0 }
@@ -190,8 +191,8 @@ De cette caractérisation, on obtient les résultats immédiats suivant :
 \end{Prop}
 
 \begin{proof}
-1) Soit $X \times \C^n \to X$ le fibré trivial de rang $n$. Si $n=1$, on sait que $c_1(X \times \C)=0$ car $X \times \C$ est le neutre pour le produit tensoriel dans $H^1(X,(\Ccal^0)*)$. Ainsi, par le point 1 et 3 de \ref{classe_Chern},
-	\[c(X \times \C^n)=c\left(\bigoplus_{i=1}^n X \times \C\right)=c(X \times \C)^n=(1+tc_1(E))^n=1
+1) Soit $X \times \C^n \to X$ le fibré trivial de rang $n$. Si $n=1$, on sait que $c_1(X \times \C)=0$ car $X \times \C$ est le neutre pour le produit tensoriel dans $H^1(X,(\Ccal^0)^*)$. Ainsi, par le point 1 et 3 de \ref{classe_Chern},
+	\[c(X \times \C^n)=c\left(\bigoplus_{i=1}^n X \times \C\right)=c(X \times \C)^n=(1+tc_1(X \times \C))^n=1
 \]
 2) Comme $c_1$ est un morphisme de groupes et que $E \times E' \to X \times \C$ est non-dégénérée (et donc, est un isomorphisme) alors
 	\[0=c_1(X \times \C)=c_1(E \times E^*)=c_1(E)+c_1(E')
